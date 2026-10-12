@@ -46,7 +46,8 @@ supported.
 - Body text: 15–16 px with approximately 1.6–1.7 line height.
 - Paper-card title: 17–19 px.
 - Paper-detail title: 28–34 px on desktop, responsively reduced.
-- Main content width: approximately 1160 px.
+- Adaptive page shell: approximately 1160 px on standard desktops, growing
+  continuously to approximately 2200 px on ultra-wide displays.
 - Long-form reading width: approximately 720–780 px.
 
 Avoid tiny metadata, excessively light weights, long all-caps labels, and clipped

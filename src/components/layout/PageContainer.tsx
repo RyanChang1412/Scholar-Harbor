@@ -19,8 +19,9 @@ export function PageContainer<T extends ElementType = 'div'>({
 
   return (
     <Component
+      data-page-container=""
       className={cn(
-        'mx-auto w-full max-w-[1160px] px-5 sm:px-7 lg:px-8',
+        'page-container mx-auto w-full max-w-[clamp(72.5rem,86vw,137.5rem)] px-5 sm:px-7 lg:px-8',
         className,
       )}
       {...props}

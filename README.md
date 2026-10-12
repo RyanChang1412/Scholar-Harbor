@@ -90,6 +90,7 @@ email-like personal identifiers in `dist`.
 
 - [375 px mobile development prototype](artifacts/phase-01/home-375.png)
 - [1440 px desktop development prototype](artifacts/phase-01/home-1440.png)
+- [2560 × 1440 wide-screen development prototype](artifacts/phase-01/home-2560x1440.png)
 - [1280 px production-safe empty state](artifacts/phase-01/production-safe-home.png)
 
 ## Documentation conventions

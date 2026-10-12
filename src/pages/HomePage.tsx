@@ -22,8 +22,8 @@ export function HomePage() {
   return (
     <>
       <PageContainer className="pb-12 pt-12 sm:pt-16 lg:pb-16 lg:pt-20">
-        <div className="grid gap-9 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
-          <div className="min-w-0 max-w-3xl">
+        <div className="home-hero-grid grid gap-9 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
+          <div className="home-hero-copy min-w-0 max-w-3xl">
             <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-action uppercase">
               Your academic observatory
             </p>
@@ -77,9 +77,12 @@ export function HomePage() {
             titleId="papers-for-you-title"
           />
 
-          <div className="mt-7 grid min-w-0 gap-5 lg:grid-cols-[minmax(0,1.65fr)_minmax(16rem,0.85fr)] lg:items-start">
+          <div className="home-paper-grid mt-7 grid min-w-0 gap-5 lg:grid-cols-[minmax(0,1.65fr)_minmax(16rem,0.85fr)] lg:items-start">
             <FeaturedPaperCard paper={featuredPaper} />
-            <div className="grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            <div
+              className="home-compact-grid grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-1"
+              data-home-compact-grid=""
+            >
               {compactPapers.map((paper) => (
                 <CompactPaperCard key={paper.id} paper={paper} />
               ))}
@@ -89,7 +92,7 @@ export function HomePage() {
 
         <section
           aria-label="Research context"
-          className="grid gap-8 lg:grid-cols-[20rem_minmax(0,1fr)]"
+          className="home-context-grid grid gap-8 lg:grid-cols-[20rem_minmax(0,1fr)]"
         >
           <ResearchPulsePanel items={fixturePulse} />
 

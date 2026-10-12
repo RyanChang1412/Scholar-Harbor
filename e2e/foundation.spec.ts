@@ -5,10 +5,14 @@ const viewports = [
   { name: 'tablet', width: 768, height: 1024 },
   { name: 'desktop', width: 1280, height: 900 },
   { name: 'wide', width: 1440, height: 1000 },
+  { name: 'qhd', width: 2560, height: 1440 },
+  { name: 'qhd-tall', width: 2560, height: 1600 },
 ] as const
 
 for (const viewport of viewports) {
-  test(`homepage is readable at ${viewport.width}px`, async ({ page }) => {
+  test(`homepage is readable at ${viewport.width}×${viewport.height}px`, async ({
+    page,
+  }) => {
     await page.setViewportSize(viewport)
     await page.goto('/')
 
@@ -39,10 +43,35 @@ for (const viewport of viewports) {
     expect(titleBox).not.toBeNull()
     expect(titleBox!.x + titleBox!.width).toBeLessThanOrEqual(viewport.width)
 
-    if (viewport.name === 'mobile' || viewport.name === 'wide') {
+    if (viewport.width >= 2560) {
+      const wideContainer = page.locator('[data-page-container]').nth(1)
+      const containerBox = await wideContainer.boundingBox()
+      expect(containerBox).not.toBeNull()
+      expect(containerBox!.width).toBeGreaterThanOrEqual(2150)
+
+      const compactGridColumns = await page
+        .locator('[data-home-compact-grid]')
+        .evaluate(
+          (element) =>
+            getComputedStyle(element).gridTemplateColumns.split(' ').length,
+        )
+      expect(compactGridColumns).toBe(2)
+    }
+
+    if (
+      viewport.name === 'mobile' ||
+      viewport.name === 'wide' ||
+      viewport.name === 'qhd'
+    ) {
+      const screenshotName =
+        viewport.name === 'mobile'
+          ? 'home-375.png'
+          : viewport.name === 'wide'
+            ? 'home-1440.png'
+            : 'home-2560x1440.png'
       await page.screenshot({
         fullPage: true,
-        path: `artifacts/phase-01/home-${viewport.width}.png`,
+        path: `artifacts/phase-01/${screenshotName}`,
       })
     }
   })
@@ -70,6 +99,11 @@ test('all required routes render in the browser', async ({ page }) => {
 test('keyboard focus and mobile navigation are usable', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 })
   await page.goto('/')
+  await expect(
+    page.getByRole('heading', {
+      name: 'Focused on your research, open to new ideas.',
+    }),
+  ).toBeVisible()
 
   await page.keyboard.press('Tab')
   await expect(

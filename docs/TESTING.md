@@ -23,29 +23,29 @@ assets and fails when it finds development fixture markers, common credential
 formats, or email-like personal identifiers.
 
 The browser suite starts the development server automatically and checks 375,
-768, 1280, and 1440 px viewports. It covers required routes, long-title bounds,
-unexpected horizontal scrolling, fixture labeling, skip-link focus, and keyboard
-operation of the mobile menu. Screenshots are stored under
+768, 1280, 1440, 2560 × 1440, and 2560 × 1600 px viewports. It covers required
+routes, long-title bounds, unexpected horizontal scrolling, fixture labeling,
+skip-link focus, and keyboard operation of the mobile menu. Screenshots are stored under
 `artifacts/phase-01/`.
 
 ## Phase 01 validation record
 
 Validated on 2026-10-12 in the onboarding environment:
 
-| Check                               | Result                                    |
-| ----------------------------------- | ----------------------------------------- |
-| Frozen install (`npm ci`)           | Passed                                    |
-| Strict TypeScript                   | Passed                                    |
-| ESLint and Prettier                 | Passed                                    |
-| Vitest component/route suite        | 14 passed                                 |
-| Playwright browser suite            | 6 passed                                  |
-| Target viewports                    | 375, 768, 1280, and 1440 px passed        |
-| Vite production build               | Passed                                    |
-| Production build-content scan       | Passed; 5 emitted text assets scanned     |
-| Wrangler packaging dry-run          | Passed; 16 static assets read             |
-| Wrangler local `/`                  | `200 OK`                                  |
-| Wrangler local paper-detail refresh | `200 OK`; SPA fallback behavior confirmed |
-| Production runtime content check    | Passed; no fixture records rendered       |
+| Check                               | Result                                                |
+| ----------------------------------- | ----------------------------------------------------- |
+| Frozen install (`npm ci`)           | Passed                                                |
+| Strict TypeScript                   | Passed                                                |
+| ESLint and Prettier                 | Passed                                                |
+| Vitest component/route suite        | 14 passed                                             |
+| Playwright browser suite            | 8 passed                                              |
+| Target viewports                    | 375, 768, 1280, 1440, 2560×1440, and 2560×1600 passed |
+| Vite production build               | Passed                                                |
+| Production build-content scan       | Passed; 5 emitted text assets scanned                 |
+| Wrangler packaging dry-run          | Passed; 16 static assets read                         |
+| Wrangler local `/`                  | `200 OK`                                              |
+| Wrangler local paper-detail refresh | `200 OK`; SPA fallback behavior confirmed             |
+| Production runtime content check    | Passed; no fixture records rendered                   |
 
 The desktop and mobile screenshots were inspected after the browser suite. They
 showed readable type hierarchy, single-column mobile flow, bounded long titles,
