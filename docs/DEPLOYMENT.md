@@ -64,6 +64,13 @@ credentials. If branch protection requires a pull request, use an automated data
 PR and let the merge to `main` trigger Cloudflare; document that choice when it is
 implemented.
 
+The future workflow must be idempotent and unattended: provider requests use
+timeouts and bounded backoff, unchanged results exit successfully without a
+commit, and any failed validation or transient provider outage preserves the
+last-known-good artifacts. Failure output must identify the affected adapter and
+next diagnostic step without exposing response secrets. Routine scheduled runs
+must not depend on a person repairing them each day.
+
 ## Validation before production
 
 Before enabling the Git integration, verify locally that:

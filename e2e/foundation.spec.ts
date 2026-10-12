@@ -71,7 +71,7 @@ for (const viewport of viewports) {
             : 'home-2560x1440.png'
       await page.screenshot({
         fullPage: true,
-        path: `artifacts/phase-01/${screenshotName}`,
+        path: `artifacts/phase-02/${screenshotName}`,
       })
     }
   })
@@ -81,7 +81,7 @@ test('all required routes render in the browser', async ({ page }) => {
   const routes = [
     ['/', 'Focused on your research, open to new ideas.'],
     ['/papers', 'Papers'],
-    ['/papers/fixture-memory-tides', /Memory Tides:/],
+    ['/papers/paper-memory-tides', /Memory Tides:/],
     ['/news', 'News'],
     ['/rankings', 'Rankings'],
     ['/library', 'Library'],
@@ -94,6 +94,117 @@ test('all required routes render in the browser', async ({ page }) => {
       page.getByRole('heading', { name: heading, exact: true }),
     ).toBeVisible()
   }
+})
+
+for (const viewport of [
+  { name: 'mobile', width: 375, height: 812 },
+  { name: 'desktop', width: 1440, height: 1000 },
+  { name: 'wide', width: 2560, height: 1440 },
+] as const) {
+  test(`paper discovery is readable at ${viewport.width}×${viewport.height}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport)
+    await page.goto('/papers?mode=latest')
+    await expect(
+      page.getByRole('heading', { name: '10 paper results' }),
+    ).toBeVisible()
+    await expect(
+      page
+        .getByRole('link', {
+          name: /A Deliberation Budget for Tool-Using Agents/,
+        })
+        .first(),
+    ).toBeVisible()
+
+    const dimensions = await page.evaluate(() => ({
+      viewportWidth: window.innerWidth,
+      documentWidth: document.documentElement.scrollWidth,
+    }))
+    expect(dimensions.documentWidth).toBeLessThanOrEqual(
+      dimensions.viewportWidth,
+    )
+    await page.screenshot({
+      fullPage: true,
+      path: `artifacts/phase-02/papers-${viewport.width}.png`,
+    })
+  })
+}
+
+test('paper modes use their declared ordering', async ({ page }) => {
+  await page.goto('/papers?mode=latest')
+  await expect(
+    page
+      .getByRole('link', {
+        name: /A Deliberation Budget for Tool-Using Agents/,
+      })
+      .first(),
+  ).toBeVisible()
+
+  await page.getByRole('link', { name: /Trending Ordered/ }).click()
+  await expect(page.getByText(/Fixture signal score 217/)).toBeVisible()
+  await expect(
+    page.getByRole('link', { name: /Sparse Orchards:/ }).first(),
+  ).toBeVisible()
+})
+
+test('filters survive detail navigation and browser history', async ({
+  page,
+}) => {
+  await page.goto('/papers?mode=latest&q=budget')
+  const resultLink = page.getByRole('link', {
+    name: 'A Deliberation Budget for Tool-Using Agents Under Uncertain Runtime Constraints',
+    exact: true,
+  })
+  await expect(resultLink).toBeVisible()
+  await resultLink.click()
+  await expect(
+    page.getByRole('heading', { name: /A Deliberation Budget/ }),
+  ).toBeVisible()
+
+  await page.goBack()
+  await expect(page).toHaveURL(/mode=latest&q=budget/)
+  await expect(page.getByRole('searchbox')).toHaveValue('budget')
+  await page.goForward()
+  await expect(
+    page.getByRole('heading', { name: /A Deliberation Budget/ }),
+  ).toBeVisible()
+})
+
+test('paper detail handles long content and safe external links', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto('/papers/paper-long-horizon-dialogue')
+  await expect(
+    page.getByRole('heading', { name: /Long-Horizon Dialogue/ }),
+  ).toBeVisible()
+  const paperLink = page.getByRole('link', { name: /Paper page fixture/ })
+  await expect(paperLink).toHaveAttribute('target', '_blank')
+  await expect(paperLink).toHaveAttribute('rel', 'noopener noreferrer')
+  const dimensions = await page.evaluate(() => ({
+    viewportWidth: window.innerWidth,
+    documentWidth: document.documentElement.scrollWidth,
+  }))
+  expect(dimensions.documentWidth).toBeLessThanOrEqual(dimensions.viewportWidth)
+  await page.screenshot({
+    fullPage: true,
+    path: 'artifacts/phase-02/detail-1440.png',
+  })
+})
+
+test('bookmark state persists locally across refresh', async ({ page }) => {
+  await page.goto('/papers/paper-memory-tides')
+  const saveButton = page.getByRole('button', { name: 'Save to library' })
+  await expect(saveButton).toBeVisible()
+  await saveButton.click()
+  await expect(
+    page.getByRole('button', { name: 'Remove from library' }),
+  ).toBeVisible()
+  await page.reload()
+  await expect(
+    page.getByRole('button', { name: 'Remove from library' }),
+  ).toBeVisible()
 })
 
 test('keyboard focus and mobile navigation are usable', async ({ page }) => {

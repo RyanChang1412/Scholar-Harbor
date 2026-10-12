@@ -3,7 +3,14 @@
 ## Status
 
 No external source adapter, feed, dataset, or ingestion workflow is implemented
-yet. Every source must be reviewed and recorded here before production use.
+yet. Phase 02 uses only fictional, visibly labeled records from `src/fixtures`.
+Every real source must be reviewed and recorded here before production use.
+
+The fixture records include invented provenance entries and invented community
+signals solely to validate schema, ordering, and interface behavior. Trending
+uses a deterministic score over those labeled mock signals. Fixture URLs use the
+reserved non-resolving `example.invalid` domain and have a `fixture`
+verification status; they are never presented as verified live destinations.
 
 ## Source acceptance requirements
 
@@ -63,6 +70,20 @@ Do not deploy the frontend from the ingestion workflow. Do not commit temporary
 downloads, logs, credentials, personal state, or unvalidated output. If ingestion
 or optional AI enrichment fails, retain the last accepted public dataset and make
 freshness visible to the frontend.
+
+## Operational reliability contract
+
+Future ingestion must run unattended and remain safe to rerun. Each adapter must
+use documented timeouts, rate limits, bounded retries with backoff, and stable
+checkpoints or conditional requests where the provider supports them. Scheduled
+runs must use concurrency control, treat an unchanged dataset as success, and
+publish atomically only after validation.
+
+A transient provider, network, or optional-enrichment failure must leave the
+last accepted dataset available. The workflow must report an actionable failure
+summary without logging credentials or requiring routine daily intervention.
+Repeated failures may require a deliberate source review, but a normal failed run
+must never corrupt production data or create a manual repair loop.
 
 ## AI enrichment
 

@@ -14,9 +14,14 @@ const readableExtensions = new Set([
 
 const forbiddenFixtureMarkers = [
   'fixture-memory-tides',
+  'paper-memory-tides',
   'Mira Solis',
   'Fictional systems archive',
+  'Fixture Systems Archive',
+  'Fixture Agent Research Feed',
+  'Memory Tides: Coordinating Layered',
   'Fixture snapshot',
+  'Fixture paper snapshot',
   'Fictional fixture',
 ]
 

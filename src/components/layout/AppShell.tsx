@@ -18,8 +18,8 @@ export function AppShell() {
       </main>
       <footer className="mt-20 border-t border-border py-8">
         <PageContainer className="flex flex-col gap-2 text-sm text-text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>Scholar Harbor · Phase 01 foundation</p>
-          <p>Phase 01 contains no live academic data.</p>
+          <p>Scholar Harbor · Phase 02 paper experience</p>
+          <p>Phase 02 contains no live academic data.</p>
         </PageContainer>
       </footer>
     </div>

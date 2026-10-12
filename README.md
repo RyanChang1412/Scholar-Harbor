@@ -9,13 +9,16 @@ privacy, and reading comfort over feature count.
 
 ## Repository status
 
-Phase 01 is implemented: the repository contains a React application shell,
-responsive navigation, all planned routes, centralized design tokens, an
-editorial homepage prototype, fictional fixture content, component/unit tests,
-and browser-level responsive checks.
+Phase 02 is implemented on top of the Phase 01 foundation. Development and test
+routes include a runtime-validated normalized Paper schema, a replaceable
+repository interface, For You/Latest/Trending browsing, URL-backed search and
+filters, bounded pagination, stable detail routes, BibTeX export, and versioned
+browser-local bookmark and reading-status state.
 
-Live ingestion, real academic datasets, AI enrichment, personalization, and
-scheduled workflows remain intentionally unimplemented.
+All paper records and popularity signals remain clearly labeled fictional
+fixtures. Live ingestion, real academic datasets, AI enrichment, recommendation
+algorithms, full library management, and scheduled workflows remain intentionally
+unimplemented.
 
 ## Accepted technical direction
 
@@ -77,10 +80,11 @@ production Worker name and provides Cloudflare SPA fallback routing.
 
 ## Fixture policy
 
-All Phase 01 papers, authors, dates, sources, news items, and pulse observations
-are fictional. They live in `src/fixtures`, implement explicit fixture types, and
-appear only in development and automated browser-test routes, where they are
-visibly labeled.
+All papers, authors, dates, sources, popularity signals, news items, and pulse
+observations are fictional. They live in `src/fixtures`, and paper records pass
+the same runtime validation intended for future public data. Fixtures appear only
+in development and automated browser-test routes, where they are visibly
+labeled.
 
 The default production build selects production-safe empty states instead. Its
 verification script rejects known fixture markers, common credential formats, and
@@ -92,6 +96,10 @@ email-like personal identifiers in `dist`.
 - [1440 px desktop development prototype](artifacts/phase-01/home-1440.png)
 - [2560 × 1440 wide-screen development prototype](artifacts/phase-01/home-2560x1440.png)
 - [1280 px production-safe empty state](artifacts/phase-01/production-safe-home.png)
+- [2560 px Phase 02 homepage](artifacts/phase-02/home-2560x1440.png)
+- [375 px mobile paper discovery](artifacts/phase-02/papers-375.png)
+- [1440 px paper detail](artifacts/phase-02/detail-1440.png)
+- [2560 px wide-screen paper discovery](artifacts/phase-02/papers-2560.png)
 
 ## Documentation conventions
 

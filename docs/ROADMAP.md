@@ -23,25 +23,31 @@ No application behavior is delivered by this phase.
 Phase 01 uses clearly labeled fictional fixtures only. It does not implement live
 data, recommendation scoring, or personal storage.
 
-## 2. Paper data and discovery — planned
+## 2. Paper data and discovery — complete
 
-- First reviewed paper source adapter and normalized versioned schema.
-- Paper lists, detail pages, identity, provenance, search/filtering, and freshness.
-- Deterministic ingestion tests and bounded public artifacts.
+- Runtime-validated normalized Paper schema and replaceable repository boundary.
+- Fixture-backed For You, chronological Latest, and mock-signal-backed Trending.
+- URL-backed search, topic/source/time filters, sorting, and bounded pagination.
+- Stable detail pages with provenance, safe links, original abstracts, explicit
+  AI-unavailable handling, citation copy, and local bookmark/reading status.
+- Deterministic domain, repository, component, navigation, and browser tests.
 
-## 3. Personalization and library — planned
+The phase prompt explicitly excludes live APIs, so the first reviewed real source
+adapter, public artifacts, and deterministic ingestion tests remain deferred.
+
+## 4. Personalization and library — planned
 
 - Editable research profile and deterministic Balanced Discovery.
 - Local saved/reading state, tags, import/export, migration, and reset.
 - Explainable recommendations and privacy validation.
 
-## 4. Context modules — planned
+## Later context modules — planned
 
 - Reviewed news feeds and deduplication.
 - Traceable Trending signals and authoritative ranking links/summaries.
 - Research Pulse using only defined source-backed data.
 
-## 5. Production automation and optional AI — planned
+## Later production automation and optional AI — planned
 
 - Scheduled least-privileged ingestion workflow with validated dataset commits.
 - Cloudflare Workers Builds production connection and deployment verification.

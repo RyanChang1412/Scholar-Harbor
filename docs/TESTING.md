@@ -2,9 +2,9 @@
 
 ## Status
 
-Phase 01 provides strict TypeScript checking, ESLint, Prettier, Vitest with Testing
-Library, Playwright browser checks, a Vite production build, and a Wrangler
-packaging dry-run.
+Phase 02 retains the Phase 01 quality gates and adds domain, repository, query,
+browser-local state, citation, paper-list, paper-detail, history-navigation, and
+wide-screen discovery coverage.
 
 Run the default checks with:
 
@@ -25,8 +25,8 @@ formats, or email-like personal identifiers.
 The browser suite starts the development server automatically and checks 375,
 768, 1280, 1440, 2560 × 1440, and 2560 × 1600 px viewports. It covers required
 routes, long-title bounds, unexpected horizontal scrolling, fixture labeling,
-skip-link focus, and keyboard operation of the mobile menu. Screenshots are stored under
-`artifacts/phase-01/`.
+skip-link focus, and keyboard operation of the mobile menu. Phase-specific
+screenshots are stored under `artifacts/phase-01/` and `artifacts/phase-02/`.
 
 ## Phase 01 validation record
 
@@ -50,6 +50,28 @@ Validated on 2026-10-12 in the onboarding environment:
 The desktop and mobile screenshots were inspected after the browser suite. They
 showed readable type hierarchy, single-column mobile flow, bounded long titles,
 and no unexpected horizontal overflow.
+
+## Phase 02 validation record
+
+Validated on 2026-10-12 in the onboarding environment:
+
+| Check                               | Result                                                |
+| ----------------------------------- | ----------------------------------------------------- |
+| Strict TypeScript                   | Passed                                                |
+| ESLint and Prettier                 | Passed                                                |
+| Vitest domain/component/route suite | 36 passed                                             |
+| Playwright browser suite            | 15 passed                                             |
+| Target viewports                    | 375, 768, 1280, 1440, 2560×1440, and 2560×1600 passed |
+| List/detail responsive screenshots  | Passed; mobile, desktop, and ultra-wide inspected     |
+| Vite production build               | Passed                                                |
+| Production build-content scan       | Passed; fixture records and sensitive patterns absent |
+| Wrangler packaging dry-run          | Passed; 16 static assets read                         |
+
+Phase 02 tests cover Paper runtime validation, stable identity, Latest and
+Trending ordering, search, topic/source/time filters, pagination, empty/error
+states, missing optional links, long metadata, detail navigation, safe external
+links, citation copy, browser-local bookmarks/status, and Back/Forward filter
+restoration.
 
 ## Test strategy
 

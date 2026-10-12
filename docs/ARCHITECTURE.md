@@ -2,10 +2,13 @@
 
 ## Status
 
-This document records the accepted architecture. Phase 01 implements the React
-presentation shell, browser routing, design system, isolated fictional fixtures,
-error boundaries, tests, and Wrangler static-assets baseline. Production data
-access, recommendation, personal-state, and ingestion modules remain planned.
+This document records the accepted architecture. Phase 02 adds a normalized,
+runtime-validated Paper domain model, pure list-query operations, a replaceable
+Paper repository interface, and a versioned browser-local repository for
+bookmarks and reading status. Development and test routes consume these
+boundaries for complete fixture-backed paper discovery and detail views.
+Production source adapters, recommendation scoring, full library management, and
+ingestion remain planned.
 
 Development and test builds select the fixture route set. Production builds
 select a separate route set with explicit no-data states, allowing Rollup to omit
@@ -85,6 +88,21 @@ The schema distinguishes:
 External timestamps are parsed consistently and serialized in an explicit
 timezone, preferably UTC ISO 8601. Missing values remain absent rather than being
 guessed.
+
+The implemented Phase 02 Paper schema enforces stable internal IDs, arXiv
+identity, optional DOI, original and update timestamps, HTTPS external links,
+link-verification state, source provenance, categories/topics, optional community
+signals, and optional AI-enrichment metadata. Fixture input enters the repository
+as `unknown`, so the UI cannot bypass runtime validation.
+
+## Personal paper state
+
+Bookmarks and reading status use
+`scholar-harbor.personal-papers.v1` in browser-local storage. A strict versioned
+envelope is validated whenever it is read; malformed content falls back to an
+empty safe state. Personal fields never appear in the public Paper schema. Phase
+02 provides repository and paper-level controls; library views, tags,
+import/export, reset UI, and migrations remain deferred.
 
 ## Public data contract
 

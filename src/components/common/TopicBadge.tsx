@@ -1,4 +1,4 @@
-import type { DiscoveryLane } from '../../domain/content'
+import type { DiscoveryLane } from '../../domain/paper'
 import { cn } from '../../lib/cn'
 
 interface TopicBadgeProps {

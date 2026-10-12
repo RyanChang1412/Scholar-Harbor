@@ -1,13 +1,13 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { fixturePapers } from '../fixtures/home'
+import { paperFixtures } from '../fixtures/papers'
 import { renderApp } from '../test/renderApp'
 
 const routeCases = [
   ['/', 'Focused on your research, open to new ideas.'],
   ['/papers', 'Papers'],
-  [`/papers/${fixturePapers[0].id}`, fixturePapers[0].title],
+  [`/papers/${paperFixtures[0]!.id}`, paperFixtures[0]!.title],
   ['/news', 'News'],
   ['/rankings', 'Rankings'],
   ['/library', 'Library'],
@@ -15,17 +15,19 @@ const routeCases = [
 ] as const
 
 describe('application routes', () => {
-  it.each(routeCases)('renders %s', (path, heading) => {
+  it.each(routeCases)('renders %s', async (path, heading) => {
     renderApp(path)
 
-    expect(screen.getByRole('heading', { name: heading })).toBeInTheDocument()
+    expect(
+      await screen.findByRole('heading', { name: heading }),
+    ).toBeInTheDocument()
   })
 
-  it('renders a clear missing fixture state for unknown paper IDs', () => {
+  it('renders a clear missing fixture state for unknown paper IDs', async () => {
     renderApp('/papers/not-a-fixture')
 
     expect(
-      screen.getByRole('heading', { name: 'Paper fixture not found' }),
+      await screen.findByRole('heading', { name: 'Paper not found' }),
     ).toBeInTheDocument()
   })
 })

@@ -31,6 +31,8 @@ describe('Scholar Harbor application shell', () => {
     expect(
       await screen.findByRole('heading', { name: 'Papers' }),
     ).toBeInTheDocument()
-    expect(screen.getByText(/Search, filters, pagination/)).toBeInTheDocument()
+    expect(
+      screen.getByRole('navigation', { name: 'Paper discovery modes' }),
+    ).toBeInTheDocument()
   })
 })

@@ -47,6 +47,10 @@ agents. Read it before changing the repository.
 - Scheduled GitHub Actions may ingest public data. They must use minimal
   permissions and deliver accepted dataset changes to `main`; the resulting
   commit triggers Cloudflare's production build.
+- Scheduled ingestion must be unattended, idempotent, and safe to rerun. Use
+  bounded retries with backoff, concurrency control, validation before publish,
+  last-known-good data on failure, and actionable failure reporting. A routine
+  provider outage or unchanged dataset must not require daily manual repair.
 - Never expose credentials in frontend bundles, public JSON, logs, fixtures, or
   Git history. Use GitHub Secrets for ingestion and Cloudflare build secrets only
   when a phase actually needs them.

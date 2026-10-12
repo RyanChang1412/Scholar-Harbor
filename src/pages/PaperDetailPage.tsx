@@ -1,107 +1,349 @@
-import { ArrowLeft, Bookmark } from 'lucide-react'
-import { Link, useParams } from 'react-router-dom'
+import {
+  ArrowLeft,
+  Check,
+  Clipboard,
+  Code2,
+  ExternalLink,
+  FileText,
+} from 'lucide-react'
+import { useState } from 'react'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
-import { EmptyState } from '../components/common/ContentStates'
+import {
+  EmptyState,
+  ErrorState,
+  LoadingState,
+} from '../components/common/ContentStates'
 import { DataFreshnessIndicator } from '../components/common/DataFreshnessIndicator'
 import { TopicBadge } from '../components/common/TopicBadge'
 import { PageContainer } from '../components/layout/PageContainer'
-import { fixturePapers, fixtureSnapshotLabel } from '../fixtures/home'
+import { BookmarkButton } from '../components/papers/BookmarkButton'
+import {
+  formatPaperDate,
+  getPaperLink,
+  getPrimarySource,
+  type Paper,
+  type PaperExternalLink,
+} from '../domain/paper'
+import {
+  fixturePaperRepository,
+  fixturePaperSnapshotLabel,
+} from '../fixtures/papers'
+import { usePaper } from '../hooks/usePaperRepository'
+import { usePersonalPaperState } from '../hooks/usePersonalPaperState'
+import { createBibTeX } from '../lib/citation'
+
+interface DetailLocationState {
+  readonly from?: unknown
+}
+
+type CopyStatus = 'idle' | 'copied' | 'error'
 
 export function PaperDetailPage() {
   const { paperId } = useParams()
-  const paper = fixturePapers.find((item) => item.id === paperId)
+  const location = useLocation()
+  const { paper, loading, error } = usePaper(fixturePaperRepository, paperId)
+  const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle')
+  const from = (location.state as DetailLocationState | null)?.from
+  const backTo =
+    typeof from === 'string' && from.startsWith('/papers') ? from : '/papers'
 
-  if (!paper) {
+  if (loading) {
     return (
       <PageContainer className="py-12 sm:py-16">
-        <EmptyState
-          description="Only the clearly labeled Phase 01 fixture papers are available. Live paper loading is intentionally deferred."
-          title="Paper fixture not found"
+        <LoadingState
+          description="Validating the selected fixture record."
+          title="Loading paper"
         />
       </PageContainer>
     )
   }
 
-  return (
-    <PageContainer className="py-10 sm:py-16">
-      <article className="mx-auto max-w-[780px]">
+  if (error) {
+    return (
+      <PageContainer className="py-12 sm:py-16">
+        <ErrorState
+          description={error}
+          title="Paper record could not be loaded"
+        />
+      </PageContainer>
+    )
+  }
+
+  if (!paper) {
+    return (
+      <PageContainer className="py-12 sm:py-16">
+        <EmptyState
+          description="This stable paper identity is not present in the validated fixture repository."
+          title="Paper not found"
+        />
         <Link
-          className="inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-action hover:text-text"
-          to="/papers"
+          className="mx-auto mt-5 flex w-fit items-center gap-2 rounded-md text-sm font-semibold text-action hover:text-text"
+          to={backTo}
         >
           <ArrowLeft aria-hidden="true" size={16} />
-          Back to paper fixtures
+          Back to papers
         </Link>
+      </PageContainer>
+    )
+  }
 
-        <div className="mt-8 flex flex-wrap items-center gap-2">
-          <TopicBadge lane={paper.lane}>{paper.lane}</TopicBadge>
-          <TopicBadge>Fictional fixture</TopicBadge>
-        </div>
+  async function copyCitation() {
+    if (!paper) return
+    try {
+      await navigator.clipboard.writeText(createBibTeX(paper))
+      setCopyStatus('copied')
+      window.setTimeout(() => setCopyStatus('idle'), 1600)
+    } catch {
+      setCopyStatus('error')
+    }
+  }
 
-        <h1 className="mt-5 break-words text-pretty font-editorial text-[clamp(2rem,6vw,3.35rem)] leading-[1.06] font-semibold tracking-[-0.035em] text-text">
-          {paper.title}
-        </h1>
-        <p className="mt-6 break-words leading-7 text-text-muted">
-          {paper.authors.join(' · ')}
-        </p>
+  return (
+    <PageContainer className="py-10 sm:py-16">
+      <Link
+        className="inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-action hover:text-text"
+        to={backTo}
+      >
+        <ArrowLeft aria-hidden="true" size={16} />
+        Back to paper results
+      </Link>
 
-        <dl className="mt-8 grid gap-4 border-y border-border py-5 text-sm sm:grid-cols-2">
-          <div>
-            <dt className="font-semibold text-text">Publication</dt>
-            <dd className="mt-1 text-text-muted">{paper.publishedLabel}</dd>
+      <article className="mx-auto mt-8 grid min-w-0 max-w-[1200px] gap-10 lg:grid-cols-[minmax(0,760px)_minmax(15rem,1fr)] lg:items-start lg:gap-14">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            {paper.recommendation && (
+              <TopicBadge lane={paper.recommendation.lane}>
+                {paper.recommendation.lane}
+              </TopicBadge>
+            )}
+            <TopicBadge>Fictional fixture</TopicBadge>
           </div>
-          <div>
-            <dt className="font-semibold text-text">Source</dt>
-            <dd className="mt-1 text-text-muted">{paper.sourceLabel}</dd>
-          </div>
-        </dl>
 
-        <section className="mt-9" aria-labelledby="fixture-abstract-title">
-          <h2
-            className="font-editorial text-2xl font-semibold text-text"
-            id="fixture-abstract-title"
-          >
-            Fixture abstract
-          </h2>
-          <p className="mt-4 text-pretty text-base leading-8 text-text-muted">
-            {paper.abstract}
+          <h1 className="mt-5 break-words text-pretty font-editorial text-[clamp(2rem,6vw,3.35rem)] leading-[1.06] font-semibold tracking-[-0.035em] text-text">
+            {paper.title}
+          </h1>
+          <p className="mt-6 break-words leading-7 text-text-muted">
+            {paper.authors.join(' · ')}
           </p>
-        </section>
 
-        <section
-          className="mt-8 rounded-lg bg-surface-soft p-5"
-          aria-labelledby="fixture-reason-title"
-        >
-          <h2
-            className="text-sm font-semibold text-action"
-            id="fixture-reason-title"
+          <section className="mt-10" aria-labelledby="abstract-title">
+            <p className="text-xs font-semibold tracking-[0.13em] text-action uppercase">
+              Original source text
+            </p>
+            <h2
+              className="mt-2 font-editorial text-2xl font-semibold text-text"
+              id="abstract-title"
+            >
+              Abstract
+            </h2>
+            <p className="mt-4 text-pretty text-base leading-8 text-text-muted">
+              {paper.abstract}
+            </p>
+          </section>
+
+          <section
+            className="mt-10 rounded-lg border border-border bg-surface-soft p-5"
+            aria-labelledby="ai-overview-title"
           >
-            Prototype recommendation reason
-          </h2>
-          <p className="mt-2 leading-7 text-text-muted">
-            {paper.recommendationReason}
-          </p>
-        </section>
+            <h2
+              className="font-editorial text-xl font-semibold text-text"
+              id="ai-overview-title"
+            >
+              AI Overview
+            </h2>
+            {paper.aiEnrichment?.status === 'available' ? (
+              <>
+                <p className="mt-2 text-xs font-semibold text-action">
+                  AI-generated · based on {paper.aiEnrichment.basis}
+                </p>
+                <p className="mt-3 leading-7 text-text-muted">
+                  {paper.aiEnrichment.overview}
+                </p>
+              </>
+            ) : (
+              <p className="mt-3 leading-7 text-text-muted">
+                No AI overview is available for this record. The original
+                abstract remains available above without generated claims.
+              </p>
+            )}
+          </section>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {paper.topics.map((topic) => (
-            <TopicBadge key={topic}>{topic}</TopicBadge>
-          ))}
+          {paper.recommendation && (
+            <section
+              className="mt-8 border-l-2 border-warm pl-5"
+              aria-labelledby="recommendation-title"
+            >
+              <h2
+                className="text-sm font-semibold text-action"
+                id="recommendation-title"
+              >
+                Why this fixture appears
+              </h2>
+              <p className="mt-2 leading-7 text-text-muted">
+                {paper.recommendation.reason}
+              </p>
+            </section>
+          )}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
-          <DataFreshnessIndicator label={fixtureSnapshotLabel} />
-          <button
-            className="inline-flex min-h-10 cursor-not-allowed items-center gap-2 rounded-md border border-border px-3 py-2 text-sm font-medium text-text-muted opacity-65"
-            disabled
-            title="Personal library is not implemented in Phase 01"
-            type="button"
-          >
-            <Bookmark aria-hidden="true" size={16} />
-            Save unavailable
-          </button>
-        </div>
+        <PaperMetadata
+          copyStatus={copyStatus}
+          onCopy={() => void copyCitation()}
+          paper={paper}
+        />
       </article>
     </PageContainer>
+  )
+}
+
+function PaperMetadata({
+  paper,
+  copyStatus,
+  onCopy,
+}: {
+  readonly paper: Paper
+  readonly copyStatus: CopyStatus
+  readonly onCopy: () => void
+}) {
+  const { state, setStatus } = usePersonalPaperState(paper.id)
+  const paperLink = getPaperLink(paper, 'paper')
+  const pdfLink = getPaperLink(paper, 'pdf')
+  const codeLink = getPaperLink(paper, 'code')
+
+  return (
+    <aside className="min-w-0 rounded-xl border border-border bg-surface p-5 shadow-card lg:sticky lg:top-24">
+      <h2 className="font-editorial text-xl font-semibold text-text">
+        Paper details
+      </h2>
+      <dl className="mt-5 space-y-4 text-sm">
+        <Metadata
+          label="Published"
+          value={formatPaperDate(paper.publishedAt)}
+        />
+        <Metadata label="Updated" value={formatPaperDate(paper.updatedAt)} />
+        <Metadata label="arXiv ID" value={paper.arxivId} />
+        {paper.doi && <Metadata label="DOI" value={paper.doi} />}
+        <Metadata label="Source" value={getPrimarySource(paper)} />
+        <Metadata
+          label="Source record"
+          value={paper.provenance[0]!.sourceRecordId}
+        />
+        <Metadata
+          label="Retrieved"
+          value={formatPaperDate(paper.provenance[0]!.retrievedAt)}
+        />
+      </dl>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {[...paper.categories, ...paper.topics].map((label) => (
+          <TopicBadge key={label}>{label}</TopicBadge>
+        ))}
+      </div>
+
+      <div className="mt-6 space-y-2 border-t border-border pt-5">
+        {paperLink && (
+          <ExternalPaperLink
+            icon={ExternalLink}
+            label="Paper page"
+            link={paperLink}
+          />
+        )}
+        {pdfLink ? (
+          <ExternalPaperLink icon={FileText} label="PDF" link={pdfLink} />
+        ) : (
+          <p className="text-xs text-text-muted">PDF link unavailable</p>
+        )}
+        {codeLink ? (
+          <ExternalPaperLink icon={Code2} label="Code" link={codeLink} />
+        ) : (
+          <p className="text-xs text-text-muted">Code link unavailable</p>
+        )}
+        <p className="pt-1 text-xs leading-5 text-text-muted">
+          Fixture destinations use the reserved non-resolving example.invalid
+          domain.
+        </p>
+      </div>
+
+      <div className="mt-6 space-y-3 border-t border-border pt-5">
+        <BookmarkButton paperId={paper.id} />
+        <label className="block text-xs font-semibold text-text">
+          Reading status
+          <select
+            className="mt-2 min-h-10 w-full rounded-md border border-border bg-surface px-3 text-sm font-normal"
+            onChange={(event) =>
+              setStatus(event.target.value as 'unread' | 'reading' | 'read')
+            }
+            value={state.status}
+          >
+            <option value="unread">Unread</option>
+            <option value="reading">Reading</option>
+            <option value="read">Read</option>
+          </select>
+        </label>
+        <button
+          className="inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md border border-border px-3 text-sm font-semibold text-action hover:border-primary hover:bg-surface-soft"
+          onClick={onCopy}
+          type="button"
+        >
+          {copyStatus === 'copied' ? (
+            <Check aria-hidden="true" size={16} />
+          ) : (
+            <Clipboard aria-hidden="true" size={16} />
+          )}
+          {copyStatus === 'copied'
+            ? 'BibTeX copied'
+            : copyStatus === 'error'
+              ? 'Copy unavailable'
+              : 'Copy BibTeX'}
+        </button>
+      </div>
+
+      <div className="mt-6 border-t border-border pt-5">
+        <DataFreshnessIndicator label={fixturePaperSnapshotLabel} />
+      </div>
+    </aside>
+  )
+}
+
+function Metadata({
+  label,
+  value,
+}: {
+  readonly label: string
+  readonly value: string
+}) {
+  return (
+    <div>
+      <dt className="font-semibold text-text">{label}</dt>
+      <dd className="mt-1 break-words text-text-muted">{value}</dd>
+    </div>
+  )
+}
+
+function ExternalPaperLink({
+  icon: Icon,
+  label,
+  link,
+}: {
+  readonly icon: typeof ExternalLink
+  readonly label: string
+  readonly link: PaperExternalLink
+}) {
+  return (
+    <a
+      className="flex min-h-10 items-center justify-between gap-3 rounded-md border border-border px-3 text-sm font-semibold text-action hover:border-primary hover:bg-surface-soft"
+      href={link.url}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span className="inline-flex items-center gap-2">
+        <Icon aria-hidden="true" size={16} />
+        {label}
+      </span>
+      <span className="text-[0.65rem] tracking-wide text-text-muted uppercase">
+        {link.verification.status}
+      </span>
+    </a>
   )
 }

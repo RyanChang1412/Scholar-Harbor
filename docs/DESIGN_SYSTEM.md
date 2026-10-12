@@ -7,15 +7,18 @@ It should feel like a refined research publication and personal reading space,
 with papers dominating the hierarchy. Avoid dashboard density, decorative
 metrics, nested cards, and attention-seeking motion.
 
-Phase 01 implements these tokens in `src/styles/global.css` and applies them to the
-application shell, homepage, route placeholders, state components, and paper/news
-fixture cards. Later phases should extend the same semantic vocabulary rather
-than introducing page-specific colors.
+Phase 01 implements these tokens in `src/styles/global.css`. Phase 02 extends the
+same vocabulary to discovery modes, filter controls, dense paper cards, local
+state controls, and the paper-detail metadata sidebar. Later phases should
+continue using semantic tokens rather than introducing page-specific colors.
 
 The reusable Phase 01 component set includes `SiteHeader`, `SiteNavigation`,
 `PageContainer`, `SectionHeader`, `FeaturedPaperCard`, `CompactPaperCard`,
 `NewsPreviewCard`, `TopicBadge`, `ResearchPulsePanel`, `EmptyState`,
 `LoadingState`, `ErrorState`, and `DataFreshnessIndicator`.
+
+Phase 02 adds the reusable interactive `BookmarkButton`; both paper-card variants
+now consume the normalized Paper type and preserve the Phase 01 visual language.
 
 ## Semantic color tokens
 

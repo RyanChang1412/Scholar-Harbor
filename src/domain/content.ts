@@ -1,18 +1,3 @@
-export type DiscoveryLane = 'Focused' | 'Explore'
-
-export interface FixturePaper {
-  readonly fixture: true
-  readonly id: string
-  readonly title: string
-  readonly authors: readonly string[]
-  readonly publishedLabel: string
-  readonly sourceLabel: string
-  readonly topics: readonly string[]
-  readonly lane: DiscoveryLane
-  readonly recommendationReason: string
-  readonly abstract: string
-}
-
 export interface FixtureNewsItem {
   readonly fixture: true
   readonly id: string

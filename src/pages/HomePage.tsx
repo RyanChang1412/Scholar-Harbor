@@ -10,14 +10,14 @@ import { CompactPaperCard } from '../components/papers/CompactPaperCard'
 import { FeaturedPaperCard } from '../components/papers/FeaturedPaperCard'
 import {
   fixtureNews,
-  fixturePapers,
   fixturePulse,
   fixtureSnapshotLabel,
 } from '../fixtures/home'
+import { paperFixtures } from '../fixtures/papers'
 
 export function HomePage() {
-  const featuredPaper = fixturePapers[0]
-  const compactPapers = fixturePapers.slice(1)
+  const featuredPaper = paperFixtures[0]!
+  const compactPapers = paperFixtures.slice(1, 3)
 
   return (
     <>
@@ -41,7 +41,7 @@ export function HomePage() {
             aria-label="Prototype notice"
           >
             <p className="text-sm font-semibold text-text">
-              Phase 01 editorial prototype
+              Phase 02 paper experience prototype
             </p>
             <p className="mt-2 text-sm leading-6 text-text-muted">
               Every title, author, date, and signal on this page is fictional
@@ -130,9 +130,9 @@ export function HomePage() {
                 Deep focus, with room for useful surprise.
               </h2>
               <p className="mt-3 text-pretty leading-7 text-text-muted">
-                The future recommendation system will make its reasons visible
-                and let the reader adjust their interests. No recommendation
-                algorithm is implemented in this phase.
+                Explicit fixture recommendations preview visible reasons and
+                adjustable interests. The real recommendation algorithm remains
+                deferred to Phase 04.
               </p>
             </div>
             <Link

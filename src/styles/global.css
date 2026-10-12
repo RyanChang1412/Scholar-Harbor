@@ -132,4 +132,8 @@
   .home-context-grid {
     grid-template-columns: 24rem minmax(0, 1fr);
   }
+
+  .paper-results-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
