@@ -1,0 +1,37 @@
+{
+  "categories": [
+    "cs.AI",
+    "cs.LG",
+    "cs.DC",
+    "cs.PF",
+    "cs.CV",
+    "cs.CL",
+    "cs.CR",
+    "stat.ML"
+  ],
+  "keywords": [
+    "language model",
+    "inference",
+    "serving",
+    "agent",
+    "multimodal",
+    "world model",
+    "robotics",
+    "machine learning"
+  ],
+  "maxArxivResults": 48,
+  "maxHuggingFaceResults": 30,
+  "huggingFaceQueries": [
+    "language model serving",
+    "AI agent",
+    "multimodal model",
+    "robotics world model"
+  ],
+  "maxPublishedPapers": 72,
+  "windowDays": 30,
+  "requestTimeoutSeconds": 20,
+  "maxAttempts": 3,
+  "backoffSeconds": 2,
+  "huggingFaceRequestDelaySeconds": 1,
+  "openAlexEnabled": false
+}

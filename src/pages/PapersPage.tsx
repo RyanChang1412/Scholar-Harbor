@@ -12,6 +12,7 @@ import { SectionHeader } from '../components/common/SectionHeader'
 import { PageContainer } from '../components/layout/PageContainer'
 import { CompactPaperCard } from '../components/papers/CompactPaperCard'
 import type { PaperRepository } from '../data/papers/PaperRepository'
+import { formatPaperDate } from '../domain/paper'
 import {
   getSource,
   queryPapers,
@@ -19,19 +20,14 @@ import {
   type PaperSort,
   type TimeRange,
 } from '../domain/paper-query'
-import {
-  fixturePaperRepository,
-  fixturePaperSnapshotAt,
-  fixturePaperSnapshotLabel,
-} from '../fixtures/papers'
 import { usePaperList } from '../hooks/usePaperRepository'
 
-const modes: readonly { id: PaperMode; label: string; description: string }[] =
-  [
+function getModes() {
+  return [
     {
       id: 'for-you',
       label: 'For You',
-      description: 'Explicit Focused and Explore fixture recommendations.',
+      description: 'Personal recommendations become available in Phase 04.',
     },
     {
       id: 'latest',
@@ -41,9 +37,10 @@ const modes: readonly { id: PaperMode; label: string; description: string }[] =
     {
       id: 'trending',
       label: 'Trending',
-      description: 'Ordered by clearly labeled fixture community signals.',
+      description: 'Ordered by clearly labeled community signals.',
     },
-  ]
+  ] as const
+}
 
 function isMode(value: string | null): value is PaperMode {
   return value === 'for-you' || value === 'latest' || value === 'trending'
@@ -63,17 +60,32 @@ function isSort(value: string | null): value is PaperSort {
 }
 
 interface PapersPageProps {
-  readonly repository?: PaperRepository
+  readonly repository: PaperRepository
+  readonly snapshotAt?: Date
+  readonly snapshotLabel?: string
+  readonly defaultMode?: PaperMode
+  readonly datasetDescription?: string
+  readonly recordLabel?: string
+  readonly signalLabel?: string
+  readonly signalNotice?: string
 }
 
 export function PapersPage({
-  repository = fixturePaperRepository,
-}: PapersPageProps = {}) {
+  repository,
+  snapshotAt = new Date(),
+  snapshotLabel,
+  defaultMode = 'for-you',
+  datasetDescription = 'Search and compare validated, source-attributed academic records.',
+  recordLabel,
+  signalLabel,
+  signalNotice = 'Community values retain their source and observation time.',
+}: PapersPageProps) {
   const { papers, loading, error } = usePaperList(repository)
   const [searchParams, setSearchParams] = useSearchParams()
   const querySearch = searchParams.get('q') ?? ''
   const rawMode = searchParams.get('mode')
-  const mode: PaperMode = isMode(rawMode) ? rawMode : 'for-you'
+  const mode: PaperMode = isMode(rawMode) ? rawMode : defaultMode
+  const modes = getModes()
   const rawRange = searchParams.get('range')
   const timeRange: TimeRange = isTimeRange(rawRange) ? rawRange : 'all'
   const rawSort = searchParams.get('sort')
@@ -98,6 +110,17 @@ export function PapersPage({
     () => [...new Set(papers.map(getSource))].sort(),
     [papers],
   )
+  const freshnessLabel = useMemo(() => {
+    if (snapshotLabel) return snapshotLabel
+    const latestRetrieval = papers
+      .flatMap((paper) => paper.provenance)
+      .map((entry) => entry.retrievedAt)
+      .sort()
+      .at(-1)
+    return latestRetrieval
+      ? `Dataset retrieved ${formatPaperDate(latestRetrieval)}`
+      : 'Published dataset unavailable'
+  }, [papers, snapshotLabel])
   const result = useMemo(
     () =>
       queryPapers(
@@ -112,9 +135,19 @@ export function PapersPage({
           page,
           pageSize: 6,
         },
-        fixturePaperSnapshotAt,
+        snapshotAt,
       ),
-    [mode, page, papers, querySearch, selectedTopics, sort, source, timeRange],
+    [
+      mode,
+      page,
+      papers,
+      querySearch,
+      selectedTopics,
+      snapshotAt,
+      sort,
+      source,
+      timeRange,
+    ],
   )
 
   function updateParams(
@@ -149,16 +182,14 @@ export function PapersPage({
     <PageContainer className="py-12 sm:py-16">
       <SectionHeader
         as="h1"
-        description="Search and compare validated fictional paper records through a replaceable data-access boundary."
+        description={datasetDescription}
         eyebrow="Paper discovery"
         title="Papers"
       />
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
-        <DataFreshnessIndicator label={fixturePaperSnapshotLabel} />
-        <span className="text-xs text-text-muted">
-          Popularity values are development-only mock signals.
-        </span>
+        <DataFreshnessIndicator label={freshnessLabel} />
+        <span className="text-xs text-text-muted">{signalNotice}</span>
       </div>
 
       <nav
@@ -251,7 +282,7 @@ export function PapersPage({
               onChange={(event) => updateParams({ range: event.target.value })}
               value={timeRange}
             >
-              <option value="all">All fixture dates</option>
+              <option value="all">All available dates</option>
               <option value="7d">Past 7 days</option>
               <option value="30d">Past 30 days</option>
               <option value="1y">Past year</option>
@@ -330,7 +361,7 @@ export function PapersPage({
               <p className="text-xs text-text-muted">
                 {mode === 'latest'
                   ? 'Sort: publication date, newest first'
-                  : 'Sort: fixture signal score, highest first'}
+                  : `Sort: ${signalLabel?.toLocaleLowerCase() ?? 'community'} signal score, highest first`}
               </p>
             )}
           </div>
@@ -338,7 +369,7 @@ export function PapersPage({
           <div aria-live="polite" className="mt-6">
             {loading && (
               <LoadingState
-                description="Validating the fixture paper collection."
+                description="Validating the paper collection."
                 title="Loading paper records"
               />
             )}
@@ -362,6 +393,8 @@ export function PapersPage({
                     paper={paper}
                     showRecommendation={mode === 'for-you'}
                     showTrendSignal={mode === 'trending'}
+                    recordLabel={recordLabel}
+                    signalLabel={signalLabel}
                   />
                 ))}
               </div>

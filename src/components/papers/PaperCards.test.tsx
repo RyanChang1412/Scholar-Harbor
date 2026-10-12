@@ -28,7 +28,10 @@ describe('CompactPaperCard', () => {
   it('renders long metadata without truncating the paper title or authors', () => {
     render(
       <MemoryRouter>
-        <CompactPaperCard paper={longTitlePaper} />
+        <CompactPaperCard
+          paper={longTitlePaper}
+          recordLabel="Fictional fixture"
+        />
       </MemoryRouter>,
     )
 

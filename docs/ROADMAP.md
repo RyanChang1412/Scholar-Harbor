@@ -32,8 +32,20 @@ data, recommendation scoring, or personal storage.
   AI-unavailable handling, citation copy, and local bookmark/reading status.
 - Deterministic domain, repository, component, navigation, and browser tests.
 
-The phase prompt explicitly excludes live APIs, so the first reviewed real source
-adapter, public artifacts, and deterministic ingestion tests remain deferred.
+Phase 02 deliberately excluded live APIs; Phase 03 added them without changing
+the Phase 02 fixture-based development contract.
+
+## 3. Real academic data — complete
+
+- Official arXiv and Hugging Face Papers retrieval with optional OpenAlex DOI
+  enrichment.
+- Canonical revision handling, provenance-preserving deduplication, topic tags,
+  runtime validation, bounded versioned output, and atomic publication.
+- Timeouts, rate limiting, bounded retries, source isolation, structured logs,
+  last-known-good protection, and unchanged-output suppression.
+- Scheduled/manual least-privilege GitHub Actions publication to `main`, which
+  triggers the existing Cloudflare build.
+- Production frontend loading and validation of genuine source-backed records.
 
 ## 4. Personalization and library — planned
 
@@ -47,9 +59,8 @@ adapter, public artifacts, and deterministic ingestion tests remain deferred.
 - Traceable Trending signals and authoritative ranking links/summaries.
 - Research Pulse using only defined source-backed data.
 
-## Later production automation and optional AI — planned
+## Later deployment activation and optional AI — planned
 
-- Scheduled least-privileged ingestion workflow with validated dataset commits.
 - Cloudflare Workers Builds production connection and deployment verification.
 - Optional cached AI enrichment in trusted CI/server context with graceful failure.
 

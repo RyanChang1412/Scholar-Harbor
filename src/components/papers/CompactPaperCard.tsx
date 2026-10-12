@@ -14,12 +14,16 @@ interface CompactPaperCardProps {
   readonly paper: Paper
   readonly showRecommendation?: boolean
   readonly showTrendSignal?: boolean
+  readonly recordLabel?: string | undefined
+  readonly signalLabel?: string | undefined
 }
 
 export function CompactPaperCard({
   paper,
   showRecommendation = true,
   showTrendSignal = false,
+  recordLabel = 'Source-backed record',
+  signalLabel = 'Community',
 }: CompactPaperCardProps) {
   const location = useLocation()
   const detailState = { from: `${location.pathname}${location.search}` }
@@ -32,7 +36,7 @@ export function CompactPaperCard({
             {paper.recommendation.lane}
           </TopicBadge>
         )}
-        <span className="text-xs text-text-muted">Fictional fixture</span>
+        <span className="text-xs text-text-muted">{recordLabel}</span>
       </div>
       <h3 className="break-words text-pretty text-lg leading-snug font-semibold text-text">
         <Link
@@ -53,7 +57,7 @@ export function CompactPaperCard({
       )}
       {showTrendSignal && paper.communitySignals?.[0] && (
         <p className="mt-3 rounded-md bg-surface-soft px-3 py-2 text-xs leading-5 text-text-muted">
-          Fixture signal score {getTrendingScore(paper)} · sourced from{' '}
+          {signalLabel} signal score {getTrendingScore(paper)} · sourced from{' '}
           {paper.communitySignals[0].source}
         </p>
       )}

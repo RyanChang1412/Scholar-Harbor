@@ -2,15 +2,33 @@
 
 ## Status
 
-No external source adapter, feed, dataset, or ingestion workflow is implemented
-yet. Phase 02 uses only fictional, visibly labeled records from `src/fixtures`.
-Every real source must be reviewed and recorded here before production use.
+Phase 03 implements arXiv and Hugging Face Papers adapters and publishes their
+normalized records in `public/data/papers.v1.json`. Development routes continue
+to use fictional, visibly labeled records from `src/fixtures`.
 
-The fixture records include invented provenance entries and invented community
+Test fixtures include invented provenance entries and invented community
 signals solely to validate schema, ordering, and interface behavior. Trending
 uses a deterministic score over those labeled mock signals. Fixture URLs use the
 reserved non-resolving `example.invalid` domain and have a `fixture`
 verification status; they are never presented as verified live destinations.
+
+| Provider            | Implemented use                                                                        | Access and update behavior                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| arXiv               | Recent records from configured CS/ML categories through the official Atom API          | One bounded combined query per run, timeout, retry/backoff, keyword filtering, canonical revision handling                |
+| Hugging Face Papers | Paper identity plus upvote/comment signals through `huggingface_hub.HfApi.list_papers` | Four bounded search queries with delay, timeout, retry/backoff, and deduplication                                         |
+| OpenAlex            | Optional DOI-based `cited_by_count` enrichment                                         | Disabled by default; one batched DOI request only when configured with `OPENALEX_API_KEY`; never required for publication |
+
+The verified endpoints are `https://export.arxiv.org/api/query`, the official
+Hugging Face Hub client paper methods, and `https://api.openalex.org/works`.
+The 2026-10-12 manual integration run retrieved 25 filtered arXiv records and 28
+Hugging Face records without credentials. OpenAlex connectivity was checked, but
+enrichment was not enabled because the base sources supplied sufficient metadata.
+
+Official references reviewed for this phase:
+
+- [arXiv API documentation](https://info.arxiv.org/help/api/index.html)
+- [Hugging Face Hub `HfApi.list_papers`](https://huggingface.co/docs/huggingface_hub/en/package_reference/hf_api#huggingface_hub.HfApi.list_papers)
+- [OpenAlex API documentation](https://docs.openalex.org/how-to-use-the-api/api-overview)
 
 ## Source acceptance requirements
 
@@ -73,7 +91,7 @@ freshness visible to the frontend.
 
 ## Operational reliability contract
 
-Future ingestion must run unattended and remain safe to rerun. Each adapter must
+Ingestion runs unattended and remains safe to rerun. Each adapter must
 use documented timeouts, rate limits, bounded retries with backoff, and stable
 checkpoints or conditional requests where the provider supports them. Scheduled
 runs must use concurrency control, treat an unchanged dataset as success, and
@@ -84,6 +102,12 @@ last accepted dataset available. The workflow must report an actionable failure
 summary without logging credentials or requiring routine daily intervention.
 Repeated failures may require a deliberate source review, but a normal failed run
 must never corrupt production data or create a manual repair loop.
+
+Operational health is judged by successful recovery, schema-valid output, intact
+provenance, and safe retention of the last accepted dataset. A daily record count
+is useful telemetry but is never a quality target; an unusually small valid result
+must be investigated through source freshness and validation signals rather than
+filled with fabricated or weakly matched records.
 
 ## AI enrichment
 

@@ -51,6 +51,9 @@ agents. Read it before changing the repository.
   bounded retries with backoff, concurrency control, validation before publish,
   last-known-good data on failure, and actionable failure reporting. A routine
   provider outage or unchanged dataset must not require daily manual repair.
+- Treat recovery behavior, schema integrity, and provenance retention as the
+  primary ingestion health criteria. Daily record count is an observation, not a
+  correctness target or a reason to publish questionable data.
 - Never expose credentials in frontend bundles, public JSON, logs, fixtures, or
   Git history. Use GitHub Secrets for ingestion and Cloudflare build secrets only
   when a phase actually needs them.
@@ -74,7 +77,7 @@ agents. Read it before changing the repository.
 - Do not commit generated personal state, API keys, tokens, local environment
   files, dependency caches, build output, or ingestion scratch data.
 - Keep fictional fixtures limited to development and automated-test routes. The
-  default production build must use production-safe empty states and pass the
-  build-content verification script.
+  default production build must use only validated public datasets plus safe
+  loading/empty/error states and must pass the build-content verification script.
 - Do not create a worktree during cloud tasks unless the user explicitly asks for
   one; use the checkout already provided under `/workspace`.

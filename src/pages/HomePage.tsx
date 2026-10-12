@@ -78,13 +78,20 @@ export function HomePage() {
           />
 
           <div className="home-paper-grid mt-7 grid min-w-0 gap-5 lg:grid-cols-[minmax(0,1.65fr)_minmax(16rem,0.85fr)] lg:items-start">
-            <FeaturedPaperCard paper={featuredPaper} />
+            <FeaturedPaperCard
+              paper={featuredPaper}
+              recordLabel="Fictional fixture"
+            />
             <div
               className="home-compact-grid grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-1"
               data-home-compact-grid=""
             >
               {compactPapers.map((paper) => (
-                <CompactPaperCard key={paper.id} paper={paper} />
+                <CompactPaperCard
+                  key={paper.id}
+                  paper={paper}
+                  recordLabel="Fictional fixture"
+                />
               ))}
             </div>
           </div>

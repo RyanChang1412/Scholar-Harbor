@@ -25,10 +25,6 @@ import {
   type Paper,
   type PaperExternalLink,
 } from '../domain/paper'
-import {
-  fixturePaperRepository,
-  fixturePaperSnapshotLabel,
-} from '../fixtures/papers'
 import { usePaper } from '../hooks/usePaperRepository'
 import { usePersonalPaperState } from '../hooks/usePersonalPaperState'
 import { createBibTeX } from '../lib/citation'
@@ -39,10 +35,22 @@ interface DetailLocationState {
 
 type CopyStatus = 'idle' | 'copied' | 'error'
 
-export function PaperDetailPage() {
+interface PaperDetailPageProps {
+  readonly repository: import('../data/papers/PaperRepository').PaperRepository
+  readonly snapshotLabel?: string
+  readonly recordLabel?: string
+  readonly destinationNotice?: string | undefined
+}
+
+export function PaperDetailPage({
+  repository,
+  snapshotLabel,
+  recordLabel = 'Source-backed record',
+  destinationNotice,
+}: PaperDetailPageProps) {
   const { paperId } = useParams()
   const location = useLocation()
-  const { paper, loading, error } = usePaper(fixturePaperRepository, paperId)
+  const { paper, loading, error } = usePaper(repository, paperId)
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle')
   const from = (location.state as DetailLocationState | null)?.from
   const backTo =
@@ -52,7 +60,7 @@ export function PaperDetailPage() {
     return (
       <PageContainer className="py-12 sm:py-16">
         <LoadingState
-          description="Validating the selected fixture record."
+          description="Validating the selected paper record."
           title="Loading paper"
         />
       </PageContainer>
@@ -74,7 +82,7 @@ export function PaperDetailPage() {
     return (
       <PageContainer className="py-12 sm:py-16">
         <EmptyState
-          description="This stable paper identity is not present in the validated fixture repository."
+          description="This stable paper identity is not present in the validated repository."
           title="Paper not found"
         />
         <Link
@@ -117,7 +125,7 @@ export function PaperDetailPage() {
                 {paper.recommendation.lane}
               </TopicBadge>
             )}
-            <TopicBadge>Fictional fixture</TopicBadge>
+            <TopicBadge>{recordLabel}</TopicBadge>
           </div>
 
           <h1 className="mt-5 break-words text-pretty font-editorial text-[clamp(2rem,6vw,3.35rem)] leading-[1.06] font-semibold tracking-[-0.035em] text-text">
@@ -178,7 +186,7 @@ export function PaperDetailPage() {
                 className="text-sm font-semibold text-action"
                 id="recommendation-title"
               >
-                Why this fixture appears
+                Why this appears
               </h2>
               <p className="mt-2 leading-7 text-text-muted">
                 {paper.recommendation.reason}
@@ -191,6 +199,11 @@ export function PaperDetailPage() {
           copyStatus={copyStatus}
           onCopy={() => void copyCitation()}
           paper={paper}
+          snapshotLabel={
+            snapshotLabel ??
+            `Retrieved ${formatPaperDate(paper.provenance[0]!.retrievedAt)}`
+          }
+          destinationNotice={destinationNotice}
         />
       </article>
     </PageContainer>
@@ -201,10 +214,14 @@ function PaperMetadata({
   paper,
   copyStatus,
   onCopy,
+  snapshotLabel,
+  destinationNotice,
 }: {
   readonly paper: Paper
   readonly copyStatus: CopyStatus
   readonly onCopy: () => void
+  readonly snapshotLabel: string
+  readonly destinationNotice?: string | undefined
 }) {
   const { state, setStatus } = usePersonalPaperState(paper.id)
   const paperLink = getPaperLink(paper, 'paper')
@@ -259,10 +276,11 @@ function PaperMetadata({
         ) : (
           <p className="text-xs text-text-muted">Code link unavailable</p>
         )}
-        <p className="pt-1 text-xs leading-5 text-text-muted">
-          Fixture destinations use the reserved non-resolving example.invalid
-          domain.
-        </p>
+        {destinationNotice && (
+          <p className="pt-1 text-xs leading-5 text-text-muted">
+            {destinationNotice}
+          </p>
+        )}
       </div>
 
       <div className="mt-6 space-y-3 border-t border-border pt-5">
@@ -300,7 +318,7 @@ function PaperMetadata({
       </div>
 
       <div className="mt-6 border-t border-border pt-5">
-        <DataFreshnessIndicator label={fixturePaperSnapshotLabel} />
+        <DataFreshnessIndicator label={snapshotLabel} />
       </div>
     </aside>
   )

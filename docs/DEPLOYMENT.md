@@ -43,7 +43,7 @@ Cloudflare runs the build command as its separate first step.
 
 ## Dataset-to-production path
 
-The ingestion phase must implement this sequence explicitly:
+The committed `ingest-papers.yml` workflow implements this sequence:
 
 1. A scheduled GitHub Actions job checks out `main` and installs pinned Python
    dependencies.
@@ -64,12 +64,19 @@ credentials. If branch protection requires a pull request, use an automated data
 PR and let the merge to `main` trigger Cloudflare; document that choice when it is
 implemented.
 
-The future workflow must be idempotent and unattended: provider requests use
+The workflow is idempotent and unattended: provider requests use
 timeouts and bounded backoff, unchanged results exit successfully without a
 commit, and any failed validation or transient provider outage preserves the
 last-known-good artifacts. Failure output must identify the affected adapter and
 next diagnostic step without exposing response secrets. Routine scheduled runs
 must not depend on a person repairing them each day.
+
+The schedule is `04:23 UTC` daily and the same workflow supports
+`workflow_dispatch`. GitHub does not guarantee exact scheduled start times. The
+ingest job has `contents: read`; only the separate publish job receives
+`contents: write`. An unchanged dataset exits without a commit. A valid changed
+artifact is committed to `main`, which triggers the sole Cloudflare Workers Build
+deployment path. The workflow never deploys the frontend itself.
 
 ## Validation before production
 

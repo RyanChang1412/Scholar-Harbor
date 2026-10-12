@@ -2,18 +2,17 @@
 
 ## Status
 
-This document records the accepted architecture. Phase 02 adds a normalized,
-runtime-validated Paper domain model, pure list-query operations, a replaceable
-Paper repository interface, and a versioned browser-local repository for
-bookmarks and reading status. Development and test routes consume these
-boundaries for complete fixture-backed paper discovery and detail views.
-Production source adapters, recommendation scoring, full library management, and
-ingestion remain planned.
+Phase 03 implements source adapters, canonical arXiv identity resolution,
+deterministic normalization, runtime validation, failure-isolated publication,
+and production loading of the bounded `papers.v1.json` dataset. Development and
+test routes retain deterministic fixtures; production routes fetch and validate
+the generated public artifact. Recommendation scoring, AI enrichment, and full
+library management remain planned.
 
 Development and test builds select the fixture route set. Production builds
-select a separate route set with explicit no-data states, allowing Rollup to omit
-the fixture modules. A post-build verifier rejects fixture markers, common secret
-formats, and email-like personal identifiers before deployment packaging.
+select a separate route set backed by `/data/papers.v1.json`, allowing Rollup to
+omit the fixture modules. A post-build verifier rejects fixture markers, common
+secret formats, and email-like personal identifiers before deployment packaging.
 
 ## System boundaries
 

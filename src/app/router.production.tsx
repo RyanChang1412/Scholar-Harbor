@@ -1,16 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import {
-  ProductionHomePage,
-  ProductionPaperDetailPage,
-  ProductionPapersPage,
-} from '../pages/ProductionContentPages'
+import { publicPaperRepository } from '../data/papers/PublicPaperRepository'
+import { PaperDetailPage } from '../pages/PaperDetailPage'
+import { PapersPage } from '../pages/PapersPage'
+import { ProductionHomePage } from '../pages/ProductionContentPages'
 import { createAppRoutes } from './router'
 
 export const appRoutes = createAppRoutes({
   home: <ProductionHomePage />,
-  papers: <ProductionPapersPage />,
-  paperDetail: <ProductionPaperDetailPage />,
+  papers: (
+    <PapersPage defaultMode="latest" repository={publicPaperRepository} />
+  ),
+  paperDetail: <PaperDetailPage repository={publicPaperRepository} />,
 })
 
 export const router = createBrowserRouter(appRoutes)

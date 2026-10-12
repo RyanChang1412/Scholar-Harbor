@@ -11,11 +11,16 @@ import { BookmarkButton } from './BookmarkButton'
 
 interface FeaturedPaperCardProps {
   readonly paper: Paper
+  readonly recordLabel?: string | undefined
 }
 
-export function FeaturedPaperCard({ paper }: FeaturedPaperCardProps) {
+export function FeaturedPaperCard({
+  paper,
+  recordLabel = 'Source-backed record',
+}: FeaturedPaperCardProps) {
   const location = useLocation()
   const detailState = { from: `${location.pathname}${location.search}` }
+  const abstractPreview = getAbstractPreview(paper.abstract)
 
   return (
     <article className="min-w-0 rounded-xl border border-border bg-surface p-6 shadow-card sm:p-8">
@@ -25,7 +30,7 @@ export function FeaturedPaperCard({ paper }: FeaturedPaperCardProps) {
             {paper.recommendation.lane}
           </TopicBadge>
         )}
-        <TopicBadge>Fictional fixture</TopicBadge>
+        <TopicBadge>{recordLabel}</TopicBadge>
       </div>
 
       <h3 className="max-w-4xl break-words text-pretty font-editorial text-[clamp(1.65rem,4vw,2.35rem)] leading-[1.12] font-semibold tracking-[-0.025em] text-text">
@@ -42,7 +47,7 @@ export function FeaturedPaperCard({ paper }: FeaturedPaperCardProps) {
         {paper.authors.join(' · ')}
       </p>
       <p className="mt-5 max-w-4xl text-pretty leading-7 text-text-muted">
-        {paper.abstract}
+        {abstractPreview}
       </p>
 
       <div className="mt-5 flex flex-wrap gap-2">
@@ -84,4 +89,11 @@ export function FeaturedPaperCard({ paper }: FeaturedPaperCardProps) {
       </div>
     </article>
   )
+}
+
+function getAbstractPreview(abstract: string) {
+  if (abstract.length <= 440) return abstract
+  const candidate = abstract.slice(0, 440)
+  const boundary = candidate.lastIndexOf(' ')
+  return `${candidate.slice(0, Math.max(boundary, 360))}…`
 }

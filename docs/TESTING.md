@@ -2,9 +2,9 @@
 
 ## Status
 
-Phase 02 retains the Phase 01 quality gates and adds domain, repository, query,
-browser-local state, citation, paper-list, paper-detail, history-navigation, and
-wide-screen discovery coverage.
+Phase 03 retains the frontend gates and adds deterministic Python tests for
+source parsing, canonical identity, failure isolation, retries, historical-data
+preservation, schema validation, and atomic/idempotent publication.
 
 Run the default checks with:
 
@@ -13,6 +13,7 @@ npm run typecheck
 npm run lint
 npm test
 npm run test:e2e
+npm run test:ingestion
 npm run format:check
 npm run build
 npm run deploy:dry-run
@@ -73,11 +74,38 @@ states, missing optional links, long metadata, detail navigation, safe external
 links, citation copy, browser-local bookmarks/status, and Back/Forward filter
 restoration.
 
+## Phase 03 validation record
+
+Validated on 2026-10-12 in the onboarding environment:
+
+| Check                                           | Result                                            |
+| ----------------------------------------------- | ------------------------------------------------- |
+| Pinned Python dependency install                | Passed in isolated `.venv`                        |
+| Python ingestion unit suite                     | 14 passed                                         |
+| Live arXiv integration                          | Passed; 25 filtered records                       |
+| Live Hugging Face integration                   | Passed; 28 records with traceable signals         |
+| Immediate repeat ingestion                      | Passed; dataset unchanged and not rewritten       |
+| Strict TypeScript, ESLint, Prettier             | Passed                                            |
+| Vitest domain/component/route suite             | 36 passed                                         |
+| Playwright browser suite                        | 15 passed                                         |
+| Production mobile/desktop/ultra-wide inspection | Passed; no horizontal overflow                    |
+| Vite build and production-content scan          | Passed; 6 text assets scanned                     |
+| Direct production `/` and paper-detail requests | `200 OK`; dataset served with 53 validated papers |
+| Wrangler packaging dry-run                      | Passed; 18 static assets read                     |
+
+OpenAlex API connectivity was verified independently. The generated dataset did
+not enable OpenAlex enrichment, so no private credential was requested and no
+OpenAlex-derived field is claimed in the artifact.
+
 ## Test strategy
 
 Use deterministic fixtures for core behavior. Live provider calls belong only in
 explicit integration tests and are not part of the default unit suite. Tests must
 exercise behavior that can fail rather than mirror implementation details.
+Ingestion acceptance prioritizes recovery from unavailable or malformed sources,
+strict published-schema validation, and retained source provenance. The number of
+papers returned on a particular day is diagnostic information, not a pass/fail
+threshold.
 
 ## Required coverage by capability
 

@@ -95,7 +95,33 @@ export const paperSchema = z
   )
 
 export const paperCollectionSchema = z.array(paperSchema)
+export const paperDatasetSchema = z
+  .object({
+    schemaVersion: z.literal(1),
+    generatedAt: isoDateTimeSchema,
+    lastSuccessfulUpdateAt: isoDateTimeSchema,
+    sources: z.array(
+      z
+        .object({
+          id: z.string().min(1),
+          status: z.enum(['ok', 'unavailable']),
+          lastSuccessfulUpdateAt: isoDateTimeSchema.optional(),
+          recordCount: z.number().int().nonnegative(),
+        })
+        .strict(),
+    ),
+    statistics: z
+      .object({
+        inputRecords: z.number().int().nonnegative(),
+        publishedPapers: z.number().int().positive(),
+        duplicatesMerged: z.number().int().nonnegative(),
+      })
+      .strict(),
+    papers: paperCollectionSchema.min(1),
+  })
+  .strict()
 export type Paper = z.infer<typeof paperSchema>
+export type PaperDataset = z.infer<typeof paperDatasetSchema>
 export type PaperExternalLink = Paper['externalLinks'][number]
 
 export function getPaperLink(paper: Paper, kind: PaperExternalLink['kind']) {
@@ -104,6 +130,12 @@ export function getPaperLink(paper: Paper, kind: PaperExternalLink['kind']) {
 
 export function getPrimarySource(paper: Paper) {
   return paper.provenance[0]?.source ?? 'Unknown source'
+}
+
+export function isFixturePaper(paper: Paper) {
+  return paper.externalLinks.some(
+    (link) => link.verification.status === 'fixture',
+  )
 }
 
 export function formatPaperDate(isoDate: string) {
