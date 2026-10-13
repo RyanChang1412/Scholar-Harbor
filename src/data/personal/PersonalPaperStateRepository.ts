@@ -8,13 +8,35 @@ import {
   type PersonalStateEnvelope,
   type ReadingStatus,
 } from '../../domain/personal-paper-state'
+import type { Paper } from '../../domain/paper'
 import {
   publicDefaultProfile,
+  researchProfileSchema,
   type ResearchProfile,
 } from '../../domain/research-profile'
 
-export const personalStateStorageKey = 'scholar-harbor.personal.v2'
+export const personalStateStorageKey = 'scholar-harbor.personal.v3'
+export const legacyV2PersonalStateStorageKey = 'scholar-harbor.personal.v2'
 export const legacyPersonalStateStorageKey = 'scholar-harbor.personal-papers.v1'
+
+const legacyV2EnvelopeSchema = z
+  .object({
+    version: z.literal(2),
+    papers: z.record(
+      z.string(),
+      z
+        .object({
+          paperId: z.string().min(1),
+          saved: z.boolean(),
+          status: z.enum(['unread', 'want-to-read', 'reading', 'finished']),
+          tags: z.array(z.string().trim().min(1)).max(20),
+          updatedAt: z.iso.datetime({ offset: true }),
+        })
+        .strict(),
+    ),
+    profile: researchProfileSchema,
+  })
+  .strict()
 
 const legacyEnvelopeSchema = z
   .object({
@@ -33,7 +55,7 @@ const legacyEnvelopeSchema = z
 
 function emptyEnvelope(): PersonalStateEnvelope {
   return {
-    version: 2,
+    version: 3,
     papers: {},
     profile: structuredClone(publicDefaultProfile),
   }
@@ -43,7 +65,7 @@ export interface PersonalPaperStateRepository {
   get(paperId: string): PersonalPaperState
   list(): readonly PersonalPaperState[]
   getProfile(): ResearchProfile
-  setSaved(paperId: string, saved: boolean): PersonalPaperState
+  setSaved(paper: Paper | string, saved: boolean): PersonalPaperState
   setStatus(paperId: string, status: ReadingStatus): PersonalPaperState
   setTags(paperId: string, tags: readonly string[]): PersonalPaperState
   setProfile(profile: ResearchProfile): ResearchProfile
@@ -79,8 +101,13 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
     return this.#load().profile
   }
 
-  setSaved(paperId: string, saved: boolean) {
-    return this.#updatePaper(paperId, { saved })
+  setSaved(paper: Paper | string, saved: boolean) {
+    const paperId = typeof paper === 'string' ? paper : paper.id
+    if (typeof paper === 'string') return this.#updatePaper(paperId, { saved })
+
+    const paperSnapshot = { ...paper }
+    delete paperSnapshot.recommendation
+    return this.#updatePaper(paperId, { saved, paperSnapshot })
   }
 
   setStatus(paperId: string, status: ReadingStatus) {
@@ -110,7 +137,7 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
   importJson(value: string) {
     const result = personalStateEnvelopeSchema.safeParse(JSON.parse(value))
     if (!result.success) {
-      throw new Error('The selected file is not valid Scholar Harbor v2 data.')
+      throw new Error('The selected file is not valid Scholar Harbor v3 data.')
     }
     this.#persist(result.data)
     return result.data
@@ -118,6 +145,7 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
 
   reset() {
     this.#storage.removeItem(personalStateStorageKey)
+    this.#storage.removeItem(legacyV2PersonalStateStorageKey)
     this.#storage.removeItem(legacyPersonalStateStorageKey)
     this.#fallbackEnvelope = undefined
     this.#notify()
@@ -139,12 +167,25 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
         if (result.success) return result.data
         this.#storage.removeItem(personalStateStorageKey)
       }
+      const legacyV2 = this.#storage.getItem(legacyV2PersonalStateStorageKey)
+      if (legacyV2) {
+        const result = legacyV2EnvelopeSchema.safeParse(JSON.parse(legacyV2))
+        if (result.success) {
+          const migrated = personalStateEnvelopeSchema.parse({
+            ...result.data,
+            version: 3,
+          })
+          this.#persist(migrated)
+          this.#storage.removeItem(legacyV2PersonalStateStorageKey)
+          return migrated
+        }
+      }
       const legacy = this.#storage.getItem(legacyPersonalStateStorageKey)
       if (legacy) {
         const result = legacyEnvelopeSchema.safeParse(JSON.parse(legacy))
         if (result.success) {
           const migrated = personalStateEnvelopeSchema.parse({
-            version: 2,
+            version: 3,
             profile: publicDefaultProfile,
             papers: Object.fromEntries(
               Object.entries(result.data.papers).map(([id, state]) => [
@@ -170,7 +211,9 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
 
   #updatePaper(
     paperId: string,
-    update: Partial<Pick<PersonalPaperState, 'saved' | 'status' | 'tags'>>,
+    update: Partial<
+      Pick<PersonalPaperState, 'paperSnapshot' | 'saved' | 'status' | 'tags'>
+    >,
   ) {
     const envelope = this.#load()
     const next = personalPaperStateSchema.parse({

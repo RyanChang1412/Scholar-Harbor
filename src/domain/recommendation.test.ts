@@ -111,4 +111,21 @@ describe('balanced discovery', () => {
     const result = recommendPapers(candidates, exploreOnly, { limit: 2, now })
     expect(result.papers.map((paper) => paper.topics[1])).toContain('Distinct')
   })
+
+  it('keeps unrelated candidates ineligible instead of forcing Explore', () => {
+    const unrelated = {
+      ...candidateSet()[0]!,
+      id: 'paper-2610-99999',
+      arxivId: '2610.99999v1',
+      title: 'Unrelated candidate',
+      topics: ['Unrelated topic'],
+    }
+    const result = recommendPapers([...candidateSet(), unrelated], profile, {
+      limit: 11,
+      now,
+    })
+    expect(result.papers.some((paper) => paper.id === unrelated.id)).toBe(false)
+    expect(result.measurement.selected).toBe(10)
+    expect(result.measurement.quotaRelaxed).toBe(true)
+  })
 })

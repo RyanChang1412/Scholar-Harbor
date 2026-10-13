@@ -1,5 +1,5 @@
 import { BookMarked } from 'lucide-react'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import {
   EmptyState,
@@ -11,6 +11,7 @@ import { PageContainer } from '../components/layout/PageContainer'
 import { CompactPaperCard } from '../components/papers/CompactPaperCard'
 import type { PaperRepository } from '../data/papers/PaperRepository'
 import type { ReadingStatus } from '../domain/personal-paper-state'
+import type { Paper } from '../domain/paper'
 import { usePaperList } from '../hooks/usePaperRepository'
 import { usePersonalData } from '../hooks/usePersonalData'
 import { usePersonalPaperState } from '../hooks/usePersonalPaperState'
@@ -21,17 +22,28 @@ export function LibraryPage({
   readonly repository: PaperRepository
 }) {
   const { papers, loading, error } = usePaperList(repository)
-  const { paperStates } = usePersonalData()
-  const savedIds = useMemo(
-    () =>
-      new Set(
-        paperStates
-          .filter((state) => state.saved)
-          .map((state) => state.paperId),
-      ),
-    [paperStates],
+  const { paperStates, repository: personalRepository } = usePersonalData()
+  const papersById = useMemo(
+    () => new Map(papers.map((paper) => [paper.id, paper])),
+    [papers],
   )
-  const savedPapers = papers.filter((paper) => savedIds.has(paper.id))
+  const savedStates = paperStates.filter((state) => state.saved)
+  const savedPapers = savedStates
+    .map((state) => papersById.get(state.paperId) ?? state.paperSnapshot)
+    .filter((paper): paper is Paper => paper !== undefined)
+  const unavailableStates = savedStates.filter(
+    (state) => !papersById.has(state.paperId) && !state.paperSnapshot,
+  )
+
+  useEffect(() => {
+    if (loading || error) return
+    for (const state of paperStates) {
+      const currentPaper = papersById.get(state.paperId)
+      if (state.saved && !state.paperSnapshot && currentPaper) {
+        personalRepository.setSaved(currentPaper, true)
+      }
+    }
+  }, [error, loading, paperStates, papersById, personalRepository])
 
   return (
     <PageContainer className="py-12 sm:py-16">
@@ -55,22 +67,48 @@ export function LibraryPage({
         {error && (
           <ErrorState title="Library could not be loaded" description={error} />
         )}
-        {!loading && !error && savedPapers.length === 0 && (
-          <EmptyState
-            title="Your library is empty"
-            description="Save a paper from Papers or a paper detail page to keep it here."
-          />
-        )}
-        {!loading && !error && savedPapers.length > 0 && (
-          <div className="grid gap-5 xl:grid-cols-2">
-            {savedPapers.map((paper) => (
-              <div key={paper.id} className="min-w-0">
-                <CompactPaperCard paper={paper} showRecommendation={false} />
-                <LibraryControls paperId={paper.id} />
-              </div>
-            ))}
-          </div>
-        )}
+        {!loading &&
+          !error &&
+          savedPapers.length === 0 &&
+          unavailableStates.length === 0 && (
+            <EmptyState
+              title="Your library is empty"
+              description="Save a paper from Papers or a paper detail page to keep it here."
+            />
+          )}
+        {!loading &&
+          !error &&
+          (savedPapers.length > 0 || unavailableStates.length > 0) && (
+            <div className="grid gap-5 xl:grid-cols-2">
+              {savedPapers.map((paper) => (
+                <div key={paper.id} className="min-w-0">
+                  <CompactPaperCard paper={paper} showRecommendation={false} />
+                  <LibraryControls paperId={paper.id} />
+                </div>
+              ))}
+              {unavailableStates.map((state) => (
+                <article
+                  className="rounded-lg border border-border bg-surface p-5 shadow-card sm:p-6"
+                  key={state.paperId}
+                >
+                  <p className="text-xs font-semibold tracking-[0.1em] text-action uppercase">
+                    Saved local record
+                  </p>
+                  <h2 className="mt-3 font-editorial text-xl font-semibold text-text">
+                    Paper details unavailable
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-text-muted">
+                    This bookmark predates durable local snapshots and the paper
+                    is no longer in the current public dataset. Its private
+                    state remains stored under {state.paperId}.
+                  </p>
+                  <div className="mt-5">
+                    <LibraryControls paperId={state.paperId} />
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
       </div>
     </PageContainer>
   )

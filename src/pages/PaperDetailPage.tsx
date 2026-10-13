@@ -6,7 +6,7 @@ import {
   ExternalLink,
   FileText,
 } from 'lucide-react'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 
 import {
@@ -50,10 +50,18 @@ export function PaperDetailPage({
   recordLabel = 'Source-backed record',
   destinationNotice,
 }: PaperDetailPageProps) {
-  const { profile } = usePersonalData()
+  const { profile, repository: personalRepository } = usePersonalData()
   const { paperId } = useParams()
   const location = useLocation()
-  const { paper, loading, error } = usePaper(repository, paperId)
+  const {
+    paper: repositoryPaper,
+    loading,
+    error,
+  } = usePaper(repository, paperId)
+  const savedSnapshot = paperId
+    ? personalRepository.get(paperId).paperSnapshot
+    : undefined
+  const paper = repositoryPaper ?? savedSnapshot
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle')
   const from = (location.state as DetailLocationState | null)?.from
   const backTo =
@@ -70,7 +78,7 @@ export function PaperDetailPage({
     )
   }
 
-  if (error) {
+  if (error && !paper) {
     return (
       <PageContainer className="py-12 sm:py-16">
         <ErrorState
@@ -128,7 +136,9 @@ export function PaperDetailPage({
                 {paper.recommendation.lane}
               </TopicBadge>
             )}
-            <TopicBadge>{recordLabel}</TopicBadge>
+            <TopicBadge>
+              {repositoryPaper ? recordLabel : 'Saved local snapshot'}
+            </TopicBadge>
           </div>
 
           <h1 className="mt-5 break-words text-pretty font-editorial text-[clamp(2rem,6vw,3.35rem)] leading-[1.06] font-semibold tracking-[-0.035em] text-text">
@@ -233,7 +243,7 @@ export function PaperDetailPage({
           paper={paper}
           snapshotLabel={
             snapshotLabel ??
-            `Retrieved ${formatPaperDate(paper.provenance[0]!.retrievedAt)}`
+            `${repositoryPaper ? 'Retrieved' : 'Saved snapshot · source retrieved'} ${formatPaperDate(paper.provenance[0]!.retrievedAt)}`
           }
           destinationNotice={destinationNotice}
         />
@@ -272,7 +282,22 @@ function PaperMetadata({
         />
         <Metadata label="Updated" value={formatPaperDate(paper.updatedAt)} />
         <Metadata label="arXiv ID" value={paper.arxivId} />
-        {paper.doi && <Metadata label="DOI" value={paper.doi} />}
+        {paper.doi && (
+          <Metadata
+            label="DOI"
+            value={
+              <a
+                className="inline-flex items-center gap-1 rounded-sm font-medium text-action hover:text-text"
+                href={`https://doi.org/${encodeURIComponent(paper.doi)}`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {paper.doi}
+                <ExternalLink aria-hidden="true" size={13} />
+              </a>
+            }
+          />
+        )}
         <Metadata label="Source" value={getPrimarySource(paper)} />
         <Metadata
           label="Source record"
@@ -316,7 +341,7 @@ function PaperMetadata({
       </div>
 
       <div className="mt-6 space-y-3 border-t border-border pt-5">
-        <BookmarkButton paperId={paper.id} />
+        <BookmarkButton paper={paper} />
         <label className="block text-xs font-semibold text-text">
           Reading status
           <select
@@ -360,7 +385,7 @@ function Metadata({
   value,
 }: {
   readonly label: string
-  readonly value: string
+  readonly value: ReactNode
 }) {
   return (
     <div>
