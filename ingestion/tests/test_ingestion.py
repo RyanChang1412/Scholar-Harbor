@@ -13,6 +13,7 @@ from scholar_harbor_ingest.models import DataValidationError, validate_dataset
 from scholar_harbor_ingest.pipeline import deduplicate, normalize, run_pipeline
 
 NOW = datetime(2026, 10, 12, 12, 0, tzinfo=timezone.utc)
+ROOT = Path(__file__).resolve().parents[2]
 ATOM = b'''<?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
   <entry><id>http://arxiv.org/abs/2610.12345v2</id><updated>2026-10-11T10:00:00Z</updated>
@@ -62,6 +63,33 @@ class IngestionTests(unittest.TestCase):
     def test_malformed_arxiv_response_is_rejected(self):
         with self.assertRaises(Exception):
             ArxivAdapter.parse(b"not xml")
+
+    def test_grouped_arxiv_queries_merge_query_attribution(self):
+        adapter = ArxivAdapter(
+            ["cs.AI"],
+            timeout=1,
+            attempts=1,
+            backoff=0,
+            query_groups=[
+                {"id": "core-rsi", "terms": ["recursive self-improvement"], "maxResults": 4}
+            ],
+            historical_query_groups=[
+                {"id": "core-rsi-history", "terms": ["self-improving agent"], "maxResults": 4}
+            ],
+            include_historical=True,
+            request_delay=0,
+        )
+        with patch("scholar_harbor_ingest.adapters.fetch_bytes", return_value=ATOM):
+            records = adapter.fetch()
+        self.assertEqual(len(records), 1)
+        self.assertEqual(
+            [context["queryGroup"] for context in records[0]["retrievalContexts"]],
+            ["core-rsi", "core-rsi-history"],
+        )
+        self.assertEqual(
+            [context["historical"] for context in records[0]["retrievalContexts"]],
+            [False, True],
+        )
 
     def test_revision_deduplication_keeps_latest_and_provenance(self):
         earlier = source_record("v1", "Original title")
@@ -192,7 +220,15 @@ class IngestionTests(unittest.TestCase):
             config = root / "config.json"
             output = root / "papers.json"
             config.write_text(json.dumps({"windowDays": 30, "maxPublishedPapers": 10}))
-            adapter = FakeAdapter("arxiv", [source_record()])
+            record = source_record()
+            record["retrievalContexts"] = [
+                {
+                    "queryGroup": "core-rsi",
+                    "query": 'all:"recursive self-improvement"',
+                    "historical": False,
+                }
+            ]
+            adapter = FakeAdapter("arxiv", [record])
             self.assertTrue(run_pipeline(config_path=config, output_path=output, adapters=[adapter], now=NOW))
             before = output.read_bytes()
             self.assertFalse(run_pipeline(config_path=config, output_path=output, adapters=[adapter], now=datetime(2026, 10, 13, tzinfo=timezone.utc)))
@@ -223,6 +259,52 @@ class IngestionTests(unittest.TestCase):
         second["publishedAt"] = second["updatedAt"] = "2026-10-09T09:00:00Z"
         ordered = deduplicate(normalize([second, first], "2026-10-12T12:00:00Z"))
         self.assertEqual([paper["id"] for paper in ordered], ["paper-2610-12345", "paper-2610-00001"])
+
+    def test_historical_backfill_is_retained_without_daily_full_history(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config = root / "config.json"
+            output = root / "papers.json"
+            config.write_text(
+                json.dumps(
+                    {
+                        "taxonomyPath": str(ROOT / "config/research-taxonomy.v1.json"),
+                        "windowDays": 30,
+                        "historicalRetentionDays": 1095,
+                        "maxPublishedPapers": 10,
+                    }
+                )
+            )
+            historical = source_record(title="Recursive Self-Improvement for AI Agents")
+            historical["publishedAt"] = historical["updatedAt"] = "2025-05-10T09:00:00Z"
+            historical["retrievalContexts"] = [
+                {
+                    "queryGroup": "core-rsi-history",
+                    "query": 'all:"recursive self-improvement"',
+                    "historical": True,
+                }
+            ]
+            run_pipeline(
+                config_path=config,
+                output_path=output,
+                adapters=[FakeAdapter("arxiv", [historical])],
+                now=NOW,
+                historical_backfill=True,
+            )
+            current = source_record(title="Continual Learning for AI Agents")
+            current["arxivId"] = current["sourceRecordId"] = "2610.54321v1"
+            run_pipeline(
+                config_path=config,
+                output_path=output,
+                adapters=[FakeAdapter("arxiv", [current])],
+                now=datetime(2026, 10, 13, tzinfo=timezone.utc),
+            )
+            dataset = json.loads(output.read_text())
+            self.assertEqual(
+                {paper["id"] for paper in dataset["papers"]},
+                {"paper-2610-12345", "paper-2610-54321"},
+            )
+            validate_dataset(dataset)
 
 
 if __name__ == "__main__":

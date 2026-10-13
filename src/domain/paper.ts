@@ -31,6 +31,53 @@ export const paperSchema = z
       .min(1),
     categories: z.array(z.string().trim().min(1)).min(1),
     topics: z.array(z.string().trim().min(1)).min(1),
+    topicMatches: z
+      .array(
+        z
+          .object({
+            topicId: z.string().trim().min(1),
+            label: z.string().trim().min(1),
+            group: z.enum([
+              'core-rsi',
+              'enabling-systems',
+              'application-ai4s',
+              'application-embodied',
+              'open-exploration',
+            ]),
+            relevance: z.enum([
+              'direct-rsi',
+              'enabling-systems',
+              'application-research',
+              'adjacent-exploration',
+            ]),
+            confidence: z.enum(['high', 'medium']),
+            evidence: z
+              .array(
+                z
+                  .object({
+                    field: z.enum(['title', 'abstract']),
+                    term: z.string().trim().min(1),
+                  })
+                  .strict(),
+              )
+              .min(1),
+          })
+          .strict(),
+      )
+      .optional(),
+    retrievalContexts: z
+      .array(
+        z
+          .object({
+            source: z.string().trim().min(1),
+            queryGroup: z.string().trim().min(1),
+            query: z.string().trim().min(1),
+            historical: z.boolean(),
+            retrievedAt: isoDateTimeSchema,
+          })
+          .strict(),
+      )
+      .optional(),
     externalLinks: z.array(
       z
         .object({
@@ -121,6 +168,7 @@ export const paperCollectionSchema = z.array(paperSchema)
 export const paperDatasetSchema = z
   .object({
     schemaVersion: z.literal(1),
+    taxonomyVersion: z.literal(1).optional(),
     generatedAt: isoDateTimeSchema,
     lastSuccessfulUpdateAt: isoDateTimeSchema,
     sources: z.array(
@@ -130,6 +178,7 @@ export const paperDatasetSchema = z
           status: z.enum(['ok', 'unavailable']),
           lastSuccessfulUpdateAt: isoDateTimeSchema.optional(),
           recordCount: z.number().int().nonnegative(),
+          rawRecordCount: z.number().int().nonnegative().optional(),
         })
         .strict(),
     ),
@@ -138,6 +187,18 @@ export const paperDatasetSchema = z
         inputRecords: z.number().int().nonnegative(),
         publishedPapers: z.number().int().positive(),
         duplicatesMerged: z.number().int().nonnegative(),
+        rawSourceRecords: z.number().int().nonnegative().optional(),
+        eligibleBeforeLimit: z.number().int().nonnegative().optional(),
+        classification: z
+          .object({
+            'direct-rsi': z.number().int().nonnegative(),
+            'enabling-systems': z.number().int().nonnegative(),
+            'application-research': z.number().int().nonnegative(),
+            'adjacent-exploration': z.number().int().nonnegative(),
+            ineligibleRejected: z.number().int().nonnegative(),
+          })
+          .strict()
+          .optional(),
       })
       .strict(),
     papers: paperCollectionSchema.min(1),

@@ -19,25 +19,31 @@ export function SettingsPage() {
   const [focusedShare, setFocusedShare] = useState(
     Math.round(profile.focusedRatio * 100),
   )
+  const [focusedTopicsText, setFocusedTopicsText] = useState(
+    profile.focusedTopics.join(', '),
+  )
+  const [topicWeights, setTopicWeights] = useState(profile.topicWeights)
   const fileInput = useRef<HTMLInputElement>(null)
+  const focusedTopicsDraft = parseTopicList(focusedTopicsText)
+
+  function loadProfileIntoEditor(next: typeof profile) {
+    setFocusedTopicsText(next.focusedTopics.join(', '))
+    setTopicWeights(next.topicWeights)
+    setFocusedShare(Math.round(next.focusedRatio * 100))
+  }
 
   function saveProfile(form: HTMLFormElement) {
     const data = new FormData(form)
-    const focusedTopics = parseTopicList(
-      String(data.get('focusedTopics') ?? ''),
-    )
-    const topicWeights = Object.fromEntries(
-      focusedTopics.map((topic) => [
-        topic,
-        Number(data.get(`weight:${topic}`) ?? 1),
-      ]),
+    const focusedTopics = parseTopicList(focusedTopicsText)
+    const savedTopicWeights = Object.fromEntries(
+      focusedTopics.map((topic) => [topic, topicWeights[topic] ?? 1]),
     )
     const result = researchProfileSchema.safeParse({
       focusedTopics,
       exploratoryTopics: parseTopicList(
         String(data.get('exploratoryTopics') ?? ''),
       ),
-      topicWeights,
+      topicWeights: savedTopicWeights,
       customKeywords: parseTopicList(String(data.get('customKeywords') ?? '')),
       excludedKeywords: parseTopicList(
         String(data.get('excludedKeywords') ?? ''),
@@ -81,7 +87,8 @@ export function SettingsPage() {
       return
     }
     try {
-      repository.importJson(await file.text())
+      const imported = repository.importJson(await file.text())
+      loadProfileIntoEditor(imported.profile)
       setNotice({ kind: 'success', message: 'Validated local data imported.' })
     } catch {
       setNotice({
@@ -124,11 +131,15 @@ export function SettingsPage() {
             reference detected source text and topics.
           </p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
-            <TextSetting
-              name="focusedTopics"
-              label="Focused topics"
-              defaultValue={profile.focusedTopics.join(', ')}
-            />
+            <label className="text-sm font-semibold text-text">
+              Focused topics
+              <textarea
+                className="mt-2 min-h-24 w-full rounded-md border border-border bg-surface p-3 font-normal leading-6"
+                name="focusedTopics"
+                value={focusedTopicsText}
+                onChange={(event) => setFocusedTopicsText(event.target.value)}
+              />
+            </label>
             <TextSetting
               name="exploratoryTopics"
               label="Exploratory topics"
@@ -178,7 +189,7 @@ export function SettingsPage() {
               Focused topic weights
             </legend>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              {profile.focusedTopics.map((topic) => (
+              {focusedTopicsDraft.map((topic) => (
                 <label
                   key={topic}
                   className="flex items-center justify-between gap-3 text-sm text-text-muted"
@@ -192,7 +203,13 @@ export function SettingsPage() {
                     min="0"
                     max="2"
                     step="0.1"
-                    defaultValue={profile.topicWeights[topic] ?? 1}
+                    value={topicWeights[topic] ?? 1}
+                    onChange={(event) =>
+                      setTopicWeights((current) => ({
+                        ...current,
+                        [topic]: Number(event.target.value),
+                      }))
+                    }
                   />
                 </label>
               ))}
@@ -269,6 +286,7 @@ export function SettingsPage() {
                     className="min-h-10 rounded-md bg-action text-sm font-semibold text-surface hover:bg-text"
                     onClick={() => {
                       repository.reset()
+                      loadProfileIntoEditor(repository.getProfile())
                       setResetArmed(false)
                       setNotice({
                         kind: 'success',

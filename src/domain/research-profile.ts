@@ -16,17 +16,23 @@ export const researchProfileSchema = z
 export type ResearchProfile = z.infer<typeof researchProfileSchema>
 
 export const publicDefaultProfile: ResearchProfile = {
-  focusedTopics: ['LLM systems', 'Efficient inference', 'Agent systems'],
+  focusedTopics: [
+    'Recursive Self-Improvement',
+    'AI Self-Evolution',
+    'Self-Improving Agents',
+    'Continual Learning',
+  ],
   exploratoryTopics: [
-    'Multimodal learning',
-    'Robotics',
-    'Trustworthy AI',
-    'Machine learning',
+    'Efficient Inference',
+    'AI for Science',
+    'Embodied AI',
+    'Agent Memory',
   ],
   topicWeights: {
-    'LLM systems': 1.4,
-    'Efficient inference': 1.3,
-    'Agent systems': 1.1,
+    'Recursive Self-Improvement': 1.6,
+    'AI Self-Evolution': 1.4,
+    'Self-Improving Agents': 1.3,
+    'Continual Learning': 1.1,
   },
   customKeywords: [],
   excludedKeywords: [],

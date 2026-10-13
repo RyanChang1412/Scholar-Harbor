@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "methodology": "Fixed labeled relevance benchmark. Real records use verbatim title and abstract excerpts from arXiv metadata; synthetic records are hard negatives and are never production content.",
+  "records": [
+    {
+      "id": "arxiv-2610.13912",
+      "kind": "real-metadata",
+      "source": "arXiv",
+      "sourceRecordId": "2610.13912v1",
+      "sourceUrl": "https://arxiv.org/abs/2610.13912",
+      "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
+      "abstractExcerpt": "Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve.",
+      "expectedRelevance": "direct-rsi"
+    },
+    {
+      "id": "arxiv-2610.13829",
+      "kind": "real-metadata",
+      "source": "arXiv",
+      "sourceRecordId": "2610.13829v1",
+      "sourceUrl": "https://arxiv.org/abs/2610.13829",
+      "title": "MC-EvoBench: Auditing Experience-Driven Self-Improvement in Minecraft Agents",
+      "abstractExcerpt": "A central challenge in embodied recursive self-improvement is enabling agents to convert interaction history into capabilities that persist beyond one world and transfer to later tasks.",
+      "expectedRelevance": "direct-rsi"
+    },
+    {
+      "id": "arxiv-2607.15314",
+      "kind": "real-metadata",
+      "source": "arXiv",
+      "sourceRecordId": "2607.15314",
+      "sourceUrl": "https://arxiv.org/abs/2607.15314",
+      "title": "Cura 1T: Specialized Model for Agentic Healthcare",
+      "abstractExcerpt": "We present Cura 1T, a healthcare-specialized LLM built on the open-weight Kimi-K2.6 and trained through a human-gated recursive self-improvement (RSI) loop.",
+      "expectedRelevance": "direct-rsi"
+    },
+    {
+      "id": "arxiv-2607.11643",
+      "kind": "real-metadata",
+      "source": "arXiv",
+      "sourceRecordId": "2607.11643",
+      "sourceUrl": "https://arxiv.org/abs/2607.11643",
+      "title": "Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model",
+      "abstractExcerpt": "These results show that foundation world models can serve both as embodied world models and scalable data engines for embodied intelligence.",
+      "expectedRelevance": "application-research"
+    },
+    {
+      "id": "arxiv-2601.22438",
+      "kind": "real-metadata",
+      "source": "arXiv",
+      "sourceRecordId": "2601.22438",
+      "sourceUrl": "https://arxiv.org/abs/2601.22438",
+      "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow",
+      "abstractExcerpt": "KevlarFlow leverages decoupled model parallelism initialization, dynamic traffic rerouting, and background KV cache replication to maintain high throughput during partial failures.",
+      "expectedRelevance": "enabling-systems"
+    },
+    {
+      "id": "arxiv-2401.14021",
+      "kind": "real-metadata",
+      "source": "arXiv",
+      "sourceRecordId": "2401.14021",
+      "sourceUrl": "https://arxiv.org/abs/2401.14021",
+      "title": "Accelerating Retrieval-Augmented Language Model Serving with Speculation",
+      "abstractExcerpt": "We propose RaLMSpec, a speculation-inspired framework that provides generic speed-up over iterative RaLM while preserving the same model outputs through speculative retrieval and batched verification.",
+      "expectedRelevance": "enabling-systems"
+    },
+    {
+      "id": "synthetic-rsi-finance",
+      "kind": "synthetic-negative",
+      "title": "RSI Signals for Short-Horizon Equity Trading",
+      "abstractExcerpt": "We study the relative strength index (RSI) as a technical indicator for stock-market momentum.",
+      "expectedRelevance": "ineligible"
+    },
+    {
+      "id": "synthetic-rsi-health",
+      "kind": "synthetic-negative",
+      "title": "Workplace Interventions for RSI",
+      "abstractExcerpt": "This clinical survey examines repetitive strain injury among office workers.",
+      "expectedRelevance": "ineligible"
+    },
+    {
+      "id": "synthetic-generic-model",
+      "kind": "synthetic-negative",
+      "title": "A Model for Image Classification",
+      "abstractExcerpt": "A neural model learns labels from a static supervised dataset.",
+      "expectedRelevance": "ineligible"
+    },
+    {
+      "id": "synthetic-generic-rl",
+      "kind": "synthetic-negative",
+      "title": "Reinforcement Learning for Cart Pole",
+      "abstractExcerpt": "A standard policy learns to balance a pole in a fixed benchmark without adaptation or systems contributions.",
+      "expectedRelevance": "ineligible"
+    }
+  ]
+}

@@ -5,39 +5,19 @@
       "id": "hugging-face-papers-snapshot",
       "items": [
         {
-          "paperId": "paper-2607-15314",
-          "signalLabel": "52 saves · 4 discussions",
-          "title": "Cura 1T: Specialized Model for Agentic Healthcare"
+          "paperId": "paper-2607-21461",
+          "signalLabel": "107 saves · 2 discussions",
+          "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
-          "paperId": "paper-2607-11643",
-          "signalLabel": "42 saves · 2 discussions",
-          "title": "Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model"
+          "paperId": "paper-2512-17102",
+          "signalLabel": "42 saves · 4 discussions",
+          "title": "Reinforcement Learning for Self-Improving Agent with Skill Library"
         },
         {
-          "paperId": "paper-2605-25343",
-          "signalLabel": "40 saves · 2 discussions",
-          "title": "Toward Native Multimodal Modeling: A Roadmap"
-        },
-        {
-          "paperId": "paper-2408-12757",
-          "signalLabel": "19 saves · 2 discussions",
-          "title": "NanoFlow: Towards Optimal Large Language Model Serving Throughput"
-        },
-        {
-          "paperId": "paper-2408-01337",
-          "signalLabel": "11 saves · 2 discussions",
-          "title": "MuChoMusic: Evaluating Music Understanding in Multimodal Audio-Language\n  Models"
-        },
-        {
-          "paperId": "paper-2608-09928",
-          "signalLabel": "11 saves · 2 discussions",
-          "title": "Multimodal Model Diffing for Feature Discovery and Control"
-        },
-        {
-          "paperId": "paper-2506-06366",
-          "signalLabel": "9 saves · 2 discussions",
-          "title": "AI Agent Behavioral Science"
+          "paperId": "paper-2512-10398",
+          "signalLabel": "14 saves · 6 discussions",
+          "title": "Confucius Code Agent: An Open-sourced AI Software Engineer at Industrial Scale"
         },
         {
           "paperId": "paper-2601-22438",
@@ -45,18 +25,38 @@
           "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
         },
         {
-          "paperId": "paper-2501-06781",
-          "signalLabel": "3 saves · 0 discussions",
-          "title": "Eliza: A Web3 friendly AI Agent Operating System"
+          "paperId": "paper-2601-01885",
+          "signalLabel": "2 saves · 0 discussions",
+          "title": "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents"
         },
         {
-          "paperId": "paper-2401-14021",
-          "signalLabel": "2 saves · 0 discussions",
-          "title": "Accelerating Retrieval-Augmented Language Model Serving with Speculation"
+          "paperId": "paper-2603-10600",
+          "signalLabel": "1 saves · 0 discussions",
+          "title": "Trajectory-Informed Memory Generation for Self-Improving Agent Systems"
+        },
+        {
+          "paperId": "paper-2607-13083",
+          "signalLabel": "1 saves · 0 discussions",
+          "title": "Phantom Guardrails: When Self-Improving Agent Harnesses Fix Failures That Never Happened"
+        },
+        {
+          "paperId": "paper-2608-10357",
+          "signalLabel": "1 saves · 0 discussions",
+          "title": "Efficient Reinforcement Learning for Long-Horizon Tool-Use Agentic Tasks"
+        },
+        {
+          "paperId": "paper-2610-03374",
+          "signalLabel": "1 discussions",
+          "title": "EVEWorld: Physical Evolution Supervision for Embodied World Models"
+        },
+        {
+          "paperId": "paper-2601-04137",
+          "signalLabel": "0 discussions",
+          "title": "Wow, wo, val! A Comprehensive Embodied World Model Evaluation Turing Test"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-10-13T07:00:46.050307Z",
+      "retrievedAt": "2026-10-13T07:31:35.745200Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-10-13T07:04:03.508823Z",
+  "generatedAt": "2026-10-13T07:32:03.718275Z",
   "schemaVersion": 1
 }

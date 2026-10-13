@@ -1,0 +1,493 @@
+{
+  "schemaVersion": 1,
+  "name": "Scholar Harbor RSI discovery taxonomy",
+  "topics": [
+    {
+      "id": "recursive-self-improvement",
+      "label": "Recursive Self-Improvement",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "relatedTopicIds": [
+        "ai-self-evolution",
+        "self-improving-agents",
+        "continual-learning",
+        "automated-research"
+      ],
+      "aliases": [
+        "recursive self-improvement",
+        "recursive self improvement",
+        "self-improving AI",
+        "self improving AI"
+      ],
+      "ambiguousAliases": ["RSI"],
+      "contextTerms": [
+        "artificial intelligence",
+        "AI system",
+        "agent",
+        "model",
+        "self-improvement",
+        "self-evolution"
+      ],
+      "excludeTerms": ["relative strength index", "repetitive strain injury"]
+    },
+    {
+      "id": "ai-self-evolution",
+      "label": "AI Self-Evolution",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "relatedTopicIds": [
+        "recursive-self-improvement",
+        "self-improving-agents",
+        "agentic-learning"
+      ],
+      "aliases": [
+        "AI self-evolution",
+        "AI self evolution",
+        "self-evolving AI",
+        "self-evolving model",
+        "self-evolving agent",
+        "self-evolution"
+      ]
+    },
+    {
+      "id": "self-improving-agents",
+      "label": "Self-Improving Agents",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "relatedTopicIds": [
+        "recursive-self-improvement",
+        "ai-self-evolution",
+        "agentic-learning",
+        "learning-from-feedback"
+      ],
+      "aliases": [
+        "self-improving agent",
+        "self improving agent",
+        "self-refining agent",
+        "self refining agent",
+        "experience-driven self-improvement"
+      ]
+    },
+    {
+      "id": "self-training-refinement",
+      "label": "Self-Training and Refinement",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "aliases": [
+        "self-training",
+        "self training",
+        "self-refinement",
+        "self refinement",
+        "iterative refinement",
+        "self-correction",
+        "self correction"
+      ]
+    },
+    {
+      "id": "continual-learning",
+      "label": "Continual Learning",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "aliases": [
+        "continual learning",
+        "lifelong learning",
+        "continual adaptation",
+        "continuous learning"
+      ]
+    },
+    {
+      "id": "meta-learning",
+      "label": "Meta-Learning",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "aliases": [
+        "meta-learning",
+        "meta learning",
+        "learning to learn",
+        "learns to learn"
+      ]
+    },
+    {
+      "id": "self-play-curriculum",
+      "label": "Self-Play and Curriculum Learning",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "aliases": [
+        "self-play",
+        "self play",
+        "curriculum learning",
+        "automatic curriculum",
+        "autocurriculum"
+      ]
+    },
+    {
+      "id": "agentic-learning",
+      "label": "Agentic Learning",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "aliases": [
+        "agentic learning",
+        "learning agent",
+        "agents that learn",
+        "online agent learning",
+        "agent adaptation"
+      ]
+    },
+    {
+      "id": "automated-research",
+      "label": "Automated AI Research",
+      "group": "core-rsi",
+      "relevance": "direct-rsi",
+      "aliases": [
+        "automated AI research",
+        "AI researcher agent",
+        "automated machine learning research",
+        "AI-generating algorithms",
+        "automated algorithm discovery"
+      ]
+    },
+    {
+      "id": "efficient-training",
+      "label": "Efficient Training",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "relatedTopicIds": [
+        "distributed-training",
+        "reinforcement-learning-systems"
+      ],
+      "aliases": [
+        "efficient training",
+        "training efficiency",
+        "memory-efficient training",
+        "compute-efficient training"
+      ]
+    },
+    {
+      "id": "distributed-training",
+      "label": "Distributed Training",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "relatedTopicIds": [
+        "efficient-training",
+        "reinforcement-learning-systems"
+      ],
+      "aliases": [
+        "distributed training",
+        "distributed deep learning",
+        "parallel training",
+        "training system"
+      ]
+    },
+    {
+      "id": "reinforcement-learning-systems",
+      "label": "Reinforcement Learning Systems",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "reinforcement learning system",
+        "RL system",
+        "RL infrastructure",
+        "reinforcement learning infrastructure"
+      ]
+    },
+    {
+      "id": "efficient-inference",
+      "label": "Efficient Inference",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "efficient inference",
+        "inference optimization",
+        "inference acceleration",
+        "inference efficiency"
+      ]
+    },
+    {
+      "id": "llm-serving",
+      "label": "LLM Serving",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "relatedTopicIds": [
+        "efficient-inference",
+        "kv-cache",
+        "speculative-decoding",
+        "efficient-agent-execution"
+      ],
+      "aliases": [
+        "LLM serving",
+        "language model serving",
+        "model serving",
+        "inference serving"
+      ]
+    },
+    {
+      "id": "kv-cache",
+      "label": "KV Cache",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "KV cache",
+        "key-value cache",
+        "key value cache",
+        "attention cache"
+      ]
+    },
+    {
+      "id": "speculative-decoding",
+      "label": "Speculative Decoding",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "speculative decoding",
+        "speculative sampling",
+        "draft model decoding"
+      ]
+    },
+    {
+      "id": "test-time-compute",
+      "label": "Test-Time Compute",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "test-time compute",
+        "test time compute",
+        "inference-time compute",
+        "inference time scaling"
+      ]
+    },
+    {
+      "id": "test-time-adaptation",
+      "label": "Test-Time Adaptation",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "test-time adaptation",
+        "test time adaptation",
+        "online adaptation",
+        "inference-time adaptation"
+      ]
+    },
+    {
+      "id": "efficient-agent-execution",
+      "label": "Efficient Agent Execution",
+      "group": "enabling-systems",
+      "relevance": "enabling-systems",
+      "aliases": [
+        "efficient agent execution",
+        "agent serving",
+        "agent runtime",
+        "agent inference"
+      ]
+    },
+    {
+      "id": "ai-for-science",
+      "label": "AI for Science",
+      "group": "application-ai4s",
+      "relevance": "application-research",
+      "relatedTopicIds": [
+        "automated-scientific-discovery",
+        "scientific-research-agents",
+        "experiment-planning",
+        "scientific-foundation-models"
+      ],
+      "aliases": [
+        "AI for science",
+        "AI4Science",
+        "AI4S",
+        "scientific machine learning"
+      ]
+    },
+    {
+      "id": "automated-scientific-discovery",
+      "label": "Automated Scientific Discovery",
+      "group": "application-ai4s",
+      "relevance": "application-research",
+      "relatedTopicIds": [
+        "ai-for-science",
+        "scientific-research-agents",
+        "experiment-planning",
+        "automated-research"
+      ],
+      "aliases": [
+        "automated scientific discovery",
+        "autonomous scientific discovery",
+        "machine-assisted discovery"
+      ]
+    },
+    {
+      "id": "scientific-research-agents",
+      "label": "Scientific Research Agents",
+      "group": "application-ai4s",
+      "relevance": "application-research",
+      "aliases": [
+        "scientific research agent",
+        "science agent",
+        "research agent",
+        "AI scientist"
+      ]
+    },
+    {
+      "id": "experiment-planning",
+      "label": "Experiment Planning",
+      "group": "application-ai4s",
+      "relevance": "application-research",
+      "aliases": [
+        "experiment planning",
+        "experimental design agent",
+        "autonomous laboratory",
+        "self-driving laboratory"
+      ]
+    },
+    {
+      "id": "scientific-foundation-models",
+      "label": "Scientific Foundation Models",
+      "group": "application-ai4s",
+      "relevance": "application-research",
+      "aliases": [
+        "scientific foundation model",
+        "foundation model for science",
+        "foundation models for science"
+      ]
+    },
+    {
+      "id": "embodied-ai",
+      "label": "Embodied AI",
+      "group": "application-embodied",
+      "relevance": "application-research",
+      "relatedTopicIds": [
+        "robot-learning",
+        "vision-language-action",
+        "world-models",
+        "sim-to-real"
+      ],
+      "aliases": ["embodied AI", "embodied intelligence", "embodied agent"]
+    },
+    {
+      "id": "robot-learning",
+      "label": "Robot Learning",
+      "group": "application-embodied",
+      "relevance": "application-research",
+      "aliases": [
+        "robot learning",
+        "robotic learning",
+        "learning for robotics",
+        "robot policy learning"
+      ]
+    },
+    {
+      "id": "vision-language-action",
+      "label": "Vision-Language-Action Models",
+      "group": "application-embodied",
+      "relevance": "application-research",
+      "aliases": [
+        "vision-language-action",
+        "vision language action",
+        "VLA model",
+        "VLA policy"
+      ]
+    },
+    {
+      "id": "world-models",
+      "label": "World Models",
+      "group": "application-embodied",
+      "relevance": "application-research",
+      "aliases": ["world model", "world-model", "latent dynamics model"]
+    },
+    {
+      "id": "sim-to-real",
+      "label": "Sim-to-Real",
+      "group": "application-embodied",
+      "relevance": "application-research",
+      "aliases": [
+        "sim-to-real",
+        "sim2real",
+        "simulation to reality",
+        "simulation-to-real"
+      ]
+    },
+    {
+      "id": "new-architectures",
+      "label": "New Model Architectures",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "novel architecture",
+        "new architecture",
+        "state space model",
+        "mixture of experts"
+      ]
+    },
+    {
+      "id": "agent-memory",
+      "label": "Agent Memory",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "agent memory",
+        "long-term memory for agents",
+        "episodic memory agent",
+        "memory-augmented agent"
+      ]
+    },
+    {
+      "id": "tool-learning",
+      "label": "Tool Learning",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "tool learning",
+        "tool-use learning",
+        "tool use agent",
+        "API-using agent"
+      ]
+    },
+    {
+      "id": "long-horizon-reasoning",
+      "label": "Long-Horizon Reasoning",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "long-horizon reasoning",
+        "long horizon reasoning",
+        "long-horizon planning",
+        "multi-step reasoning"
+      ]
+    },
+    {
+      "id": "automated-evaluation",
+      "label": "Automated Evaluation",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "automated evaluation",
+        "automatic evaluation",
+        "LLM evaluator",
+        "model-based evaluation"
+      ]
+    },
+    {
+      "id": "learning-from-feedback",
+      "label": "Learning from Feedback",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "learning from feedback",
+        "human feedback",
+        "AI feedback",
+        "preference optimization"
+      ]
+    },
+    {
+      "id": "adaptive-compute",
+      "label": "Adaptive Compute",
+      "group": "open-exploration",
+      "relevance": "adjacent-exploration",
+      "aliases": [
+        "adaptive compute",
+        "adaptive computation",
+        "dynamic computation",
+        "compute allocation"
+      ]
+    }
+  ]
+}

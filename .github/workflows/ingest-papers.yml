@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '23 4 * * *'
   workflow_dispatch:
+    inputs:
+      historical_backfill:
+        description: 'Run bounded historical discovery queries once'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: public-research-data-ingestion
@@ -33,7 +39,7 @@ jobs:
           AI_MODEL: ${{ vars.AI_MODEL }}
           DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
           BAILIAN_MODEL: ${{ vars.BAILIAN_MODEL }}
-        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
+        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli ${{ inputs.historical_backfill && '--historical-backfill' || '' }}
       - name: Build validated datasets with OpenAI
         if: ${{ vars.AI_PROVIDER == 'openai' }}
         env:
@@ -41,7 +47,7 @@ jobs:
           AI_PROVIDER: openai
           AI_MODEL: ${{ vars.AI_MODEL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
+        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli ${{ inputs.historical_backfill && '--historical-backfill' || '' }}
       - name: Build validated datasets with DeepSeek
         if: ${{ vars.AI_PROVIDER == 'deepseek' }}
         env:
@@ -49,7 +55,7 @@ jobs:
           AI_PROVIDER: deepseek
           AI_MODEL: ${{ vars.AI_MODEL }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
+        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli ${{ inputs.historical_backfill && '--historical-backfill' || '' }}
       - name: Reject unsupported AI provider
         if: ${{ vars.AI_PROVIDER != '' && vars.AI_PROVIDER != 'bailian' && vars.AI_PROVIDER != 'openai' && vars.AI_PROVIDER != 'deepseek' }}
         run: |

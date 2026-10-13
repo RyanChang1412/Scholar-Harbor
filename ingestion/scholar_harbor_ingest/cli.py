@@ -25,12 +25,21 @@ def main() -> int:
     parser.add_argument("--content-config", type=Path, default=Path("config/content-sources.json"))
     parser.add_argument("--news-output", type=Path, default=Path("public/data/news.v1.json"))
     parser.add_argument("--rankings-output", type=Path, default=Path("public/data/rankings.v1.json"))
+    parser.add_argument(
+        "--historical-backfill",
+        action="store_true",
+        help="Run the bounded historical query groups configured for a one-off backfill.",
+    )
     args = parser.parse_args()
     handler = logging.StreamHandler()
     handler.setFormatter(JsonFormatter())
     logging.basicConfig(level=logging.INFO, handlers=[handler])
     try:
-        paper_changed = run_pipeline(config_path=args.config, output_path=args.output)
+        paper_changed = run_pipeline(
+            config_path=args.config,
+            output_path=args.output,
+            historical_backfill=args.historical_backfill,
+        )
         news_changed = run_news_pipeline(config_path=args.content_config, output_path=args.news_output)
         rankings_changed = build_rankings(papers_path=args.output, output_path=args.rankings_output)
     except Exception as error:

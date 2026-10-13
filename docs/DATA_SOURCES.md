@@ -18,22 +18,22 @@ uses a deterministic score over those labeled mock signals. Fixture URLs use the
 reserved non-resolving `example.invalid` domain and have a `fixture`
 verification status; they are never presented as verified live destinations.
 
-| Provider            | Implemented use                                                                        | Access and update behavior                                                                                                    |
-| ------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| arXiv               | Recent records from configured CS/ML categories through the official Atom API          | One bounded combined query per run, timeout, retry/backoff, keyword filtering, canonical revision handling                    |
-| Hugging Face Papers | Paper identity plus upvote/comment signals through `huggingface_hub.HfApi.list_papers` | Four bounded search queries with delay, timeout, retry/backoff, and deduplication                                             |
-| OpenAlex            | Optional DOI-based `cited_by_count` enrichment                                         | Disabled by default; one batched DOI request only when configured with `OPENALEX_API_KEY`; never required for publication     |
-| Hugging Face Blog   | Research and engineering news from the official RSS feed                               | Thirty items parsed per run; headline-only feed entries receive an explicit source/title description, never an inferred claim |
-| vLLM Releases       | Open-source release updates from the official GitHub Releases Atom feed                | Thirty entries parsed per run; HTML is reduced to plain text and original URLs are retained                                   |
-| Ranking references  | Cached Hugging Face paper signals plus GitHub Trending and LMArena official links      | No protected-page scraping; external pages remain labeled links rather than copied rankings                                   |
+| Provider            | Implemented use                                                                              | Access and update behavior                                                                                                                     |
+| ------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| arXiv               | RSI, enabling-systems, AI4S, embodied, and exploration records through the official Atom API | Five bounded daily topic-group queries; optional two-group manual backfill; request delay, timeout, retry/backoff, canonical revision handling |
+| Hugging Face Papers | Paper identity plus upvote/comment signals through `huggingface_hub.HfApi.list_papers`       | Five bounded topic-group searches with delay, timeout, retry/backoff, query attribution, and deduplication                                     |
+| OpenAlex            | Optional DOI-based `cited_by_count` enrichment                                               | Disabled by default; one batched DOI request only when configured with `OPENALEX_API_KEY`; never required for publication                      |
+| Hugging Face Blog   | Research and engineering news from the official RSS feed                                     | Thirty items parsed per run; headline-only feed entries receive an explicit source/title description, never an inferred claim                  |
+| vLLM Releases       | Open-source release updates from the official GitHub Releases Atom feed                      | Thirty entries parsed per run; HTML is reduced to plain text and original URLs are retained                                                    |
+| Ranking references  | Cached Hugging Face paper signals plus GitHub Trending and LMArena official links            | No protected-page scraping; external pages remain labeled links rather than copied rankings                                                    |
 
 The verified endpoints include `https://export.arxiv.org/api/query`, the official
 Hugging Face Hub client paper methods, `https://api.openalex.org/works`,
 `https://huggingface.co/blog/feed.xml`, and
 `https://github.com/vllm-project/vllm/releases.atom`.
-The 2026-10-12 manual integration run retrieved 25 filtered arXiv records and 28
-Hugging Face records without credentials. OpenAlex connectivity was checked, but
-enrichment was not enabled because the base sources supplied sufficient metadata.
+The RSI enhancement integration record and fixed labeled evaluation are documented
+in [RSI_DISCOVERY.md](RSI_DISCOVERY.md). OpenAlex connectivity was checked, but
+enrichment remains disabled because the base sources supply sufficient metadata.
 
 Official references reviewed for this phase:
 
@@ -86,6 +86,12 @@ Record publication, update, retrieval, enrichment, and AI-generation timestamps
 separately. Keep missing metadata absent. Public artifacts include a schema
 version and generation metadata, remain bounded for browser performance, and pass
 runtime validation before publication.
+
+Paper records also retain the public retrieval query group and exact query.
+Classification evidence is limited to terms actually found in the source title
+or abstract. The versioned taxonomy is validated independently of provider
+responses; an ineligible result is rejected rather than relabeled with a generic
+machine-learning topic.
 
 ## Publication contract
 

@@ -48,6 +48,56 @@ def validate_paper(paper: dict[str, Any]) -> None:
             or not all(isinstance(value, str) and value.strip() for value in values)
         ):
             raise DataValidationError(f"paper.{key} must be a non-empty list")
+    topic_matches = paper.get("topicMatches", [])
+    if not isinstance(topic_matches, list):
+        raise DataValidationError("paper.topicMatches must be a list")
+    for match in topic_matches:
+        if (
+            not isinstance(match, dict)
+            or match.get("relevance") not in {
+                "direct-rsi",
+                "enabling-systems",
+                "application-research",
+                "adjacent-exploration",
+            }
+            or match.get("group") not in {
+                "core-rsi",
+                "enabling-systems",
+                "application-ai4s",
+                "application-embodied",
+                "open-exploration",
+            }
+            or match.get("confidence") not in {"high", "medium"}
+            or not all(
+                isinstance(match.get(key), str) and match[key].strip()
+                for key in ("topicId", "label")
+            )
+            or not isinstance(match.get("evidence"), list)
+            or not match["evidence"]
+        ):
+            raise DataValidationError("paper topic match is invalid")
+        if not all(
+            isinstance(item, dict)
+            and item.get("field") in {"title", "abstract"}
+            and isinstance(item.get("term"), str)
+            and item["term"].strip()
+            for item in match["evidence"]
+        ):
+            raise DataValidationError("paper topic evidence is invalid")
+    retrieval_contexts = paper.get("retrievalContexts", [])
+    if not isinstance(retrieval_contexts, list):
+        raise DataValidationError("paper.retrievalContexts must be a list")
+    for context in retrieval_contexts:
+        if (
+            not isinstance(context, dict)
+            or not all(
+                isinstance(context.get(key), str) and context[key].strip()
+                for key in ("source", "queryGroup", "query", "retrievedAt")
+            )
+            or not isinstance(context.get("historical"), bool)
+        ):
+            raise DataValidationError("paper retrieval context is invalid")
+        utc_iso(context["retrievedAt"])
     provenance = paper.get("provenance")
     if not isinstance(provenance, list) or not provenance:
         raise DataValidationError("paper.provenance must be a non-empty list")
@@ -131,6 +181,8 @@ def validate_paper(paper: dict[str, Any]) -> None:
 def validate_dataset(dataset: dict[str, Any]) -> None:
     if dataset.get("schemaVersion") != 1:
         raise DataValidationError("unsupported dataset schemaVersion")
+    if "taxonomyVersion" in dataset and dataset["taxonomyVersion"] != 1:
+        raise DataValidationError("unsupported taxonomyVersion")
     for key in ("generatedAt", "lastSuccessfulUpdateAt"):
         utc_iso(dataset.get(key, ""))
     if not isinstance(dataset.get("sources"), list) or not dataset["sources"]:
@@ -142,6 +194,13 @@ def validate_dataset(dataset: dict[str, Any]) -> None:
             or source.get("status") not in {"ok", "unavailable"}
             or not isinstance(source.get("recordCount"), int)
             or source["recordCount"] < 0
+            or (
+                "rawRecordCount" in source
+                and (
+                    not isinstance(source["rawRecordCount"], int)
+                    or source["rawRecordCount"] < source["recordCount"]
+                )
+            )
         ):
             raise DataValidationError("dataset source metadata is invalid")
         if source["status"] == "ok":
@@ -168,3 +227,24 @@ def validate_dataset(dataset: dict[str, Any]) -> None:
         )
     ):
         raise DataValidationError("dataset processing statistics are invalid")
+    classification = statistics.get("classification")
+    for optional_count in ("rawSourceRecords", "eligibleBeforeLimit"):
+        if optional_count in statistics and (
+            not isinstance(statistics[optional_count], int)
+            or statistics[optional_count] < 0
+        ):
+            raise DataValidationError(f"dataset {optional_count} is invalid")
+    if classification is not None and (
+        not isinstance(classification, dict)
+        or not all(
+            isinstance(classification.get(key), int) and classification[key] >= 0
+            for key in (
+                "direct-rsi",
+                "enabling-systems",
+                "application-research",
+                "adjacent-exploration",
+                "ineligibleRejected",
+            )
+        )
+    ):
+        raise DataValidationError("dataset classification statistics are invalid")
