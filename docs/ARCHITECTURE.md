@@ -59,8 +59,9 @@ logic does not import UI or provider adapters.
 
 ## Ingestion layers
 
-Each external source has a small adapter. Records pass through parsing, runtime
-validation, canonical normalization, provenance capture, deduplication, optional
+Each external source has a small adapter. Records pass through grouped retrieval,
+parsing, runtime validation, canonical normalization, query/provenance capture,
+deterministic taxonomy matching, deduplication, optional
 metadata enrichment, optional AI enrichment, and output validation before public
 artifacts are replaced.
 
@@ -118,14 +119,20 @@ appear in the public Paper schema or leave the browser.
 
 ## Recommendation flow
 
-The browser builds an eligible recent pool, applies exclusions and optional
-source/category constraints, classifies Focused and Explore candidates, computes
+The browser resolves human topic labels and aliases through the same versioned
+taxonomy used by ingestion. It builds an eligible recent pool, applies exclusions
+and optional source/category constraints, classifies Focused and Explore candidates, computes
 normalized relevance/recency/community/novelty features, and reranks each lane
 with a deterministic MMR-style topic penalty. It selects a configurable ratio
 (70/30 by default), relaxes the quota when one lane is short, prevents duplicate
 IDs, and attaches a reason grounded in matched topics or explicit keywords.
 Latest and Trending continue to use their independent chronological and
 source-signal ordering.
+
+The five public relevance levels remain distinct from the two private discovery
+lanes. A source paper may be classified as an enabling system while appearing in
+Focused because it matches an explicit weighted profile topic. This preserves
+source-grounded meaning while allowing personal ranking.
 
 ## Public data contract
 

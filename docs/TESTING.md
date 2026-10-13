@@ -157,6 +157,29 @@ strict published-schema validation, and retained source provenance. The number o
 papers returned on a particular day is diagnostic information, not a pass/fail
 threshold.
 
+## RSI discovery enhancement validation record
+
+Validated on 2026-10-13 in the onboarding environment:
+
+| Check                                            | Result                                                                |
+| ------------------------------------------------ | --------------------------------------------------------------------- |
+| Strict TypeScript, ESLint, Prettier              | Passed                                                                |
+| Vitest domain/component/route suite              | 55 passed                                                             |
+| Python ingestion, recovery, taxonomy, evaluation | 33 passed                                                             |
+| Fixed labeled RSI evaluation                     | Precision 0.75→1.00; recall 1.00→1.00; exact level accuracy 0.20→1.00 |
+| Live official-source daily and historical smoke  | Passed; arXiv and Hugging Face completed                              |
+| Default Balanced Discovery                       | 7 Focused / 3 Explore; quota met                                      |
+| Existing fixture-backed Playwright suite         | 18 passed                                                             |
+| Production-data Playwright suite                 | 5 passed at 375, 1440, and 2560 px                                    |
+| Production screenshot inspection                 | Passed; no horizontal overflow, readable reasons, responsive density  |
+| Vite build and production-content/sensitive scan | Passed; 8 text assets scanned                                         |
+| Wrangler packaging dry-run                       | Passed; 21 static assets read                                         |
+
+The first Wrangler dry-run could not create its log directory under the
+environment's read-only home configuration path. Re-running with an isolated
+`XDG_CONFIG_HOME` under `/tmp` passed; this was an environment write constraint,
+not a Worker configuration failure.
+
 ## Required coverage by capability
 
 ### Data and identity

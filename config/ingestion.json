@@ -9,26 +9,113 @@
     "cs.CR",
     "stat.ML"
   ],
-  "keywords": [
-    "language model",
-    "inference",
-    "serving",
-    "agent",
-    "multimodal",
-    "world model",
-    "robotics",
-    "machine learning"
+  "taxonomyPath": "config/research-taxonomy.v1.json",
+  "arxivQueryGroups": [
+    {
+      "id": "core-rsi",
+      "terms": [
+        "recursive self-improvement",
+        "self-improving agent",
+        "AI self-evolution",
+        "continual learning",
+        "meta-learning",
+        "self-play"
+      ],
+      "maxResults": 24
+    },
+    {
+      "id": "enabling-systems",
+      "terms": [
+        "efficient training",
+        "distributed training",
+        "LLM serving",
+        "KV cache",
+        "speculative decoding",
+        "test-time compute"
+      ],
+      "maxResults": 20
+    },
+    {
+      "id": "application-ai4s",
+      "terms": [
+        "AI for science",
+        "automated scientific discovery",
+        "scientific research agent",
+        "self-driving laboratory"
+      ],
+      "maxResults": 16
+    },
+    {
+      "id": "application-embodied",
+      "terms": [
+        "embodied AI",
+        "robot learning",
+        "vision-language-action",
+        "world model",
+        "sim-to-real"
+      ],
+      "maxResults": 16
+    },
+    {
+      "id": "open-exploration",
+      "terms": [
+        "agent memory",
+        "tool learning",
+        "long-horizon reasoning",
+        "automated evaluation",
+        "adaptive compute"
+      ],
+      "maxResults": 12
+    }
   ],
-  "maxArxivResults": 48,
-  "maxHuggingFaceResults": 30,
+  "arxivHistoricalQueryGroups": [
+    {
+      "id": "core-rsi-history",
+      "terms": [
+        "recursive self-improvement",
+        "self-improving agent",
+        "AI self-evolution",
+        "continual learning",
+        "meta-learning"
+      ],
+      "maxResults": 32
+    },
+    {
+      "id": "research-applications-history",
+      "terms": [
+        "AI for science",
+        "automated scientific discovery",
+        "embodied AI",
+        "vision-language-action",
+        "world model"
+      ],
+      "maxResults": 28
+    }
+  ],
+  "arxivRequestDelaySeconds": 3,
+  "maxHuggingFaceResults": 36,
   "huggingFaceQueries": [
-    "language model serving",
-    "AI agent",
-    "multimodal model",
-    "robotics world model"
+    { "group": "core-rsi", "query": "self improving agent", "maxResults": 8 },
+    {
+      "group": "enabling-systems",
+      "query": "language model serving",
+      "maxResults": 8
+    },
+    { "group": "application-ai4s", "query": "AI for science", "maxResults": 6 },
+    {
+      "group": "application-embodied",
+      "query": "embodied world model",
+      "maxResults": 8
+    },
+    {
+      "group": "open-exploration",
+      "query": "agent memory tool learning",
+      "maxResults": 6
+    }
   ],
-  "maxPublishedPapers": 72,
-  "windowDays": 30,
+  "maxPublishedPapers": 96,
+  "windowDays": 45,
+  "historicalRetentionDays": 1095,
   "requestTimeoutSeconds": 20,
   "maxAttempts": 3,
   "backoffSeconds": 2,

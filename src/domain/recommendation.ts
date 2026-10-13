@@ -1,5 +1,10 @@
 import type { Paper } from './paper'
 import type { ResearchProfile } from './research-profile'
+import {
+  matchPaperTopics,
+  resolveProfileTopic,
+  type PaperTopicMatch,
+} from './research-taxonomy'
 
 export interface RecommendationWeights {
   readonly focused: {
@@ -51,11 +56,17 @@ export interface RecommendationResult {
   readonly measurement: RecommendationMeasurement
 }
 
+interface MatchReason {
+  readonly label: string
+  readonly kind: 'exact' | 'related' | 'keyword' | 'legacy-topic'
+  readonly match?: PaperTopicMatch
+}
+
 interface Candidate {
   readonly paper: Paper
   readonly lane: 'Focused' | 'Explore'
   readonly score: number
-  readonly matched: readonly string[]
+  readonly matched: readonly MatchReason[]
 }
 
 function normalizedText(paper: Paper) {
@@ -63,7 +74,12 @@ function normalizedText(paper: Paper) {
 }
 
 function topicWeight(profile: ResearchProfile, topic: string) {
-  return profile.topicWeights[topic] ?? 1
+  const topicId = resolveProfileTopic(topic).id
+  return (
+    Object.entries(profile.topicWeights).find(
+      ([candidate]) => resolveProfileTopic(candidate).id === topicId,
+    )?.[1] ?? 1
+  )
 }
 
 function communityRaw(paper: Paper) {
@@ -75,8 +91,18 @@ function communityRaw(paper: Paper) {
 }
 
 function similarity(left: Paper, right: Paper) {
-  const a = new Set([...left.topics, ...left.categories])
-  const b = new Set([...right.topics, ...right.categories])
+  const leftMatches = matchPaperTopics(left)
+  const rightMatches = matchPaperTopics(right)
+  const a = new Set([
+    ...left.topics,
+    ...left.categories,
+    ...leftMatches.flatMap((match) => [match.topicId, match.group]),
+  ])
+  const b = new Set([
+    ...right.topics,
+    ...right.categories,
+    ...rightMatches.flatMap((match) => [match.topicId, match.group]),
+  ])
   const intersection = [...a].filter((value) => b.has(value)).length
   const union = new Set([...a, ...b]).size
   return union ? intersection / union : 0
@@ -91,16 +117,13 @@ function rerank(
   const selected: Candidate[] = []
   while (remaining.length && selected.length < limit) {
     remaining.sort((left, right) => {
-      const leftPenalty = Math.max(
-        0,
-        ...selected.map((item) => similarity(left.paper, item.paper)),
-      )
-      const rightPenalty = Math.max(
-        0,
-        ...selected.map((item) => similarity(right.paper, item.paper)),
-      )
-      const leftMmr = lambda * left.score - (1 - lambda) * leftPenalty
-      const rightMmr = lambda * right.score - (1 - lambda) * rightPenalty
+      const penalty = (candidate: Candidate) =>
+        Math.max(
+          0,
+          ...selected.map((item) => similarity(candidate.paper, item.paper)),
+        )
+      const leftMmr = lambda * left.score - (1 - lambda) * penalty(left)
+      const rightMmr = lambda * right.score - (1 - lambda) * penalty(right)
       return (
         rightMmr - leftMmr ||
         Date.parse(right.paper.publishedAt) -
@@ -114,20 +137,52 @@ function rerank(
 }
 
 function reasonFor(candidate: Candidate) {
-  const topics = candidate.matched.slice(0, 2)
+  const reasons = candidate.matched.slice(0, 2)
+  const evidenced = reasons.find((reason) => reason.match)
   const signalNote = candidate.paper.communitySignals?.length
     ? ''
     : ' No source-backed community signal was available.'
   if (candidate.lane === 'Focused') {
-    const reason = topics.length
-      ? `Relevant to your focused interests in ${topics.join(' and ')}.`
-      : 'Matches one of your explicit research keywords in the source title or abstract.'
+    const reason = evidenced?.match
+      ? `${evidenced.match.relevance === 'direct-rsi' ? 'Directly studies' : 'Supports'} ${evidenced.label}; the source ${evidenced.match.evidence[0]?.field ?? 'metadata'} contains “${evidenced.match.evidence[0]?.term ?? evidenced.label}”.`
+      : reasons.length
+        ? `Matches your explicit profile topic ${reasons.map((item) => item.label).join(' and ')} in normalized source metadata.`
+        : 'Matches one of your explicit research keywords in the source title or abstract.'
     return `${reason}${signalNote}`
   }
-  const reason = topics.length
-    ? `Explores an adjacent direction through ${topics.join(' and ')}.`
-    : 'Adds a recent adjacent topic to diversify this reading set.'
+  const reason = evidenced?.match
+    ? `Explores ${evidenced.label} as ${evidenced.match.relevance.replaceAll('-', ' ')}; the source ${evidenced.match.evidence[0]?.field ?? 'metadata'} contains “${evidenced.match.evidence[0]?.term ?? evidenced.label}”.`
+    : reasons.length
+      ? `Explores an adjacent direction through ${reasons.map((item) => item.label).join(' and ')}.`
+      : 'Adds a recent adjacent topic to diversify this reading set.'
   return `${reason}${signalNote}`
+}
+
+function semanticReasons(
+  matches: readonly PaperTopicMatch[],
+  profileTopics: ReturnType<typeof resolveProfileTopic>[],
+) {
+  const exact: MatchReason[] = matches.flatMap((match) => {
+    const profileTopic = profileTopics.find(
+      (topic) => topic.known && topic.id === match.topicId,
+    )
+    return profileTopic
+      ? [{ label: profileTopic.label, kind: 'exact', match }]
+      : []
+  })
+  const related: MatchReason[] = matches.flatMap((match) => {
+    if (exact.some((item) => item.match?.topicId === match.topicId)) return []
+    const matchedTopic = resolveProfileTopic(match.topicId)
+    const profileTopic = profileTopics.find(
+      (topic) =>
+        topic.known &&
+        (topic.topic.relatedTopicIds?.includes(match.topicId) ||
+          (matchedTopic.known &&
+            matchedTopic.topic.relatedTopicIds?.includes(topic.id))),
+    )
+    return profileTopic ? [{ label: match.label, kind: 'related', match }] : []
+  })
+  return [...exact, ...related]
 }
 
 export function recommendPapers(
@@ -141,8 +196,8 @@ export function recommendPapers(
   const excluded = profile.excludedKeywords.map((value) =>
     value.toLocaleLowerCase(),
   )
-  const focusedSet = new Set(profile.focusedTopics)
-  const exploreSet = new Set(profile.exploratoryTopics)
+  const focusedTopics = profile.focusedTopics.map(resolveProfileTopic)
+  const exploreTopics = profile.exploratoryTopics.map(resolveProfileTopic)
   const eligible = papers.filter((paper) => {
     const text = normalizedText(paper)
     if (excluded.some((keyword) => text.includes(keyword))) return false
@@ -166,23 +221,51 @@ export function recommendPapers(
 
   const candidates: Candidate[] = eligible.flatMap((paper) => {
     const text = normalizedText(paper)
-    const focusedMatches = paper.topics.filter((topic) => focusedSet.has(topic))
-    const exploreMatches = paper.topics.filter((topic) => exploreSet.has(topic))
-    const keywordMatches = profile.customKeywords.filter((keyword) =>
-      text.includes(keyword.toLocaleLowerCase()),
+    const matches = matchPaperTopics(paper)
+    const paperTopicLabels = new Set(
+      paper.topics.map((topic) => topic.toLocaleLowerCase()),
     )
-    const lane =
-      focusedMatches.length || keywordMatches.length
-        ? 'Focused'
-        : exploreMatches.length
-          ? 'Explore'
-          : null
+    const legacyReasons = (
+      profileTopics: typeof focusedTopics,
+    ): MatchReason[] =>
+      profileTopics.flatMap((topic) =>
+        !topic.known && paperTopicLabels.has(topic.label.toLocaleLowerCase())
+          ? [{ label: topic.label, kind: 'legacy-topic' }]
+          : [],
+      )
+    const keywordMatches: MatchReason[] = profile.customKeywords.flatMap(
+      (keyword) =>
+        text.includes(keyword.toLocaleLowerCase())
+          ? [{ label: keyword, kind: 'keyword' }]
+          : [],
+    )
+    const focusedMatches = [
+      ...semanticReasons(matches, focusedTopics),
+      ...legacyReasons(focusedTopics),
+      ...keywordMatches,
+    ]
+    const exploreMatches = [
+      ...semanticReasons(matches, exploreTopics),
+      ...legacyReasons(exploreTopics),
+    ]
+    const lane = focusedMatches.length
+      ? 'Focused'
+      : exploreMatches.length
+        ? 'Explore'
+        : null
     if (!lane) return []
     const age = Math.max(0, now.getTime() - Date.parse(paper.publishedAt))
     const recency = Math.max(0, 1 - age / rangeMs)
     const community = Math.log1p(communityRaw(paper)) / Math.log1p(maxCommunity)
     const focusedWeight = focusedMatches.reduce(
-      (total, topic) => total + topicWeight(profile, topic),
+      (total, item) =>
+        total +
+        topicWeight(profile, item.label) *
+          (item.kind === 'exact' || item.kind === 'legacy-topic'
+            ? 1
+            : item.kind === 'keyword'
+              ? 0.5
+              : 0.55),
       0,
     )
     const relevance = Math.min(
@@ -192,7 +275,11 @@ export function recommendPapers(
     )
     const adjacency = Math.min(1, exploreMatches.length / 2)
     const novelty = Math.max(0, 1 - focusedMatches.length / 2)
-    const topicBreadth = Math.min(1, new Set(paper.topics).size / 4)
+    const topicBreadth = Math.min(
+      1,
+      new Set([...paper.topics, ...matches.map((match) => match.group)]).size /
+        5,
+    )
     const score =
       lane === 'Focused'
         ? relevance * weights.focused.relevance +
@@ -208,10 +295,7 @@ export function recommendPapers(
         paper,
         lane,
         score,
-        matched:
-          lane === 'Focused'
-            ? [...focusedMatches, ...keywordMatches]
-            : exploreMatches,
+        matched: lane === 'Focused' ? focusedMatches : exploreMatches,
       },
     ]
   })

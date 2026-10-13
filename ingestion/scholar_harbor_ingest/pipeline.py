@@ -12,6 +12,7 @@ from typing import Any
 from .adapters import ArxivAdapter, HuggingFaceAdapter, OpenAlexEnricher, SourceAdapter
 from .ai_enrichment import enrich_with_ai_if_configured, source_fingerprint
 from .models import base_arxiv_id, utc_iso, validate_dataset
+from .taxonomy import Taxonomy, load_taxonomy, match_topics, relevance_level
 
 LOGGER = logging.getLogger(__name__)
 TOPIC_RULES = {
@@ -25,7 +26,7 @@ TOPIC_RULES = {
 }
 
 
-def _topics(record: dict[str, Any]) -> list[str]:
+def _legacy_topics(record: dict[str, Any]) -> list[str]:
     text = f"{record.get('title', '')} {record.get('abstract', '')}".lower()
     topics = [topic for topic, words in TOPIC_RULES.items() if any(word in text for word in words)]
     return topics[:4] or ["Computer science"]
@@ -37,7 +38,7 @@ def _link(kind: str, url: str | None, now: str, source: str) -> dict[str, Any] |
     return {"kind": kind, "url": url, "verification": {"status": "verified", "checkedAt": now, "source": source}}
 
 
-def normalize(records: list[dict[str, Any]], now: str) -> list[dict[str, Any]]:
+def normalize(records: list[dict[str, Any]], now: str, taxonomy: Taxonomy | None = None) -> list[dict[str, Any]]:
     papers: list[dict[str, Any]] = []
     for record in records:
         if not record.get("authors"):
@@ -45,6 +46,7 @@ def normalize(records: list[dict[str, Any]], now: str) -> list[dict[str, Any]]:
             continue
         arxiv_id = record["arxivId"]
         links = [_link("paper", record.get("paperUrl"), now, record["source"]), _link("pdf", record.get("pdfUrl"), now, record["source"]), _link("code", record.get("codeUrl"), now, record["source"])]
+        topic_matches = match_topics(record["title"], record["abstract"], taxonomy) if taxonomy else []
         paper: dict[str, Any] = {
             "id": f"paper-{base_arxiv_id(arxiv_id).replace('.', '-')}",
             "arxivId": arxiv_id,
@@ -55,10 +57,24 @@ def normalize(records: list[dict[str, Any]], now: str) -> list[dict[str, Any]]:
             "updatedAt": record["updatedAt"],
             "provenance": [{"source": record["source"], "sourceRecordId": record["sourceRecordId"], "retrievedAt": now}],
             "categories": record.get("categories") or ["Unclassified"],
-            "topics": _topics(record),
+            "topics": [match["label"] for match in topic_matches] or _legacy_topics(record),
             "externalLinks": [link for link in links if link],
             "aiEnrichment": {"status": "unavailable"},
         }
+        if taxonomy:
+            paper["topicMatches"] = topic_matches
+        retrieval_contexts = record.get("retrievalContexts", [])
+        if retrieval_contexts:
+            paper["retrievalContexts"] = [
+                {
+                    "source": record["source"],
+                    "queryGroup": context["queryGroup"],
+                    "query": context["query"],
+                    "historical": bool(context.get("historical")),
+                    "retrievedAt": now,
+                }
+                for context in retrieval_contexts
+            ]
         if record.get("doi"):
             paper["doi"] = record["doi"]
         signals = []
@@ -98,6 +114,12 @@ def deduplicate(papers: list[dict[str, Any]]) -> list[dict[str, Any]]:
             existing = current.setdefault(field, [])
             identities = {(item.get("kind"), item.get("url"), item.get("source")) for item in existing}
             existing.extend(item for item in paper.get(field, []) if (item.get("kind"), item.get("url"), item.get("source")) not in identities)
+        contexts = current.setdefault("retrievalContexts", [])
+        context_ids = {(item["source"], item["queryGroup"], item["query"], item["historical"]) for item in contexts}
+        contexts.extend(item for item in paper.get("retrievalContexts", []) if (item["source"], item["queryGroup"], item["query"], item["historical"]) not in context_ids)
+        if paper.get("topicMatches"):
+            current["topicMatches"] = paper["topicMatches"]
+            current["topics"] = paper["topics"]
     return sorted(merged.values(), key=lambda item: (-datetime.fromisoformat(item["publishedAt"].replace("Z", "+00:00")).timestamp(), item["id"]))
 
 
@@ -110,13 +132,21 @@ def _paper_fingerprint(papers: list[dict[str, Any]]) -> str:
             link["verification"].pop("checkedAt", None)
         for signal in paper.get("communitySignals", []):
             signal.pop("observedAt", None)
+        for context in paper.get("retrievalContexts", []):
+            context.pop("retrievedAt", None)
     return hashlib.sha256(json.dumps(stable, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
-def run_pipeline(*, config_path: Path, output_path: Path, adapters: list[SourceAdapter] | None = None, now: datetime | None = None) -> bool:
+def run_pipeline(*, config_path: Path, output_path: Path, adapters: list[SourceAdapter] | None = None, now: datetime | None = None, historical_backfill: bool = False) -> bool:
     config = json.loads(config_path.read_text())
     run_time = now or datetime.now(timezone.utc)
     now_iso = utc_iso(run_time)
+    repository_root = config_path.resolve().parent.parent
+    taxonomy = (
+        load_taxonomy(repository_root / config["taxonomyPath"])
+        if config.get("taxonomyPath")
+        else None
+    )
     existing = None
     if output_path.exists():
         try:
@@ -131,14 +161,26 @@ def run_pipeline(*, config_path: Path, output_path: Path, adapters: list[SourceA
     sources: list[dict[str, Any]] = []
     raw_records: list[dict[str, Any]] = []
     active_adapters = adapters or [
-        ArxivAdapter(config["categories"], config["keywords"], config["maxArxivResults"], config["requestTimeoutSeconds"], config["maxAttempts"], config["backoffSeconds"]),
+        ArxivAdapter(
+            config["categories"],
+            timeout=config["requestTimeoutSeconds"],
+            attempts=config["maxAttempts"],
+            backoff=config["backoffSeconds"],
+            query_groups=config["arxivQueryGroups"],
+            historical_query_groups=config.get("arxivHistoricalQueryGroups", []),
+            include_historical=historical_backfill,
+            request_delay=config.get("arxivRequestDelaySeconds", 3),
+        ),
         HuggingFaceAdapter(config["huggingFaceQueries"], config["maxHuggingFaceResults"], config["requestTimeoutSeconds"], config["maxAttempts"], config["backoffSeconds"], config["huggingFaceRequestDelaySeconds"]),
     ]
     for adapter in active_adapters:
         try:
             records = adapter.fetch()
             raw_records.extend(records)
-            sources.append({"id": adapter.source_id, "status": "ok", "lastSuccessfulUpdateAt": now_iso, "recordCount": len(records)})
+            source_result = {"id": adapter.source_id, "status": "ok", "lastSuccessfulUpdateAt": now_iso, "recordCount": len(records)}
+            if isinstance(getattr(adapter, "raw_record_count", None), int):
+                source_result["rawRecordCount"] = adapter.raw_record_count
+            sources.append(source_result)
             LOGGER.info("source_complete", extra={"source": adapter.source_id, "record_count": len(records)})
         except Exception as error:
             LOGGER.error("source_failed", extra={"source": adapter.source_id, "error_type": type(error).__name__})
@@ -156,7 +198,7 @@ def run_pipeline(*, config_path: Path, output_path: Path, adapters: list[SourceA
             except Exception as error:
                 LOGGER.error("source_failed", extra={"source": "openalex", "error_type": type(error).__name__})
                 sources.append({"id": "openalex", "status": "unavailable", "recordCount": 0})
-    papers = deduplicate(normalize(raw_records, now_iso))
+    papers = deduplicate(normalize(raw_records, now_iso, taxonomy))
     if existing:
         existing_by_id = {paper["id"]: paper for paper in existing["papers"]}
         ai_config = config.get("aiEnrichment", {})
@@ -194,29 +236,57 @@ def run_pipeline(*, config_path: Path, output_path: Path, adapters: list[SourceA
             )
             if legacy_cache or configured_cache:
                 paper["aiEnrichment"] = cached
-    enrich_with_ai_if_configured(
-        papers, config, config_path.resolve().parent.parent
-    )
     deduplicated_count = len(papers)
     if existing and any(source["status"] == "unavailable" for source in sources):
         papers.extend(existing["papers"])
         papers = deduplicate(papers)
+    if existing and taxonomy:
+        historical_papers = [
+            paper
+            for paper in existing["papers"]
+            if any(context.get("historical") for context in paper.get("retrievalContexts", []))
+        ]
+        if historical_papers:
+            papers = deduplicate([*papers, *historical_papers])
     cutoff = run_time - timedelta(days=config["windowDays"])
+    historical_cutoff = run_time - timedelta(days=config.get("historicalRetentionDays", config["windowDays"]))
+    rejected_ineligible = sum(
+        1 for paper in papers if taxonomy and relevance_level(paper.get("topicMatches", [])) == "ineligible"
+    )
     papers = [
         paper
         for paper in papers
-        if datetime.fromisoformat(
+        if (not taxonomy or relevance_level(paper.get("topicMatches", [])) != "ineligible")
+        and (datetime.fromisoformat(
             paper["publishedAt"].replace("Z", "+00:00")
         )
         >= cutoff
-        or paper.get("communitySignals")
-    ][: config["maxPublishedPapers"]]
+        or (
+            datetime.fromisoformat(paper["publishedAt"].replace("Z", "+00:00")) >= historical_cutoff
+            and (paper.get("communitySignals") or any(context.get("historical") for context in paper.get("retrievalContexts", [])))
+        ))
+    ]
+    eligible_before_limit = len(papers)
+    papers = papers[: config["maxPublishedPapers"]]
+    enrich_with_ai_if_configured(papers, config, repository_root)
+    classification_counts = {
+        key: sum(1 for paper in papers if relevance_level(paper.get("topicMatches", [])) == key)
+        for key in ("direct-rsi", "enabling-systems", "application-research", "adjacent-exploration")
+    }
     dataset = {
         "schemaVersion": 1,
+        **({"taxonomyVersion": taxonomy.schema_version} if taxonomy else {}),
         "generatedAt": now_iso,
         "lastSuccessfulUpdateAt": now_iso,
         "sources": sources,
-        "statistics": {"inputRecords": len(raw_records), "publishedPapers": len(papers), "duplicatesMerged": len(raw_records) - deduplicated_count},
+        "statistics": {
+            "inputRecords": len(raw_records),
+            "rawSourceRecords": sum(source.get("rawRecordCount", source["recordCount"]) for source in sources),
+            "eligibleBeforeLimit": eligible_before_limit,
+            "publishedPapers": len(papers),
+            "duplicatesMerged": len(raw_records) - deduplicated_count,
+            **({"classification": {**classification_counts, "ineligibleRejected": rejected_ineligible}} if taxonomy else {}),
+        },
         "papers": papers,
     }
     validate_dataset(dataset)

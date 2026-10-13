@@ -28,6 +28,10 @@ Optional Chinese AI overviews use an
 OpenAI-compatible server-side adapter for Alibaba Cloud Model Studio, OpenAI, or
 DeepSeek, with structured validation and cache keys.
 
+The V1.4 discovery path uses a shared RSI taxonomy, bounded topic-group retrieval,
+query-level provenance, evidence-backed relevance levels, and an explicit
+historical backfill mode. See [RSI discovery](docs/RSI_DISCOVERY.md).
+
 ## Accepted technical direction
 
 - React, strict TypeScript, Vite, and a maintained client-side router.
@@ -50,6 +54,7 @@ workarounds, or a second production deployment pipeline.
 - [System architecture](docs/ARCHITECTURE.md)
 - [Deployment](docs/DEPLOYMENT.md)
 - [Data sources and publication](docs/DATA_SOURCES.md)
+- [RSI discovery enhancement](docs/RSI_DISCOVERY.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Testing and acceptance gates](docs/TESTING.md)
 - [Implementation roadmap](docs/ROADMAP.md)
@@ -87,6 +92,9 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-ingestion.txt
 PYTHONPATH=ingestion .venv/bin/python -m scholar_harbor_ingest.cli
 ```
+
+Run a bounded one-off historical discovery pass with
+`--historical-backfill`. Daily scheduled ingestion never adds this flag.
 
 The default arXiv and Hugging Face sources need no credential. Optional OpenAlex
 enrichment needs `OPENALEX_API_KEY` only after `openAlexEnabled` is deliberately

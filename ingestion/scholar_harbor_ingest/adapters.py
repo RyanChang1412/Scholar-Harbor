@@ -30,28 +30,61 @@ def _text(element: ET.Element, path: str) -> str:
 class ArxivAdapter:
     source_id = "arxiv"
 
-    def __init__(self, categories: list[str], keywords: list[str], max_results: int, timeout: float, attempts: int, backoff: float):
+    def __init__(self, categories: list[str], keywords: list[str] | None = None, max_results: int | None = None, timeout: float = 20, attempts: int = 3, backoff: float = 2, *, query_groups: list[dict[str, Any]] | None = None, historical_query_groups: list[dict[str, Any]] | None = None, include_historical: bool = False, request_delay: float = 3):
         self.categories = categories
         self.keywords = keywords
         self.max_results = max_results
         self.timeout = timeout
         self.attempts = attempts
         self.backoff = backoff
+        self.query_groups = query_groups
+        self.historical_query_groups = historical_query_groups or []
+        self.include_historical = include_historical
+        self.request_delay = request_delay
 
     def fetch(self) -> list[dict[str, Any]]:
-        query = " OR ".join(f"cat:{category}" for category in self.categories)
-        params = urllib.parse.urlencode({"search_query": query, "start": 0, "max_results": self.max_results, "sortBy": "submittedDate", "sortOrder": "descending"})
+        if self.query_groups is None:
+            query = " OR ".join(f"cat:{category}" for category in self.categories)
+            records = self._fetch_query(query, self.max_results or 48, "legacy-broad", False, "submittedDate")
+            self.raw_record_count = len(records)
+            return records
+        groups = list(self.query_groups)
+        if self.include_historical:
+            groups.extend({**group, "historical": True} for group in self.historical_query_groups)
+        merged: dict[str, dict[str, Any]] = {}
+        self.raw_record_count = 0
+        category_query = " OR ".join(f"cat:{category}" for category in self.categories)
+        for index, group in enumerate(groups):
+            if index:
+                time.sleep(self.request_delay)
+            term_query = " OR ".join(f'all:"{term}"' for term in group["terms"])
+            query = f"({term_query}) AND ({category_query})"
+            historical = bool(group.get("historical"))
+            records = self._fetch_query(
+                query,
+                int(group["maxResults"]),
+                group["id"],
+                historical,
+                "relevance" if historical else "submittedDate",
+            )
+            self.raw_record_count += len(records)
+            for record in records:
+                key = base_arxiv_id(record["arxivId"])
+                if key in merged:
+                    merged[key]["retrievalContexts"].extend(record["retrievalContexts"])
+                else:
+                    merged[key] = record
+        return list(merged.values())
+
+    def _fetch_query(self, query: str, max_results: int, group: str, historical: bool, sort_by: str) -> list[dict[str, Any]]:
+        params = urllib.parse.urlencode({"search_query": query, "start": 0, "max_results": max_results, "sortBy": sort_by, "sortOrder": "descending"})
         payload = with_retries(lambda: fetch_bytes(f"https://export.arxiv.org/api/query?{params}", timeout=self.timeout), source=self.source_id, attempts=self.attempts, backoff=self.backoff)
         records = self.parse(payload)
-        return [
-            record
-            for record in records
-            if any(
-                keyword.casefold()
-                in f"{record['title']} {record['abstract']}".casefold()
-                for keyword in self.keywords
-            )
-        ]
+        for record in records:
+            record["retrievalContexts"] = [{"queryGroup": group, "query": query, "historical": historical}]
+        if self.query_groups is None and self.keywords:
+            return [record for record in records if any(keyword.casefold() in f"{record['title']} {record['abstract']}".casefold() for keyword in self.keywords)]
+        return records
 
     @staticmethod
     def parse(payload: bytes) -> list[dict[str, Any]]:
@@ -83,7 +116,7 @@ class ArxivAdapter:
 class HuggingFaceAdapter:
     source_id = "huggingface"
 
-    def __init__(self, queries: list[str], limit: int, timeout: float, attempts: int, backoff: float, request_delay: float):
+    def __init__(self, queries: list[str | dict[str, Any]], limit: int, timeout: float, attempts: int, backoff: float, request_delay: float):
         self.queries = queries
         self.limit = limit
         self.timeout = timeout
@@ -92,7 +125,7 @@ class HuggingFaceAdapter:
         self.request_delay = request_delay
 
     def fetch(self) -> list[dict[str, Any]]:
-        def operation(query: str) -> list[Any]:
+        def operation(query: str, limit: int) -> list[Any]:
             import httpx2
             from huggingface_hub import HfApi, set_client_factory
             set_client_factory(
@@ -101,17 +134,26 @@ class HuggingFaceAdapter:
                     follow_redirects=True,
                 )
             )
-            per_query = max(1, min(10, self.limit // len(self.queries)))
-            return list(HfApi().list_papers(query=query, limit=per_query, token=False))
+            return list(HfApi().list_papers(query=query, limit=limit, token=False))
 
-        papers: list[Any] = []
-        for index, query in enumerate(self.queries):
+        papers: dict[str, tuple[Any, list[dict[str, Any]]]] = {}
+        self.raw_record_count = 0
+        for index, query_config in enumerate(self.queries):
             if index:
                 time.sleep(self.request_delay)
-            papers.extend(with_retries(lambda query=query: operation(query), source=self.source_id, attempts=self.attempts, backoff=self.backoff))
-        papers = list({paper.id: paper for paper in papers}.values())[: self.limit]
+            query = query_config if isinstance(query_config, str) else query_config["query"]
+            group = "legacy" if isinstance(query_config, str) else query_config["group"]
+            per_query = max(1, min(10, self.limit // len(self.queries))) if isinstance(query_config, str) else int(query_config.get("maxResults", 6))
+            found = with_retries(lambda query=query, per_query=per_query: operation(query, per_query), source=self.source_id, attempts=self.attempts, backoff=self.backoff)
+            self.raw_record_count += len(found)
+            for paper in found:
+                context = {"queryGroup": group, "query": query, "historical": False}
+                if paper.id in papers:
+                    papers[paper.id][1].append(context)
+                else:
+                    papers[paper.id] = (paper, [context])
         records = []
-        for paper in papers:
+        for paper, retrieval_contexts in list(papers.values())[: self.limit]:
             arxiv_id = getattr(paper, "id", "")
             if not arxiv_id or not getattr(paper, "title", None) or not getattr(paper, "summary", None):
                 continue
@@ -131,6 +173,7 @@ class HuggingFaceAdapter:
                 "codeUrl": getattr(paper, "github_repo", None),
                 "upvotes": getattr(paper, "upvotes", None),
                 "comments": getattr(paper, "comments", None),
+                "retrievalContexts": retrieval_contexts,
             })
         return records
 

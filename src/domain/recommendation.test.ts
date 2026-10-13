@@ -128,4 +128,74 @@ describe('balanced discovery', () => {
     expect(result.measurement.selected).toBe(10)
     expect(result.measurement.quotaRelaxed).toBe(true)
   })
+
+  it('resolves profile aliases and keeps ambiguous finance RSI ineligible', () => {
+    const base = candidateSet()[0]!
+    const aiPaper = {
+      ...base,
+      id: 'paper-2610-91001',
+      arxivId: '2610.91001',
+      title: 'Recursive Self-Improvement for an AI Agent',
+      abstract: 'The agent retains improvements from feedback.',
+      topics: ['Recursive Self-Improvement'],
+    }
+    const financePaper = {
+      ...base,
+      id: 'paper-2610-91002',
+      arxivId: '2610.91002',
+      title: 'RSI Signals for Trading',
+      abstract: 'The relative strength index (RSI) measures market momentum.',
+      topics: ['Finance'],
+    }
+    const aliasProfile = {
+      ...profile,
+      focusedTopics: ['RSI'],
+      exploratoryTopics: [],
+      topicWeights: { RSI: 2 },
+    }
+    const result = recommendPapers([financePaper, aiPaper], aliasProfile, {
+      limit: 2,
+      now,
+    })
+    expect(result.papers.map((paper) => paper.id)).toEqual([aiPaper.id])
+    expect(result.papers[0]?.recommendation?.reason).toContain(
+      'Recursive Self-Improvement',
+    )
+  })
+
+  it('applies edited canonical topic weights predictably', () => {
+    const base = candidateSet()[0]!
+    const recursive = {
+      ...base,
+      id: 'paper-2610-92001',
+      arxivId: '2610.92001',
+      title: 'Recursive Self-Improvement for Agents',
+      abstract: 'An AI agent improves its workflow from feedback.',
+      topics: ['Recursive Self-Improvement'],
+      communitySignals: undefined,
+    }
+    const continual = {
+      ...base,
+      id: 'paper-2610-92002',
+      arxivId: '2610.92002',
+      title: 'Continual Learning for Agents',
+      abstract: 'A learning agent adapts over time.',
+      topics: ['Continual Learning'],
+      communitySignals: undefined,
+    }
+    const weightedProfile = {
+      ...publicDefaultProfile,
+      focusedTopics: ['Recursive Self-Improvement', 'Continual Learning'],
+      exploratoryTopics: [],
+      topicWeights: {
+        'Recursive Self-Improvement': 2,
+        'Continual Learning': 0,
+      },
+    }
+    const result = recommendPapers([continual, recursive], weightedProfile, {
+      limit: 2,
+      now,
+    })
+    expect(result.papers[0]?.id).toBe(recursive.id)
+  })
 })
