@@ -21,13 +21,16 @@ import {
   type TimeRange,
 } from '../domain/paper-query'
 import { usePaperList } from '../hooks/usePaperRepository'
+import { usePersonalData } from '../hooks/usePersonalData'
+import { recommendPapers } from '../domain/recommendation'
 
 function getModes() {
   return [
     {
       id: 'for-you',
       label: 'For You',
-      description: 'Personal recommendations become available in Phase 04.',
+      description:
+        'Private, local ranking with explainable Focused and Explore lanes.',
     },
     {
       id: 'latest',
@@ -81,6 +84,7 @@ export function PapersPage({
   signalNotice = 'Community values retain their source and observation time.',
 }: PapersPageProps) {
   const { papers, loading, error } = usePaperList(repository)
+  const { profile } = usePersonalData()
   const [searchParams, setSearchParams] = useSearchParams()
   const querySearch = searchParams.get('q') ?? ''
   const rawMode = searchParams.get('mode')
@@ -121,10 +125,19 @@ export function PapersPage({
       ? `Dataset retrieved ${formatPaperDate(latestRetrieval)}`
       : 'Published dataset unavailable'
   }, [papers, snapshotLabel])
+  const recommendations = useMemo(
+    () =>
+      recommendPapers(papers, profile, {
+        limit: Math.min(10, papers.length),
+        now: snapshotAt,
+      }),
+    [papers, profile, snapshotAt],
+  )
+  const browsablePapers = mode === 'for-you' ? recommendations.papers : papers
   const result = useMemo(
     () =>
       queryPapers(
-        papers,
+        browsablePapers,
         {
           mode,
           search: querySearch,
@@ -140,7 +153,7 @@ export function PapersPage({
     [
       mode,
       page,
-      papers,
+      browsablePapers,
       querySearch,
       selectedTopics,
       snapshotAt,
@@ -365,6 +378,28 @@ export function PapersPage({
               </p>
             )}
           </div>
+
+          {mode === 'for-you' && !loading && (
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-md bg-surface-soft px-4 py-3 text-xs text-text-muted">
+              <span>
+                {recommendations.measurement.focused} Focused ·{' '}
+                {recommendations.measurement.explore} Explore
+              </span>
+              <span>
+                Target {Math.round(profile.focusedRatio * 100)}/
+                {Math.round((1 - profile.focusedRatio) * 100)}
+                {recommendations.measurement.quotaRelaxed
+                  ? ' · relaxed because an eligible lane was short'
+                  : ' · quota met'}
+              </span>
+              <Link
+                className="font-semibold text-action hover:text-text"
+                to="/settings"
+              >
+                Edit research profile
+              </Link>
+            </div>
+          )}
 
           <div aria-live="polite" className="mt-6">
             {loading && (

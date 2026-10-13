@@ -6,6 +6,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { ValidatedPaperRepository } from '../data/papers/PaperRepository'
 import { renderApp } from '../test/renderApp'
 import { PapersPage } from './PapersPage'
+import { personalStateStorageKey } from '../data/personal/PersonalPaperStateRepository'
 
 describe('paper discovery and detail navigation', () => {
   it('renders a validated, paginated paper list', async () => {
@@ -90,9 +91,9 @@ describe('paper discovery and detail navigation', () => {
     expect(
       screen.getAllByRole('button', { name: 'Remove from library' })[0],
     ).toHaveAttribute('aria-pressed', 'true')
-    expect(
-      window.localStorage.getItem('scholar-harbor.personal-papers.v1'),
-    ).toContain('"saved":true')
+    expect(window.localStorage.getItem(personalStateStorageKey)).toContain(
+      '"saved":true',
+    )
   })
 
   it('preserves filters when moving to a detail and back to results', async () => {
@@ -124,9 +125,9 @@ describe('paper discovery and detail navigation', () => {
     expect(screen.getByText('Code link unavailable')).toBeInTheDocument()
 
     await user.selectOptions(screen.getByLabelText('Reading status'), 'reading')
-    expect(
-      window.localStorage.getItem('scholar-harbor.personal-papers.v1'),
-    ).toContain('"status":"reading"')
+    expect(window.localStorage.getItem(personalStateStorageKey)).toContain(
+      '"status":"reading"',
+    )
   })
 
   it('copies reliable citation metadata as BibTeX', async () => {

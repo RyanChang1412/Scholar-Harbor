@@ -1,0 +1,289 @@
+import { Download, RotateCcw, Upload } from 'lucide-react'
+import { useRef, useState } from 'react'
+
+import { SectionHeader } from '../components/common/SectionHeader'
+import { PageContainer } from '../components/layout/PageContainer'
+import {
+  parseTopicList,
+  researchProfileSchema,
+} from '../domain/research-profile'
+import { usePersonalData } from '../hooks/usePersonalData'
+
+type Notice =
+  { readonly kind: 'success' | 'error'; readonly message: string } | undefined
+
+export function SettingsPage() {
+  const { profile, repository } = usePersonalData()
+  const [notice, setNotice] = useState<Notice>()
+  const [focusedShare, setFocusedShare] = useState(
+    Math.round(profile.focusedRatio * 100),
+  )
+  const fileInput = useRef<HTMLInputElement>(null)
+
+  function saveProfile(form: HTMLFormElement) {
+    const data = new FormData(form)
+    const focusedTopics = parseTopicList(
+      String(data.get('focusedTopics') ?? ''),
+    )
+    const topicWeights = Object.fromEntries(
+      focusedTopics.map((topic) => [
+        topic,
+        Number(data.get(`weight:${topic}`) ?? 1),
+      ]),
+    )
+    const result = researchProfileSchema.safeParse({
+      focusedTopics,
+      exploratoryTopics: parseTopicList(
+        String(data.get('exploratoryTopics') ?? ''),
+      ),
+      topicWeights,
+      customKeywords: parseTopicList(String(data.get('customKeywords') ?? '')),
+      excludedKeywords: parseTopicList(
+        String(data.get('excludedKeywords') ?? ''),
+      ),
+      preferredTimeRangeDays: Number(data.get('preferredTimeRangeDays')),
+      focusedRatio: Number(data.get('focusedRatio')) / 100,
+      showAiOverviews: data.get('showAiOverviews') === 'on',
+    })
+    if (!result.success) {
+      setNotice({
+        kind: 'error',
+        message: 'Review the profile values and try again.',
+      })
+      return
+    }
+    repository.setProfile(result.data)
+    setNotice({ kind: 'success', message: 'Research profile saved locally.' })
+  }
+
+  function exportData() {
+    const blob = new Blob([repository.exportJson()], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = 'scholar-harbor-local-data.v2.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+    setNotice({ kind: 'success', message: 'Local data export created.' })
+  }
+
+  async function importData(file: File | undefined) {
+    if (!file) return
+    try {
+      repository.importJson(await file.text())
+      setNotice({ kind: 'success', message: 'Validated local data imported.' })
+    } catch {
+      setNotice({
+        kind: 'error',
+        message:
+          'Import rejected: expected a valid Scholar Harbor v2 JSON export.',
+      })
+    } finally {
+      if (fileInput.current) fileInput.current.value = ''
+    }
+  }
+
+  return (
+    <PageContainer className="py-12 sm:py-16">
+      <SectionHeader
+        as="h1"
+        description="Tune local discovery without sending your profile or reading history to a server."
+        eyebrow="Private preferences"
+        title="Settings"
+      />
+      <form
+        className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.6fr)]"
+        onSubmit={(event) => {
+          event.preventDefault()
+          saveProfile(event.currentTarget)
+        }}
+      >
+        <section
+          className="rounded-xl border border-border bg-surface p-6 shadow-card"
+          aria-labelledby="profile-title"
+        >
+          <h2
+            id="profile-title"
+            className="font-editorial text-2xl font-semibold text-text"
+          >
+            Research profile
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-text-muted">
+            Use comma-separated topics and keywords. Recommendation reasons only
+            reference detected source text and topics.
+          </p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            <TextSetting
+              name="focusedTopics"
+              label="Focused topics"
+              defaultValue={profile.focusedTopics.join(', ')}
+            />
+            <TextSetting
+              name="exploratoryTopics"
+              label="Exploratory topics"
+              defaultValue={profile.exploratoryTopics.join(', ')}
+            />
+            <TextSetting
+              name="customKeywords"
+              label="Custom keywords"
+              defaultValue={profile.customKeywords.join(', ')}
+            />
+            <TextSetting
+              name="excludedKeywords"
+              label="Excluded keywords"
+              defaultValue={profile.excludedKeywords.join(', ')}
+            />
+            <label className="text-sm font-semibold text-text">
+              Preferred time range
+              <select
+                name="preferredTimeRangeDays"
+                defaultValue={profile.preferredTimeRangeDays}
+                className="mt-2 min-h-11 w-full rounded-md border border-border bg-surface px-3 font-normal"
+              >
+                <option value="30">Past 30 days</option>
+                <option value="90">Past 90 days</option>
+                <option value="365">Past year</option>
+                <option value="1095">Past 3 years</option>
+              </select>
+            </label>
+            <label className="text-sm font-semibold text-text">
+              Focused share: <output>{focusedShare}%</output>
+              <input
+                name="focusedRatio"
+                type="range"
+                min="0"
+                max="100"
+                step="10"
+                value={focusedShare}
+                onChange={(event) =>
+                  setFocusedShare(Number(event.target.value))
+                }
+                className="mt-4 w-full accent-primary"
+              />
+            </label>
+          </div>
+          <fieldset className="mt-6">
+            <legend className="text-sm font-semibold text-text">
+              Focused topic weights
+            </legend>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              {profile.focusedTopics.map((topic) => (
+                <label
+                  key={topic}
+                  className="flex items-center justify-between gap-3 text-sm text-text-muted"
+                >
+                  {topic}
+                  <input
+                    aria-label={`${topic} weight`}
+                    className="w-20 rounded-md border border-border bg-surface px-2 py-1"
+                    name={`weight:${topic}`}
+                    type="number"
+                    min="0"
+                    max="2"
+                    step="0.1"
+                    defaultValue={profile.topicWeights[topic] ?? 1}
+                  />
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <label className="mt-6 flex items-center gap-3 text-sm text-text-muted">
+            <input
+              name="showAiOverviews"
+              type="checkbox"
+              defaultChecked={profile.showAiOverviews}
+              className="size-4 accent-primary"
+            />
+            Show available, clearly labeled AI overviews
+          </label>
+          <button
+            className="mt-7 min-h-11 rounded-md bg-action px-5 text-sm font-semibold text-surface hover:bg-text"
+            type="submit"
+          >
+            Save profile
+          </button>
+        </section>
+
+        <aside className="self-start rounded-xl border border-border bg-surface p-6 shadow-card">
+          <h2 className="font-editorial text-xl font-semibold text-text">
+            Local data
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-text-muted">
+            Exports include your research profile, saved states, reading
+            progress, and tags. They contain no API keys or documents.
+          </p>
+          <div className="mt-5 space-y-3">
+            <button
+              type="button"
+              onClick={exportData}
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-border px-3 text-sm font-semibold text-action hover:bg-surface-soft"
+            >
+              <Download size={16} aria-hidden="true" />
+              Export JSON
+            </button>
+            <button
+              type="button"
+              onClick={() => fileInput.current?.click()}
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-border px-3 text-sm font-semibold text-action hover:bg-surface-soft"
+            >
+              <Upload size={16} aria-hidden="true" />
+              Import JSON
+            </button>
+            <input
+              ref={fileInput}
+              className="sr-only"
+              type="file"
+              accept="application/json,.json"
+              onChange={(event) => void importData(event.target.files?.[0])}
+            />
+            <button
+              type="button"
+              onClick={() => {
+                repository.reset()
+                setNotice({
+                  kind: 'success',
+                  message: 'Local data reset to public defaults.',
+                })
+              }}
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-border px-3 text-sm font-semibold text-action hover:bg-surface-soft"
+            >
+              <RotateCcw size={16} aria-hidden="true" />
+              Reset local data
+            </button>
+          </div>
+          {notice && (
+            <p
+              role="status"
+              className={`mt-4 text-sm ${notice.kind === 'error' ? 'font-semibold text-text' : 'text-action'}`}
+            >
+              {notice.message}
+            </p>
+          )}
+        </aside>
+      </form>
+    </PageContainer>
+  )
+}
+
+function TextSetting({
+  name,
+  label,
+  defaultValue,
+}: {
+  readonly name: string
+  readonly label: string
+  readonly defaultValue: string
+}) {
+  return (
+    <label className="text-sm font-semibold text-text">
+      {label}
+      <textarea
+        className="mt-2 min-h-24 w-full rounded-md border border-border bg-surface p-3 font-normal leading-6"
+        name={name}
+        defaultValue={defaultValue}
+      />
+    </label>
+  )
+}

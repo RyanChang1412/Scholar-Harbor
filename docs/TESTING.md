@@ -2,9 +2,9 @@
 
 ## Status
 
-Phase 03 retains the frontend gates and adds deterministic Python tests for
-source parsing, canonical identity, failure isolation, retries, historical-data
-preservation, schema validation, and atomic/idempotent publication.
+Phase 04 retains the ingestion recovery gates and adds deterministic tests for
+Balanced Discovery, profile-dependent ranking, local-state migration/import,
+and optional AI enrichment failure and cache behavior.
 
 Run the default checks with:
 
@@ -96,6 +96,32 @@ Validated on 2026-10-12 in the onboarding environment:
 OpenAlex API connectivity was verified independently. The generated dataset did
 not enable OpenAlex enrichment, so no private credential was requested and no
 OpenAlex-derived field is claimed in the artifact.
+
+## Phase 04 validation record
+
+Validated on 2026-10-13 in the onboarding environment:
+
+| Check                                            | Result                                                |
+| ------------------------------------------------ | ----------------------------------------------------- |
+| Strict TypeScript, ESLint, Prettier              | Passed                                                |
+| Vitest domain/component/route suite              | 44 passed                                             |
+| Python ingestion and AI adapter suite            | 20 passed                                             |
+| Playwright browser suite                         | 16 passed using system Chromium                       |
+| Target viewports                                 | 375, 768, 1280, 1440, 2560×1440, and 2560×1600 passed |
+| 70/30, quota relaxation, duplicate checks        | Passed                                                |
+| Production default For You measurement           | 7 Focused / 3 Explore; quota met                      |
+| Determinism, exclusion, diversity, no-signal     | Passed                                                |
+| Local persistence, v1 migration, JSON round-trip | Passed                                                |
+| AI disabled, malformed/timeout, cache reuse      | Passed                                                |
+| Vite build and production-content scan           | Passed; 6 text assets scanned                         |
+| Wrangler packaging dry-run                       | Passed; 18 static assets read                         |
+
+No supported AI provider key was configured, so no paid or live model request was
+made. This is the expected credential-free mode; provider selection and
+structured-response behavior were validated with injected deterministic adapters.
+The first browser invocation
+could not find Playwright's bundled executable, and the CDN was blocked by the
+environment proxy. The full suite then passed against `/usr/bin/chromium`.
 
 ## Test strategy
 

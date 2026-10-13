@@ -3,6 +3,8 @@ import { createBrowserRouter } from 'react-router-dom'
 import { HomePage } from '../pages/HomePage'
 import { PaperDetailPage } from '../pages/PaperDetailPage'
 import { PapersPage } from '../pages/PapersPage'
+import { LibraryPage } from '../pages/LibraryPage'
+import { SettingsPage } from '../pages/SettingsPage'
 import {
   fixturePaperRepository,
   fixturePaperSnapshotAt,
@@ -31,6 +33,8 @@ export const appRoutes = createAppRoutes({
       snapshotLabel={fixturePaperSnapshotLabel}
     />
   ),
+  library: <LibraryPage repository={fixturePaperRepository} />,
+  settings: <SettingsPage />,
 })
 
 export const router = createBrowserRouter(appRoutes)

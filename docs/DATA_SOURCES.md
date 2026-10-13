@@ -2,9 +2,16 @@
 
 ## Status
 
-Phase 03 implements arXiv and Hugging Face Papers adapters and publishes their
+Phase 04 retains the arXiv and Hugging Face Papers adapters and publishes their
 normalized records in `public/data/papers.v1.json`. Development routes continue
 to use fictional, visibly labeled records from `src/fixtures`.
+
+An optional post-normalization OpenAI-compatible adapter can use Alibaba Cloud
+Model Studio, OpenAI, or DeepSeek and receives only paper title and abstract. It
+writes three validated Chinese overview sections with
+provider/model/prompt/fingerprint metadata and never replaces source fields.
+Missing credentials or individual model failures leave AI enrichment unavailable
+without failing ingestion.
 
 Test fixtures include invented provenance entries and invented community
 signals solely to validate schema, ordering, and interface behavior. Trending

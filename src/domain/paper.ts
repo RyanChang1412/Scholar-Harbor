@@ -62,7 +62,7 @@ export const paperSchema = z
       )
       .optional(),
     aiEnrichment: z
-      .discriminatedUnion('status', [
+      .union([
         z.object({ status: z.literal('unavailable') }).strict(),
         z
           .object({
@@ -72,6 +72,29 @@ export const paperSchema = z
             generatedAt: isoDateTimeSchema,
             promptVersion: z.string().trim().min(1),
             sourceFingerprint: z.string().trim().min(1),
+          })
+          .strict(),
+        z
+          .object({
+            status: z.literal('available'),
+            overview: z
+              .object({
+                researchProblem: z.string().trim().min(1),
+                coreApproach: z.string().trim().min(1),
+                researchRelevance: z.string().trim().min(1),
+              })
+              .strict(),
+            basis: z.enum(['title-abstract', 'full-text']),
+            generatedAt: isoDateTimeSchema,
+            promptVersion: z.string().trim().min(1),
+            sourceFingerprint: z.string().trim().min(1),
+            provider: z.enum([
+              'Alibaba Cloud Model Studio',
+              'OpenAI',
+              'DeepSeek',
+            ]),
+            model: z.string().trim().min(1),
+            cacheKey: z.string().regex(/^[a-f0-9]{64}$/),
           })
           .strict(),
       ])

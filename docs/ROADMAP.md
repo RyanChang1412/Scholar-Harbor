@@ -47,11 +47,14 @@ the Phase 02 fixture-based development contract.
   triggers the existing Cloudflare build.
 - Production frontend loading and validation of genuine source-backed records.
 
-## 4. Personalization and library — planned
+## 4. Personalization, library, and optional AI — complete
 
 - Editable research profile and deterministic Balanced Discovery.
 - Local saved/reading state, tags, import/export, migration, and reset.
 - Explainable recommendations and privacy validation.
+- Optional bounded Alibaba Cloud Model Studio, OpenAI, or DeepSeek enrichment
+  with structured output, provider/prompt/model-aware cache reuse, and
+  credential-free degradation.
 
 ## Later context modules — planned
 
@@ -59,9 +62,8 @@ the Phase 02 fixture-based development contract.
 - Traceable Trending signals and authoritative ranking links/summaries.
 - Research Pulse using only defined source-backed data.
 
-## Later deployment activation and optional AI — planned
+## Later deployment activation — planned
 
 - Cloudflare Workers Builds production connection and deployment verification.
-- Optional cached AI enrichment in trusted CI/server context with graceful failure.
 
 Do not begin optional AI work before the non-AI publication path is reliable.

@@ -28,6 +28,8 @@ import {
 import { usePaper } from '../hooks/usePaperRepository'
 import { usePersonalPaperState } from '../hooks/usePersonalPaperState'
 import { createBibTeX } from '../lib/citation'
+import type { ReadingStatus } from '../domain/personal-paper-state'
+import { usePersonalData } from '../hooks/usePersonalData'
 
 interface DetailLocationState {
   readonly from?: unknown
@@ -48,6 +50,7 @@ export function PaperDetailPage({
   recordLabel = 'Source-backed record',
   destinationNotice,
 }: PaperDetailPageProps) {
+  const { profile } = usePersonalData()
   const { paperId } = useParams()
   const location = useLocation()
   const { paper, loading, error } = usePaper(repository, paperId)
@@ -160,19 +163,48 @@ export function PaperDetailPage({
             >
               AI Overview
             </h2>
-            {paper.aiEnrichment?.status === 'available' ? (
+            {profile.showAiOverviews &&
+            paper.aiEnrichment?.status === 'available' ? (
               <>
                 <p className="mt-2 text-xs font-semibold text-action">
                   AI-generated · based on {paper.aiEnrichment.basis}
                 </p>
-                <p className="mt-3 leading-7 text-text-muted">
-                  {paper.aiEnrichment.overview}
-                </p>
+                {typeof paper.aiEnrichment.overview === 'string' ? (
+                  <p className="mt-3 leading-7 text-text-muted">
+                    {paper.aiEnrichment.overview}
+                  </p>
+                ) : (
+                  <dl className="mt-4 space-y-4 text-sm leading-7 text-text-muted">
+                    <div>
+                      <dt className="font-semibold text-text">
+                        Research Problem
+                      </dt>
+                      <dd>{paper.aiEnrichment.overview.researchProblem}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-text">Core Approach</dt>
+                      <dd>{paper.aiEnrichment.overview.coreApproach}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-text">
+                        Research Relevance
+                      </dt>
+                      <dd>{paper.aiEnrichment.overview.researchRelevance}</dd>
+                    </div>
+                  </dl>
+                )}
+                {'provider' in paper.aiEnrichment && (
+                  <p className="mt-4 text-xs text-text-muted">
+                    {paper.aiEnrichment.provider} · {paper.aiEnrichment.model} ·
+                    prompt {paper.aiEnrichment.promptVersion}
+                  </p>
+                )}
               </>
             ) : (
               <p className="mt-3 leading-7 text-text-muted">
-                No AI overview is available for this record. The original
-                abstract remains available above without generated claims.
+                {profile.showAiOverviews
+                  ? 'No AI overview is available for this record. The original abstract remains available above without generated claims.'
+                  : 'AI overviews are hidden by your local display preference.'}
               </p>
             )}
           </section>
@@ -289,14 +321,13 @@ function PaperMetadata({
           Reading status
           <select
             className="mt-2 min-h-10 w-full rounded-md border border-border bg-surface px-3 text-sm font-normal"
-            onChange={(event) =>
-              setStatus(event.target.value as 'unread' | 'reading' | 'read')
-            }
+            onChange={(event) => setStatus(event.target.value as ReadingStatus)}
             value={state.status}
           >
             <option value="unread">Unread</option>
+            <option value="want-to-read">Want to Read</option>
             <option value="reading">Reading</option>
-            <option value="read">Read</option>
+            <option value="finished">Finished</option>
           </select>
         </label>
         <button

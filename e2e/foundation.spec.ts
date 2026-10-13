@@ -205,6 +205,45 @@ test('bookmark state persists locally across refresh', async ({ page }) => {
   await expect(
     page.getByRole('button', { name: 'Remove from library' }),
   ).toBeVisible()
+
+  await page.goto('/library')
+  await expect(
+    page.getByRole('link', { name: /Memory Tides:/ }).first(),
+  ).toBeVisible()
+  await page.getByLabel('Reading status').selectOption('want-to-read')
+  await page.getByLabel('Personal tags').fill('systems, revisit')
+  await page.getByLabel('Personal tags').blur()
+  await page.reload()
+  await expect(page.getByLabel('Reading status')).toHaveValue('want-to-read')
+  await expect(page.getByLabel('Personal tags')).toHaveValue('systems, revisit')
+})
+
+test('profile settings drive local balanced discovery without overflow', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  await page.goto('/settings')
+  await page.getByLabel('Focused topics').fill('Agent systems, LLM serving')
+  await page.getByLabel('Exploratory topics').fill('Robotics, Multimodal')
+  await page.getByRole('button', { name: 'Save profile' }).click()
+  await expect(page.getByText('Research profile saved locally.')).toBeVisible()
+  await page.screenshot({
+    fullPage: true,
+    path: 'artifacts/phase-04/fixture-settings-375.png',
+  })
+
+  await page.setViewportSize({ width: 2560, height: 1440 })
+  await page.goto('/papers?mode=for-you')
+  await expect(page.getByText(/Focused ·/)).toBeVisible()
+  const dimensions = await page.evaluate(() => ({
+    viewportWidth: window.innerWidth,
+    documentWidth: document.documentElement.scrollWidth,
+  }))
+  expect(dimensions.documentWidth).toBeLessThanOrEqual(dimensions.viewportWidth)
+  await page.screenshot({
+    fullPage: true,
+    path: 'artifacts/phase-04/fixture-papers-2560.png',
+  })
 })
 
 test('keyboard focus and mobile navigation are usable', async ({ page }) => {

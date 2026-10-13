@@ -33,5 +33,35 @@
   "maxAttempts": 3,
   "backoffSeconds": 2,
   "huggingFaceRequestDelaySeconds": 1,
-  "openAlexEnabled": false
+  "openAlexEnabled": false,
+  "aiEnrichment": {
+    "enabled": true,
+    "provider": "bailian",
+    "providers": {
+      "bailian": {
+        "displayName": "Alibaba Cloud Model Studio",
+        "apiKeyEnv": "DASHSCOPE_API_KEY",
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "defaultModel": "qwen-plus",
+        "legacyModelEnv": "BAILIAN_MODEL",
+        "legacyBaseUrlEnv": "BAILIAN_BASE_URL"
+      },
+      "openai": {
+        "displayName": "OpenAI",
+        "apiKeyEnv": "OPENAI_API_KEY",
+        "baseUrl": "https://api.openai.com/v1",
+        "defaultModel": "gpt-4.1-mini"
+      },
+      "deepseek": {
+        "displayName": "DeepSeek",
+        "apiKeyEnv": "DEEPSEEK_API_KEY",
+        "baseUrl": "https://api.deepseek.com",
+        "defaultModel": "deepseek-chat"
+      }
+    },
+    "systemPromptPath": "config/ai-system-prompt-v1.txt",
+    "promptVersion": "zh-overview-v1",
+    "maxPapersPerRun": 6,
+    "timeoutSeconds": 30
+  }
 }

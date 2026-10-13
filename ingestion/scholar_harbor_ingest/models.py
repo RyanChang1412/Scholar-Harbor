@@ -96,6 +96,36 @@ def validate_paper(paper: dict[str, Any]) -> None:
         or enrichment.get("status") not in {"unavailable", "available"}
     ):
         raise DataValidationError("paper AI enrichment state is invalid")
+    if enrichment and enrichment.get("status") == "available":
+        overview = enrichment.get("overview")
+        legacy_overview = isinstance(overview, str) and overview.strip()
+        structured_overview = (
+            isinstance(overview, dict)
+            and set(overview)
+            == {"researchProblem", "coreApproach", "researchRelevance"}
+            and all(
+                isinstance(value, str) and value.strip()
+                for value in overview.values()
+            )
+        )
+        if not legacy_overview and not structured_overview:
+            raise DataValidationError("paper AI overview is invalid")
+        if enrichment.get("basis") not in {"title-abstract", "full-text"}:
+            raise DataValidationError("paper AI basis is invalid")
+        for key in ("generatedAt", "promptVersion", "sourceFingerprint"):
+            if not isinstance(enrichment.get(key), str) or not enrichment[key].strip():
+                raise DataValidationError(f"paper AI {key} is invalid")
+        if structured_overview:
+            if enrichment.get("provider") not in {
+                "Alibaba Cloud Model Studio",
+                "OpenAI",
+                "DeepSeek",
+            }:
+                raise DataValidationError("paper AI provider is invalid")
+            for key in ("model", "cacheKey"):
+                if not isinstance(enrichment.get(key), str) or not enrichment[key].strip():
+                    raise DataValidationError(f"paper AI {key} is invalid")
+        utc_iso(enrichment["generatedAt"])
 
 
 def validate_dataset(dataset: dict[str, Any]) -> None:

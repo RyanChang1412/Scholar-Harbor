@@ -18,5 +18,6 @@ export function usePersonalPaperState(paperId: string) {
     state: current,
     toggleSaved: () => repository.setSaved(paperId, !current.saved),
     setStatus: (status: ReadingStatus) => repository.setStatus(paperId, status),
+    setTags: (tags: readonly string[]) => repository.setTags(paperId, tags),
   }
 }

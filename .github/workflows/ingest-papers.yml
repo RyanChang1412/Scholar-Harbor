@@ -28,6 +28,12 @@ jobs:
       - name: Build validated dataset
         env:
           HF_HUB_DISABLE_TELEMETRY: '1'
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          BAILIAN_MODEL: ${{ vars.BAILIAN_MODEL }}
         run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
       - uses: actions/upload-artifact@v4
         with:

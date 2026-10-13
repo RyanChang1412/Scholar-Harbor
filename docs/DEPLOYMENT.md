@@ -78,6 +78,15 @@ ingest job has `contents: read`; only the separate publish job receives
 artifact is committed to `main`, which triggers the sole Cloudflare Workers Build
 deployment path. The workflow never deploys the frontend itself.
 
+Optional AI enrichment uses `AI_PROVIDER` (`bailian`, `openai`, or `deepseek`) and
+`AI_MODEL` GitHub repository variables. The selected provider reads its matching
+GitHub Actions secret: `DASHSCOPE_API_KEY`, `OPENAI_API_KEY`, or
+`DEEPSEEK_API_KEY`. `BAILIAN_MODEL` remains a compatibility fallback. If the
+selected secret is absent, the step logs a credential-free skip and completes the
+ordinary ingestion path. Do not set any key as a Vite variable or Cloudflare
+public environment value. The default configuration limits generation to six
+high-priority records per changed run.
+
 ## Validation before production
 
 Before enabling the Git integration, verify locally that:

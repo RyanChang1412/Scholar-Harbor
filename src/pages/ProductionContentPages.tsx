@@ -13,10 +13,16 @@ import { FeaturedPaperCard } from '../components/papers/FeaturedPaperCard'
 import { publicPaperRepository } from '../data/papers/PublicPaperRepository'
 import { formatPaperDate } from '../domain/paper'
 import { usePaperList } from '../hooks/usePaperRepository'
+import { usePersonalData } from '../hooks/usePersonalData'
+import { recommendPapers } from '../domain/recommendation'
 
 export function ProductionHomePage() {
   const { papers, loading, error } = usePaperList(publicPaperRepository)
-  const [featured, ...secondary] = papers
+  const { profile } = usePersonalData()
+  const recommendations = recommendPapers(papers, profile, {
+    limit: Math.min(10, papers.length),
+  })
+  const [featured, ...secondary] = recommendations.papers
   const latestRetrieval = papers
     .flatMap((paper) => paper.provenance)
     .map((entry) => entry.retrievedAt)
@@ -54,9 +60,9 @@ export function ProductionHomePage() {
 
       <section className="mt-14" aria-labelledby="production-content-title">
         <SectionHeader
-          description="Latest source-backed records. Personal recommendations remain deferred to Phase 04."
+          description={`${recommendations.measurement.focused} Focused and ${recommendations.measurement.explore} Explore selections, ranked locally from source-backed records.`}
           eyebrow="Primary reading"
-          title="Recent papers"
+          title="Papers for You"
           titleId="production-content-title"
         />
         <div className="mt-7">

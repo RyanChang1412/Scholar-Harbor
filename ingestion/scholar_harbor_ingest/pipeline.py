@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from .adapters import ArxivAdapter, HuggingFaceAdapter, OpenAlexEnricher, SourceAdapter
+from .ai_enrichment import enrich_with_ai_if_configured, source_fingerprint
 from .models import base_arxiv_id, utc_iso, validate_dataset
 
 LOGGER = logging.getLogger(__name__)
@@ -156,6 +157,46 @@ def run_pipeline(*, config_path: Path, output_path: Path, adapters: list[SourceA
                 LOGGER.error("source_failed", extra={"source": "openalex", "error_type": type(error).__name__})
                 sources.append({"id": "openalex", "status": "unavailable", "recordCount": 0})
     papers = deduplicate(normalize(raw_records, now_iso))
+    if existing:
+        existing_by_id = {paper["id"]: paper for paper in existing["papers"]}
+        ai_config = config.get("aiEnrichment", {})
+        provider_id = os.environ.get("AI_PROVIDER") or ai_config.get(
+            "provider", "bailian"
+        )
+        provider_config = ai_config.get("providers", {}).get(provider_id, {})
+        legacy_model_env = provider_config.get("legacyModelEnv")
+        configured_model = (
+            os.environ.get("AI_MODEL")
+            or (
+                os.environ.get(legacy_model_env)
+                if isinstance(legacy_model_env, str)
+                else None
+            )
+            or provider_config.get("defaultModel")
+        )
+        configured_provider = provider_config.get("displayName")
+        for paper in papers:
+            cached = existing_by_id.get(paper["id"], {}).get("aiEnrichment", {})
+            source_matches = cached.get("sourceFingerprint") == source_fingerprint(
+                paper
+            )
+            legacy_cache = (
+                cached.get("status") == "available"
+                and isinstance(cached.get("overview"), str)
+                and source_matches
+            )
+            configured_cache = (
+                cached.get("status") == "available"
+                and source_matches
+                and cached.get("model") == configured_model
+                and cached.get("provider") == configured_provider
+                and cached.get("promptVersion") == ai_config.get("promptVersion")
+            )
+            if legacy_cache or configured_cache:
+                paper["aiEnrichment"] = cached
+    enrich_with_ai_if_configured(
+        papers, config, config_path.resolve().parent.parent
+    )
     deduplicated_count = len(papers)
     if existing and any(source["status"] == "unavailable" for source in sources):
         papers.extend(existing["papers"])

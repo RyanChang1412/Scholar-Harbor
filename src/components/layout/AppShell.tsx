@@ -18,7 +18,7 @@ export function AppShell() {
       </main>
       <footer className="mt-20 border-t border-border py-8">
         <PageContainer className="flex flex-col gap-2 text-sm text-text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>Scholar Harbor · Phase 03 academic data pipeline</p>
+          <p>Scholar Harbor · Phase 04 balanced discovery</p>
           <p>
             Production uses validated data; development uses labeled fixtures.
           </p>

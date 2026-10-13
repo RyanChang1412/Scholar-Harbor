@@ -2,12 +2,12 @@
 
 ## Status
 
-Phase 03 implements source adapters, canonical arXiv identity resolution,
-deterministic normalization, runtime validation, failure-isolated publication,
-and production loading of the bounded `papers.v1.json` dataset. Development and
-test routes retain deterministic fixtures; production routes fetch and validate
-the generated public artifact. Recommendation scoring, AI enrichment, and full
-library management remain planned.
+Phase 04 adds local Balanced Discovery, versioned profile/library storage, and
+an optional multi-provider AI enrichment adapter to the Phase 03 data
+foundation. Development and test routes retain deterministic fixtures;
+production routes fetch and validate the generated public artifact. The
+recommendation path is deterministic and remains usable when AI is disabled or
+unavailable.
 
 Development and test builds select the fixture route set. Production builds
 select a separate route set backed by `/data/papers.v1.json`, allowing Rollup to
@@ -97,11 +97,22 @@ as `unknown`, so the UI cannot bypass runtime validation.
 ## Personal paper state
 
 Bookmarks and reading status use
-`scholar-harbor.personal-papers.v1` in browser-local storage. A strict versioned
-envelope is validated whenever it is read; malformed content falls back to an
-empty safe state. Personal fields never appear in the public Paper schema. Phase
-02 provides repository and paper-level controls; library views, tags,
-import/export, reset UI, and migrations remain deferred.
+`scholar-harbor.personal.v2` in browser-local storage. A strict versioned envelope
+contains the research profile, bookmarks, four reading states, and personal tags.
+Malformed content falls back safely; v1 state migrates `read` to `finished`.
+Validated JSON import/export and explicit reset are available in Settings.
+Personal fields never appear in the public Paper schema or leave the browser.
+
+## Recommendation flow
+
+The browser builds an eligible recent pool, applies exclusions and optional
+source/category constraints, classifies Focused and Explore candidates, computes
+normalized relevance/recency/community/novelty features, and reranks each lane
+with a deterministic MMR-style topic penalty. It selects a configurable ratio
+(70/30 by default), relaxes the quota when one lane is short, prevents duplicate
+IDs, and attaches a reason grounded in matched topics or explicit keywords.
+Latest and Trending continue to use their independent chronological and
+source-signal ordering.
 
 ## Public data contract
 
@@ -115,10 +126,15 @@ these artifacts.
 
 ## AI enrichment boundary
 
-AI runs only in trusted CI or server-side processing. An enrichment record stores
-its source-content fingerprint, prompt version, generation time, and whether it
-used title/abstract or full text. Generated text is rendered as untrusted content
-and visibly labeled. The non-AI pipeline remains complete and deployable.
+AI runs only in trusted CI or server-side processing. The implemented adapter
+uses one small OpenAI-compatible client behind a checked-in provider registry for
+Alibaba Cloud Model Studio, OpenAI, and DeepSeek. An enrichment record stores its
+source-content fingerprint, prompt version, generation time, model/provider, a
+composite cache key, and whether it used title/abstract or full text. Provider ID
+and model are part of the cache identity. Three Chinese sections are strictly
+validated. Generated text is rendered as untrusted content and visibly labeled.
+Calls are bounded per run, paper failures are isolated, and the non-AI pipeline
+remains complete and deployable.
 
 ## Routing and deployment
 

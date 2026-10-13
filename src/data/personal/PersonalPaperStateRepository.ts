@@ -1,17 +1,55 @@
+import { z } from 'zod'
+
 import {
   createDefaultPaperState,
+  personalPaperStateSchema,
   personalStateEnvelopeSchema,
   type PersonalPaperState,
   type PersonalStateEnvelope,
   type ReadingStatus,
 } from '../../domain/personal-paper-state'
+import {
+  publicDefaultProfile,
+  type ResearchProfile,
+} from '../../domain/research-profile'
 
-export const personalStateStorageKey = 'scholar-harbor.personal-papers.v1'
+export const personalStateStorageKey = 'scholar-harbor.personal.v2'
+export const legacyPersonalStateStorageKey = 'scholar-harbor.personal-papers.v1'
+
+const legacyEnvelopeSchema = z
+  .object({
+    version: z.literal(1),
+    papers: z.record(
+      z.string(),
+      z.object({
+        paperId: z.string(),
+        saved: z.boolean(),
+        status: z.enum(['unread', 'reading', 'read']),
+        updatedAt: z.string(),
+      }),
+    ),
+  })
+  .strict()
+
+function emptyEnvelope(): PersonalStateEnvelope {
+  return {
+    version: 2,
+    papers: {},
+    profile: structuredClone(publicDefaultProfile),
+  }
+}
 
 export interface PersonalPaperStateRepository {
   get(paperId: string): PersonalPaperState
+  list(): readonly PersonalPaperState[]
+  getProfile(): ResearchProfile
   setSaved(paperId: string, saved: boolean): PersonalPaperState
   setStatus(paperId: string, status: ReadingStatus): PersonalPaperState
+  setTags(paperId: string, tags: readonly string[]): PersonalPaperState
+  setProfile(profile: ResearchProfile): ResearchProfile
+  exportJson(): string
+  importJson(value: string): PersonalStateEnvelope
+  reset(): void
   subscribe(listener: () => void): () => void
 }
 
@@ -33,12 +71,56 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
     return this.#load().papers[paperId] ?? createDefaultPaperState(paperId)
   }
 
+  list() {
+    return Object.values(this.#load().papers)
+  }
+
+  getProfile() {
+    return this.#load().profile
+  }
+
   setSaved(paperId: string, saved: boolean) {
-    return this.#update(paperId, { saved })
+    return this.#updatePaper(paperId, { saved })
   }
 
   setStatus(paperId: string, status: ReadingStatus) {
-    return this.#update(paperId, { status })
+    return this.#updatePaper(paperId, { status })
+  }
+
+  setTags(paperId: string, tags: readonly string[]) {
+    const normalized = [
+      ...new Set(tags.map((tag) => tag.trim()).filter(Boolean)),
+    ]
+    return this.#updatePaper(paperId, { tags: normalized.slice(0, 20) })
+  }
+
+  setProfile(profile: ResearchProfile) {
+    const next = personalStateEnvelopeSchema.parse({
+      ...this.#load(),
+      profile,
+    })
+    this.#persist(next)
+    return next.profile
+  }
+
+  exportJson() {
+    return JSON.stringify(this.#load(), null, 2)
+  }
+
+  importJson(value: string) {
+    const result = personalStateEnvelopeSchema.safeParse(JSON.parse(value))
+    if (!result.success) {
+      throw new Error('The selected file is not valid Scholar Harbor v2 data.')
+    }
+    this.#persist(result.data)
+    return result.data
+  }
+
+  reset() {
+    this.#storage.removeItem(personalStateStorageKey)
+    this.#storage.removeItem(legacyPersonalStateStorageKey)
+    this.#fallbackEnvelope = undefined
+    this.#notify()
   }
 
   subscribe(listener: () => void) {
@@ -49,45 +131,72 @@ export class LocalPersonalPaperStateRepository implements PersonalPaperStateRepo
   }
 
   #load(): PersonalStateEnvelope {
+    if (this.#fallbackEnvelope) return this.#fallbackEnvelope
     try {
       const stored = this.#storage.getItem(personalStateStorageKey)
-      if (!stored) {
-        return this.#fallbackEnvelope ?? { version: 1, papers: {} }
+      if (stored) {
+        const result = personalStateEnvelopeSchema.safeParse(JSON.parse(stored))
+        if (result.success) return result.data
+        this.#storage.removeItem(personalStateStorageKey)
       }
-      const result = personalStateEnvelopeSchema.safeParse(JSON.parse(stored))
-      if (result.success) return result.data
-      this.#storage.removeItem(personalStateStorageKey)
+      const legacy = this.#storage.getItem(legacyPersonalStateStorageKey)
+      if (legacy) {
+        const result = legacyEnvelopeSchema.safeParse(JSON.parse(legacy))
+        if (result.success) {
+          const migrated = personalStateEnvelopeSchema.parse({
+            version: 2,
+            profile: publicDefaultProfile,
+            papers: Object.fromEntries(
+              Object.entries(result.data.papers).map(([id, state]) => [
+                id,
+                {
+                  ...state,
+                  status: state.status === 'read' ? 'finished' : state.status,
+                  tags: [],
+                },
+              ]),
+            ),
+          })
+          this.#persist(migrated)
+          this.#storage.removeItem(legacyPersonalStateStorageKey)
+          return migrated
+        }
+      }
     } catch {
-      // Storage can be unavailable or malformed; the interface remains usable.
+      // Browser storage can be unavailable. Keep the feature usable in memory.
     }
-    return { version: 1, papers: {} }
+    return emptyEnvelope()
   }
 
-  #update(
+  #updatePaper(
     paperId: string,
-    update: Partial<Pick<PersonalPaperState, 'saved' | 'status'>>,
+    update: Partial<Pick<PersonalPaperState, 'saved' | 'status' | 'tags'>>,
   ) {
     const envelope = this.#load()
-    const next = {
+    const next = personalPaperStateSchema.parse({
       ...(envelope.papers[paperId] ?? createDefaultPaperState(paperId)),
       ...update,
       updatedAt: this.#now(),
-    }
-    const updatedEnvelope: PersonalStateEnvelope = {
-      version: 1,
+    })
+    this.#persist({
+      ...envelope,
       papers: { ...envelope.papers, [paperId]: next },
-    }
+    })
+    return next
+  }
+
+  #persist(envelope: PersonalStateEnvelope) {
     try {
-      this.#storage.setItem(
-        personalStateStorageKey,
-        JSON.stringify(updatedEnvelope),
-      )
+      this.#storage.setItem(personalStateStorageKey, JSON.stringify(envelope))
       this.#fallbackEnvelope = undefined
     } catch {
-      this.#fallbackEnvelope = updatedEnvelope
+      this.#fallbackEnvelope = envelope
     }
+    this.#notify()
+  }
+
+  #notify() {
     this.#listeners.forEach((listener) => listener())
-    return next
   }
 }
 

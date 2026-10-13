@@ -28,4 +28,21 @@ describe('paper schema', () => {
     })
     expect(result.success).toBe(false)
   })
+
+  it('keeps schema-v1 legacy AI overviews readable during structured migration', () => {
+    const valid = paperCollectionSchema.parse(rawPaperFixtures)[0]!
+    expect(
+      paperSchema.safeParse({
+        ...valid,
+        aiEnrichment: {
+          status: 'available',
+          overview: 'Legacy validated overview.',
+          basis: 'title-abstract',
+          generatedAt: '2026-10-12T00:00:00Z',
+          promptVersion: 'legacy-v1',
+          sourceFingerprint: 'legacy-fingerprint',
+        },
+      }).success,
+    ).toBe(true)
+  })
 })

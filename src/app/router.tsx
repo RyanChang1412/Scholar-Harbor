@@ -1,4 +1,4 @@
-import { Library, Newspaper, Settings, Trophy } from 'lucide-react'
+import { Newspaper, Trophy } from 'lucide-react'
 import type { ReactNode } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
@@ -10,12 +10,16 @@ interface ContentRouteElements {
   readonly home: ReactNode
   readonly papers: ReactNode
   readonly paperDetail: ReactNode
+  readonly library: ReactNode
+  readonly settings: ReactNode
 }
 
 export function createAppRoutes({
   home,
   papers,
   paperDetail,
+  library,
+  settings,
 }: ContentRouteElements): RouteObject[] {
   return [
     {
@@ -50,30 +54,8 @@ export function createAppRoutes({
             />
           ),
         },
-        {
-          path: 'library',
-          element: (
-            <PlaceholderPage
-              deferred="Browser-local saved papers, reading status, tags, and import/export will be implemented in the personalization phase."
-              description="A private browser-local reading space, separate from public academic data."
-              eyebrow="Personal reading"
-              icon={Library}
-              title="Library"
-            />
-          ),
-        },
-        {
-          path: 'settings',
-          element: (
-            <PlaceholderPage
-              deferred="Editable interests, keywords, exclusions, topic weights, recommendation preferences, and local schema migration are deferred."
-              description="A future place to tune research interests and reading preferences."
-              eyebrow="Local preferences"
-              icon={Settings}
-              title="Settings"
-            />
-          ),
-        },
+        { path: 'library', element: library },
+        { path: 'settings', element: settings },
         {
           path: '*',
           element: (

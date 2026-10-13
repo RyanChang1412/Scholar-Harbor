@@ -32,7 +32,7 @@ const forbiddenSensitivePatterns = [
   { label: 'private key', pattern: /BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY/u },
   {
     label: 'OpenAI-style key',
-    pattern: /(?:sk-(?:proj|svcacct)-[0-9A-Za-z_-]{20,}|sk-[0-9A-Za-z]{48})/u,
+    pattern: /\bsk-[0-9A-Za-z_-]{20,}\b/u,
   },
   {
     label: 'email address or personal identifier',

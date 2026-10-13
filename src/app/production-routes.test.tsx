@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 
@@ -30,10 +30,13 @@ describe('production source-backed content routes', () => {
       }),
     ).toBeInTheDocument()
     expect(
-      await screen.findByRole('link', {
-        name: publishedDataset.papers[0]!.title,
-      }),
+      await screen.findByRole('heading', { name: 'Papers for You' }),
     ).toBeInTheDocument()
+    await waitFor(() =>
+      expect(
+        document.querySelector('a[href^="/papers/paper-"]'),
+      ).not.toBeNull(),
+    )
     expect(screen.queryByText('Fictional fixture')).not.toBeInTheDocument()
   })
 

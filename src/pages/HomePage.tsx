@@ -137,16 +137,16 @@ export function HomePage() {
                 Deep focus, with room for useful surprise.
               </h2>
               <p className="mt-3 text-pretty leading-7 text-text-muted">
-                Explicit fixture recommendations preview visible reasons and
-                adjustable interests. The real recommendation algorithm remains
-                deferred to Phase 04.
+                Labeled fixtures exercise visible reasons while the same local,
+                deterministic recommendation engine responds to your private
+                research profile.
               </p>
             </div>
             <Link
               className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md border border-primary px-4 py-2 text-sm font-semibold text-action hover:bg-surface-soft"
               to="/settings"
             >
-              Preview settings shell
+              Edit research profile
             </Link>
           </div>
         </section>
