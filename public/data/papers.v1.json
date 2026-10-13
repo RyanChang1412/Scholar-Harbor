@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T15:39:12.682009Z",
-  "lastSuccessfulUpdateAt": "2026-10-12T15:39:12.682009Z",
+  "generatedAt": "2026-10-13T07:00:46.050307Z",
+  "lastSuccessfulUpdateAt": "2026-10-13T07:00:46.050307Z",
   "papers": [
     {
       "abstract": "Language models increasingly support or automate information retrieval from document collections too large to index. This task is difficult when it requires specialist linguistic or scientific knowledge. We used the Wikipedia Game to test language models on an analogous information retrieval task. In the game, players must reach a target article using only article links. We compared sentence embedding models and LLMs across five Wikipedia languages and five academic-literature datasets. We construct very large local graphs of Wikipedia pages and of paper citations using OpenAlex and provide code to build and navigate them. This allows the study of language models' navigation capabilities without relying on third-party APIs. We compared the models with human and TF-IDF benchmarks. The Wikipedia Game format enables robust comparisons across techniques, languages, and domains. No model significantly outperformed humans, although the best models (GPT-o3 mini, GPT-4o, QwQ:32B, and DeepSeek-R1:70B) achieved comparable success. Performance and rankings varied across languages and topics, with implications for practitioners utilising these techniques.",
@@ -8,14 +8,21 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13948v1",
-      "authors": ["Alexander Hickey", "Joanna Knight", "James Bishop"],
-      "categories": ["cs.AI", "cs.IR"],
+      "authors": [
+        "Alexander Hickey",
+        "Joanna Knight",
+        "James Bishop"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13948v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -24,7 +31,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13948v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -33,14 +40,18 @@
       "id": "paper-2610-13948",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13948v1"
         }
       ],
       "publishedAt": "2026-10-09T17:59:56Z",
       "title": "Can Language Models Play the Wikipedia Game?",
-      "topics": ["LLM systems", "Trustworthy AI", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Trustworthy AI",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:59:56Z"
     },
     {
@@ -59,13 +70,15 @@
         "Andrea Vedaldi",
         "Chuanxia Zheng"
       ],
-      "categories": ["cs.CV"],
+      "categories": [
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13947v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -74,7 +87,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13947v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -83,14 +96,17 @@
       "id": "paper-2610-13947",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13947v1"
         }
       ],
       "publishedAt": "2026-10-09T17:59:41Z",
       "title": "Towards Physically Grounded Articulated 3D Assets: A Multi-Agent Pipeline and Benchmark",
-      "topics": ["Agent systems", "Machine learning"],
+      "topics": [
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:59:41Z"
     },
     {
@@ -106,13 +122,15 @@
         "Jiakang Chen",
         "Serena Yeung-Levy"
       ],
-      "categories": ["cs.CV"],
+      "categories": [
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13941v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -121,7 +139,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13941v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -130,14 +148,18 @@
       "id": "paper-2610-13941",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13941v1"
         }
       ],
       "publishedAt": "2026-10-09T17:58:15Z",
       "title": "Images Talk Back: Guiding MMDiTs by Suppressing Image-to-Text Feedback",
-      "topics": ["LLM systems", "Multimodal learning", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Multimodal learning",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:58:15Z"
     },
     {
@@ -152,13 +174,17 @@
         "Rockwell Jackson",
         "Hannah Kerner"
       ],
-      "categories": ["cs.CV", "cs.AI", "cs.LG"],
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13935v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -167,7 +193,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13935v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -176,14 +202,18 @@
       "id": "paper-2610-13935",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13935v1"
         }
       ],
       "publishedAt": "2026-10-09T17:56:59Z",
       "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
-      "topics": ["LLM systems", "Multimodal learning", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Multimodal learning",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:56:59Z"
     },
     {
@@ -192,14 +222,21 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13929v1",
-      "authors": ["Changhao Wang", "Jaden Clark", "Shuran Song"],
-      "categories": ["cs.RO", "cs.CV"],
+      "authors": [
+        "Changhao Wang",
+        "Jaden Clark",
+        "Shuran Song"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13929v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -208,7 +245,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13929v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -217,7 +254,7 @@
       "id": "paper-2610-13929",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13929v1"
         }
@@ -238,14 +275,19 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13915v1",
-      "authors": ["Junkai Liu", "Le Zhang"],
-      "categories": ["cs.CV"],
+      "authors": [
+        "Junkai Liu",
+        "Le Zhang"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13915v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -254,7 +296,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13915v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -263,14 +305,17 @@
       "id": "paper-2610-13915",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13915v1"
         }
       ],
       "publishedAt": "2026-10-09T17:51:47Z",
       "title": "Where to Look Matters: Rethinking Sub-Volume Sampling in 3D Medical Self-supervised Learning",
-      "topics": ["Efficient inference", "Machine learning"],
+      "topics": [
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:51:47Z"
     },
     {
@@ -292,13 +337,15 @@
         "Yingcheng Wu",
         "Ling Yang"
       ],
-      "categories": ["cs.CL"],
+      "categories": [
+        "cs.CL"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13912v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -307,7 +354,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13912v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -316,14 +363,16 @@
       "id": "paper-2610-13912",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13912v1"
         }
       ],
       "publishedAt": "2026-10-09T17:50:30Z",
       "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
-      "topics": ["Machine learning"],
+      "topics": [
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:50:30Z"
     },
     {
@@ -332,14 +381,19 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13910v1",
-      "authors": ["Shubh Garg", "Chen Shani"],
-      "categories": ["cs.CL"],
+      "authors": [
+        "Shubh Garg",
+        "Chen Shani"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13910v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -348,7 +402,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13910v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -357,7 +411,7 @@
       "id": "paper-2610-13910",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13910v1"
         }
@@ -378,14 +432,20 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13895v1",
-      "authors": ["Sovesh Mohapatra", "Dani S Bassett"],
-      "categories": ["cs.CL", "cs.AI"],
+      "authors": [
+        "Sovesh Mohapatra",
+        "Dani S Bassett"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13895v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -394,7 +454,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13895v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -403,14 +463,18 @@
       "id": "paper-2610-13895",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13895v1"
         }
       ],
       "publishedAt": "2026-10-09T17:40:53Z",
       "title": "Task Context Shapes Component Roles in Language Models",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:40:53Z"
     },
     {
@@ -419,15 +483,21 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13889v1",
-      "authors": ["Weiliang Chen", "Song Liao"],
-      "categories": ["cs.AI", "cs.IR"],
+      "authors": [
+        "Weiliang Chen",
+        "Song Liao"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR"
+      ],
       "doi": "10.1145/3799682.3839887",
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13889v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -436,7 +506,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13889v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -445,7 +515,7 @@
       "id": "paper-2610-13889",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13889v1"
         }
@@ -476,13 +546,15 @@
         "Ivan Evtimov",
         "Ninareh Mehrabi"
       ],
-      "categories": ["cs.AI"],
+      "categories": [
+        "cs.AI"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13886v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -491,7 +563,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13886v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -500,14 +572,18 @@
       "id": "paper-2610-13886",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13886v1"
         }
       ],
       "publishedAt": "2026-10-09T17:34:44Z",
       "title": "X-AgentRed: Red-Teaming Personal Agents in Evolving Multi-Service Ecosystems",
-      "topics": ["LLM systems", "Agent systems", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:34:44Z"
     },
     {
@@ -524,13 +600,15 @@
         "Szymon Płotka",
         "Jacek Tabor"
       ],
-      "categories": ["cs.CV"],
+      "categories": [
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13858v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -539,7 +617,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13858v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -548,14 +626,18 @@
       "id": "paper-2610-13858",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13858v1"
         }
       ],
       "publishedAt": "2026-10-09T17:07:17Z",
       "title": "LapMerge: Differentiable Exact-Budget Token Merging in Linear Time",
-      "topics": ["LLM systems", "Multimodal learning", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Multimodal learning",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:07:17Z"
     },
     {
@@ -571,13 +653,15 @@
         "Pietro Ceccato",
         "Marc Van Droogenbroeck"
       ],
-      "categories": ["cs.CV"],
+      "categories": [
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13857v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -586,7 +670,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13857v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -595,14 +679,16 @@
       "id": "paper-2610-13857",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13857v1"
         }
       ],
       "publishedAt": "2026-10-09T17:07:03Z",
       "title": "Revisiting the Task of Building Damage Assessment by Satellite Imaging",
-      "topics": ["Machine learning"],
+      "topics": [
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:07:03Z"
     },
     {
@@ -617,13 +703,15 @@
         "Per Nyblom",
         "David Gustafsson"
       ],
-      "categories": ["cs.CV"],
+      "categories": [
+        "cs.CV"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13856v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -632,7 +720,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13856v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -641,14 +729,18 @@
       "id": "paper-2610-13856",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13856v1"
         }
       ],
       "publishedAt": "2026-10-09T17:05:40Z",
       "title": "Event-based Action Recognition by Pre-Training on Multi-Frame Representations",
-      "topics": ["LLM systems", "Robotics", "Trustworthy AI"],
+      "topics": [
+        "LLM systems",
+        "Robotics",
+        "Trustworthy AI"
+      ],
       "updatedAt": "2026-10-09T17:05:40Z"
     },
     {
@@ -657,14 +749,21 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13855v1",
-      "authors": ["Stefano Cortinovis", "Laura Battaglia", "François Caron"],
-      "categories": ["stat.ME", "stat.ML"],
+      "authors": [
+        "Stefano Cortinovis",
+        "Laura Battaglia",
+        "François Caron"
+      ],
+      "categories": [
+        "stat.ME",
+        "stat.ML"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13855v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -673,7 +772,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13855v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -682,14 +781,18 @@
       "id": "paper-2610-13855",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13855v1"
         }
       ],
       "publishedAt": "2026-10-09T17:04:51Z",
       "title": "SLICE: Sequential Likelihood-Free Inference via Conformal E-Values",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:04:51Z"
     },
     {
@@ -703,13 +806,15 @@
         "Ebisa D. Wollega",
         "Afzal Hossain Sohag"
       ],
-      "categories": ["cs.CR"],
+      "categories": [
+        "cs.CR"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13853v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -718,7 +823,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13853v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -727,14 +832,17 @@
       "id": "paper-2610-13853",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13853v1"
         }
       ],
       "publishedAt": "2026-10-09T17:02:30Z",
       "title": "Decision-Focused Learning for Cyber-Physical Risk-Aware Power Grid Operations",
-      "topics": ["Trustworthy AI", "Machine learning"],
+      "topics": [
+        "Trustworthy AI",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T17:02:30Z"
     },
     {
@@ -743,14 +851,20 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13844v1",
-      "authors": ["Mason Minot", "Simon Friedensohn", "Cédric R. Weber"],
-      "categories": ["cs.LG"],
+      "authors": [
+        "Mason Minot",
+        "Simon Friedensohn",
+        "Cédric R. Weber"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13844v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -759,7 +873,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13844v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -768,14 +882,16 @@
       "id": "paper-2610-13844",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13844v1"
         }
       ],
       "publishedAt": "2026-10-09T16:54:05Z",
       "title": "Inference-Time Steering Across Scaffolds and Epitopes for Sample-Efficient De Novo Nanobody Design",
-      "topics": ["Efficient inference"],
+      "topics": [
+        "Efficient inference"
+      ],
       "updatedAt": "2026-10-09T16:54:05Z"
     },
     {
@@ -784,14 +900,20 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13841v1",
-      "authors": ["Daniel Thi Graviet", "Tanmay Shah"],
-      "categories": ["cs.LG", "cs.SE"],
+      "authors": [
+        "Daniel Thi Graviet",
+        "Tanmay Shah"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.SE"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13841v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -800,7 +922,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13841v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -809,14 +931,16 @@
       "id": "paper-2610-13841",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13841v1"
         }
       ],
       "publishedAt": "2026-10-09T16:50:19Z",
       "title": "Returning to Development States: When Full Sandbox Snapshots Help Coding Agents",
-      "topics": ["Agent systems"],
+      "topics": [
+        "Agent systems"
+      ],
       "updatedAt": "2026-10-09T16:50:19Z"
     },
     {
@@ -825,14 +949,20 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13840v1",
-      "authors": ["Emilio Ferrara"],
-      "categories": ["cs.AI", "cs.CL", "cs.CY"],
+      "authors": [
+        "Emilio Ferrara"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CY"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13840v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -841,7 +971,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13840v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -850,14 +980,18 @@
       "id": "paper-2610-13840",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13840v1"
         }
       ],
       "publishedAt": "2026-10-09T16:49:29Z",
       "title": "Studying Comics at Scale with Artificial Intelligence: The PAGE Framework and Three Studies of American Comics and Japanese Manga",
-      "topics": ["LLM systems", "Multimodal learning", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Multimodal learning",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T16:49:29Z"
     },
     {
@@ -876,13 +1010,15 @@
         "Pierre Ablin",
         "Marco Cuturi"
       ],
-      "categories": ["cs.LG"],
+      "categories": [
+        "cs.LG"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13834v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -891,7 +1027,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13834v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -900,14 +1036,18 @@
       "id": "paper-2610-13834",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13834v1"
         }
       ],
       "publishedAt": "2026-10-09T16:41:32Z",
       "title": "On the Design Space of Continuous Diffusion Language Models",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T16:41:32Z"
     },
     {
@@ -926,13 +1066,16 @@
         "Yuhang Zang",
         "Dahua Lin"
       ],
-      "categories": ["cs.CV", "cs.AI"],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13832v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -941,7 +1084,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13832v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -950,7 +1093,7 @@
       "id": "paper-2610-13832",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13832v1"
         }
@@ -971,14 +1114,19 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13830v1",
-      "authors": ["Rana Ghazali", "Douglas G. Down"],
-      "categories": ["cs.DC"],
+      "authors": [
+        "Rana Ghazali",
+        "Douglas G. Down"
+      ],
+      "categories": [
+        "cs.DC"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13830v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -987,7 +1135,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13830v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -996,14 +1144,17 @@
       "id": "paper-2610-13830",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13830v1"
         }
       ],
       "publishedAt": "2026-10-09T16:38:48Z",
       "title": "Scheduling in Cloud,Fog, and Edge Computing: A Comparative Analysis and Decision Framework for Technique Selection",
-      "topics": ["Efficient inference", "Machine learning"],
+      "topics": [
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T16:38:48Z"
     },
     {
@@ -1022,13 +1173,16 @@
         "Zhengwei Xie",
         "Linfeng Zhang"
       ],
-      "categories": ["cs.RO", "cs.AI"],
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13829v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1037,7 +1191,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13829v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1046,14 +1200,17 @@
       "id": "paper-2610-13829",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13829v1"
         }
       ],
       "publishedAt": "2026-10-09T16:37:39Z",
       "title": "MC-EvoBench: Auditing Experience-Driven Self-Improvement in Minecraft Agents",
-      "topics": ["Agent systems", "Robotics"],
+      "topics": [
+        "Agent systems",
+        "Robotics"
+      ],
       "updatedAt": "2026-10-09T16:37:39Z"
     },
     {
@@ -1062,14 +1219,20 @@
         "status": "unavailable"
       },
       "arxivId": "2610.13823v1",
-      "authors": ["Oktie Hassanzadeh", "Dharmashankar Subramanian"],
-      "categories": ["cs.DB", "cs.AI"],
+      "authors": [
+        "Oktie Hassanzadeh",
+        "Dharmashankar Subramanian"
+      ],
+      "categories": [
+        "cs.DB",
+        "cs.AI"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13823v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1078,7 +1241,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13823v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1087,14 +1250,18 @@
       "id": "paper-2610-13823",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13823v1"
         }
       ],
       "publishedAt": "2026-10-09T16:34:13Z",
       "title": "Same Query, Different Answer: Run-to-Run Variance in Semantic Query Processing",
-      "topics": ["LLM systems", "Agent systems", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T16:34:13Z"
     },
     {
@@ -1111,13 +1278,15 @@
         "Julio-Alejandro Romero-González",
         "Edgar Chavez-Urbiola"
       ],
-      "categories": ["cs.CL"],
+      "categories": [
+        "cs.CL"
+      ],
       "externalLinks": [
         {
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.13821v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1126,7 +1295,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13821v1",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1135,14 +1304,17 @@
       "id": "paper-2610-13821",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "arXiv",
           "sourceRecordId": "2610.13821v1"
         }
       ],
       "publishedAt": "2026-10-09T16:33:27Z",
       "title": "Can Language Models Learn When to Abstain? Policy Learning and Calibrated Answer Selection",
-      "topics": ["LLM systems", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Machine learning"
+      ],
       "updatedAt": "2026-10-09T16:33:27Z"
     },
     {
@@ -1160,19 +1332,21 @@
         "Constantin Venhoff",
         "Ronald Clark"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 11
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -1182,7 +1356,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2608.09928",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1191,7 +1365,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2608.09928",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1200,7 +1374,7 @@
       "id": "paper-2608-09928",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2608.09928"
         }
@@ -1218,7 +1392,19 @@
     {
       "abstract": "Healthcare AI agents handle patient consultation, clinical reasoning over text and images, interactive diagnosis, and electronic health record (EHR) tool use, yet specialized agentic models that cover these use cases together remain limited. These capabilities fail in different ways, and a narrow update for one task can degrade another. We present Cura 1T, a healthcare-specialized LLM built on the open-weight Kimi-K2.6 and trained through a human-gated recursive self-improvement (RSI) loop. Specifically, in each round, the RSI harness plans a target capability, trains the model, evaluates benchmark trajectories, and refines the data mixture from observed failures with targeted synthetic and curated examples rather than a single generic medical-data update. Across the healthcare evaluation suite, Cura 1T ranks at or near the top among frontier baselines while remaining competitive on out-of-domain reasoning and agentic benchmarks.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "86445b7580c988e392819de37f8ed7d4a193dcfb4e6ab2fa0b38b827fd58be02",
+        "generatedAt": "2026-10-13T07:00:52.365362Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出Cura 1T，这是一个基于开源权重Kimi-K2.6构建的医疗专用大语言模型，通过人类门控的递归自我改进（RSI）循环进行训练。该方法在每轮中规划目标能力、训练模型、评估基准轨迹，并根据观察到的失败情况，利用针对性的合成数据和精选示例来优化数据混合，而非仅进行通用的医疗数据更新。",
+          "researchProblem": "现有的医疗AI智能体在处理患者咨询、临床推理、交互式诊断和电子健康记录工具使用等任务时，缺乏能够覆盖这些用例的专用智能体模型，且单一任务的微调可能导致其他任务性能下降。",
+          "researchRelevance": "大型语言模型、医疗人工智能、智能体系统、递归自我改进"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "25db75e70d667e8b12dfd204f5fa21d669142ccad92e5901fa302bc145601911",
+        "status": "available"
       },
       "arxivId": "2607.15314",
       "authors": [
@@ -1234,19 +1420,21 @@
         "Frank Wang",
         "Weiran Yao"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 52
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 4
         }
@@ -1256,7 +1444,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.15314",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1265,7 +1453,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.15314",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1274,20 +1462,36 @@
       "id": "paper-2607-15314",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.15314"
         }
       ],
       "publishedAt": "2026-08-04T00:00:00Z",
       "title": "Cura 1T: Specialized Model for Agentic Healthcare",
-      "topics": ["LLM systems", "Agent systems", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2026-08-04T00:00:00Z"
     },
     {
       "abstract": "Recent foundation image and video generation models offer strong generalization and controllability, but their direct application to embodied scenarios is limited by requirements for multi-view consistency, geometric coherence, and robot embodiment constraints. Existing methods typically adapt foundation models with limited robot data, often sacrificing visual knowledge acquired during large-scale pre-training. We present Xiaomi-Robotics-U0, a 38-billion-parameter multimodal autoregressive model for unified embodied synthesis. It treats embodied generation as an extension of foundation image and video generation and jointly optimizes text-to-image generation, image editing, embodied scene generation, embodied transfer, and embodied video generation. This unified framework preserves the generalization of the pre-trained world foundation model while adapting it to embodied settings. Xiaomi-Robotics-U0 is the first model to support high-quality multi-view scene generation across multiple robot embodiments and to introduce structured, controllable embodied transfer for fine-grained editing while preserving multi-view consistency and interaction dynamics. It achieves state-of-the-art results on single-step and sequential generation tasks, outperforming GPT-Image-2.0 in human evaluations of embodied scene generation and transfer, ranking first on World Arena for embodied video generation, and improving the out-of-distribution success rate of pi_0.5 from 36.9% to 63.2% on challenging real-world manipulation tasks. These results show that foundation world models can serve both as embodied world models and scalable data engines for embodied intelligence. Code and checkpoints are available at https://robotics.xiaomi.com/xiaomi-robotics-u0.html.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "13ef9c46dc84e29e4c464f9c49cc9388087117bcca19777e8195bb173e6861fe",
+        "generatedAt": "2026-10-13T07:00:52.365362Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出 Xiaomi-Robotics-U0，一个拥有 380 亿参数的多模态自回归模型，将具身生成视为基础图像和视频生成的扩展，联合优化文本到图像生成、图像编辑、具身场景生成、具身转移和具身视频生成。该统一框架在保留预训练世界基础模型泛化能力的同时，将其适配至具身设置，支持高质量的多视图场景生成及结构化、可控的具身转移。",
+          "researchProblem": "现有基础图像和视频生成模型在具身场景中应用受限，主要受限于多视图一致性、几何连贯性及机器人具身约束；现有方法通常使用有限的机器人数据适配基础模型，往往牺牲了大规模预训练期间获得的视觉知识。",
+          "researchRelevance": "基础模型、具身智能、多视图一致性、几何连贯性、机器人具身约束、世界模型、数据引擎"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "e6bb8cbd8e5189f02b1162f60f7d8ce0de6c45f78453a0d86f2ded00e2d45fb3",
+        "status": "available"
       },
       "arxivId": "2607.11643",
       "authors": [
@@ -1316,19 +1520,21 @@
         "Huaping Liu",
         "Jason Li"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 42
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -1338,7 +1544,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.11643",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1347,7 +1553,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.11643",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1356,7 +1562,7 @@
       "id": "paper-2607-11643",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.11643"
         }
@@ -1374,7 +1580,19 @@
     {
       "abstract": "Multimodal modeling represents a vital step from modality-agnostic reasoning toward world modeling. While early approaches predominantly rely on late-fusion that assembles encoders and frozen language backbones with output heads, recent efforts have shifted the paradigm toward native multimodal modeling (NMM) with the intrinsic integration of modalities for superior multimodal performance. Despite its potential, the design space of native architectures remains insufficiently defined. In this paper, we present the community with a formalized roadmap for this transition. Specifically, we formally define the architectural nativity, distinguishing mid-fusion and early-fusion from non-native paradigms. We further organize the existing native models through the lens of input-output duality into three categories: (i) Multi-to-Text for cross-modal comprehension with text-only output; (ii) Multi-to-Target for scenario-oriented generation, e.g., image, audio and video generation, and (iii) Multi-to-Multi for unified modeling with symmetric input-output. We deliver a comprehensive and industrial-grade investigation into the transition toward the definitive NMM framework, where understanding and generation seamlessly coexist within a unified transformer paradigm. We systematically unpack the end-to-end pipeline from industrial perspectives from architectural coordination, massive data curation, to full-stack training recipes, inference & deployment, and the comprehensive evaluation for truly native modeling.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "873d35ebe29b8535c590e7aa7142cc20c8fcacac08d150f6a8f3051ca484c985",
+        "generatedAt": "2026-10-13T07:00:52.365362Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出原生多模态转型的形式化路线图，定义架构原生性并区分中期与早期融合；基于输入输出对偶性将现有原生模型分为多对文本、多对目标及多对多三类；并从工业视角系统梳理端到端流水线，涵盖架构协调、数据策展、训练配方、推理部署及评估。",
+          "researchProblem": "多模态建模正从模态无关推理向世界模型演进，但原生多模态（NMM）架构的设计空间尚不明确，且早期方法主要依赖晚期融合。",
+          "researchRelevance": "多模态学习、自然语言处理、计算机视觉、生成式人工智能、深度学习架构设计"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "f7001ba4d04ff8cf1140d11e51e613bd9943632e67bf882388da42ef258075d4",
+        "status": "available"
       },
       "arxivId": "2605.25343",
       "authors": [
@@ -1400,19 +1618,21 @@
         "Ruizhi Qiao",
         "Xing Sun"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 40
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -1422,7 +1642,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2605.25343",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1431,7 +1651,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2605.25343",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1440,7 +1660,7 @@
       "id": "paper-2605-25343",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2605.25343"
         }
@@ -1461,13 +1681,20 @@
         "status": "unavailable"
       },
       "arxivId": "2605.06388",
-      "authors": ["Nilaksh", "Saurav Jha", "Artem Zholus", "Sarath Chandar"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Nilaksh",
+        "Saurav Jha",
+        "Artem Zholus",
+        "Sarath Chandar"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1477,7 +1704,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2605.06388",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1486,7 +1713,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2605.06388",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1495,14 +1722,17 @@
       "id": "paper-2605-06388",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2605.06388"
         }
       ],
       "publishedAt": "2026-05-07T00:00:00Z",
       "title": "Reconstruction or Semantics? What Makes a Latent Space Useful for Robotic World Models",
-      "topics": ["Robotics", "Machine learning"],
+      "topics": [
+        "Robotics",
+        "Machine learning"
+      ],
       "updatedAt": "2026-05-07T00:00:00Z"
     },
     {
@@ -1511,20 +1741,26 @@
         "status": "unavailable"
       },
       "arxivId": "2603.18660",
-      "authors": ["Peihang Wu", "Zehong Chen", "Lijian Xu"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Peihang Wu",
+        "Zehong Chen",
+        "Lijian Xu"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1534,7 +1770,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2603.18660",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1543,7 +1779,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2603.18660",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1552,7 +1788,7 @@
       "id": "paper-2603-18660",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2603.18660"
         }
@@ -1580,19 +1816,21 @@
         "Lin Tan",
         "Yongle Zhang"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 3
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 1
         }
@@ -1602,7 +1840,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.22438",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1611,7 +1849,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.22438",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1620,14 +1858,18 @@
       "id": "paper-2601-22438",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.22438"
         }
       ],
       "publishedAt": "2026-01-30T01:17:27Z",
       "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2026-01-30T01:17:27Z"
     },
     {
@@ -1636,20 +1878,25 @@
         "status": "unavailable"
       },
       "arxivId": "2601.22001",
-      "authors": ["Yiren Zhao", "Junyi Liu"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Yiren Zhao",
+        "Junyi Liu"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1659,7 +1906,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.22001",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1668,7 +1915,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.22001",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1677,14 +1924,18 @@
       "id": "paper-2601-22001",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.22001"
         }
       ],
       "publishedAt": "2026-01-29T17:11:46Z",
       "title": "Heterogeneous Computing: The Key to Powering the Future of AI Agent Inference",
-      "topics": ["Efficient inference", "Agent systems", "Machine learning"],
+      "topics": [
+        "Efficient inference",
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2026-01-29T17:11:46Z"
     },
     {
@@ -1693,13 +1944,19 @@
         "status": "unavailable"
       },
       "arxivId": "2504.16680",
-      "authors": ["Chenhao Li", "Andreas Krause", "Marco Hutter"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Chenhao Li",
+        "Andreas Krause",
+        "Marco Hutter"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1709,7 +1966,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2504.16680",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1718,7 +1975,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2504.16680",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1727,14 +1984,18 @@
       "id": "paper-2504-16680",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2504.16680"
         }
       ],
       "publishedAt": "2026-01-08T00:00:00Z",
       "title": "Uncertainty-Aware Robotic World Model Makes Offline Model-Based Reinforcement Learning Work on Real Robots",
-      "topics": ["Robotics", "Trustworthy AI", "Machine learning"],
+      "topics": [
+        "Robotics",
+        "Trustworthy AI",
+        "Machine learning"
+      ],
       "updatedAt": "2026-01-08T00:00:00Z"
     },
     {
@@ -1743,20 +2004,24 @@
         "status": "unavailable"
       },
       "arxivId": "2601.01743",
-      "authors": ["Bin Xu"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Bin Xu"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1766,7 +2031,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.01743",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1775,7 +2040,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.01743",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1784,7 +2049,7 @@
       "id": "paper-2601-01743",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.01743"
         }
@@ -1825,12 +2090,14 @@
         "Yunqiu Wang",
         "Jie Xu"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1840,7 +2107,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2511.14439",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1849,7 +2116,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2511.14439",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1858,7 +2125,7 @@
       "id": "paper-2511-14439",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2511.14439"
         }
@@ -1888,12 +2155,14 @@
         "Alexandra Souly",
         "Niklas Pfister"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1903,7 +2172,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2510.22620",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1912,7 +2181,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2510.22620",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -1921,7 +2190,7 @@
       "id": "paper-2510-22620",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2510.22620"
         }
@@ -1975,19 +2244,21 @@
         "Percy Liang",
         "Arvind Narayanan"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -1997,7 +2268,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2510.11977",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2006,7 +2277,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2510.11977",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2015,14 +2286,18 @@
       "id": "paper-2510-11977",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2510.11977"
         }
       ],
       "publishedAt": "2025-10-13T00:00:00Z",
       "title": "Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation",
-      "topics": ["LLM systems", "Agent systems", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2025-10-13T00:00:00Z"
     },
     {
@@ -2042,12 +2317,14 @@
         "Mikhail Konenkov",
         "Dzmitry Tsetserukou"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2057,7 +2334,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2509.13903",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2066,7 +2343,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2509.13903",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2075,7 +2352,7 @@
       "id": "paper-2509-13903",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2509.13903"
         }
@@ -2093,7 +2370,19 @@
     {
       "abstract": "Recent advances in large language models (LLMs) have enabled the development\nof AI agents that exhibit increasingly human-like behaviors, including\nplanning, adaptation, and social dynamics across diverse, interactive, and\nopen-ended scenarios. These behaviors are not solely the product of the\ninternal architectures of the underlying models, but emerge from their\nintegration into agentic systems operating within specific contexts, where\nenvironmental factors, social cues, and interaction feedbacks shape behavior\nover time. This evolution necessitates a new scientific perspective: AI Agent\nBehavioral Science. Rather than focusing only on internal mechanisms, this\nperspective emphasizes the systematic observation of behavior, design of\ninterventions to test hypotheses, and theory-guided interpretation of how AI\nagents act, adapt, and interact over time. We systematize a growing body of\nresearch across individual agent, multi-agent, and human-agent interaction\nsettings, and further demonstrate how this perspective informs responsible AI\nby treating fairness, safety, interpretability, accountability, and privacy as\nbehavioral properties. By unifying recent findings and laying out future\ndirections, we position AI Agent Behavioral Science as a necessary complement\nto traditional model-centric approaches, providing essential tools for\nunderstanding, evaluating, and governing the real-world behavior of\nincreasingly autonomous AI systems.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "dadc71eaa71c87acf685b47c362f3bd6ef8ebeabd092316c60fe0bdc845ae99c",
+        "generatedAt": "2026-10-13T07:00:52.365362Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出“AI智能体行为科学”这一新视角，强调对行为的系统观察、用于验证假设的干预设计以及基于理论的解读。该框架系统化梳理了个体智能体、多智能体及人机交互场景下的研究，并将公平性、安全性、可解释性、问责制和隐私性等责任AI要素视为行为属性进行统一分析。",
+          "researchProblem": "随着大型语言模型的发展，AI智能体展现出日益拟人化的行为，但这些行为不仅源于模型内部架构，更受环境、社会线索及交互反馈等外部情境因素影响。现有研究多聚焦于模型内部机制，缺乏对智能体在动态环境中长期行为演变的系统性科学视角。",
+          "researchRelevance": "人工智能代理系统、大语言模型应用、多智能体交互、人机协作、负责任的人工智能（包括公平性、安全性、可解释性、问责制和隐私保护）、计算社会科学"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "91dbe53da0bf95387c2df817b12ae004b7665455fe37274b97eba24fa9c64d19",
+        "status": "available"
       },
       "arxivId": "2506.06366",
       "authors": [
@@ -2114,19 +2403,21 @@
         "Fengli Xu",
         "Yong Li"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 9
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -2136,7 +2427,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2506.06366",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2145,7 +2436,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2506.06366",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2154,7 +2445,7 @@
       "id": "paper-2506-06366",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2506.06366"
         }
@@ -2175,13 +2466,19 @@
         "status": "unavailable"
       },
       "arxivId": "2501.10100",
-      "authors": ["Chenhao Li", "Andreas Krause", "Marco Hutter"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Chenhao Li",
+        "Andreas Krause",
+        "Marco Hutter"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2191,7 +2488,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2501.10100",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2200,7 +2497,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2501.10100",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2209,14 +2506,18 @@
       "id": "paper-2501-10100",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2501.10100"
         }
       ],
       "publishedAt": "2025-01-17T10:39:09Z",
       "title": "Robotic World Model: A Neural Network Simulator for Robust Policy Optimization in Robotics",
-      "topics": ["Robotics", "Trustworthy AI", "Machine learning"],
+      "topics": [
+        "Robotics",
+        "Trustworthy AI",
+        "Machine learning"
+      ],
       "updatedAt": "2025-01-17T10:39:09Z"
     },
     {
@@ -2241,19 +2542,21 @@
         "Maxwell Hu",
         "Jerry Yan"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 3
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2263,7 +2566,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2501.06781",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2272,7 +2575,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2501.06781",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2281,14 +2584,18 @@
       "id": "paper-2501-06781",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2501.06781"
         }
       ],
       "publishedAt": "2025-01-12T11:35:04Z",
       "title": "Eliza: A Web3 friendly AI Agent Operating System",
-      "topics": ["LLM systems", "Agent systems", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Agent systems",
+        "Machine learning"
+      ],
       "updatedAt": "2025-01-12T11:35:04Z"
     },
     {
@@ -2305,12 +2612,14 @@
         "Stefano Ghidoni",
         "Efstratios Gavves"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2320,7 +2629,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2412.14957",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2329,7 +2638,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2412.14957",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2338,7 +2647,7 @@
       "id": "paper-2412-14957",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2412.14957"
         }
@@ -2359,13 +2668,20 @@
         "status": "unavailable"
       },
       "arxivId": "2411.11758",
-      "authors": ["Longju Bai", "Angana Borah", "Oana Ignat", "Rada Mihalcea"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Longju Bai",
+        "Angana Borah",
+        "Oana Ignat",
+        "Rada Mihalcea"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2375,7 +2691,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2411.11758",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2384,7 +2700,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2411.11758",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2393,14 +2709,18 @@
       "id": "paper-2411-11758",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2411.11758"
         }
       ],
       "publishedAt": "2024-11-18T17:37:10Z",
       "title": "The Power of Many: Multi-Agent Multimodal Models for Cultural Image\n  Captioning",
-      "topics": ["Agent systems", "Multimodal learning", "Machine learning"],
+      "topics": [
+        "Agent systems",
+        "Multimodal learning",
+        "Machine learning"
+      ],
       "updatedAt": "2024-11-18T17:37:10Z"
     },
     {
@@ -2409,13 +2729,20 @@
         "status": "unavailable"
       },
       "arxivId": "2410.12822",
-      "authors": ["Marc Rigter", "Tarun Gupta", "Agrin Hilmkil", "Chao Ma"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Marc Rigter",
+        "Tarun Gupta",
+        "Agrin Hilmkil",
+        "Chao Ma"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2425,7 +2752,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2410.12822",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2434,7 +2761,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2410.12822",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2443,20 +2770,35 @@
       "id": "paper-2410-12822",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2410.12822"
         }
       ],
       "publishedAt": "2024-10-01T13:48:31Z",
       "title": "AVID: Adapting Video Diffusion Models to World Models",
-      "topics": ["Robotics", "Machine learning"],
+      "topics": [
+        "Robotics",
+        "Machine learning"
+      ],
       "updatedAt": "2024-10-01T13:48:31Z"
     },
     {
       "abstract": "The increasing usage of Large Language Models (LLMs) has resulted in a\nsurging demand for planet-scale serving systems, where tens of thousands of\nGPUs continuously serve hundreds of millions of users. Consequently, throughput\n(under reasonable latency constraints) has emerged as a key metric that\ndetermines serving systems' performance. To boost throughput, various methods\nof inter-device parallelism (e.g., data, tensor, pipeline) have been explored.\nHowever, existing methods do not consider overlapping the utilization of\ndifferent resources within a single device, leading to underutilization and\nsub-optimal performance.\n  We propose NanoFlow, a novel serving framework that exploits intra-device\nparallelism, which overlaps the usage of resources including compute, memory,\nand network within a single device through operation co-scheduling. To exploit\nintra-device parallelism, NanoFlow introduces two key innovations: First,\nNanoFlow splits requests into nano-batches at the granularity of operations,\nwhich breaks the dependency of sequential operations in LLM inference and\nenables overlapping; then, to get benefit from overlapping, NanoFlow uses an\noperation-level pipeline with execution unit scheduling, which partitions the\ndevice's functional units and simultaneously executes different operations in\neach unit. NanoFlow automates the pipeline setup using a parameter search\nalgorithm, which enables easily porting NanoFlow to different models. We\nimplement NanoFlow on NVIDIA GPUs and evaluate end-to-end serving throughput on\nseveral popular models such as LLaMA-2-70B, Mixtral 8x7B, LLaMA-3-8B, etc..\nWith practical workloads, NanoFlow provides 1.91x throughput boost compared to\nstate-of-the-art serving systems achieving 59% to 72% of optimal throughput\nacross ported models.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "a54d814f38f2e8e47e8264f3be26653792ef7d85eda5f6e07bedf062caf5e326",
+        "generatedAt": "2026-10-13T07:00:52.365362Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出NanoFlow框架，通过操作级协同调度实现设备内并行。具体包括：将请求拆分为纳米批次以打破顺序依赖并实现重叠；采用操作级流水线与执行单元调度，分区功能单元以同时执行不同操作；并使用参数搜索算法自动化流水线设置。",
+          "researchProblem": "现有大语言模型（LLM）服务系统在提升吞吐量时，主要依赖设备间并行，但未考虑单设备内不同资源（计算、内存、网络）的重叠利用，导致资源利用率不足和性能次优。",
+          "researchRelevance": "大语言模型服务系统优化、设备内并行计算、资源调度与重叠利用、高吞吐量推理架构"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "2963b917d09cb580008395e0cdb1c3b42446635c3bd2714bd9d87b3992d2206e",
+        "status": "available"
       },
       "arxivId": "2408.12757",
       "authors": [
@@ -2476,19 +2818,21 @@
         "Arvind Krishnamurthy",
         "Baris Kasikci"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 19
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -2498,7 +2842,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2408.12757",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2507,7 +2851,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2408.12757",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2516,20 +2860,36 @@
       "id": "paper-2408-12757",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2408.12757"
         }
       ],
       "publishedAt": "2024-08-22T23:00:40Z",
       "title": "NanoFlow: Towards Optimal Large Language Model Serving Throughput",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2024-08-22T23:00:40Z"
     },
     {
       "abstract": "Multimodal models that jointly process audio and language hold great promise\nin audio understanding and are increasingly being adopted in the music domain.\nBy allowing users to query via text and obtain information about a given audio\ninput, these models have the potential to enable a variety of music\nunderstanding tasks via language-based interfaces. However, their evaluation\nposes considerable challenges, and it remains unclear how to effectively assess\ntheir ability to correctly interpret music-related inputs with current methods.\nMotivated by this, we introduce MuChoMusic, a benchmark for evaluating music\nunderstanding in multimodal language models focused on audio. MuChoMusic\ncomprises 1,187 multiple-choice questions, all validated by human annotators,\non 644 music tracks sourced from two publicly available music datasets, and\ncovering a wide variety of genres. Questions in the benchmark are crafted to\nassess knowledge and reasoning abilities across several dimensions that cover\nfundamental musical concepts and their relation to cultural and functional\ncontexts. Through the holistic analysis afforded by the benchmark, we evaluate\nfive open-source models and identify several pitfalls, including an\nover-reliance on the language modality, pointing to a need for better\nmultimodal integration. Data and code are open-sourced.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "d8da99970454132f8c87af5abed3d486a22b6a3d5b819f09de062596b540a1aa",
+        "generatedAt": "2026-10-13T07:00:52.365362Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出 MuChoMusic 基准测试，包含来自两个公开数据集的 644 首音乐曲目上的 1,187 道多选题，涵盖多种流派及涉及基本音乐概念与文化功能背景的知识与推理能力维度，并据此评估了五个开源模型。",
+          "researchProblem": "多模态音频-语言模型在音乐理解领域的应用日益广泛，但现有评估方法难以有效衡量这些模型正确解读音乐相关输入的能力。",
+          "researchRelevance": "多模态学习、音频理解、自然语言处理、人工智能基准测试"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "9b0f986a969c2e7e726681eb75107ca6eea15187ae913afce4e430d57ed5209d",
+        "status": "available"
       },
       "arxivId": "2408.01337",
       "authors": [
@@ -2540,19 +2900,21 @@
         "George Fazekas",
         "Dmitry Bogdanov"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 11
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -2562,7 +2924,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2408.01337",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2571,7 +2933,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2408.01337",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2580,7 +2942,7 @@
       "id": "paper-2408-01337",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2408.01337"
         }
@@ -2612,19 +2974,21 @@
         "Shan Lu",
         "Junchen Jiang"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2634,7 +2998,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2405.16444",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2643,7 +3007,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2405.16444",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2652,14 +3016,18 @@
       "id": "paper-2405-16444",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2405.16444"
         }
       ],
       "publishedAt": "2024-05-26T06:00:17Z",
       "title": "CacheBlend: Fast Large Language Model Serving for RAG with Cached\n  Knowledge Fusion",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2024-05-26T06:00:17Z"
     },
     {
@@ -2677,12 +3045,14 @@
         "Alvin Cheung",
         "Ion Stoica"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2692,7 +3062,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2404.14527",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2701,7 +3071,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2404.14527",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2710,14 +3080,18 @@
       "id": "paper-2404-14527",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2404.14527"
         }
       ],
       "publishedAt": "2024-04-22T18:56:18Z",
       "title": "Mélange: Cost Efficient Large Language Model Serving by Exploiting GPU\n  Heterogeneity",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2024-04-22T18:56:18Z"
     },
     {
@@ -2735,19 +3109,21 @@
         "Phitchaya Mangpo Phothilimthana",
         "Zhihao Jia"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 2
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2757,7 +3133,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2401.14021",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2766,7 +3142,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2401.14021",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2775,14 +3151,18 @@
       "id": "paper-2401-14021",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2401.14021"
         }
       ],
       "publishedAt": "2024-01-25T09:06:44Z",
       "title": "Accelerating Retrieval-Augmented Language Model Serving with Speculation",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2024-01-25T09:06:44Z"
     },
     {
@@ -2791,13 +3171,18 @@
         "status": "unavailable"
       },
       "arxivId": "2312.05516",
-      "authors": ["Lingfan Yu", "Jinyang Li"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Lingfan Yu",
+        "Jinyang Li"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2807,7 +3192,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2312.05516",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2816,7 +3201,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2312.05516",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2825,14 +3210,18 @@
       "id": "paper-2312-05516",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2312.05516"
         }
       ],
       "publishedAt": "2023-12-09T09:55:07Z",
       "title": "Stateful Large Language Model Serving with Pensieve",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2023-12-09T09:55:07Z"
     },
     {
@@ -2841,20 +3230,25 @@
         "status": "unavailable"
       },
       "arxivId": "2312.05215",
-      "authors": ["Xiaozhe Yao", "Ana Klimovic"],
-      "categories": ["Unclassified"],
+      "authors": [
+        "Xiaozhe Yao",
+        "Ana Klimovic"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2864,7 +3258,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2312.05215",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2873,7 +3267,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2312.05215",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2882,14 +3276,18 @@
       "id": "paper-2312-05215",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2312.05215"
         }
       ],
       "publishedAt": "2023-12-08T18:07:05Z",
       "title": "DeltaZip: Multi-Tenant Language Model Serving via Delta Compression",
-      "topics": ["LLM systems", "Efficient inference", "Machine learning"],
+      "topics": [
+        "LLM systems",
+        "Efficient inference",
+        "Machine learning"
+      ],
       "updatedAt": "2023-12-08T18:07:05Z"
     },
     {
@@ -2913,12 +3311,14 @@
         "Partha Talukdar",
         "Jason Riesa"
       ],
-      "categories": ["Unclassified"],
+      "categories": [
+        "Unclassified"
+      ],
       "communitySignals": [
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-12T15:39:12.682009Z",
+          "observedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -2928,7 +3328,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2309.10567",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2937,7 +3337,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2309.10567",
           "verification": {
-            "checkedAt": "2026-10-12T15:39:12.682009Z",
+            "checkedAt": "2026-10-13T07:00:46.050307Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -2946,14 +3346,17 @@
       "id": "paper-2309-10567",
       "provenance": [
         {
-          "retrievedAt": "2026-10-12T15:39:12.682009Z",
+          "retrievedAt": "2026-10-13T07:00:46.050307Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2309.10567"
         }
       ],
       "publishedAt": "2023-09-19T12:21:39Z",
       "title": "Multimodal Modeling For Spoken Language Identification",
-      "topics": ["Multimodal learning", "Machine learning"],
+      "topics": [
+        "Multimodal learning",
+        "Machine learning"
+      ],
       "updatedAt": "2023-09-19T12:21:39Z"
     }
   ],
@@ -2961,13 +3364,13 @@
   "sources": [
     {
       "id": "arxiv",
-      "lastSuccessfulUpdateAt": "2026-10-12T15:39:12.682009Z",
+      "lastSuccessfulUpdateAt": "2026-10-13T07:00:46.050307Z",
       "recordCount": 25,
       "status": "ok"
     },
     {
       "id": "huggingface",
-      "lastSuccessfulUpdateAt": "2026-10-12T15:39:12.682009Z",
+      "lastSuccessfulUpdateAt": "2026-10-13T07:00:46.050307Z",
       "recordCount": 28,
       "status": "ok"
     }
