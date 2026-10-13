@@ -76,7 +76,7 @@ export function FeaturedPaperCard({
           <span>{getPrimarySource(paper)}</span>
         </div>
         <div className="flex items-center gap-2">
-          <BookmarkButton paperId={paper.id} />
+          <BookmarkButton paper={paper} />
           <Link
             className="inline-flex min-h-10 items-center gap-2 rounded-md bg-action px-3 py-2 text-sm font-semibold text-surface hover:bg-text"
             state={detailState}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { getPersonalPaperStateRepository } from '../data/personal/PersonalPaperStateRepository'
 import type { ReadingStatus } from '../domain/personal-paper-state'
+import type { Paper } from '../domain/paper'
 
 export function usePersonalPaperState(paperId: string) {
   const repository = getPersonalPaperStateRepository()
@@ -16,7 +17,8 @@ export function usePersonalPaperState(paperId: string) {
 
   return {
     state: current,
-    toggleSaved: () => repository.setSaved(paperId, !current.saved),
+    toggleSaved: (paper?: Paper) =>
+      repository.setSaved(paper ?? paperId, !current.saved),
     setStatus: (status: ReadingStatus) => repository.setStatus(paperId, status),
     setTags: (tags: readonly string[]) => repository.setTags(paperId, tags),
   }

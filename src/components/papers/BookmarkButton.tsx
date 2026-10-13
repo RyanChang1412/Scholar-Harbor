@@ -1,18 +1,19 @@
 import { Bookmark } from 'lucide-react'
 
+import type { Paper } from '../../domain/paper'
 import { usePersonalPaperState } from '../../hooks/usePersonalPaperState'
 import { cn } from '../../lib/cn'
 
 interface BookmarkButtonProps {
-  readonly paperId: string
+  readonly paper: Paper
   readonly compact?: boolean
 }
 
 export function BookmarkButton({
-  paperId,
+  paper,
   compact = false,
 }: BookmarkButtonProps) {
-  const { state, toggleSaved } = usePersonalPaperState(paperId)
+  const { state, toggleSaved } = usePersonalPaperState(paper.id)
   const label = state.saved ? 'Remove from library' : 'Save to library'
 
   return (
@@ -24,7 +25,7 @@ export function BookmarkButton({
         state.saved && 'border-primary/50 bg-surface-soft',
         compact && 'size-10 shrink-0 px-0',
       )}
-      onClick={toggleSaved}
+      onClick={() => toggleSaved(paper)}
       type="button"
     >
       <Bookmark

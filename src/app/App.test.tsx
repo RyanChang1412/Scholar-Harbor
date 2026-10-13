@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
+import { getPersonalPaperStateRepository } from '../data/personal/PersonalPaperStateRepository'
 import { renderApp } from '../test/renderApp'
 
 describe('Scholar Harbor application shell', () => {
@@ -34,5 +35,24 @@ describe('Scholar Harbor application shell', () => {
     expect(
       screen.getByRole('navigation', { name: 'Paper discovery modes' }),
     ).toBeInTheDocument()
+  })
+
+  it('requires confirmation before resetting private local data', async () => {
+    const user = userEvent.setup()
+    const repository = getPersonalPaperStateRepository()
+    repository.setSaved('paper-memory-tides', true)
+    renderApp('/settings')
+
+    await user.click(screen.getByRole('button', { name: 'Reset local data' }))
+    expect(repository.get('paper-memory-tides').saved).toBe(true)
+    expect(
+      screen.getByText(/Delete this browser's profile/),
+    ).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: 'Confirm reset' }))
+    expect(repository.get('paper-memory-tides').saved).toBe(false)
+    expect(
+      screen.getByText('Local data reset to public defaults.'),
+    ).toBeVisible()
   })
 })

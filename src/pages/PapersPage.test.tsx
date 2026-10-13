@@ -4,14 +4,16 @@ import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 
 import { ValidatedPaperRepository } from '../data/papers/PaperRepository'
+import { paperFixtures } from '../fixtures/papers'
 import { renderApp } from '../test/renderApp'
+import { LibraryPage } from './LibraryPage'
 import { PapersPage } from './PapersPage'
 import { personalStateStorageKey } from '../data/personal/PersonalPaperStateRepository'
 
 describe('paper discovery and detail navigation', () => {
   it('renders a validated, paginated paper list', async () => {
     const user = userEvent.setup()
-    const { router } = renderApp('/papers')
+    const { router } = renderApp('/papers?mode=latest')
 
     expect(
       await screen.findByRole('heading', { name: '10 paper results' }),
@@ -94,6 +96,34 @@ describe('paper discovery and detail navigation', () => {
     expect(window.localStorage.getItem(personalStateStorageKey)).toContain(
       '"saved":true',
     )
+    expect(window.localStorage.getItem(personalStateStorageKey)).toContain(
+      '"paperSnapshot"',
+    )
+  })
+
+  it('keeps a saved paper visible after it leaves the rolling dataset', async () => {
+    const currentRepository = new ValidatedPaperRepository(async () =>
+      paperFixtures.slice(0, 1),
+    )
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <PapersPage repository={currentRepository} defaultMode="latest" />
+      </MemoryRouter>,
+    )
+    await user.click(
+      await screen.findByRole('button', { name: 'Save to library' }),
+    )
+
+    const emptyRepository = new ValidatedPaperRepository(async () => [])
+    render(
+      <MemoryRouter>
+        <LibraryPage repository={emptyRepository} />
+      </MemoryRouter>,
+    )
+    expect(
+      await screen.findByRole('link', { name: paperFixtures[0]!.title }),
+    ).toBeInTheDocument()
   })
 
   it('preserves filters when moving to a detail and back to results', async () => {
@@ -135,6 +165,9 @@ describe('paper discovery and detail navigation', () => {
     const writeText = vi.spyOn(navigator.clipboard, 'writeText')
     renderApp('/papers/paper-memory-tides')
     await screen.findByRole('heading', { name: /Memory Tides/ })
+    expect(
+      screen.getByRole('link', { name: /10\.9999\/fixture\.memory-tides/ }),
+    ).toHaveAttribute('href', 'https://doi.org/10.9999%2Ffixture.memory-tides')
 
     await user.click(screen.getByRole('button', { name: 'Copy BibTeX' }))
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('@article{'))

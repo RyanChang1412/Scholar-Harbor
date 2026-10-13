@@ -108,11 +108,13 @@ as `unknown`, so the UI cannot bypass runtime validation.
 ## Personal paper state
 
 Bookmarks and reading status use
-`scholar-harbor.personal.v2` in browser-local storage. A strict versioned envelope
+`scholar-harbor.personal.v3` in browser-local storage. A strict versioned envelope
 contains the research profile, bookmarks, four reading states, and personal tags.
-Malformed content falls back safely; v1 state migrates `read` to `finished`.
-Validated JSON import/export and explicit reset are available in Settings.
-Personal fields never appear in the public Paper schema or leave the browser.
+Each new bookmark retains a validated source-record snapshot so a rolling public
+dataset cannot silently erase a long-lived library item. Malformed content falls
+back safely; v1 and v2 state migrate without losing reading state. Validated JSON
+import/export and explicit reset are available in Settings. Personal fields never
+appear in the public Paper schema or leave the browser.
 
 ## Recommendation flow
 

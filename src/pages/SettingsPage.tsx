@@ -15,6 +15,7 @@ type Notice =
 export function SettingsPage() {
   const { profile, repository } = usePersonalData()
   const [notice, setNotice] = useState<Notice>()
+  const [resetArmed, setResetArmed] = useState(false)
   const [focusedShare, setFocusedShare] = useState(
     Math.round(profile.focusedRatio * 100),
   )
@@ -63,7 +64,7 @@ export function SettingsPage() {
     const url = URL.createObjectURL(blob)
     const anchor = document.createElement('a')
     anchor.href = url
-    anchor.download = 'scholar-harbor-local-data.v2.json'
+    anchor.download = 'scholar-harbor-local-data.v3.json'
     anchor.click()
     URL.revokeObjectURL(url)
     setNotice({ kind: 'success', message: 'Local data export created.' })
@@ -71,6 +72,14 @@ export function SettingsPage() {
 
   async function importData(file: File | undefined) {
     if (!file) return
+    if (file.size > 5 * 1024 * 1024) {
+      setNotice({
+        kind: 'error',
+        message: 'Import rejected: the local data file exceeds 5 MB.',
+      })
+      if (fileInput.current) fileInput.current.value = ''
+      return
+    }
     try {
       repository.importJson(await file.text())
       setNotice({ kind: 'success', message: 'Validated local data imported.' })
@@ -78,7 +87,7 @@ export function SettingsPage() {
       setNotice({
         kind: 'error',
         message:
-          'Import rejected: expected a valid Scholar Harbor v2 JSON export.',
+          'Import rejected: expected a valid Scholar Harbor v3 JSON export.',
       })
     } finally {
       if (fileInput.current) fileInput.current.value = ''
@@ -212,7 +221,8 @@ export function SettingsPage() {
           </h2>
           <p className="mt-2 text-sm leading-6 text-text-muted">
             Exports include your research profile, saved states, reading
-            progress, and tags. They contain no API keys or documents.
+            progress, tags, and source-backed metadata snapshots for saved
+            papers. They contain no API keys or private documents.
           </p>
           <div className="mt-5 space-y-3">
             <button
@@ -238,20 +248,49 @@ export function SettingsPage() {
               accept="application/json,.json"
               onChange={(event) => void importData(event.target.files?.[0])}
             />
-            <button
-              type="button"
-              onClick={() => {
-                repository.reset()
-                setNotice({
-                  kind: 'success',
-                  message: 'Local data reset to public defaults.',
-                })
-              }}
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-border px-3 text-sm font-semibold text-action hover:bg-surface-soft"
-            >
-              <RotateCcw size={16} aria-hidden="true" />
-              Reset local data
-            </button>
+            {resetArmed ? (
+              <div
+                className="rounded-md border border-warm bg-canvas p-3"
+                role="alert"
+              >
+                <p className="text-sm leading-6 text-text">
+                  Delete this browser&apos;s profile, bookmarks, reading
+                  progress, tags, and saved snapshots?
+                </p>
+                <div className="mt-3 grid grid-cols-2 gap-2">
+                  <button
+                    className="min-h-10 rounded-md border border-border text-sm font-semibold text-action hover:bg-surface-soft"
+                    onClick={() => setResetArmed(false)}
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="min-h-10 rounded-md bg-action text-sm font-semibold text-surface hover:bg-text"
+                    onClick={() => {
+                      repository.reset()
+                      setResetArmed(false)
+                      setNotice({
+                        kind: 'success',
+                        message: 'Local data reset to public defaults.',
+                      })
+                    }}
+                    type="button"
+                  >
+                    Confirm reset
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setResetArmed(true)}
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-border px-3 text-sm font-semibold text-action hover:bg-surface-soft"
+              >
+                <RotateCcw size={16} aria-hidden="true" />
+                Reset local data
+              </button>
+            )}
           </div>
           {notice && (
             <p

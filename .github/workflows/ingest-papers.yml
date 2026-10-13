@@ -25,16 +25,44 @@ jobs:
         run: python -m pip install --requirement requirements-ingestion.txt
       - name: Test ingestion behavior
         run: PYTHONPATH=ingestion python -m unittest discover -s ingestion/tests -v
-      - name: Build validated dataset
+      - name: Build validated datasets with Alibaba Cloud Model Studio
+        if: ${{ vars.AI_PROVIDER == '' || vars.AI_PROVIDER == 'bailian' }}
         env:
           HF_HUB_DISABLE_TELEMETRY: '1'
-          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          AI_PROVIDER: bailian
           AI_MODEL: ${{ vars.AI_MODEL }}
           DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           BAILIAN_MODEL: ${{ vars.BAILIAN_MODEL }}
         run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
+      - name: Build validated datasets with OpenAI
+        if: ${{ vars.AI_PROVIDER == 'openai' }}
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+          AI_PROVIDER: openai
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
+      - name: Build validated datasets with DeepSeek
+        if: ${{ vars.AI_PROVIDER == 'deepseek' }}
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+          AI_PROVIDER: deepseek
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: PYTHONPATH=ingestion python -m scholar_harbor_ingest.cli
+      - name: Reject unsupported AI provider
+        if: ${{ vars.AI_PROVIDER != '' && vars.AI_PROVIDER != 'bailian' && vars.AI_PROVIDER != 'openai' && vars.AI_PROVIDER != 'deepseek' }}
+        run: |
+          echo "Unsupported AI_PROVIDER repository variable. Use bailian, openai, or deepseek."
+          exit 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+          cache: npm
+      - name: Install frozen frontend dependencies
+        run: npm ci
+      - name: Verify production build before data publication
+        run: npm run build
       - uses: actions/upload-artifact@v4
         with:
           name: validated-public-datasets
@@ -55,6 +83,14 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: main
+      - name: Refuse publication onto an unvalidated main revision
+        env:
+          VALIDATED_REVISION: ${{ github.sha }}
+        run: |
+          if [ "$(git rev-parse HEAD)" != "$VALIDATED_REVISION" ]; then
+            echo "main advanced during ingestion; preserving datasets and deferring to the next run."
+            exit 1
+          fi
       - uses: actions/download-artifact@v4
         with:
           name: validated-public-datasets

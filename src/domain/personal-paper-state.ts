@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 import { researchProfileSchema } from './research-profile'
+import { paperSchema } from './paper'
 
 export const readingStatusSchema = z.enum([
   'unread',
@@ -17,12 +18,13 @@ export const personalPaperStateSchema = z
     status: readingStatusSchema,
     tags: z.array(z.string().trim().min(1)).max(20),
     updatedAt: z.iso.datetime({ offset: true }),
+    paperSnapshot: paperSchema.optional(),
   })
   .strict()
 
 export const personalStateEnvelopeSchema = z
   .object({
-    version: z.literal(2),
+    version: z.literal(3),
     papers: z.record(z.string(), personalPaperStateSchema),
     profile: researchProfileSchema,
   })

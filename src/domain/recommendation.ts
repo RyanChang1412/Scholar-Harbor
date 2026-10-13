@@ -164,7 +164,7 @@ export function recommendPapers(
   const maxCommunity = Math.max(1, ...eligible.map(communityRaw))
   const rangeMs = Math.max(1, profile.preferredTimeRangeDays * 86_400_000)
 
-  const candidates: Candidate[] = eligible.map((paper) => {
+  const candidates: Candidate[] = eligible.flatMap((paper) => {
     const text = normalizedText(paper)
     const focusedMatches = paper.topics.filter((topic) => focusedSet.has(topic))
     const exploreMatches = paper.topics.filter((topic) => exploreSet.has(topic))
@@ -172,7 +172,12 @@ export function recommendPapers(
       text.includes(keyword.toLocaleLowerCase()),
     )
     const lane =
-      focusedMatches.length || keywordMatches.length ? 'Focused' : 'Explore'
+      focusedMatches.length || keywordMatches.length
+        ? 'Focused'
+        : exploreMatches.length
+          ? 'Explore'
+          : null
+    if (!lane) return []
     const age = Math.max(0, now.getTime() - Date.parse(paper.publishedAt))
     const recency = Math.max(0, 1 - age / rangeMs)
     const community = Math.log1p(communityRaw(paper)) / Math.log1p(maxCommunity)
@@ -198,15 +203,17 @@ export function recommendPapers(
           topicBreadth * weights.explore.diversity +
           recency * weights.explore.recency +
           community * weights.explore.community
-    return {
-      paper,
-      lane,
-      score,
-      matched:
-        lane === 'Focused'
-          ? [...focusedMatches, ...keywordMatches]
-          : exploreMatches,
-    }
+    return [
+      {
+        paper,
+        lane,
+        score,
+        matched:
+          lane === 'Focused'
+            ? [...focusedMatches, ...keywordMatches]
+            : exploreMatches,
+      },
+    ]
   })
 
   const requested = Math.min(options.limit, candidates.length)
@@ -264,7 +271,9 @@ export function recommendPapers(
       explore: explore.length,
       targetFocusedRatio: profile.focusedRatio,
       quotaRelaxed:
-        focused.length !== focusedQuota || explore.length !== exploreQuota,
+        ordered.length < options.limit ||
+        focused.length !== focusedQuota ||
+        explore.length !== exploreQuota,
     },
   }
 }

@@ -72,7 +72,7 @@ export function CompactPaperCard({
           <p className="break-words">{getPrimarySource(paper)}</p>
         </div>
         <div className="flex shrink-0 items-center gap-2">
-          <BookmarkButton compact paperId={paper.id} />
+          <BookmarkButton compact paper={paper} />
           <Link
             aria-label={`Open paper: ${paper.title}`}
             className="grid size-10 place-items-center rounded-full border border-border text-action hover:border-primary hover:bg-surface-soft"

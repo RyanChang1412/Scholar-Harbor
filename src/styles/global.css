@@ -13,7 +13,7 @@
   --color-action: #426957;
   --color-explore: #879db5;
   --color-text: #303c39;
-  --color-text-muted: #6f7e77;
+  --color-text-muted: #5f6f67;
   --color-border: #e3e8e2;
   --color-warm: #b8a58e;
 
@@ -78,7 +78,7 @@
   }
 
   :focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--color-action) 44%, transparent);
+    outline: 3px solid var(--color-action);
     outline-offset: 3px;
   }
 }

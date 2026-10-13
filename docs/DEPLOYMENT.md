@@ -78,7 +78,8 @@ reference artifacts through this sequence:
 4. Valid bounded artifacts replace `papers.v1.json`, `news.v1.json`, and
    `rankings.v1.json`.
 5. If and only if tracked dataset content changed, the workflow creates one bot
-   commit on `main` containing only generated public artifacts and their manifest.
+   commit on `main` containing only the three generated public artifacts. It
+   refuses to publish if `main` advanced after the validated run began.
 6. That commit triggers the existing Cloudflare Workers Build, which rebuilds and
    deploys the frontend together with the new data.
 
