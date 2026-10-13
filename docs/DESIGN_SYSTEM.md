@@ -83,3 +83,12 @@ mobile widths.
 
 Target WCAG 2.2 AA where practicable and verify contrast and interaction in tests
 rather than assuming token choices are sufficient.
+
+## Phase 05 context surfaces
+
+News and Rankings reuse the editorial page hierarchy, semantic colors, soft
+borders, and wide responsive container. News remains a compact reading list;
+ranking references use text-first cards and explicit cached/live labels. The
+homepage keeps papers visually dominant, with Research Pulse, news, and ranking
+links placed afterward as secondary context. External links retain visible focus
+and hover states, and the layouts collapse to a single column on narrow screens.

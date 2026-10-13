@@ -1,0 +1,24 @@
+{
+  "requestTimeoutSeconds": 20,
+  "maxAttempts": 3,
+  "backoffSeconds": 2,
+  "maxNewsItems": 40,
+  "maxItemsPerSource": 30,
+  "sources": [
+    {
+      "id": "hugging-face-blog",
+      "name": "Hugging Face Blog",
+      "feedUrl": "https://huggingface.co/blog/feed.xml",
+      "homepageUrl": "https://huggingface.co/blog",
+      "category": "Research and engineering",
+      "headlineOnlyDescription": true
+    },
+    {
+      "id": "vllm-releases",
+      "name": "vLLM Releases",
+      "feedUrl": "https://github.com/vllm-project/vllm/releases.atom",
+      "homepageUrl": "https://github.com/vllm-project/vllm/releases",
+      "category": "Open-source releases"
+    }
+  ]
+}

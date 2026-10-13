@@ -2,9 +2,8 @@
 
 ## Status
 
-Phase 04 retains the arXiv and Hugging Face Papers adapters and publishes their
-normalized records in `public/data/papers.v1.json`. Development routes continue
-to use fictional, visibly labeled records from `src/fixtures`.
+Phase 05 publishes normalized papers, news, and ranking references. Development
+routes continue to use fictional, visibly labeled records from `src/fixtures`.
 
 An optional post-normalization OpenAI-compatible adapter can use Alibaba Cloud
 Model Studio, OpenAI, or DeepSeek and receives only paper title and abstract. It
@@ -19,14 +18,19 @@ uses a deterministic score over those labeled mock signals. Fixture URLs use the
 reserved non-resolving `example.invalid` domain and have a `fixture`
 verification status; they are never presented as verified live destinations.
 
-| Provider            | Implemented use                                                                        | Access and update behavior                                                                                                |
-| ------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| arXiv               | Recent records from configured CS/ML categories through the official Atom API          | One bounded combined query per run, timeout, retry/backoff, keyword filtering, canonical revision handling                |
-| Hugging Face Papers | Paper identity plus upvote/comment signals through `huggingface_hub.HfApi.list_papers` | Four bounded search queries with delay, timeout, retry/backoff, and deduplication                                         |
-| OpenAlex            | Optional DOI-based `cited_by_count` enrichment                                         | Disabled by default; one batched DOI request only when configured with `OPENALEX_API_KEY`; never required for publication |
+| Provider            | Implemented use                                                                        | Access and update behavior                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| arXiv               | Recent records from configured CS/ML categories through the official Atom API          | One bounded combined query per run, timeout, retry/backoff, keyword filtering, canonical revision handling                    |
+| Hugging Face Papers | Paper identity plus upvote/comment signals through `huggingface_hub.HfApi.list_papers` | Four bounded search queries with delay, timeout, retry/backoff, and deduplication                                             |
+| OpenAlex            | Optional DOI-based `cited_by_count` enrichment                                         | Disabled by default; one batched DOI request only when configured with `OPENALEX_API_KEY`; never required for publication     |
+| Hugging Face Blog   | Research and engineering news from the official RSS feed                               | Thirty items parsed per run; headline-only feed entries receive an explicit source/title description, never an inferred claim |
+| vLLM Releases       | Open-source release updates from the official GitHub Releases Atom feed                | Thirty entries parsed per run; HTML is reduced to plain text and original URLs are retained                                   |
+| Ranking references  | Cached Hugging Face paper signals plus GitHub Trending and LMArena official links      | No protected-page scraping; external pages remain labeled links rather than copied rankings                                   |
 
-The verified endpoints are `https://export.arxiv.org/api/query`, the official
-Hugging Face Hub client paper methods, and `https://api.openalex.org/works`.
+The verified endpoints include `https://export.arxiv.org/api/query`, the official
+Hugging Face Hub client paper methods, `https://api.openalex.org/works`,
+`https://huggingface.co/blog/feed.xml`, and
+`https://github.com/vllm-project/vllm/releases.atom`.
 The 2026-10-12 manual integration run retrieved 25 filtered arXiv records and 28
 Hugging Face records without credentials. OpenAlex connectivity was checked, but
 enrichment was not enabled because the base sources supplied sufficient metadata.
@@ -58,7 +62,7 @@ For each implemented source, record:
 | Failure behavior  | Retry, stale-data fallback, and publication gate           |
 | Credentials       | Requirement name and storage location; never the value     |
 
-## Planned source categories
+## Source categories
 
 - Paper metadata from official academic APIs and feeds.
 - DOI/citation metadata from authoritative services when permitted.
@@ -68,8 +72,8 @@ For each implemented source, record:
 - Trending signals only when their source, retrieval time, and meaning are
   recorded. Absence of a signal is not a negative score.
 
-These categories do not approve a particular provider. A feature phase must
-evaluate the concrete provider and update this document.
+Additional providers require the same endpoint, provenance, rate, failure, and
+permission review before they enter `config/content-sources.json`.
 
 ## Normalization and integrity
 

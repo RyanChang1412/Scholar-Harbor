@@ -37,13 +37,37 @@ Apply these settings after the frontend package and lockfile exist:
 | Deploy command    | `npm run deploy:worker`                                  |
 | Production URL    | `https://scholar-harbor.<account-subdomain>.workers.dev` |
 
+## One-time production activation
+
+The repository cannot create or inspect the account-owned Git integration by
+itself. In the Cloudflare dashboard:
+
+1. Open **Workers & Pages → Create → Import a repository** and authorize the
+   public `RyanChang1412/Scholar-Harbor` repository.
+2. Set both project and Worker name to `scholar-harbor`, production branch to
+   `main`, and root directory to the repository root.
+3. Use `npm ci` for dependency installation, `npm run build` for the build, and
+   `npm run deploy:worker` for deployment. Do not add a GitHub Actions frontend
+   deployment.
+4. Enable the `workers.dev` route and record the account-specific public URL.
+5. After the first build, open `/`, `/news`, `/rankings`, and a real
+   `/papers/<id>` URL directly. Each must return the SPA and render its route.
+6. Run **Ingest public research data** manually on `main` once. If it creates a
+   validated data commit, verify that the same Git integration starts a second
+   production build.
+
+No Cloudflare API token belongs in the frontend or repository. Workers Builds
+uses the Cloudflare account authorization configured in the dashboard. Optional
+ingestion provider keys remain GitHub Actions secrets as described below.
+
 Workers Builds uses the committed Wrangler version from the package manifest
 rather than an unpinned global tool. The deploy command does not rebuild because
 Cloudflare runs the build command as its separate first step.
 
 ## Dataset-to-production path
 
-The committed `ingest-papers.yml` workflow implements this sequence:
+The committed `ingest-papers.yml` workflow publishes papers, news, and ranking
+reference artifacts through this sequence:
 
 1. A scheduled GitHub Actions job checks out `main` and installs pinned Python
    dependencies.
@@ -51,7 +75,8 @@ The committed `ingest-papers.yml` workflow implements this sequence:
    location.
 3. Schema validation, integrity checks, deterministic tests, and secret scanning
    complete before publication.
-4. Valid bounded artifacts replace the public dataset files.
+4. Valid bounded artifacts replace `papers.v1.json`, `news.v1.json`, and
+   `rankings.v1.json`.
 5. If and only if tracked dataset content changed, the workflow creates one bot
    commit on `main` containing only generated public artifacts and their manifest.
 6. That commit triggers the existing Cloudflare Workers Build, which rebuilds and

@@ -120,7 +120,11 @@ export function HomePage() {
             />
             <div className="mt-6">
               {fixtureNews.map((item) => (
-                <NewsPreviewCard item={item} key={item.id} />
+                <NewsPreviewCard
+                  item={item}
+                  key={item.id}
+                  recordLabel="Fictional fixture"
+                />
               ))}
             </div>
           </div>

@@ -2,12 +2,11 @@
 
 ## Status
 
-Phase 04 adds local Balanced Discovery, versioned profile/library storage, and
-an optional multi-provider AI enrichment adapter to the Phase 03 data
+Phase 05 adds normalized news, ranking references, and integrated homepage
+context to the completed paper, personalization, library, and optional AI
 foundation. Development and test routes retain deterministic fixtures;
-production routes fetch and validate the generated public artifact. The
-recommendation path is deterministic and remains usable when AI is disabled or
-unavailable.
+production routes fetch and validate three bounded public artifacts. The
+recommendation path remains deterministic and usable when AI is unavailable.
 
 Development and test builds select the fixture route set. Production builds
 select a separate route set backed by `/data/papers.v1.json`, allowing Rollup to
@@ -26,7 +25,7 @@ Python ingestion in scheduled GitHub Actions
   normalize -> validate -> deduplicate -> enrich -> bounded versioned JSON
         |
         v
-accepted dataset commit on main
+accepted paper/news/ranking dataset commit on main
         |
         v
 Cloudflare Workers Builds -> Vite build -> Workers Static Assets
@@ -68,6 +67,18 @@ artifacts are replaced.
 Failed optional enrichment must not remove usable source metadata. A failed
 required validation must prevent publication of the invalid artifact while
 leaving the last accepted dataset available.
+
+RSS and Atom news adapters strip markup, normalize UTC timestamps and canonical
+HTTPS URLs, retain source/retrieval metadata, and deduplicate by canonical URL
+and normalized headline. Each source has bounded retries and independent status.
+An unavailable source retains its last accepted items. The published feed and
+per-source parsing are bounded, so historical growth does not expand the browser
+payload without review.
+
+The rankings artifact contains one cached Hugging Face Papers signal summary
+derived from the validated paper artifact plus official-link cards for GitHub
+Trending and LMArena. The UI labels these modes explicitly and does not treat an
+external live page or an old snapshot as a current local ranking.
 
 ## Paper identity and provenance
 

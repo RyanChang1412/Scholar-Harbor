@@ -7,6 +7,9 @@ import { LibraryPage } from '../pages/LibraryPage'
 import { SettingsPage } from '../pages/SettingsPage'
 import { ProductionHomePage } from '../pages/ProductionContentPages'
 import { createAppRoutes } from './router'
+import { publicContentRepository } from '../data/content/PublicContentRepository'
+import { NewsPage } from '../pages/NewsPage'
+import { RankingsPage } from '../pages/RankingsPage'
 
 export const appRoutes = createAppRoutes({
   home: <ProductionHomePage />,
@@ -16,6 +19,8 @@ export const appRoutes = createAppRoutes({
   paperDetail: <PaperDetailPage repository={publicPaperRepository} />,
   library: <LibraryPage repository={publicPaperRepository} />,
   settings: <SettingsPage />,
+  news: <NewsPage repository={publicContentRepository} />,
+  rankings: <RankingsPage repository={publicContentRepository} />,
 })
 
 export const router = createBrowserRouter(appRoutes)

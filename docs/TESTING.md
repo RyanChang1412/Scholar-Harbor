@@ -2,9 +2,9 @@
 
 ## Status
 
-Phase 04 retains the ingestion recovery gates and adds deterministic tests for
-Balanced Discovery, profile-dependent ranking, local-state migration/import,
-and optional AI enrichment failure and cache behavior.
+Phase 05 retains the earlier gates and adds normalized news/ranking schema,
+deduplication, source recovery, idempotency, filtering, safe-link, integrated
+production route, and responsive context-page coverage.
 
 Run the default checks with:
 
@@ -122,6 +122,30 @@ structured-response behavior were validated with injected deterministic adapters
 The first browser invocation
 could not find Playwright's bundled executable, and the CDN was blocked by the
 environment proxy. The full suite then passed against `/usr/bin/chromium`.
+
+## Phase 05 validation record
+
+Validated on 2026-10-13 in the onboarding environment:
+
+| Check                                             | Result                                                            |
+| ------------------------------------------------- | ----------------------------------------------------------------- |
+| Strict TypeScript, ESLint, Prettier               | Passed                                                            |
+| Vitest domain/component/route suite               | 47 passed                                                         |
+| Python ingestion/recovery suite                   | 28 passed                                                         |
+| Live official RSS/Atom retrieval                  | Passed; 30 Hugging Face Blog + 10 vLLM records before final bound |
+| Immediate repeat news ingestion                   | Passed; unchanged artifact was not rewritten                      |
+| Playwright browser suite                          | 18 passed using system Chromium                                   |
+| Target viewports                                  | 375, 768, 1280, 1440, 2560×1440, and 2560×1600 passed             |
+| Production local `/`, detail, news, rankings URLs | `200 OK`; SPA fallback confirmed                                  |
+| Production visual inspection                      | Passed at 375, 1440, and 2560 widths; no horizontal overflow      |
+| Vite build and production-content scan            | Passed; 8 text assets scanned                                     |
+| Wrangler packaging dry-run                        | Passed; 20 static assets read                                     |
+
+Measured uncompressed public payloads were approximately 156 KiB for papers,
+24 KiB for news, and 4 KiB for ranking references. The largest production
+JavaScript chunks were approximately 212 KiB, 163 KiB, and 134 KiB before gzip;
+the production router chunk was approximately 45 KiB gzip. The pipeline bounds
+paper, per-feed, final-news, and ranking-summary counts.
 
 ## Test strategy
 

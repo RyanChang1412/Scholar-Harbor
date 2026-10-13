@@ -11,6 +11,9 @@ import {
   fixturePaperSnapshotLabel,
 } from '../fixtures/papers'
 import { createAppRoutes } from './router'
+import { fixtureContentRepository } from '../fixtures/content'
+import { NewsPage } from '../pages/NewsPage'
+import { RankingsPage } from '../pages/RankingsPage'
 
 export const appRoutes = createAppRoutes({
   home: <HomePage />,
@@ -35,6 +38,13 @@ export const appRoutes = createAppRoutes({
   ),
   library: <LibraryPage repository={fixturePaperRepository} />,
   settings: <SettingsPage />,
+  news: (
+    <NewsPage
+      recordLabel="Fictional fixture"
+      repository={fixtureContentRepository}
+    />
+  ),
+  rankings: <RankingsPage repository={fixtureContentRepository} />,
 })
 
 export const router = createBrowserRouter(appRoutes)

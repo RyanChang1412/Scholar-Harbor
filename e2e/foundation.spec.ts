@@ -274,3 +274,49 @@ test('keyboard focus and mobile navigation are usable', async ({ page }) => {
     page.getByRole('heading', { name: 'Library', exact: true }),
   ).toBeVisible()
 })
+
+test('news filters use URL state and keep safe attributed links', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  await page.goto('/news')
+  await expect(
+    page.getByRole('heading', { name: 'News', exact: true }),
+  ).toBeVisible()
+  await page.getByLabel('Category').selectOption('Community')
+  await expect(page).toHaveURL(/category=Community/)
+  await page.getByLabel('Source').selectOption('Fictional Systems Bulletin')
+  await expect(page).toHaveURL(/source=Fictional\+Systems\+Bulletin/)
+  await expect(page.getByText(/Small systems workshop shares/)).toBeVisible()
+  const sourceLink = page.getByRole('link', {
+    name: /Small systems workshop shares/,
+  })
+  await expect(sourceLink).toHaveAttribute('target', '_blank')
+  await expect(sourceLink).toHaveAttribute('rel', 'noopener noreferrer')
+  await page.getByLabel('Search news').fill('no matching headline')
+  await expect(
+    page.getByRole('heading', { name: 'No news matches these filters' }),
+  ).toBeVisible()
+  await page.screenshot({
+    fullPage: true,
+    path: 'artifacts/phase-05/news-375.png',
+  })
+})
+
+test('ranking references distinguish cached and official sources on wide screens', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 2560, height: 1440 })
+  await page.goto('/rankings')
+  await expect(page.getByText('Cached source snapshot')).toBeVisible()
+  await expect(page.getByText('Official external link')).toHaveCount(2)
+  const dimensions = await page.evaluate(() => ({
+    viewportWidth: window.innerWidth,
+    documentWidth: document.documentElement.scrollWidth,
+  }))
+  expect(dimensions.documentWidth).toBeLessThanOrEqual(dimensions.viewportWidth)
+  await page.screenshot({
+    fullPage: true,
+    path: 'artifacts/phase-05/rankings-2560.png',
+  })
+})

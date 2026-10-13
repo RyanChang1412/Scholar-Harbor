@@ -31,7 +31,7 @@ def with_retries(operation: Callable[[], T], *, source: str, attempts: int, back
 
 
 def fetch_bytes(url: str, *, timeout: float) -> bytes:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json, application/atom+xml"})
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json, application/atom+xml, application/rss+xml"})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         return response.read()
 

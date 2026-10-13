@@ -1,19 +1,30 @@
 import { ArrowUpRight, Minus } from 'lucide-react'
 
-import type { FixturePulseItem } from '../../domain/content'
-
 interface ResearchPulsePanelProps {
-  readonly items: readonly FixturePulseItem[]
+  readonly items: readonly {
+    readonly id: string
+    readonly label: string
+    readonly detail: string
+    readonly direction: 'steady' | 'emerging'
+  }[]
+  readonly description?: string
+  readonly eyebrow?: string
+  readonly footnote?: string
 }
 
-export function ResearchPulsePanel({ items }: ResearchPulsePanelProps) {
+export function ResearchPulsePanel({
+  items,
+  description = 'A quiet preview of contextual signals. These observations come only from the fictional Phase 01 fixtures.',
+  eyebrow = 'Fixture overview',
+  footnote = 'No trend, ranking, or popularity claim is made by this prototype.',
+}: ResearchPulsePanelProps) {
   return (
     <section
       aria-labelledby="research-pulse-title"
       className="rounded-xl bg-surface-soft p-6"
     >
       <p className="text-xs font-semibold tracking-[0.14em] text-action uppercase">
-        Fixture overview
+        {eyebrow}
       </p>
       <h2
         className="mt-2 font-editorial text-2xl font-semibold text-text"
@@ -21,10 +32,7 @@ export function ResearchPulsePanel({ items }: ResearchPulsePanelProps) {
       >
         Research Pulse
       </h2>
-      <p className="mt-2 text-sm leading-6 text-text-muted">
-        A quiet preview of contextual signals. These observations come only from
-        the fictional Phase 01 fixtures.
-      </p>
+      <p className="mt-2 text-sm leading-6 text-text-muted">{description}</p>
 
       <ul className="mt-6 divide-y divide-border border-y border-border">
         {items.map((item) => (
@@ -46,9 +54,7 @@ export function ResearchPulsePanel({ items }: ResearchPulsePanelProps) {
         ))}
       </ul>
 
-      <p className="mt-4 text-xs leading-5 text-text-muted">
-        No trend, ranking, or popularity claim is made by this prototype.
-      </p>
+      <p className="mt-4 text-xs leading-5 text-text-muted">{footnote}</p>
     </section>
   )
 }

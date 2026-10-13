@@ -1,4 +1,4 @@
-import { Newspaper, Trophy } from 'lucide-react'
+import { Newspaper } from 'lucide-react'
 import type { ReactNode } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
@@ -12,6 +12,8 @@ interface ContentRouteElements {
   readonly paperDetail: ReactNode
   readonly library: ReactNode
   readonly settings: ReactNode
+  readonly news: ReactNode
+  readonly rankings: ReactNode
 }
 
 export function createAppRoutes({
@@ -20,6 +22,8 @@ export function createAppRoutes({
   paperDetail,
   library,
   settings,
+  news,
+  rankings,
 }: ContentRouteElements): RouteObject[] {
   return [
     {
@@ -30,30 +34,8 @@ export function createAppRoutes({
         { index: true, element: home },
         { path: 'papers', element: papers },
         { path: 'papers/:paperId', element: paperDetail },
-        {
-          path: 'news',
-          element: (
-            <PlaceholderPage
-              deferred="Live feeds, source adapters, category filters, and deduplication belong to a later data phase. No live news is published yet."
-              description="A future attributed view of selected academic and research-engineering sources."
-              eyebrow="Research context"
-              icon={Newspaper}
-              title="News"
-            />
-          ),
-        },
-        {
-          path: 'rankings',
-          element: (
-            <PlaceholderPage
-              deferred="No positions, model scores, or benchmark claims are shown until authoritative structured sources have been reviewed."
-              description="A future home for source-backed summaries and clearly labeled official links."
-              eyebrow="Authoritative references"
-              icon={Trophy}
-              title="Rankings"
-            />
-          ),
-        },
+        { path: 'news', element: news },
+        { path: 'rankings', element: rankings },
         { path: 'library', element: library },
         { path: 'settings', element: settings },
         {

@@ -56,14 +56,20 @@ the Phase 02 fixture-based development contract.
   with structured output, provider/prompt/model-aware cache reuse, and
   credential-free degradation.
 
-## Later context modules — planned
+## 5. Context, integration, and deployment readiness — complete
 
-- Reviewed news feeds and deduplication.
-- Traceable Trending signals and authoritative ranking links/summaries.
-- Research Pulse using only defined source-backed data.
+- Reviewed official news feeds with schema validation, deduplication, filtering,
+  provenance, and per-source recovery.
+- Cached Hugging Face signal summary and authoritative GitHub Trending/LMArena
+  official links with explicit status labels.
+- Source-backed Research Pulse snapshot counts and homepage integration.
+- Production security/content verification, responsive browser validation, and
+  Cloudflare Workers Static Assets packaging.
 
-## Later deployment activation — planned
+## Deployment activation — external configuration
 
-- Cloudflare Workers Builds production connection and deployment verification.
+- Connect the public repository to Cloudflare Workers Builds and confirm the
+  account-specific `workers.dev` URL. This requires the repository owner's
+  Cloudflare account and cannot be represented as completed by source code.
 
 Do not begin optional AI work before the non-AI publication path is reliable.
