@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-16T09:07:26.220454Z",
-  "lastSuccessfulUpdateAt": "2026-10-16T09:07:26.220454Z",
+  "generatedAt": "2026-10-17T08:39:55.639742Z",
+  "lastSuccessfulUpdateAt": "2026-10-17T08:39:55.639742Z",
   "papers": [
     {
       "abstract": "Predicting how the world responds to an action requires more than what can be seen: robots must account for environmental factors that are neither directly observable nor explicitly specified, from physical properties such as friction and mass to human-defined environmental rules. We introduce T2-Z for test-time optimization of environment latents, which augments a robotic world model with a learnable environment latent to condition world predictions. This compact latent captures underlying environmental variation without supervision of what environmental factors exist or what values they take. During training, T2-Z alternates between two stages: a world-model optimization stage that fixes the latents and learns general action-conditioned dynamics across environments; and an environment-latent optimization stage that freezes the world model and optimizes the conditioning latents, allowing latent structure to emerge purely through world prediction. At test time, the world model remains frozen and a newly initialized environment latent is optimized from one or more test-time interactions, adapting the model to previously unseen environmental configurations. Across 7 simulated settings and 4 real-world robotic tasks, T2-Z reduces object prediction error metric from 15.20 to 7.00 and raises action success from 33.73% to 72.96%. Its emergent latents capture structured representations of individual and compounded factors across diverse visual scenes. Ablations further show that T2-Z can efficiently infer environment latents from as little as a single test-time interaction trajectory.",
@@ -44,7 +44,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22364v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -53,7 +53,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22364v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -62,7 +62,7 @@
       "id": "paper-2610-22364",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22364v1"
         }
@@ -73,7 +73,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -105,7 +105,19 @@
     {
       "abstract": "Large language models (LLMs) are expanding from assisting scientific research and engineering to autonomously developing and improving AI systems, advancing AI for AI (AI4AI) as a pathway toward recursive self-improvement (RSI). Workflow-driven machine learning engineering (MLE) systems provide a practical path toward this pursuit through complex orchestration that manages long-horizon experimentation, while recent MLE systems adopt model-directed interaction, allowing models to autonomously organize experiments and adapt optimization strategies based on execution feedback. However, feedback from each experiment reflects several preceding decisions, and a long MLE run contains many such costly experiments. Training must therefore select useful supervision from long interaction trajectories and learn from intermediate outcomes. We propose a post-training method for autonomous long-horizon MLE optimization and apply it to train MLExpert, a 35B Mixture-of-Experts agentic model. We design the Kaggle-MLE Factory to construct executable tasks and an interaction harness for model-directed experimentation. Hierarchical agentic SFT transfers general tool-use and coding capabilities to MLE through outcome-guided supervision. Windowed Interaction RL (WIRL) treats the multi-turn decisions between successive experiment results as an execution window and assigns it a shared outcome-based reward. Asynchronous collection and policy correction support policy updates before the trajectory ends. On MLE-Bench Lite, MLExpert improves the average medal rate of the base model from 37.9% to 72.7%, achieving performance comparable to larger frontier models such as Kimi-K3 and GLM-5.3. Further experiments show that MLExpert improves performance on NatureBench Lite, agent scaffold optimization, and algorithm optimization, suggesting that the learned optimization capability generalizes to other tasks.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "e2c14a592dcb75ac95a1f0620d36e2c9de6bb7a36269988a4f399b2183ad01f7",
+        "generatedAt": "2026-10-17T08:40:17.967343Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出一种针对自主长周期 MLE 优化的后训练方法，包括构建 Kaggle-MLE Factory 和交互工具包，采用分层代理式监督微调（SFT）转移通用能力，以及使用窗口化交互强化学习（WIRL）基于共享结果奖励处理多轮决策，并结合异步收集与策略校正机制。",
+          "researchProblem": "在自主机器学习工程（MLE）中，由于实验反馈滞后且轨迹漫长，如何从长交互轨迹中选择有效监督信号并从中学习，以优化模型决策。",
+          "researchRelevance": "大语言模型、自主机器学习工程、强化学习、智能体系统、AI for AI"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "cf76e77a550290bd64112c1fd184013b9e66209f27d1c384ecd319094f6ef7b4",
+        "status": "available"
       },
       "arxivId": "2610.22344v1",
       "authors": [
@@ -130,7 +142,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22344v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -139,7 +151,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22344v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -148,7 +160,7 @@
       "id": "paper-2610-22344",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22344v1"
         }
@@ -159,7 +171,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -245,7 +257,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22343v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -254,7 +266,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22343v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -263,7 +275,7 @@
       "id": "paper-2610-22343",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22343v1"
         }
@@ -274,7 +286,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -334,7 +346,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22340v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -343,7 +355,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22340v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -352,7 +364,7 @@
       "id": "paper-2610-22340",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22340v1"
         }
@@ -363,14 +375,14 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         },
         {
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -465,7 +477,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22293v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -474,7 +486,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22293v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -483,7 +495,7 @@
       "id": "paper-2610-22293",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22293v1"
         }
@@ -494,7 +506,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -522,7 +534,19 @@
     {
       "abstract": "The O-RAN ALLIANCE introduces architectural flexibility through disaggregation and AI-driven control. While the RAN Intelligent Controller (RIC) enables centralized optimization, current AI approaches lack reasoning capabilities and explainability. We propose eXplainable RIC (X-RIC), a novel framework integrating agentic AI into O-RAN architectures. X-RIC combines reactive Reinforcement Learning (RL) with strategic agentic reasoning through: (i) automated Behavioral Cloning (BC) using domain heuristics for sample-efficient training, (ii) a Telecom Language Model (TLM), a transformer-based reasoning module providing contextual abstraction and interpretability, and (iii) closed-loop co-adaptation within the Near-RT RIC control loop enabling continuous policy refinement. To ensure deployment readiness, we introduce BARX (Benchmarking Agentic Reasoning for RAN), a domain-specific evaluation framework assessing agentic control across latency, compliance, and determinism metrics. We validate X-RIC on SLA-aware network slicing in simulation and O-RAN-compliant testbed deployments. X-RIC achieves 89% operational cost reduction while maintaining SLA compliance, converging 75% faster with 50% fewer training steps and 46% lower variance.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "275f4c5b6bef943d6dc32e86ef8bf11b063add4834910759ead6d1d24d1867bf",
+        "generatedAt": "2026-10-17T08:40:17.967343Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出X-RIC框架，将代理式AI集成到O-RAN架构中，结合反应式强化学习与策略性代理推理，通过基于领域启发式的自动化行为克隆、电信语言模型以及近实时RIC控制回路内的闭环协同适应来实现持续策略优化。",
+          "researchProblem": "当前无线接入网智能控制器（RIC）中的AI方法缺乏推理能力和可解释性。",
+          "researchRelevance": "该主题与O-RAN架构、无线接入网智能控制器、代理式人工智能、强化学习、网络切片及电信领域的可解释AI相关。"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "3071e777a3d7ff397a1e7839c5af5ce454bdf92ecb8f03baa8665a9908f2fefc",
+        "status": "available"
       },
       "arxivId": "2610.22269v1",
       "authors": [
@@ -539,7 +563,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22269v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -548,7 +572,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22269v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -557,7 +581,7 @@
       "id": "paper-2610-22269",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22269v1"
         }
@@ -568,7 +592,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -627,7 +651,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22209v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -636,7 +660,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22209v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -645,7 +669,7 @@
       "id": "paper-2610-22209",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22209v1"
         }
@@ -656,7 +680,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -718,7 +742,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22192v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -727,7 +751,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22192v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -736,7 +760,7 @@
       "id": "paper-2610-22192",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22192v1"
         }
@@ -747,7 +771,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -799,7 +823,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22184v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -808,7 +832,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22184v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -817,7 +841,7 @@
       "id": "paper-2610-22184",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22184v1"
         }
@@ -828,7 +852,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -856,7 +880,19 @@
     {
       "abstract": "We introduce REKI, a 2.4B vision-language-action model (VLA) pretrained exclusively on public data that sets a new Pareto frontier between performance and model size: on LIBERO-Plus, RoboTwin Clean2Rand and RoboCasa365, it is outperformed only by models about twice its size. REKI consists of a vision-language model (VLM) followed by a flow-matching action expert, and is pretrained on a curated mixture of public robot, egocentric human and vision-language data. Additionally, we endow it with a memory that gives the policy access to its recent past at negligible cost: a few register tokens in the action expert summarise the output of the VLM at each frame and persist in the expert's cache. This memory improves success in simulation and on real robots, and makes oscillations between poses about four times rarer. REKI uses a simple model design and training paradigm, and is optimised to be efficient at training and inference. We release the full code across data curation, training, inference and evaluation, deployment, and all pretrained and finetuned model weights: https://github.com/kyutai-labs/reki.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "2bab818115c4165165e4eb390bf78ce2ece90ae4729c4b08548264c1e15416ee",
+        "generatedAt": "2026-10-17T08:40:17.967343Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出REKI模型，由视觉-语言模型和流匹配动作专家组成，仅使用公开数据进行预训练。通过引入寄存器令牌机制，将上一帧的VLM输出摘要持久化至动作专家缓存中，以低成本实现记忆功能，从而改善策略对过去状态的访问能力。",
+          "researchProblem": "如何在保持模型规模较小的同时，提升视觉-语言-动作模型（VLA）在机器人控制任务中的性能与效率。",
+          "researchRelevance": "视觉-语言-动作模型、具身智能、机器人策略学习、模型压缩与效率优化、基于记忆的序列决策"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "681a3669fdd7444ce43ebe36bc2ab96304166afc0c9a10630b42b000cc95e9b0",
+        "status": "available"
       },
       "arxivId": "2610.22178v1",
       "authors": [
@@ -876,7 +912,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22178v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -885,7 +921,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22178v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -894,7 +930,7 @@
       "id": "paper-2610-22178",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22178v1"
         }
@@ -905,7 +941,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -937,7 +973,19 @@
     {
       "abstract": "Large Language Models (LLMs) have shown exceptional capabilities but rely heavily on centralized cloud GPU clusters, leading to high bandwidth costs, latency, and privacy issues. Edge computing offers a solution by deploying LLMs closer to users on edge servers, yet single edge servers often cannot meet LLMs' heavy computational demands. Collaborative Edge Computing (CEC) addresses this challenge by integrating resources of multiple geo-distributed heterogeneous edge servers, which jointly host small model shards and associated Key-Value (KV) cache for distributed inference. However, edge servers may disconnect or easily become overloaded, making it essential to migrate stateful KV cache to other servers for ensuring continuous service. Existing cloud-based KV cache management methods, such as direct cross-GPUs transmission and recomputation from input tokens are ill-suited for bandwidth-constrained and resource-limited edge environments. In this work, we propose EdgeFlow, a novel hybrid KV cache migration scheme that integrates direct KV cache transmission with activation-based recomputation, leveraging parallel computation and communication to minimize migration time. On this basis, we formulate a multi-node KV migration optimization problem and design a 2-approximation algorithm based on improved linear programming relaxation and bipartite graph techniques. Extensive experiments on a real-world distributed LLM inference platform demonstrate that EdgeFlow reduces migration time by up to 45%, significantly enhancing the robustness and efficiency of distributed LLM inference in collaborative edge computing.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "725467ef130b75b4e57e7442e240f563fc9ae385ec812a05940364c7052dcc92",
+        "generatedAt": "2026-10-17T08:40:17.967343Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出 EdgeFlow，一种混合 KV 缓存迁移方案，结合直接 KV 缓存传输与基于激活的重新计算，利用并行计算和通信来最小化迁移时间。在此基础上，构建多节点 KV 迁移优化问题，并设计了一种基于改进线性规划松弛和二分图技术的 2-近似算法。",
+          "researchProblem": "在协作边缘计算中，地理分布的异构边缘服务器联合托管大语言模型（LLM）的小模型分片及键值（KV）缓存以实现分布式推理。然而，边缘服务器可能断开连接或过载，导致状态化的 KV 缓存需要迁移以确保持续服务。现有的基于云的 KV 缓存管理方法（如直接跨 GPU 传输和从输入令牌重新计算）不适合带宽受限和资源有限的边缘环境。",
+          "researchRelevance": "大语言模型推理、协作边缘计算、分布式系统、键值缓存管理、边缘计算资源调度"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "f9336ef39ebae677eeaf0908b4ca7facfebfa6483dee3558de0ca9403324459c",
+        "status": "available"
       },
       "arxivId": "2610.22172v1",
       "authors": [
@@ -955,7 +1003,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22172v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -964,7 +1012,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22172v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -973,7 +1021,7 @@
       "id": "paper-2610-22172",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22172v1"
         }
@@ -984,7 +1032,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1012,7 +1060,19 @@
     {
       "abstract": "Key-value (KV) cache management has become a critical bottleneck for scaling Large Language Models (LLMs) to long-context scenarios due to linear memory growth. While recent eviction methods have moved beyond simple attention-score heuristics to incorporate value representations, they typically face a fundamental trade-off: the underlying optimization for minimizing output perturbation is an NP-hard combinatorial problem, leading to mathematically suboptimal heuristics or implementations that are difficult to kernelize. In this work, we propose DropKV, a simple principled eviction framework based on Decoupled Residual-Output Perturbation. By decoupling the joint eviction decision into independent per-token scoring, DropKV circumvents combinatorial intractability and admits a provable constant-factor approximation guarantee under a cone condition that we empirically verify on three long-context LLMs. To ensure practical viability, we provide a high-performance implementation using fused Triton kernels that avoid materializing the full attention matrix, delivering a 19.8x scoring-kernel speedup that translates to up to a 9.9% matched-batch end-to-end prefill speedup. Extensive evaluations on the RULER and LongBench benchmarks demonstrate that DropKV consistently outperforms state-of-the-art baselines at equivalent cache budgets, achieving the lowest inference latency among eviction methods while also remaining faster than the dynamic cache baseline.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "d57a90d23b8e445953f801416c3360ea5e17b0331d3e6167b91c93741dd6e1a7",
+        "generatedAt": "2026-10-17T08:40:17.967343Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出DropKV框架，基于解耦残差输出扰动，将联合驱逐决策分解为独立的逐token评分以规避组合不可行性，并在经验验证的锥条件下提供常数因子近似保证；同时使用融合Triton内核实现高性能计算，避免全注意力矩阵的材料化。",
+          "researchProblem": "大语言模型在长上下文场景下面临的键值（KV）缓存线性增长导致的内存瓶颈，以及现有驱逐方法在最小化输出扰动优化中面临的NP难组合问题及其导致的数学次优或难以内核化的困境。",
+          "researchRelevance": "大语言模型推理优化、长上下文处理、键值缓存管理、模型加速与内存效率"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "9cc624eceba40e1607a60425e2ae98c0786f8127500d03a99774e266a0f99841",
+        "status": "available"
       },
       "arxivId": "2610.22130v1",
       "authors": [
@@ -1036,7 +1096,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22130v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1045,7 +1105,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22130v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1054,7 +1114,7 @@
       "id": "paper-2610-22130",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22130v1"
         }
@@ -1065,7 +1125,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1093,7 +1153,19 @@
     {
       "abstract": "Neural networks offer critical adaptability for controlling complex systems where nominal modeling proves intractable. However, when offline-trained neural networks are deployed within closed-loop control systems, their actions fundamentally alter the state distribution upon which they were trained. This paper introduces a unified taxonomy to categorize these sequential failure modes: the initial Closed-Loop Identification Error, the deployment-induced Action Error, and the continuous Tracking Error. Through discrete-time sensitivity analysis, this work formalizes how offline-learned parameters locally guarantee a trajectory divergence upon deployment, degrading performance due to local loss geometry. To mitigate this distribution shift, we propose actionable design policies centered on time-scale separated online adaptation. These mechanisms are validated through ablation studies on a nonlinear Duffing oscillator, demonstrating that bounded continuous learning successfully mitigates trajectory divergence whereas static deployments fail, offering concrete guidelines for practitioners deploying machine learning components in safety-critical feedback systems.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "6d5c6b633172160f15a06f9eaf92b47f9a3f3a35be769436186e2cfe83d7b4a5",
+        "generatedAt": "2026-10-17T08:40:17.967343Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出一种统一分类法对失效模式进行归类，通过离散时间敏感性分析形式化描述离线参数如何因局部损失几何结构导致轨迹发散；提出基于时间尺度分离的在线自适应设计策略以缓解分布偏移，并在非线性杜芬振子上通过消融实验验证了有界持续学习的有效性。",
+          "researchProblem": "离线训练的神经网络在闭环控制系统中部署时，其控制动作会改变系统状态分布，导致训练与部署环境不一致，进而引发闭环识别误差、动作误差和跟踪误差等序列失效模式。",
+          "researchRelevance": "机器学习在安全关键反馈系统中的部署、闭环控制中的分布偏移问题、神经网络的在线适应机制、复杂系统的控制理论"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "2118d7607d895061b11c261dc6db307b8dee52219273b51a38fe67633dc6e481",
+        "status": "available"
       },
       "arxivId": "2610.22084v1",
       "authors": [
@@ -1108,7 +1180,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22084v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1117,7 +1189,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22084v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1126,7 +1198,7 @@
       "id": "paper-2610-22084",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22084v1"
         }
@@ -1137,7 +1209,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1199,7 +1271,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22070v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1208,7 +1280,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22070v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1217,7 +1289,7 @@
       "id": "paper-2610-22070",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22070v1"
         }
@@ -1228,7 +1300,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1279,7 +1351,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22029v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1288,7 +1360,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22029v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1297,7 +1369,7 @@
       "id": "paper-2610-22029",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22029v1"
         }
@@ -1308,7 +1380,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1356,7 +1428,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22026v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1365,7 +1437,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22026v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1374,7 +1446,7 @@
       "id": "paper-2610-22026",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22026v1"
         }
@@ -1385,7 +1457,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1429,7 +1501,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.22016v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1438,7 +1510,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.22016v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1447,7 +1519,7 @@
       "id": "paper-2610-22016",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.22016v1"
         }
@@ -1458,7 +1530,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1505,7 +1577,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21974v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1514,7 +1586,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21974v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1523,7 +1595,7 @@
       "id": "paper-2610-21974",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21974v1"
         }
@@ -1534,7 +1606,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1581,7 +1653,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21910v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1590,7 +1662,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21910v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1599,7 +1671,7 @@
       "id": "paper-2610-21910",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21910v1"
         }
@@ -1610,7 +1682,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1658,7 +1730,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21798v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1667,7 +1739,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21798v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1676,7 +1748,7 @@
       "id": "paper-2610-21798",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21798v1"
         }
@@ -1687,7 +1759,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1735,7 +1807,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21791v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1744,7 +1816,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21791v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1753,7 +1825,7 @@
       "id": "paper-2610-21791",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21791v1"
         }
@@ -1764,7 +1836,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1817,7 +1889,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21739v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1826,7 +1898,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21739v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1835,7 +1907,7 @@
       "id": "paper-2610-21739",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21739v1"
         }
@@ -1846,7 +1918,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1895,7 +1967,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21594v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1904,7 +1976,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21594v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1913,7 +1985,7 @@
       "id": "paper-2610-21594",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21594v1"
         }
@@ -1924,7 +1996,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -1970,7 +2042,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21554v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1979,7 +2051,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21554v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -1988,7 +2060,7 @@
       "id": "paper-2610-21554",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21554v1"
         }
@@ -1999,7 +2071,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2055,7 +2127,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21537v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2064,7 +2136,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21537v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2073,7 +2145,7 @@
       "id": "paper-2610-21537",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21537v1"
         }
@@ -2084,7 +2156,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2127,7 +2199,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21500v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2136,7 +2208,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21500v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2145,7 +2217,7 @@
       "id": "paper-2610-21500",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21500v1"
         }
@@ -2156,7 +2228,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2236,7 +2308,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21453v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2245,7 +2317,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21453v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2254,7 +2326,7 @@
       "id": "paper-2610-21453",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21453v1"
         }
@@ -2265,7 +2337,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2322,7 +2394,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21436v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2331,7 +2403,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21436v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2340,7 +2412,7 @@
       "id": "paper-2610-21436",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21436v1"
         }
@@ -2351,7 +2423,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2400,7 +2472,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21434v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2409,7 +2481,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21434v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2418,7 +2490,7 @@
       "id": "paper-2610-21434",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21434v1"
         }
@@ -2429,7 +2501,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2480,7 +2552,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21390v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2489,7 +2561,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21390v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2498,7 +2570,7 @@
       "id": "paper-2610-21390",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21390v1"
         }
@@ -2509,7 +2581,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2572,7 +2644,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21375v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2581,7 +2653,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21375v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2590,7 +2662,7 @@
       "id": "paper-2610-21375",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21375v1"
         }
@@ -2601,7 +2673,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2649,7 +2721,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21362v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2658,7 +2730,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21362v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2667,7 +2739,7 @@
       "id": "paper-2610-21362",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21362v1"
         }
@@ -2678,14 +2750,14 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         },
         {
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2736,7 +2808,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21336v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2745,7 +2817,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21336v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2754,7 +2826,7 @@
       "id": "paper-2610-21336",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21336v1"
         }
@@ -2765,7 +2837,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2808,7 +2880,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21319v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2817,7 +2889,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21319v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2826,7 +2898,7 @@
       "id": "paper-2610-21319",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21319v1"
         }
@@ -2837,7 +2909,7 @@
           "historical": false,
           "query": "(all:\"embodied AI\" OR all:\"robot learning\" OR all:\"vision-language-action\" OR all:\"world model\" OR all:\"sim-to-real\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2882,7 +2954,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21286v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2891,7 +2963,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21286v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2900,7 +2972,7 @@
       "id": "paper-2610-21286",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21286v1"
         }
@@ -2911,7 +2983,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -2956,7 +3028,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21234v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2965,7 +3037,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21234v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -2974,7 +3046,7 @@
       "id": "paper-2610-21234",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21234v1"
         }
@@ -2985,7 +3057,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3033,7 +3105,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21170v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3042,7 +3114,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21170v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3051,7 +3123,7 @@
       "id": "paper-2610-21170",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21170v1"
         }
@@ -3062,7 +3134,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3104,7 +3176,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21165v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3113,7 +3185,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21165v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3122,7 +3194,7 @@
       "id": "paper-2610-21165",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21165v1"
         }
@@ -3133,14 +3205,14 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         },
         {
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3203,7 +3275,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21162v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3212,7 +3284,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21162v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3221,7 +3293,7 @@
       "id": "paper-2610-21162",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21162v1"
         }
@@ -3232,7 +3304,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3286,7 +3358,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21156v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3295,7 +3367,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21156v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3304,7 +3376,7 @@
       "id": "paper-2610-21156",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21156v1"
         }
@@ -3315,7 +3387,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3372,7 +3444,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21091v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3381,7 +3453,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21091v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3390,7 +3462,7 @@
       "id": "paper-2610-21091",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21091v1"
         }
@@ -3401,7 +3473,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3453,7 +3525,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21055v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3462,7 +3534,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21055v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3471,7 +3543,7 @@
       "id": "paper-2610-21055",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21055v1"
         }
@@ -3482,7 +3554,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3535,7 +3607,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.21040v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3544,7 +3616,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.21040v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3553,7 +3625,7 @@
       "id": "paper-2610-21040",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.21040v1"
         }
@@ -3564,7 +3636,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3637,7 +3709,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20965v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3646,7 +3718,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20965v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3655,7 +3727,7 @@
       "id": "paper-2610-20965",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20965v1"
         }
@@ -3666,7 +3738,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3719,7 +3791,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20866v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3728,7 +3800,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20866v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3737,7 +3809,7 @@
       "id": "paper-2610-20866",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20866v1"
         }
@@ -3748,7 +3820,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3801,7 +3873,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20865v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3810,7 +3882,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20865v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3819,7 +3891,7 @@
       "id": "paper-2610-20865",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20865v1"
         }
@@ -3830,7 +3902,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3895,7 +3967,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20809v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3904,7 +3976,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20809v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3913,7 +3985,7 @@
       "id": "paper-2610-20809",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20809v1"
         }
@@ -3924,7 +3996,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -3971,7 +4043,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20804v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3980,7 +4052,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20804v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -3989,7 +4061,7 @@
       "id": "paper-2610-20804",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20804v1"
         }
@@ -4000,7 +4072,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4058,7 +4130,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20582v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4067,7 +4139,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20582v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4076,7 +4148,7 @@
       "id": "paper-2610-20582",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20582v1"
         }
@@ -4087,7 +4159,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4140,7 +4212,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20687v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4149,7 +4221,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20687v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4158,7 +4230,7 @@
       "id": "paper-2610-20687",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20687v1"
         }
@@ -4169,7 +4241,7 @@
           "historical": false,
           "query": "(all:\"efficient training\" OR all:\"distributed training\" OR all:\"LLM serving\" OR all:\"KV cache\" OR all:\"speculative decoding\" OR all:\"test-time compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4222,7 +4294,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.20474v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4231,7 +4303,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.20474v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4240,7 +4312,7 @@
       "id": "paper-2610-20474",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.20474v1"
         }
@@ -4251,7 +4323,7 @@
           "historical": false,
           "query": "(all:\"recursive self-improvement\" OR all:\"self-improving agent\" OR all:\"AI self-evolution\" OR all:\"continual learning\" OR all:\"meta-learning\" OR all:\"self-play\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4324,7 +4396,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19906v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4333,7 +4405,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19906v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4342,7 +4414,7 @@
       "id": "paper-2610-19906",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19906v1"
         }
@@ -4353,7 +4425,7 @@
           "historical": false,
           "query": "(all:\"AI for science\" OR all:\"automated scientific discovery\" OR all:\"scientific research agent\" OR all:\"self-driving laboratory\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4401,7 +4473,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19836v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4410,7 +4482,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19836v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4419,7 +4491,7 @@
       "id": "paper-2610-19836",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19836v1"
         }
@@ -4430,7 +4502,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4484,7 +4556,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19550v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4493,7 +4565,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19550v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4502,7 +4574,7 @@
       "id": "paper-2610-19550",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19550v1"
         }
@@ -4513,7 +4585,7 @@
           "historical": false,
           "query": "(all:\"AI for science\" OR all:\"automated scientific discovery\" OR all:\"scientific research agent\" OR all:\"self-driving laboratory\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4565,7 +4637,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19474v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4574,7 +4646,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19474v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4583,7 +4655,7 @@
       "id": "paper-2610-19474",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19474v1"
         }
@@ -4594,7 +4666,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4640,7 +4712,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19472v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4649,7 +4721,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19472v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4658,7 +4730,7 @@
       "id": "paper-2610-19472",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19472v1"
         }
@@ -4669,7 +4741,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4792,7 +4864,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19366v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4801,7 +4873,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19366v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4810,7 +4882,7 @@
       "id": "paper-2610-19366",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19366v1"
         }
@@ -4821,7 +4893,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4872,7 +4944,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19302v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4881,7 +4953,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19302v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4890,7 +4962,7 @@
       "id": "paper-2610-19302",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19302v1"
         }
@@ -4901,7 +4973,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -4950,7 +5022,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.19189v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4959,7 +5031,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.19189v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -4968,7 +5040,7 @@
       "id": "paper-2610-19189",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.19189v1"
         }
@@ -4979,7 +5051,7 @@
           "historical": false,
           "query": "(all:\"agent memory\" OR all:\"tool learning\" OR all:\"long-horizon reasoning\" OR all:\"automated evaluation\" OR all:\"adaptive compute\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -5019,6 +5091,113 @@
       "updatedAt": "2026-10-13T20:53:42Z"
     },
     {
+      "abstract": "Visual agents for symbolic graphics reasoning depend on executable world representations, yet continued improvement remains bottlenecked by ambiguous supervision from final renders. Recent agentic systems refine scenes through repeated interaction, but they lack mechanisms to recursively extract actionable evidence from execution traces, overlooking which proposed symbolic edits survived, disappeared, or interfered during program execution. To address this, we propose VETR (Verified Execution Trajectories for Refinement), a framework that enables agentic recursive self-improvement over executable world representations for symbolic graphics reasoning. Within each task, VETR retains aligned program/render records with bounded runtime observations and introduces an execution refiner that compiles observed writes and state changes into constrained alternative programs. The refiner validates their endpoints and preservation conditions against captured runtime state; the ordinary visual verifier then assesses goal relevance. Repair construction makes no additional language-model calls, but can require additional executions. Evaluations on BlenderGym (280 tasks) and BlenderBench (27 released tasks) with GPT-5.6-luna and Qwen3.8-27B show that VETR consistently outperforms existing refinement strategies, including BlenderAlchemy and VIGA. Controlled ablations evaluate the contributions of execution refinement and role-asymmetric evidence organization under fixed generator-interaction caps.",
+      "aiEnrichment": {
+        "status": "unavailable"
+      },
+      "arxivId": "2610.13098",
+      "authors": [
+        "Yingbo Ma",
+        "Kuangshi Ai",
+        "Gordon Dai",
+        "Chenglong Yu",
+        "Chaoli Wang",
+        "Hua Shen"
+      ],
+      "categories": [
+        "Unclassified"
+      ],
+      "communitySignals": [
+        {
+          "fixture": false,
+          "kind": "discussions",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
+          "source": "Hugging Face Papers comments",
+          "value": 0
+        }
+      ],
+      "externalLinks": [
+        {
+          "kind": "paper",
+          "url": "https://huggingface.co/papers/2610.13098",
+          "verification": {
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
+            "source": "Hugging Face Papers",
+            "status": "verified"
+          }
+        },
+        {
+          "kind": "pdf",
+          "url": "https://arxiv.org/pdf/2610.13098",
+          "verification": {
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
+            "source": "Hugging Face Papers",
+            "status": "verified"
+          }
+        }
+      ],
+      "id": "paper-2610-13098",
+      "provenance": [
+        {
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
+          "source": "Hugging Face Papers",
+          "sourceRecordId": "2610.13098"
+        }
+      ],
+      "publishedAt": "2026-10-12T00:00:00Z",
+      "retrievalContexts": [
+        {
+          "historical": false,
+          "query": "self improving agent",
+          "queryGroup": "core-rsi",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
+          "source": "Hugging Face Papers"
+        }
+      ],
+      "title": "VETR: Execution-Grounded Self-Improving Agent for Symbolic Graphics Reasoning",
+      "topicMatches": [
+        {
+          "confidence": "high",
+          "evidence": [
+            {
+              "field": "abstract",
+              "term": "recursive self-improvement"
+            },
+            {
+              "field": "abstract",
+              "term": "recursive self improvement"
+            }
+          ],
+          "group": "core-rsi",
+          "label": "Recursive Self-Improvement",
+          "relevance": "direct-rsi",
+          "topicId": "recursive-self-improvement"
+        },
+        {
+          "confidence": "high",
+          "evidence": [
+            {
+              "field": "title",
+              "term": "self-improving agent"
+            },
+            {
+              "field": "title",
+              "term": "self improving agent"
+            }
+          ],
+          "group": "core-rsi",
+          "label": "Self-Improving Agents",
+          "relevance": "direct-rsi",
+          "topicId": "self-improving-agents"
+        }
+      ],
+      "topics": [
+        "Recursive Self-Improvement",
+        "Self-Improving Agents"
+      ],
+      "updatedAt": "2026-10-12T00:00:00Z"
+    },
+    {
       "abstract": "Large language model agents are accelerating scientific automation, yet verified executions rarely become persistent program-level improvements, and existing evaluations do not examine this process across sequential tasks in both the natural and social sciences. We formalize ScienceClaw as fixed-parameter program self-evolution that unifies task solving, scientific verification, and program updates. ScienceClaw-Eval spans 23 disciplines and measures scientific correctness, evolutionary gain, retention, cross-dataset transfer, and evolution cost through sequential streams and independent reset evaluation. Our framework repairs executable workflows through multi-turn interaction, converts re-execution-verified failure--success trajectories into linked Skill and Operator candidates, and retains an update only when source-task replay reproduces the repair and independent scientific tasks improve. Code is available at https://github.com/beita6969/ScienceClaw.",
       "aiEnrichment": {
         "status": "unavailable"
@@ -5043,7 +5222,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2610.08691v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -5052,7 +5231,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.08691v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -5061,7 +5240,7 @@
       "id": "paper-2610-08691",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2610.08691v1"
         }
@@ -5072,7 +5251,7 @@
           "historical": false,
           "query": "(all:\"AI for science\" OR all:\"automated scientific discovery\" OR all:\"scientific research agent\" OR all:\"self-driving laboratory\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -5148,7 +5327,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 1
         }
@@ -5158,7 +5337,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2610.03374",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5167,7 +5346,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.03374",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5176,7 +5355,7 @@
       "id": "paper-2610-03374",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2610.03374"
         }
@@ -5187,7 +5366,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5233,7 +5412,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5243,7 +5422,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2609.32391",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5252,7 +5431,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2609.32391",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5261,7 +5440,7 @@
       "id": "paper-2609-32391",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2609.32391"
         }
@@ -5272,7 +5451,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5342,7 +5521,7 @@
           "kind": "paper",
           "url": "https://arxiv.org/abs/2609.23435v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -5351,7 +5530,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2609.23435v1",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "arXiv",
             "status": "verified"
           }
@@ -5360,7 +5539,7 @@
       "id": "paper-2609-23435",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv",
           "sourceRecordId": "2609.23435v1"
         }
@@ -5371,7 +5550,7 @@
           "historical": false,
           "query": "(all:\"AI for science\" OR all:\"automated scientific discovery\" OR all:\"scientific research agent\" OR all:\"self-driving laboratory\") AND (cat:cs.AI OR cat:cs.LG OR cat:cs.DC OR cat:cs.PF OR cat:cs.CV OR cat:cs.CL OR cat:cs.CR OR cat:stat.ML)",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "arXiv"
         }
       ],
@@ -5424,7 +5603,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5434,7 +5613,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2609.23184",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5443,7 +5622,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2609.23184",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5452,7 +5631,7 @@
       "id": "paper-2609-23184",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2609.23184"
         }
@@ -5463,7 +5642,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5610,14 +5789,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5627,7 +5806,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2608.10357",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5636,7 +5815,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2608.10357",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5645,7 +5824,7 @@
       "id": "paper-2608-10357",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2608.10357"
         }
@@ -5656,7 +5835,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5799,7 +5978,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5809,7 +5988,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.13220",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5818,7 +5997,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.13220",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5827,7 +6006,7 @@
       "id": "paper-2607-13220",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.13220"
         }
@@ -5838,7 +6017,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6007,14 +6186,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 107
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -6024,7 +6203,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.21461",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6033,7 +6212,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.21461",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6042,7 +6221,7 @@
       "id": "paper-2607-21461",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.21461"
         }
@@ -6053,7 +6232,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6217,7 +6396,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6227,7 +6406,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.12254",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6236,7 +6415,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.12254",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6245,7 +6424,7 @@
       "id": "paper-2607-12254",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.12254"
         }
@@ -6256,7 +6435,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6320,14 +6499,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6337,7 +6516,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.13083",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6346,7 +6525,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.13083",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6355,7 +6534,7 @@
       "id": "paper-2607-13083",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.13083"
         }
@@ -6366,7 +6545,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6433,7 +6612,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6443,7 +6622,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2604.26182",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6452,7 +6631,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2604.26182",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6461,7 +6640,7 @@
       "id": "paper-2604-26182",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2604.26182"
         }
@@ -6472,7 +6651,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6612,7 +6791,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6622,7 +6801,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2603.28361",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6631,7 +6810,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2603.28361",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6640,7 +6819,7 @@
       "id": "paper-2603-28361",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2603.28361"
         }
@@ -6651,7 +6830,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7027,14 +7206,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7044,7 +7223,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2603.10600",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7053,7 +7232,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2603.10600",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7062,7 +7241,7 @@
       "id": "paper-2603-10600",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2603.10600"
         }
@@ -7073,7 +7252,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7304,7 +7483,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7314,7 +7493,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2602.03793",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7323,7 +7502,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2602.03793",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7332,7 +7511,7 @@
       "id": "paper-2602-03793",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2602.03793"
         }
@@ -7343,7 +7522,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7400,14 +7579,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 3
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 1
         }
@@ -7417,7 +7596,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.22438",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7426,7 +7605,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.22438",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7435,7 +7614,7 @@
       "id": "paper-2601-22438",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.22438"
         }
@@ -7446,7 +7625,7 @@
           "historical": false,
           "query": "language model serving",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7529,7 +7708,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7539,7 +7718,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.04137",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7548,7 +7727,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.04137",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7557,7 +7736,7 @@
       "id": "paper-2601-04137",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.04137"
         }
@@ -7568,7 +7747,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7731,14 +7910,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 2
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7748,7 +7927,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.01885",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7757,7 +7936,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.01885",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7766,7 +7945,7 @@
       "id": "paper-2601-01885",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.01885"
         }
@@ -7777,7 +7956,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8009,14 +8188,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 42
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 4
         }
@@ -8026,7 +8205,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2512.17102",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8035,7 +8214,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2512.17102",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8044,7 +8223,7 @@
       "id": "paper-2512-17102",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2512.17102"
         }
@@ -8055,7 +8234,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8213,14 +8392,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 14
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 6
         }
@@ -8230,7 +8409,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2512.10398",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8239,7 +8418,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2512.10398",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8248,7 +8427,7 @@
       "id": "paper-2512-10398",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2512.10398"
         }
@@ -8259,7 +8438,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8445,14 +8624,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 5
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -8462,7 +8641,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2509.06580",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8471,7 +8650,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2509.06580",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8480,7 +8659,7 @@
       "id": "paper-2509-06580",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2509.06580"
         }
@@ -8491,7 +8670,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8565,14 +8744,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers upvotes",
           "value": 34
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
+          "observedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -8582,7 +8761,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2508.14111",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8591,7 +8770,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2508.14111",
           "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
+            "checkedAt": "2026-10-17T08:39:55.639742Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8600,7 +8779,7 @@
       "id": "paper-2508-14111",
       "provenance": [
         {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2508.14111"
         }
@@ -8611,7 +8790,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
+          "retrievedAt": "2026-10-17T08:39:55.639742Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8663,117 +8842,20 @@
         "Automated Scientific Discovery"
       ],
       "updatedAt": "2025-08-18T05:25:54Z"
-    },
-    {
-      "abstract": "Large language models (LLMs) have excelled in various applications, yet\nserving them at scale is challenging due to their substantial resource demands\nand high latency. Our real-world studies reveal that over 70% of user requests\nto LLMs have semantically similar counterparts, suggesting the potential for\nknowledge transfer among requests. However, naively caching and reusing past\nresponses leads to a big quality drop. In this paper, we introduce IC-Cache, a\ncaching system that enables live LLM capability augmentation to improve serving\nefficiency: by leveraging historical request-response pairs from larger models\nas in-context examples, IC-Cache empowers small LLMs to imitate and even exceed\nthe compositional abilities (e.g., reasoning) of their larger counterparts,\nenabling selective offloading of requests to reduce cost and latency. Achieving\nthis live augmentation at scale introduces intricate trade-offs between\nresponse quality, latency, and system throughput. For a new request, IC-Cache\nefficiently selects similar, high-utility examples to prepend them to the new\nrequest's input. At scale, it adaptively routes requests across LLMs of varying\ncapabilities, accounting for response quality and serving loads. IC-Cache\nemploys a cost-aware cache replay mechanism that refines example quality\noffline to maximize online cache utility and efficiency. Evaluations on\nmillions of realistic requests demonstrate that IC-Cache improves LLM serving\nthroughput by 1.4-5.9x and reduces latency by 28-71% without hurting response\nquality.",
-      "aiEnrichment": {
-        "status": "unavailable"
-      },
-      "arxivId": "2501.12689",
-      "authors": [
-        "Yifan Yu",
-        "Yu Gan",
-        "Nikhil Sarda",
-        "Lillian Tsai",
-        "Jiaming Shen",
-        "Yanqi Zhou",
-        "Arvind Krishnamurthy",
-        "Fan Lai",
-        "Henry M. Levy",
-        "David Culler"
-      ],
-      "categories": [
-        "Unclassified"
-      ],
-      "communitySignals": [
-        {
-          "fixture": false,
-          "kind": "discussions",
-          "observedAt": "2026-10-16T09:07:26.220454Z",
-          "source": "Hugging Face Papers comments",
-          "value": 0
-        }
-      ],
-      "externalLinks": [
-        {
-          "kind": "paper",
-          "url": "https://huggingface.co/papers/2501.12689",
-          "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
-            "source": "Hugging Face Papers",
-            "status": "verified"
-          }
-        },
-        {
-          "kind": "pdf",
-          "url": "https://arxiv.org/pdf/2501.12689",
-          "verification": {
-            "checkedAt": "2026-10-16T09:07:26.220454Z",
-            "source": "Hugging Face Papers",
-            "status": "verified"
-          }
-        }
-      ],
-      "id": "paper-2501-12689",
-      "provenance": [
-        {
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
-          "source": "Hugging Face Papers",
-          "sourceRecordId": "2501.12689"
-        }
-      ],
-      "publishedAt": "2025-01-22T07:52:38Z",
-      "retrievalContexts": [
-        {
-          "historical": false,
-          "query": "language model serving",
-          "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-16T09:07:26.220454Z",
-          "source": "Hugging Face Papers"
-        }
-      ],
-      "title": "IC-Cache: Efficient Large Language Model Serving via In-context Caching",
-      "topicMatches": [
-        {
-          "confidence": "high",
-          "evidence": [
-            {
-              "field": "abstract",
-              "term": "LLM serving"
-            },
-            {
-              "field": "title",
-              "term": "language model serving"
-            },
-            {
-              "field": "title",
-              "term": "model serving"
-            }
-          ],
-          "group": "enabling-systems",
-          "label": "LLM Serving",
-          "relevance": "enabling-systems",
-          "topicId": "llm-serving"
-        }
-      ],
-      "topics": [
-        "LLM Serving"
-      ],
-      "updatedAt": "2025-01-22T07:52:38Z"
     }
   ],
   "schemaVersion": 1,
   "sources": [
     {
       "id": "arxiv",
-      "lastSuccessfulUpdateAt": "2026-10-16T09:07:26.220454Z",
+      "lastSuccessfulUpdateAt": "2026-10-17T08:39:55.639742Z",
       "rawRecordCount": 88,
       "recordCount": 84,
       "status": "ok"
     },
     {
       "id": "huggingface",
-      "lastSuccessfulUpdateAt": "2026-10-16T09:07:26.220454Z",
+      "lastSuccessfulUpdateAt": "2026-10-17T08:39:55.639742Z",
       "rawRecordCount": 36,
       "recordCount": 36,
       "status": "ok"
@@ -8783,12 +8865,12 @@
     "classification": {
       "adjacent-exploration": 9,
       "application-research": 33,
-      "direct-rsi": 35,
-      "enabling-systems": 19,
-      "ineligibleRejected": 30
+      "direct-rsi": 36,
+      "enabling-systems": 18,
+      "ineligibleRejected": 29
     },
     "duplicatesMerged": 0,
-    "eligibleBeforeLimit": 105,
+    "eligibleBeforeLimit": 106,
     "inputRecords": 120,
     "publishedPapers": 96,
     "rawSourceRecords": 124
