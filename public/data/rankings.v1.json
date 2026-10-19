@@ -6,7 +6,7 @@
       "items": [
         {
           "paperId": "paper-2607-21461",
-          "signalLabel": "107 saves · 2 discussions",
+          "signalLabel": "152 saves · 2 discussions",
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
@@ -56,7 +56,7 @@
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-10-18T08:56:26.722756Z",
+      "retrievedAt": "2026-10-19T10:04:22.612744Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-10-18T09:01:02.013574Z",
+  "generatedAt": "2026-10-19T10:09:02.044957Z",
   "schemaVersion": 1
 }

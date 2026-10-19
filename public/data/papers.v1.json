@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T08:56:26.722756Z",
-  "lastSuccessfulUpdateAt": "2026-10-18T08:56:26.722756Z",
+  "generatedAt": "2026-10-19T10:04:22.612744Z",
+  "lastSuccessfulUpdateAt": "2026-10-19T10:04:22.612744Z",
   "papers": [
     {
       "abstract": "Predicting how the world responds to an action requires more than what can be seen: robots must account for environmental factors that are neither directly observable nor explicitly specified, from physical properties such as friction and mass to human-defined environmental rules. We introduce T2-Z for test-time optimization of environment latents, which augments a robotic world model with a learnable environment latent to condition world predictions. This compact latent captures underlying environmental variation without supervision of what environmental factors exist or what values they take. During training, T2-Z alternates between two stages: a world-model optimization stage that fixes the latents and learns general action-conditioned dynamics across environments; and an environment-latent optimization stage that freezes the world model and optimizes the conditioning latents, allowing latent structure to emerge purely through world prediction. At test time, the world model remains frozen and a newly initialized environment latent is optimized from one or more test-time interactions, adapting the model to previously unseen environmental configurations. Across 7 simulated settings and 4 real-world robotic tasks, T2-Z reduces object prediction error metric from 15.20 to 7.00 and raises action success from 33.73% to 72.96%. Its emergent latents capture structured representations of individual and compounded factors across diverse visual scenes. Ablations further show that T2-Z can efficiently infer environment latents from as little as a single test-time interaction trajectory.",
@@ -799,7 +799,19 @@
     {
       "abstract": "Current humanoid dexterous manipulation remains largely confined to end-effectors and simple grasps, falling short of humans' ability to engage the entire body by bracing and sliding bulky objects against the arms and torso. We introduce Whole-Body Dexterity (WBD), a general framework that uses the robot's body and appendages as contact surfaces to grasp and manipulate objects. Our sim-to-real pipeline first generates a dataset of feasible whole-body grasps, then trains reinforcement-learning experts on a general any-to-any repositioning objective by sampling initial and goal grasps from the dataset, and distills these experts into a single policy that uses proprioception and object geometry. We show that the distilled policy transfers zero-shot to a real Unitree G1, where it repositions a basketball and a cardboard box to regions around the torso and completes a long-horizon task that stows a box under one arm, carries it from a shelf to a table, and places it. The controller operates interactively, steered by coarse motion references from a human teleoperator. Across real-world whole-body manipulation tasks, the distilled controller completes 90% of trials, compared with 18% for direct retargeting and 4% for a generalist whole-body controller.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "8d16e49050636d784ab24c01e07f58f946b6a2f8fb30ca11ba2d0dda49ce8677",
+        "generatedAt": "2026-10-19T10:05:35.261640Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出整体身体灵巧性（WBD）框架，将机器人身体和附肢作为接触面。通过仿真到现实的流程生成可行整体抓取的训练数据集，基于任意到任意的重定位目标训练强化学习专家，并将这些专家蒸馏为单一策略，该策略利用本体感觉和物体几何信息。",
+          "researchProblem": "当前人形机器人的灵巧操作主要局限于末端执行器和简单抓取，缺乏利用全身进行支撑和滑动大型物体的能力。",
+          "researchRelevance": "人形机器人操作、强化学习、仿真到现实迁移、全身控制"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "812f964e80ca2d1463c2c5015b4794a2b6cf3330f0032ee501983effb0e1219c",
+        "status": "available"
       },
       "arxivId": "2610.22184v1",
       "authors": [
@@ -1770,7 +1782,19 @@
     {
       "abstract": "Scaling robot manipulation models requires large amounts of interaction data, yet collecting diverse real-robot experience remains costly. Human manipulation videos, in contrast, provide abundant and diverse task experience that could potentially benefit robot learning. However, differences in morphology, action spaces, and control mechanisms make human motions unsuitable as direct supervision for robot actions, raising a scientific question: what knowledge in human videos should be transferred across embodiments to robot manipulation? To address this question, we analyze subtask transfer through the lens of causal beams, focusing on which contextual conditions and interaction dependencies should be retained to support local task effects. Based on this perspective, we propose Causal-Beam-Guided Subtask Transfer (CBST). CBST learns manipulation-related representations from human videos and grounds them in task-level semantic variables using robot demonstrations. Within a predefined manipulation model, causal-beam constraints guide contextual information selection by requiring retained assignments to sustain local mechanism outputs while preserving nontrivial responsiveness to retained inputs. The selected semantic information conditions a world-action model, allowing the robot to generate actions from its own observations without requiring human-robot motion correspondence. Experiments on robot manipulation benchmarks show improvements in task success over the corresponding world-action model baselines.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "fe19414a8fb5e75441dac090eaefbf1bc40bc6dfb74e77425ee3a205796658d3",
+        "generatedAt": "2026-10-19T10:05:35.261640Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出因果束引导的子任务转移（CBST）方法。该方法从人类视频中学习操作相关表示，并利用机器人演示将其锚定在任务级语义变量上。通过因果束约束指导上下文信息的选择，要求保留的赋值能维持局部机制输出，同时保持对保留输入的非平凡响应性。选定的语义信息用于条件化世界-动作模型，使机器人能够根据自身的观察生成动作，无需人类与机器人的运动对应。",
+          "researchProblem": "机器人操作模型扩展需要大量交互数据，但收集多样化的真实机器人经验成本高昂。尽管人类操作视频提供了丰富的任务经验，但由于形态、动作空间和控制机制的差异，人类运动无法直接作为机器人动作的监督信号，导致难以确定应从人类视频中跨具身转移哪些知识。",
+          "researchRelevance": "机器人学习、具身智能、因果推断、跨具身迁移学习、机器人操作"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "eb175db852fbd850c7742d56a9ce5c50f08ed5c66a4370aeefac9b376a1ed2ac",
+        "status": "available"
       },
       "arxivId": "2610.21798v1",
       "authors": [
@@ -1944,7 +1968,19 @@
     {
       "abstract": "As agents powered by foundation models move into open-ended environments, continual learning from experience becomes essential. For agents built on models with fixed parameters, this learning requires reusing prior task experience in context to improve performance and efficiency on future tasks. Existing memory and experience-learning systems typically focus on either retained facts or procedures, and lack a mechanism for establishing the reliability of claims extracted from the ongoing task stream. Indeed, we find that approximately 12--33\\% of entries produced by representative systems harm future task performance when reused. To address these limitations, we propose \\textbf{RIKA} (Reliable Knowledge Acquisition), which combines hierarchical extraction of factual, conceptual, procedural, and metacognitive knowledge with Evidence-based Knowledge Admission, which uses source evidence and subsequent experience to govern which claims enter the task agent's context, without additional validation tasks. Across six task streams from Continual Learning Bench and four model backbones, RIKA achieves the highest aggregate score on every backbone.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "87488f0e277ab882f22d025d82f9ea0f4e2cb770c5809b123e8b6cf36b39ccb1",
+        "generatedAt": "2026-10-19T10:05:35.261640Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出RIKA（可靠知识获取）方法，结合分层提取事实、概念、程序和元认知知识，以及基于证据的知识准入机制。该机制利用源证据和后续经验来管理哪些声明进入任务智能体的上下文，无需额外的验证任务。",
+          "researchProblem": "在开放环境中，基于固定参数基础模型的智能体需要利用上下文复用先前任务经验以实现持续学习。现有系统在保留事实或程序方面存在局限，缺乏从持续任务流中提取声明的可靠性机制，导致约12-33%的条目在复用时损害未来任务性能。",
+          "researchRelevance": "持续学习、基础模型代理、记忆与经验学习系统、知识获取与验证"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "75afce458736fdf6a3ee2ce309cf2b8c7de801c2fbc36846ebc85dfe2a354274",
+        "status": "available"
       },
       "arxivId": "2610.21739v1",
       "authors": [
@@ -2018,7 +2054,19 @@
     {
       "abstract": "Looped Transformers improve parameter efficiency by repeatedly applying the same Transformer layers. However, generating each token still involves sequential computation and repeated access to model weights, leading to high decoding latency. Recent pipelined self-speculative decoding methods reduce this delay by drafting tokens from early-loop predictions and asynchronously advancing tokens at different recurrent depths in the same batch, but they do not fully exploit early-loop features for longer lookahead and still spend computation verifying incorrect speculative branches. We introduce \\method, a speculative decoding framework for looped transformers that enables earlier drafting of future tokens and assigns complementary roles to different recurrent depths. A lightweight lookahead drafter (LAD) predicts multiple future tokens with early-loop states, and deeper-loop feedback helps decide which draft branches to continue and which to pause, while the full-depth model makes the final token decisions. LoopAhead achieves up to 7.82x decoding speedup over autoregressive decoding while preserving the target model's output distribution.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "524ecc62bc4b35a0a693003abdc3f37e3bea6f8500595493bfe405b7fee62a0f",
+        "generatedAt": "2026-10-19T10:05:35.261640Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出LoopAhead框架，包含一个轻量级的前瞻起草器（LAD），利用早期循环状态预测多个未来token；同时分配不同循环深度的互补角色，通过深层循环反馈决定继续或暂停哪些草稿分支，由全深度模型做出最终token决策。",
+          "researchProblem": "循环Transformer模型在生成每个token时涉及顺序计算和重复的权重访问，导致解码延迟较高。现有的流水线自投机解码方法未能充分利用早期循环特征进行更长的前瞻预测，且仍需消耗计算资源来验证错误的投机分支。",
+          "researchRelevance": "大语言模型推理加速、投机解码（Speculative Decoding）、循环神经网络架构优化"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "d913f94d5124ab25a1f686d9ac74fcbb11bac8ad742eda42a16c8ba5ec3c7181",
+        "status": "available"
       },
       "arxivId": "2610.21594v1",
       "authors": [
@@ -2096,7 +2144,19 @@
     {
       "abstract": "Instead of learning a mapping from instances to outcomes in the standard way, the key idea of pairwise difference learning (PDL) is to learn a function that takes two instances as input and predicts the difference between the respective outcomes. Given a function of this kind, predictions for a query instance are derived from every training example and then averaged. We propose a version of PDL for the task of classification and propose a suitable meta-learning technique for this purpose. Moreover, we address the problem of uncertainty quantification, i.e., of representing and quantifying the uncertainty of a PDL classifier's predictions in a faithful manner. Building on recent work on the decomposition of total uncertainty into aleatoric and epistemic components, we propose different ways of extending corresponding measures to the setting of PDL, depending on how and to what extent uncertainty is represented by the underlying base learner. In large-scale empirical studies, we analyze both the predictive accuracy and the uncertainty awareness of our PDL classifier.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "ce0af59bd07e27d8547c29be6e2f7443dba28d01fbf2e233e210b29ee28e685d",
+        "generatedAt": "2026-10-19T10:05:35.261640Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出一种适用于分类任务的PDL版本及相应的元学习技术；基于总不确定性分解为偶然不确定性和认知分量的现有工作，根据基础学习器表示不确定性的方式，扩展相应的度量指标以适配PDL场景。",
+          "researchProblem": "在分类任务中，如何对成对差异学习（PDL）分类器的预测结果进行忠实的不确定性量化。",
+          "researchRelevance": "机器学习中的不确定性量化、成对差异学习、元学习、分类算法评估"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "8370de3d340d5fb5be5e2d491087e9bd1fa73505bdaadc6648bc0965f4b6c7d2",
+        "status": "available"
       },
       "arxivId": "2610.21554v1",
       "authors": [
@@ -2175,7 +2235,19 @@
     {
       "abstract": "Biological intelligence continually adapts to new information while retaining prior skills through localized plasticity. In contrast, continual learning in large language models (LLMs) remains vulnerable to catastrophic forgetting. A promising direction is to identify functionally specialized subnetworks within LLMs that enable targeted and resource-efficient adaptation. Using gradient-attribution profiling, we localize cognition-associated functional subnetworks exhibiting extremely low mutual overlap. Building on this finding, we propose Function-isolated Memory-Efficient Optimization (CiMEO), a continual learning framework that routes each training example to its corresponding functional subnetwork, restricting parameter updates and optimizer states to selected regions. Across 1.4 million sequential instructions, CiMEO achieves the highest average performance among the compared methods on five generative benchmarks spanning programming, examination-style tasks, and mathematical reasoning, while mitigating catastrophic forgetting. Subspace-overlap and principal-angle analyses further indicate that localized updates help preserve pre-trained representations, highlighting functional subnetwork localization as a practical approach to efficient and stable continual learning in LLMs.",
       "aiEnrichment": {
-        "status": "unavailable"
+        "basis": "title-abstract",
+        "cacheKey": "582319b211e1a73ae4bf49a352f2989b7f85775eb1978ddc1b6975b6c2ceaa3e",
+        "generatedAt": "2026-10-19T10:05:35.261640Z",
+        "model": "qwen3.7-flash",
+        "overview": {
+          "coreApproach": "提出CiMEO框架，利用梯度归因分析定位认知相关的功能子网络，将训练示例路由至对应的功能子网络，并限制参数更新和优化器状态仅作用于选定区域。",
+          "researchProblem": "大型语言模型在持续学习中面临灾难性遗忘问题，且现有方法难以实现资源高效的适应性调整。",
+          "researchRelevance": "大语言模型的持续学习、灾难性遗忘缓解、模型效率优化、功能子网络定位。"
+        },
+        "promptVersion": "zh-overview-v1",
+        "provider": "Alibaba Cloud Model Studio",
+        "sourceFingerprint": "a6118960bbeecfd27be943e36e21eec8fa888e4f132bcdb890c3285556851b88",
+        "status": "available"
       },
       "arxivId": "2610.21537v1",
       "authors": [
@@ -5183,7 +5255,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5193,7 +5265,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2610.13098",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5202,7 +5274,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.13098",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5211,7 +5283,7 @@
       "id": "paper-2610-13098",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2610.13098"
         }
@@ -5222,7 +5294,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5399,7 +5471,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 1
         }
@@ -5409,7 +5481,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2610.03374",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5418,7 +5490,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2610.03374",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5427,7 +5499,7 @@
       "id": "paper-2610-03374",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2610.03374"
         }
@@ -5438,7 +5510,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5484,7 +5556,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5494,7 +5566,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2609.32391",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5503,7 +5575,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2609.32391",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5512,7 +5584,7 @@
       "id": "paper-2609-32391",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2609.32391"
         }
@@ -5523,7 +5595,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5675,7 +5747,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5685,7 +5757,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2609.23184",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5694,7 +5766,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2609.23184",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5703,7 +5775,7 @@
       "id": "paper-2609-23184",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2609.23184"
         }
@@ -5714,7 +5786,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5753,6 +5825,7 @@
       "categories": [
         "cs.CV"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -5861,14 +5934,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -5878,7 +5951,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2608.10357",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5887,7 +5960,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2608.10357",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -5896,7 +5969,7 @@
       "id": "paper-2608-10357",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2608.10357"
         }
@@ -5907,7 +5980,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -5958,6 +6031,7 @@
         "cs.LG",
         "cs.AI"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -6050,7 +6124,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6060,7 +6134,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.13220",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6069,7 +6143,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.13220",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6078,7 +6152,7 @@
       "id": "paper-2607-13220",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.13220"
         }
@@ -6089,7 +6163,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6130,6 +6204,7 @@
         "cs.CV",
         "cs.AI"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -6258,14 +6333,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
-          "value": 107
+          "value": 152
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -6275,7 +6350,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.21461",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6284,7 +6359,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.21461",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6293,7 +6368,7 @@
       "id": "paper-2607-21461",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.21461"
         }
@@ -6304,7 +6379,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6393,6 +6468,7 @@
         "q-bio.NC",
         "cs.AI"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -6468,7 +6544,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6478,7 +6554,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.12254",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6487,7 +6563,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.12254",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6496,7 +6572,7 @@
       "id": "paper-2607-12254",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.12254"
         }
@@ -6507,7 +6583,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6571,14 +6647,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6588,7 +6664,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2607.13083",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6597,7 +6673,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2607.13083",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6606,7 +6682,7 @@
       "id": "paper-2607-13083",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2607.13083"
         }
@@ -6617,7 +6693,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6684,7 +6760,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6694,7 +6770,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2604.26182",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6703,7 +6779,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2604.26182",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6712,7 +6788,7 @@
       "id": "paper-2604-26182",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2604.26182"
         }
@@ -6723,7 +6799,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6766,6 +6842,7 @@
         "cs.CV",
         "cs.AI"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -6863,7 +6940,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -6873,7 +6950,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2603.28361",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6882,7 +6959,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2603.28361",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -6891,7 +6968,7 @@
       "id": "paper-2603-28361",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2603.28361"
         }
@@ -6902,7 +6979,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -6983,6 +7060,7 @@
         "cs.CV",
         "cs.RO"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -7066,6 +7144,7 @@
       "categories": [
         "cs.LG"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -7177,6 +7256,7 @@
         "cs.RO",
         "cs.CV"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -7278,14 +7358,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 1
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7295,7 +7375,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2603.10600",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7304,7 +7384,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2603.10600",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7313,7 +7393,7 @@
       "id": "paper-2603-10600",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2603.10600"
         }
@@ -7324,7 +7404,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7370,6 +7450,7 @@
         "cs.CL",
         "cs.LG"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -7452,6 +7533,7 @@
         "cs.CV",
         "cs.RO"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -7555,7 +7637,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7565,7 +7647,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2602.03793",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7574,7 +7656,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2602.03793",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7583,7 +7665,7 @@
       "id": "paper-2602-03793",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2602.03793"
         }
@@ -7594,7 +7676,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7651,14 +7733,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 3
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 1
         }
@@ -7668,7 +7750,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.22438",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7677,7 +7759,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.22438",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7686,7 +7768,7 @@
       "id": "paper-2601-22438",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.22438"
         }
@@ -7697,7 +7779,7 @@
           "historical": false,
           "query": "language model serving",
           "queryGroup": "enabling-systems",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7780,7 +7862,7 @@
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7790,7 +7872,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.04137",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7799,7 +7881,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.04137",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -7808,7 +7890,7 @@
       "id": "paper-2601-04137",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.04137"
         }
@@ -7819,7 +7901,7 @@
           "historical": false,
           "query": "embodied world model",
           "queryGroup": "application-embodied",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -7889,6 +7971,7 @@
         "cs.AI",
         "cs.LG"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -7982,14 +8065,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 2
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -7999,7 +8082,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2601.01885",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8008,7 +8091,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2601.01885",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8017,7 +8100,7 @@
       "id": "paper-2601-01885",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2601.01885"
         }
@@ -8028,7 +8111,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8075,6 +8158,7 @@
         "cs.RO",
         "cs.AI"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -8165,6 +8249,7 @@
         "cs.NI",
         "cs.AI"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -8260,14 +8345,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 42
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 4
         }
@@ -8277,7 +8362,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2512.17102",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8286,7 +8371,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2512.17102",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8295,7 +8380,7 @@
       "id": "paper-2512-17102",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2512.17102"
         }
@@ -8306,7 +8391,7 @@
           "historical": false,
           "query": "self improving agent",
           "queryGroup": "core-rsi",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8364,6 +8449,7 @@
       "categories": [
         "cs.LG"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -8464,14 +8550,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 14
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 6
         }
@@ -8481,7 +8567,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2512.10398",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8490,7 +8576,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2512.10398",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8499,7 +8585,7 @@
       "id": "paper-2512-10398",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2512.10398"
         }
@@ -8510,7 +8596,7 @@
           "historical": false,
           "query": "agent memory tool learning",
           "queryGroup": "open-exploration",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8572,6 +8658,7 @@
         "cs.CV",
         "cs.RO"
       ],
+      "communitySignals": [],
       "externalLinks": [
         {
           "kind": "paper",
@@ -8696,14 +8783,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 5
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 0
         }
@@ -8713,7 +8800,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2509.06580",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8722,7 +8809,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2509.06580",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8731,7 +8818,7 @@
       "id": "paper-2509-06580",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2509.06580"
         }
@@ -8742,7 +8829,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8816,14 +8903,14 @@
         {
           "fixture": false,
           "kind": "saves",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers upvotes",
           "value": 34
         },
         {
           "fixture": false,
           "kind": "discussions",
-          "observedAt": "2026-10-18T08:56:26.722756Z",
+          "observedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers comments",
           "value": 2
         }
@@ -8833,7 +8920,7 @@
           "kind": "paper",
           "url": "https://huggingface.co/papers/2508.14111",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8842,7 +8929,7 @@
           "kind": "pdf",
           "url": "https://arxiv.org/pdf/2508.14111",
           "verification": {
-            "checkedAt": "2026-10-18T08:56:26.722756Z",
+            "checkedAt": "2026-10-19T10:04:22.612744Z",
             "source": "Hugging Face Papers",
             "status": "verified"
           }
@@ -8851,7 +8938,7 @@
       "id": "paper-2508-14111",
       "provenance": [
         {
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers",
           "sourceRecordId": "2508.14111"
         }
@@ -8862,7 +8949,7 @@
           "historical": false,
           "query": "AI for science",
           "queryGroup": "application-ai4s",
-          "retrievedAt": "2026-10-18T08:56:26.722756Z",
+          "retrievedAt": "2026-10-19T10:04:22.612744Z",
           "source": "Hugging Face Papers"
         }
       ],
@@ -8920,14 +9007,12 @@
   "sources": [
     {
       "id": "arxiv",
-      "lastSuccessfulUpdateAt": "2026-10-18T08:56:26.722756Z",
-      "rawRecordCount": 88,
-      "recordCount": 84,
-      "status": "ok"
+      "recordCount": 0,
+      "status": "unavailable"
     },
     {
       "id": "huggingface",
-      "lastSuccessfulUpdateAt": "2026-10-18T08:56:26.722756Z",
+      "lastSuccessfulUpdateAt": "2026-10-19T10:04:22.612744Z",
       "rawRecordCount": 36,
       "recordCount": 36,
       "status": "ok"
@@ -8939,13 +9024,13 @@
       "application-research": 33,
       "direct-rsi": 36,
       "enabling-systems": 18,
-      "ineligibleRejected": 29
+      "ineligibleRejected": 6
     },
     "duplicatesMerged": 0,
     "eligibleBeforeLimit": 106,
-    "inputRecords": 120,
+    "inputRecords": 36,
     "publishedPapers": 96,
-    "rawSourceRecords": 124
+    "rawSourceRecords": 36
   },
   "taxonomyVersion": 1
 }
