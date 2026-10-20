@@ -6,7 +6,7 @@
       "items": [
         {
           "paperId": "paper-2607-21461",
-          "signalLabel": "152 saves · 2 discussions",
+          "signalLabel": "153 saves · 2 discussions",
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
@@ -40,6 +40,11 @@
           "title": "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents"
         },
         {
+          "paperId": "paper-2610-03374",
+          "signalLabel": "1 saves · 1 discussions",
+          "title": "EVEWorld: Physical Evolution Supervision for Embodied World Models"
+        },
+        {
           "paperId": "paper-2603-10600",
           "signalLabel": "1 saves · 0 discussions",
           "title": "Trajectory-Informed Memory Generation for Self-Improving Agent Systems"
@@ -48,15 +53,10 @@
           "paperId": "paper-2607-13083",
           "signalLabel": "1 saves · 0 discussions",
           "title": "Phantom Guardrails: When Self-Improving Agent Harnesses Fix Failures That Never Happened"
-        },
-        {
-          "paperId": "paper-2608-10357",
-          "signalLabel": "1 saves · 0 discussions",
-          "title": "Efficient Reinforcement Learning for Long-Horizon Tool-Use Agentic Tasks"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-10-19T10:04:22.612744Z",
+      "retrievedAt": "2026-10-20T09:31:13.350481Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-10-19T10:09:02.044957Z",
+  "generatedAt": "2026-10-20T09:34:13.849184Z",
   "schemaVersion": 1
 }
