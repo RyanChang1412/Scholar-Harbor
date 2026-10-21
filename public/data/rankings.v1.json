@@ -15,21 +15,6 @@
           "title": "Reinforcement Learning for Self-Improving Agent with Skill Library"
         },
         {
-          "paperId": "paper-2508-14111",
-          "signalLabel": "34 saves · 2 discussions",
-          "title": "From AI for Science to Agentic Science: A Survey on Autonomous\n  Scientific Discovery"
-        },
-        {
-          "paperId": "paper-2512-10398",
-          "signalLabel": "14 saves · 6 discussions",
-          "title": "Confucius Code Agent: An Open-sourced AI Software Engineer at Industrial Scale"
-        },
-        {
-          "paperId": "paper-2509-06580",
-          "signalLabel": "5 saves · 0 discussions",
-          "title": "AI for Scientific Discovery is a Social Problem"
-        },
-        {
           "paperId": "paper-2601-22438",
           "signalLabel": "3 saves · 1 discussions",
           "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
@@ -53,10 +38,25 @@
           "paperId": "paper-2607-13083",
           "signalLabel": "1 saves · 0 discussions",
           "title": "Phantom Guardrails: When Self-Improving Agent Harnesses Fix Failures That Never Happened"
+        },
+        {
+          "paperId": "paper-2608-10357",
+          "signalLabel": "1 saves · 0 discussions",
+          "title": "Efficient Reinforcement Learning for Long-Horizon Tool-Use Agentic Tasks"
+        },
+        {
+          "paperId": "paper-2601-04137",
+          "signalLabel": "0 discussions",
+          "title": "Wow, wo, val! A Comprehensive Embodied World Model Evaluation Turing Test"
+        },
+        {
+          "paperId": "paper-2602-03793",
+          "signalLabel": "0 discussions",
+          "title": "BridgeV2W: Bridging Video Generation Models to Embodied World Models via Embodiment Masks"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-10-20T09:31:13.350481Z",
+      "retrievedAt": "2026-10-21T09:26:59.120959Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-10-20T09:34:13.849184Z",
+  "generatedAt": "2026-10-21T09:30:41.393281Z",
   "schemaVersion": 1
 }
