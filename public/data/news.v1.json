@@ -1,15 +1,63 @@
 {
-  "generatedAt": "2026-10-21T09:30:40.372473Z",
-  "lastSuccessfulUpdateAt": "2026-10-21T09:30:40.372473Z",
+  "generatedAt": "2026-10-22T09:32:31.715584Z",
+  "lastSuccessfulUpdateAt": "2026-10-22T09:32:31.715584Z",
   "news": [
     {
       "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
-      "headline": "NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
-      "id": "news-e8a8161ff83426ef4f6b",
-      "originalUrl": "https://huggingface.co/blog/nvidia/cosmos3-h-dreams",
-      "publishedAt": "2026-10-20T18:17:47Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "description": "Official post from Hugging Face Blog: Ensemble forecasting with IBM Granite time-series models",
+      "headline": "Ensemble forecasting with IBM Granite time-series models",
+      "id": "news-0e5fad3ca5f8a881acf7",
+      "originalUrl": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "publishedAt": "2026-10-22T07:51:31Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
+      "source": "Hugging Face Blog",
+      "sourceId": "hugging-face-blog",
+      "topics": []
+    },
+    {
+      "category": "Research and engineering",
+      "description": "Official post from Hugging Face Blog: NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "headline": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "id": "news-94a5f6526eada9bc0f52",
+      "originalUrl": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "publishedAt": "2026-10-21T18:26:30Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
+      "source": "Hugging Face Blog",
+      "sourceId": "hugging-face-blog",
+      "topics": []
+    },
+    {
+      "category": "Research and engineering",
+      "description": "Official post from Hugging Face Blog: How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
+      "headline": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
+      "id": "news-40a01666d562060bfdf9",
+      "originalUrl": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
+      "publishedAt": "2026-10-21T17:35:36Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
+      "source": "Hugging Face Blog",
+      "sourceId": "hugging-face-blog",
+      "topics": []
+    },
+    {
+      "category": "Research and engineering",
+      "description": "Official post from Hugging Face Blog: Profiling TorchNeuron (Part 1): System-level profiling on AWS Trainium.",
+      "headline": "Profiling TorchNeuron (Part 1): System-level profiling on AWS Trainium.",
+      "id": "news-5b4e08461387ba3b4483",
+      "originalUrl": "https://huggingface.co/blog/amazon/profiling-torchneuron-part-1",
+      "publishedAt": "2026-10-21T16:04:43Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
+      "source": "Hugging Face Blog",
+      "sourceId": "hugging-face-blog",
+      "topics": []
+    },
+    {
+      "category": "Research and engineering",
+      "description": "Official post from Hugging Face Blog: Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster",
+      "headline": "Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster",
+      "id": "news-c2ed162a157709f5cb47",
+      "originalUrl": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+      "publishedAt": "2026-10-21T14:58:18Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -21,19 +69,7 @@
       "id": "news-ef73bf2ace8ac6719291",
       "originalUrl": "https://huggingface.co/blog/allenai/fairstress",
       "publishedAt": "2026-10-20T16:09:19Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
-      "source": "Hugging Face Blog",
-      "sourceId": "hugging-face-blog",
-      "topics": []
-    },
-    {
-      "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model",
-      "headline": "ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model",
-      "id": "news-536f23cd94f139849c62",
-      "originalUrl": "https://huggingface.co/blog/ibm-research/altk-evolve-bc",
-      "publishedAt": "2026-10-20T15:19:48Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -45,7 +81,7 @@
       "id": "news-c2b4b68d7e0027f0e436",
       "originalUrl": "https://huggingface.co/blog/mps-pytorch-2-15",
       "publishedAt": "2026-10-20T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -57,7 +93,7 @@
       "id": "news-41fb25a47d12d204a957",
       "originalUrl": "https://huggingface.co/blog/anylanguagemodel-1-0",
       "publishedAt": "2026-10-20T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -69,7 +105,7 @@
       "id": "news-39e60f901a735303e0c0",
       "originalUrl": "https://huggingface.co/blog/hf-torchtpu",
       "publishedAt": "2026-10-20T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -81,7 +117,7 @@
       "id": "news-5c52b7d34becd1ccf770",
       "originalUrl": "https://huggingface.co/blog/hf-torchneuron",
       "publishedAt": "2026-10-19T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -93,7 +129,7 @@
       "id": "news-83a753b4160cba93855a",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0",
       "publishedAt": "2026-10-18T10:23:45Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -105,7 +141,7 @@
       "id": "news-6846386ee35eb87e2aa2",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.1rc0",
       "publishedAt": "2026-10-18T09:26:56Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -117,7 +153,7 @@
       "id": "news-13d109f5467363c930ba",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0rc3",
       "publishedAt": "2026-10-17T00:25:45Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -129,19 +165,7 @@
       "id": "news-c9a6184923cc1a5837b4",
       "originalUrl": "https://huggingface.co/blog/reflection-beam",
       "publishedAt": "2026-10-16T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
-      "source": "Hugging Face Blog",
-      "sourceId": "hugging-face-blog",
-      "topics": []
-    },
-    {
-      "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
-      "headline": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
-      "id": "news-d330643595776f9f542e",
-      "originalUrl": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
-      "publishedAt": "2026-10-15T20:34:01Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -153,7 +177,7 @@
       "id": "news-be69b6e013180f12cd52",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0rc2",
       "publishedAt": "2026-10-15T09:50:46Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -165,7 +189,7 @@
       "id": "news-39052ad94a8a76cc68a2",
       "originalUrl": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes",
       "publishedAt": "2026-10-15T09:08:45Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -177,7 +201,7 @@
       "id": "news-ff0cf28c5d7530571030",
       "originalUrl": "https://huggingface.co/blog/meta-muse-spark-open",
       "publishedAt": "2026-10-15T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -189,7 +213,7 @@
       "id": "news-eb67409897ed2136a753",
       "originalUrl": "https://huggingface.co/blog/flux-3",
       "publishedAt": "2026-10-15T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -201,7 +225,7 @@
       "id": "news-deebc1af26824e66f83f",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/proto-v0.6.0",
       "publishedAt": "2026-10-14T23:57:02Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -213,7 +237,7 @@
       "id": "news-a264c4af5885aa0a7df1",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0rc1",
       "publishedAt": "2026-10-14T23:29:34Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -225,7 +249,7 @@
       "id": "news-53911f98c21c784fce1a",
       "originalUrl": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
       "publishedAt": "2026-10-13T17:05:48Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -237,7 +261,7 @@
       "id": "news-d4901c93c13cc31215bc",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0rc0",
       "publishedAt": "2026-10-12T20:49:49Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -249,7 +273,7 @@
       "id": "news-0eb44be10929e638f52e",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/proto-v0.5.0",
       "publishedAt": "2026-10-09T03:11:40Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -261,7 +285,7 @@
       "id": "news-ffd2818196374b7e8d98",
       "originalUrl": "https://huggingface.co/blog/building-with-ml-intern",
       "publishedAt": "2026-10-08T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -273,7 +297,7 @@
       "id": "news-16b7810afb00bdc03cf9",
       "originalUrl": "https://huggingface.co/blog/tiiuae/falcon-asr",
       "publishedAt": "2026-10-07T13:21:03Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -285,7 +309,7 @@
       "id": "news-d0c284cb68a2d3c18884",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.31.1rc0",
       "publishedAt": "2026-10-06T18:52:05Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -297,7 +321,7 @@
       "id": "news-9668af85ed2e1acf35b7",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.31.0",
       "publishedAt": "2026-10-06T06:49:35Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -309,7 +333,7 @@
       "id": "news-bd1136d0fcfd6f1357de",
       "originalUrl": "https://huggingface.co/blog/microsoft/thinkingbox",
       "publishedAt": "2026-10-03T22:56:48Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -321,7 +345,7 @@
       "id": "news-56c490db040147f1def4",
       "originalUrl": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
       "publishedAt": "2026-10-02T04:01:31Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -333,7 +357,7 @@
       "id": "news-74c2ff7e2707d1f61043",
       "originalUrl": "https://huggingface.co/blog/open-tts-leaderboard",
       "publishedAt": "2026-09-30T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -345,7 +369,7 @@
       "id": "news-afa8c33f8eb7996a3941",
       "originalUrl": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
       "publishedAt": "2026-09-29T13:07:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -357,7 +381,7 @@
       "id": "news-09d1d26fa19dd694ec40",
       "originalUrl": "https://huggingface.co/blog/Hcompany/holo4",
       "publishedAt": "2026-09-28T09:44:05Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -369,7 +393,7 @@
       "id": "news-eb916b5190e379580afd",
       "originalUrl": "https://huggingface.co/blog/rl-environments",
       "publishedAt": "2026-09-28T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -381,7 +405,7 @@
       "id": "news-e9f63aa1f7aaa02f4024",
       "originalUrl": "https://huggingface.co/blog/evaleval-aisi",
       "publishedAt": "2026-09-22T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -393,7 +417,7 @@
       "id": "news-6b3083011aeb49b1cc1d",
       "originalUrl": "https://huggingface.co/blog/omlx",
       "publishedAt": "2026-09-22T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -405,7 +429,7 @@
       "id": "news-689d78c6e007ab8e2c4f",
       "originalUrl": "https://huggingface.co/blog/transformers-llama-cpp-quants",
       "publishedAt": "2026-09-22T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -417,7 +441,7 @@
       "id": "news-693b3130e25cc8808f58",
       "originalUrl": "https://huggingface.co/blog/tokenizers-v1",
       "publishedAt": "2026-09-21T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -429,7 +453,7 @@
       "id": "news-a1d018f16fad79f97456",
       "originalUrl": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
       "publishedAt": "2026-09-15T16:00:44Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -441,7 +465,7 @@
       "id": "news-85052f9befba2c4e17fa",
       "originalUrl": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
       "publishedAt": "2026-09-10T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -453,31 +477,7 @@
       "id": "news-075fed980e67c694db46",
       "originalUrl": "https://huggingface.co/blog/gradio-workflow-1111",
       "publishedAt": "2026-09-10T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
-      "source": "Hugging Face Blog",
-      "sourceId": "hugging-face-blog",
-      "topics": []
-    },
-    {
-      "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: NeoMME: an efficient Multimodal-native and Multilingual Encoder",
-      "headline": "NeoMME: an efficient Multimodal-native and Multilingual Encoder",
-      "id": "news-fffbcba03b0b217e4893",
-      "originalUrl": "https://huggingface.co/blog/Hcompany/neomme",
-      "publishedAt": "2026-09-03T13:13:48Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
-      "source": "Hugging Face Blog",
-      "sourceId": "hugging-face-blog",
-      "topics": []
-    },
-    {
-      "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
-      "headline": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
-      "id": "news-a139f80b159295ada71d",
-      "originalUrl": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
-      "publishedAt": "2026-09-03T00:00:00Z",
-      "retrievedAt": "2026-10-21T09:30:40.372473Z",
+      "retrievedAt": "2026-10-22T09:32:31.715584Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -487,13 +487,13 @@
   "sources": [
     {
       "id": "hugging-face-blog",
-      "lastSuccessfulUpdateAt": "2026-10-21T09:30:40.372473Z",
+      "lastSuccessfulUpdateAt": "2026-10-22T09:32:31.715584Z",
       "recordCount": 30,
       "status": "ok"
     },
     {
       "id": "vllm-releases",
-      "lastSuccessfulUpdateAt": "2026-10-21T09:30:40.372473Z",
+      "lastSuccessfulUpdateAt": "2026-10-22T09:32:31.715584Z",
       "recordCount": 10,
       "status": "ok"
     }
