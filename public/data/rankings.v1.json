@@ -20,11 +20,6 @@
           "title": "From AI for Science to Agentic Science: A Survey on Autonomous\n  Scientific Discovery"
         },
         {
-          "paperId": "paper-2408-12757",
-          "signalLabel": "19 saves · 2 discussions",
-          "title": "NanoFlow: Towards Optimal Large Language Model Serving Throughput"
-        },
-        {
           "paperId": "paper-2512-10398",
           "signalLabel": "14 saves · 6 discussions",
           "title": "Confucius Code Agent: An Open-sourced AI Software Engineer at Industrial Scale"
@@ -40,11 +35,6 @@
           "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
         },
         {
-          "paperId": "paper-2409-18695",
-          "signalLabel": "2 saves · 0 discussions",
-          "title": "KALE-LM: Unleash The Power Of AI For Science Via Knowledge And Logic\n  Enhanced Large Model"
-        },
-        {
           "paperId": "paper-2601-01885",
           "signalLabel": "2 saves · 0 discussions",
           "title": "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents"
@@ -53,10 +43,20 @@
           "paperId": "paper-2610-03374",
           "signalLabel": "1 saves · 1 discussions",
           "title": "EVEWorld: Physical Evolution Supervision for Embodied World Models"
+        },
+        {
+          "paperId": "paper-2501-11847",
+          "signalLabel": "1 saves · 0 discussions",
+          "title": "A Survey on Memory-Efficient Large-Scale Model Training in AI for\n  Science"
+        },
+        {
+          "paperId": "paper-2603-10600",
+          "signalLabel": "1 saves · 0 discussions",
+          "title": "Trajectory-Informed Memory Generation for Self-Improving Agent Systems"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-10-22T09:30:02.879579Z",
+      "retrievedAt": "2026-10-23T09:26:14.656368Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-10-22T09:32:33.128771Z",
+  "generatedAt": "2026-10-23T09:28:49.607912Z",
   "schemaVersion": 1
 }
