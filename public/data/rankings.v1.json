@@ -6,8 +6,28 @@
       "items": [
         {
           "paperId": "paper-2607-21461",
-          "signalLabel": "153 saves · 2 discussions",
+          "signalLabel": "124 saves · 2 discussions",
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
+        },
+        {
+          "paperId": "paper-2512-17102",
+          "signalLabel": "42 saves · 4 discussions",
+          "title": "Reinforcement Learning for Self-Improving Agent with Skill Library"
+        },
+        {
+          "paperId": "paper-2508-14111",
+          "signalLabel": "34 saves · 2 discussions",
+          "title": "From AI for Science to Agentic Science: A Survey on Autonomous\n  Scientific Discovery"
+        },
+        {
+          "paperId": "paper-2512-10398",
+          "signalLabel": "14 saves · 6 discussions",
+          "title": "Confucius Code Agent: An Open-sourced AI Software Engineer at Industrial Scale"
+        },
+        {
+          "paperId": "paper-2509-06580",
+          "signalLabel": "5 saves · 0 discussions",
+          "title": "AI for Scientific Discovery is a Social Problem"
         },
         {
           "paperId": "paper-2601-22438",
@@ -33,30 +53,10 @@
           "paperId": "paper-2607-13083",
           "signalLabel": "1 saves · 0 discussions",
           "title": "Phantom Guardrails: When Self-Improving Agent Harnesses Fix Failures That Never Happened"
-        },
-        {
-          "paperId": "paper-2608-10357",
-          "signalLabel": "1 saves · 0 discussions",
-          "title": "Efficient Reinforcement Learning for Long-Horizon Tool-Use Agentic Tasks"
-        },
-        {
-          "paperId": "paper-2601-04137",
-          "signalLabel": "0 discussions",
-          "title": "Wow, wo, val! A Comprehensive Embodied World Model Evaluation Turing Test"
-        },
-        {
-          "paperId": "paper-2602-03793",
-          "signalLabel": "0 discussions",
-          "title": "BridgeV2W: Bridging Video Generation Models to Embodied World Models via Embodiment Masks"
-        },
-        {
-          "paperId": "paper-2603-28361",
-          "signalLabel": "0 discussions",
-          "title": "Deep Research of Deep Research: From Transformer to Agent, From AI to AI for Science"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-10-28T10:41:04.043924Z",
+      "retrievedAt": "2026-10-30T10:56:37.682025Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-10-28T10:42:33.779172Z",
+  "generatedAt": "2026-10-30T10:58:05.795993Z",
   "schemaVersion": 1
 }
