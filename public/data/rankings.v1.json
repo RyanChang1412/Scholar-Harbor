@@ -6,13 +6,8 @@
       "items": [
         {
           "paperId": "paper-2607-21461",
-          "signalLabel": "95 saves · 2 discussions",
+          "signalLabel": "94 saves · 2 discussions",
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
-        },
-        {
-          "paperId": "paper-2601-22438",
-          "signalLabel": "3 saves · 1 discussions",
-          "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
         },
         {
           "paperId": "paper-2610-03374",
@@ -35,11 +30,6 @@
           "title": "Efficient Reinforcement Learning for Long-Horizon Tool-Use Agentic Tasks"
         },
         {
-          "paperId": "paper-2601-04137",
-          "signalLabel": "0 discussions",
-          "title": "Wow, wo, val! A Comprehensive Embodied World Model Evaluation Turing Test"
-        },
-        {
           "paperId": "paper-2602-03793",
           "signalLabel": "0 discussions",
           "title": "BridgeV2W: Bridging Video Generation Models to Embodied World Models via Embodiment Masks"
@@ -53,10 +43,20 @@
           "paperId": "paper-2604-26182",
           "signalLabel": "0 discussions",
           "title": "Lifting Embodied World Models for Planning and Control"
+        },
+        {
+          "paperId": "paper-2607-12254",
+          "signalLabel": "0 discussions",
+          "title": "Self-Aware Recursively Self-Improving Agents for Personal Singularity: A Goal-, Scope-, Tool-, and Benchmark-Driven Multi-Agent Architecture"
+        },
+        {
+          "paperId": "paper-2607-13220",
+          "signalLabel": "0 discussions",
+          "title": "Networked Intelligence: Active Shared Context Graphs for Human-AI Team Science"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-02T12:39:51.040415Z",
+      "retrievedAt": "2026-11-03T12:05:53.665640Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-02T12:41:12.664977Z",
+  "generatedAt": "2026-11-03T12:07:32.965140Z",
   "schemaVersion": 1
 }
