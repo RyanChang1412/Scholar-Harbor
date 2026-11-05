@@ -6,18 +6,18 @@
       "items": [
         {
           "paperId": "paper-2607-21461",
-          "signalLabel": "94 saves · 2 discussions",
+          "signalLabel": "92 saves · 2 discussions",
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
+        },
+        {
+          "paperId": "paper-2601-22438",
+          "signalLabel": "3 saves · 1 discussions",
+          "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
         },
         {
           "paperId": "paper-2610-03374",
           "signalLabel": "1 saves · 1 discussions",
           "title": "EVEWorld: Physical Evolution Supervision for Embodied World Models"
-        },
-        {
-          "paperId": "paper-2603-10600",
-          "signalLabel": "1 saves · 0 discussions",
-          "title": "Trajectory-Informed Memory Generation for Self-Improving Agent Systems"
         },
         {
           "paperId": "paper-2607-13083",
@@ -56,7 +56,7 @@
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-04T12:19:24.297422Z",
+      "retrievedAt": "2026-11-05T12:33:20.506389Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-04T12:20:55.930236Z",
+  "generatedAt": "2026-11-05T12:34:49.371865Z",
   "schemaVersion": 1
 }
