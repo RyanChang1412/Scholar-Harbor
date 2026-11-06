@@ -56,7 +56,7 @@
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-05T12:33:20.506389Z",
+      "retrievedAt": "2026-11-06T12:16:55.435100Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-05T12:34:49.371865Z",
+  "generatedAt": "2026-11-06T12:18:05.709506Z",
   "schemaVersion": 1
 }
