@@ -10,11 +10,6 @@
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
-          "paperId": "paper-2601-22438",
-          "signalLabel": "3 saves · 1 discussions",
-          "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
-        },
-        {
           "paperId": "paper-2610-03374",
           "signalLabel": "1 saves · 1 discussions",
           "title": "EVEWorld: Physical Evolution Supervision for Embodied World Models"
@@ -53,10 +48,15 @@
           "paperId": "paper-2607-13220",
           "signalLabel": "0 discussions",
           "title": "Networked Intelligence: Active Shared Context Graphs for Human-AI Team Science"
+        },
+        {
+          "paperId": "paper-2609-23184",
+          "signalLabel": "0 discussions",
+          "title": "CausalWM: Causal Chain-of-Thought Reasoning for Embodied World Model"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-06T12:16:55.435100Z",
+      "retrievedAt": "2026-11-10T12:48:22.263314Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-06T12:18:05.709506Z",
+  "generatedAt": "2026-11-10T12:49:52.850006Z",
   "schemaVersion": 1
 }
