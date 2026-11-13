@@ -1,7 +1,19 @@
 {
-  "generatedAt": "2026-11-12T12:59:20.950526Z",
-  "lastSuccessfulUpdateAt": "2026-11-12T12:59:20.950526Z",
+  "generatedAt": "2026-11-13T12:25:17.914792Z",
+  "lastSuccessfulUpdateAt": "2026-11-13T12:25:17.914792Z",
   "news": [
+    {
+      "category": "Research and engineering",
+      "description": "Official post from Hugging Face Blog: LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+      "headline": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+      "id": "news-84ec87286cb35a64f463",
+      "originalUrl": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+      "publishedAt": "2026-11-12T19:07:35Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
+      "source": "Hugging Face Blog",
+      "sourceId": "hugging-face-blog",
+      "topics": []
+    },
     {
       "category": "Open-source releases",
       "description": "[Doc][Tests] Stop setting gpu_memory_utilization in most extensible…",
@@ -9,9 +21,21 @@
       "id": "news-e303c0d1aac8c0b88b55",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc2",
       "publishedAt": "2026-11-12T06:21:02Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
+      "topics": []
+    },
+    {
+      "category": "Research and engineering",
+      "description": "Official post from Hugging Face Blog: The Definitive Fine-Tuning Guide for 3D Generation Models",
+      "headline": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+      "id": "news-cbda9238a3684b28e47a",
+      "originalUrl": "https://huggingface.co/blog/3d-lora-finetuning",
+      "publishedAt": "2026-11-12T00:00:00Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
+      "source": "Hugging Face Blog",
+      "sourceId": "hugging-face-blog",
       "topics": []
     },
     {
@@ -21,7 +45,7 @@
       "id": "news-a96fee1314f5d929f433",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc1",
       "publishedAt": "2026-11-11T19:37:13Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -33,7 +57,7 @@
       "id": "news-19b4fcb1faac9c9bdbcc",
       "originalUrl": "https://huggingface.co/blog/qvac/botpsy",
       "publishedAt": "2026-11-11T05:01:16Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -45,7 +69,7 @@
       "id": "news-11568aa8dfcf9a3c0750",
       "originalUrl": "https://huggingface.co/blog/token-pooling",
       "publishedAt": "2026-11-11T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -57,7 +81,7 @@
       "id": "news-cb93d68b445c05b0e3dc",
       "originalUrl": "https://huggingface.co/blog/hub-gcp-marketplace",
       "publishedAt": "2026-11-10T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -69,7 +93,7 @@
       "id": "news-5f3963726dbe36e6ccf9",
       "originalUrl": "https://huggingface.co/blog/decision",
       "publishedAt": "2026-11-10T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -81,7 +105,7 @@
       "id": "news-ac8f18750241a65f1eaf",
       "originalUrl": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
       "publishedAt": "2026-11-09T15:05:57Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -93,7 +117,7 @@
       "id": "news-55d059b88c6c576a2f3d",
       "originalUrl": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
       "publishedAt": "2026-11-09T12:34:29Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -105,7 +129,7 @@
       "id": "news-3007fcee676fa59fcd87",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0rc0",
       "publishedAt": "2026-11-08T18:38:57Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -117,7 +141,7 @@
       "id": "news-5a90caffb2c87d2e6e8e",
       "originalUrl": "https://huggingface.co/blog/allenai/toyblocks",
       "publishedAt": "2026-11-06T14:00:48Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -129,7 +153,7 @@
       "id": "news-13e4c95dcbaa6d34090e",
       "originalUrl": "https://huggingface.co/blog/open-asr-leaderboard-liva",
       "publishedAt": "2026-11-06T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -141,7 +165,7 @@
       "id": "news-c65c7708e93995ca4541",
       "originalUrl": "https://huggingface.co/blog/phonon-tts",
       "publishedAt": "2026-11-05T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -153,7 +177,7 @@
       "id": "news-32d4e91d243ef07f0795",
       "originalUrl": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
       "publishedAt": "2026-11-04T17:50:10Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -165,7 +189,7 @@
       "id": "news-4d3938441f216409a8f1",
       "originalUrl": "https://huggingface.co/blog/ibm-research/palette-deck-building",
       "publishedAt": "2026-11-03T16:35:36Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -177,7 +201,7 @@
       "id": "news-a6f54d325d31634f8916",
       "originalUrl": "https://huggingface.co/blog/transformers-mic",
       "publishedAt": "2026-11-03T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -189,7 +213,7 @@
       "id": "news-63945bc794809749828f",
       "originalUrl": "https://huggingface.co/blog/cwe-bench",
       "publishedAt": "2026-11-03T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -201,7 +225,7 @@
       "id": "news-854a452f65cee3d5c102",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.33.0",
       "publishedAt": "2026-11-01T09:21:10Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -213,7 +237,7 @@
       "id": "news-98f99dc36b67ac3fa80b",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc2",
       "publishedAt": "2026-10-30T09:10:43Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -225,7 +249,7 @@
       "id": "news-e508e29ae812fe586e8d",
       "originalUrl": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
       "publishedAt": "2026-10-29T13:37:07Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -237,7 +261,7 @@
       "id": "news-b6b30743068c26272d89",
       "originalUrl": "https://huggingface.co/blog/mistral-large4",
       "publishedAt": "2026-10-29T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -249,7 +273,7 @@
       "id": "news-718617961cab3abcc8e8",
       "originalUrl": "https://huggingface.co/blog/announcing-project-protostar",
       "publishedAt": "2026-10-29T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -261,7 +285,7 @@
       "id": "news-6394645bd5105adc5435",
       "originalUrl": "https://huggingface.co/blog/anydecisionmodel",
       "publishedAt": "2026-10-29T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -273,7 +297,7 @@
       "id": "news-754548d382a06747e85f",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc1",
       "publishedAt": "2026-10-28T09:31:23Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -285,7 +309,7 @@
       "id": "news-1c5b51464767c2ad2949",
       "originalUrl": "https://huggingface.co/blog/LiquidAI/lfm3",
       "publishedAt": "2026-10-27T17:16:52Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -297,7 +321,7 @@
       "id": "news-913f8566e8adb0f7b407",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.33.0rc0",
       "publishedAt": "2026-10-26T17:59:24Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -309,7 +333,7 @@
       "id": "news-2b3f616d26d343fed778",
       "originalUrl": "https://huggingface.co/blog/torch-neuronx-model-support",
       "publishedAt": "2026-10-23T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -321,7 +345,7 @@
       "id": "news-51888f116f5b083740bc",
       "originalUrl": "https://huggingface.co/blog/microsoft/thinkingbox-training",
       "publishedAt": "2026-10-22T22:24:34Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -333,7 +357,7 @@
       "id": "news-40a01666d562060bfdf9",
       "originalUrl": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
       "publishedAt": "2026-10-21T17:35:36Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -345,7 +369,7 @@
       "id": "news-5b4e08461387ba3b4483",
       "originalUrl": "https://huggingface.co/blog/amazon/profiling-torchneuron-part-1",
       "publishedAt": "2026-10-21T16:04:43Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -357,7 +381,7 @@
       "id": "news-c2b4b68d7e0027f0e436",
       "originalUrl": "https://huggingface.co/blog/mps-pytorch-2-15",
       "publishedAt": "2026-10-20T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -369,7 +393,7 @@
       "id": "news-41fb25a47d12d204a957",
       "originalUrl": "https://huggingface.co/blog/anylanguagemodel-1-0",
       "publishedAt": "2026-10-20T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -381,7 +405,7 @@
       "id": "news-39e60f901a735303e0c0",
       "originalUrl": "https://huggingface.co/blog/hf-torchtpu",
       "publishedAt": "2026-10-20T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -393,7 +417,7 @@
       "id": "news-5c52b7d34becd1ccf770",
       "originalUrl": "https://huggingface.co/blog/hf-torchneuron",
       "publishedAt": "2026-10-19T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -405,7 +429,7 @@
       "id": "news-83a753b4160cba93855a",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0",
       "publishedAt": "2026-10-18T10:23:45Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -417,7 +441,7 @@
       "id": "news-6846386ee35eb87e2aa2",
       "originalUrl": "https://github.com/vllm-project/vllm/releases/tag/v0.32.1rc0",
       "publishedAt": "2026-10-18T09:26:56Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "vLLM Releases",
       "sourceId": "vllm-releases",
       "topics": []
@@ -429,7 +453,7 @@
       "id": "news-c9a6184923cc1a5837b4",
       "originalUrl": "https://huggingface.co/blog/reflection-beam",
       "publishedAt": "2026-10-16T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -441,31 +465,7 @@
       "id": "news-39052ad94a8a76cc68a2",
       "originalUrl": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes",
       "publishedAt": "2026-10-15T09:08:45Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
-      "source": "Hugging Face Blog",
-      "sourceId": "hugging-face-blog",
-      "topics": []
-    },
-    {
-      "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
-      "headline": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
-      "id": "news-ff0cf28c5d7530571030",
-      "originalUrl": "https://huggingface.co/blog/meta-muse-spark-open",
-      "publishedAt": "2026-10-15T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
-      "source": "Hugging Face Blog",
-      "sourceId": "hugging-face-blog",
-      "topics": []
-    },
-    {
-      "category": "Research and engineering",
-      "description": "Official post from Hugging Face Blog: Welcome FLUX.3 Image Klein in Diffusers",
-      "headline": "Welcome FLUX.3 Image Klein in Diffusers",
-      "id": "news-eb67409897ed2136a753",
-      "originalUrl": "https://huggingface.co/blog/flux-3",
-      "publishedAt": "2026-10-15T00:00:00Z",
-      "retrievedAt": "2026-11-12T12:59:20.950526Z",
+      "retrievedAt": "2026-11-13T12:25:17.914792Z",
       "source": "Hugging Face Blog",
       "sourceId": "hugging-face-blog",
       "topics": []
@@ -475,13 +475,13 @@
   "sources": [
     {
       "id": "hugging-face-blog",
-      "lastSuccessfulUpdateAt": "2026-11-12T12:59:20.950526Z",
+      "lastSuccessfulUpdateAt": "2026-11-13T12:25:17.914792Z",
       "recordCount": 30,
       "status": "ok"
     },
     {
       "id": "vllm-releases",
-      "lastSuccessfulUpdateAt": "2026-11-12T12:59:20.950526Z",
+      "lastSuccessfulUpdateAt": "2026-11-13T12:25:17.914792Z",
       "recordCount": 10,
       "status": "ok"
     }
