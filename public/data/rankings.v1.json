@@ -10,19 +10,9 @@
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
-          "paperId": "paper-2512-17102",
-          "signalLabel": "42 saves · 4 discussions",
-          "title": "Reinforcement Learning for Self-Improving Agent with Skill Library"
-        },
-        {
           "paperId": "paper-2601-22438",
           "signalLabel": "3 saves · 1 discussions",
           "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
-        },
-        {
-          "paperId": "paper-2601-01885",
-          "signalLabel": "2 saves · 0 discussions",
-          "title": "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents"
         },
         {
           "paperId": "paper-2610-03374",
@@ -53,10 +43,20 @@
           "paperId": "paper-2603-28361",
           "signalLabel": "0 discussions",
           "title": "Deep Research of Deep Research: From Transformer to Agent, From AI to AI for Science"
+        },
+        {
+          "paperId": "paper-2604-26182",
+          "signalLabel": "0 discussions",
+          "title": "Lifting Embodied World Models for Planning and Control"
+        },
+        {
+          "paperId": "paper-2607-12254",
+          "signalLabel": "0 discussions",
+          "title": "Self-Aware Recursively Self-Improving Agents for Personal Singularity: A Goal-, Scope-, Tool-, and Benchmark-Driven Multi-Agent Architecture"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-18T13:14:34.366128Z",
+      "retrievedAt": "2026-11-19T13:33:22.252092Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-18T13:15:54.038014Z",
+  "generatedAt": "2026-11-19T13:34:56.113712Z",
   "schemaVersion": 1
 }
