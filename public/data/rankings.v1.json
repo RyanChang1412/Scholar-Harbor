@@ -10,19 +10,24 @@
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
+          "paperId": "paper-2611-30287",
+          "signalLabel": "10 saves · 2 discussions",
+          "title": "MMMem: Self-Improving Agents with Task-Aware Multimodal Experience Consolidation"
+        },
+        {
           "paperId": "paper-2601-22438",
           "signalLabel": "3 saves · 1 discussions",
           "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow"
         },
         {
+          "paperId": "paper-2601-01885",
+          "signalLabel": "2 saves · 0 discussions",
+          "title": "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents"
+        },
+        {
           "paperId": "paper-2610-03374",
           "signalLabel": "1 saves · 1 discussions",
           "title": "EVEWorld: Physical Evolution Supervision for Embodied World Models"
-        },
-        {
-          "paperId": "paper-2611-30287",
-          "signalLabel": "1 saves · 1 discussions",
-          "title": "MMMem: Self-Improving Agents with Task-Aware Multimodal Experience Consolidation"
         },
         {
           "paperId": "paper-2607-13083",
@@ -48,15 +53,10 @@
           "paperId": "paper-2603-28361",
           "signalLabel": "0 discussions",
           "title": "Deep Research of Deep Research: From Transformer to Agent, From AI to AI for Science"
-        },
-        {
-          "paperId": "paper-2604-26182",
-          "signalLabel": "0 discussions",
-          "title": "Lifting Embodied World Models for Planning and Control"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-24T15:00:03.730954Z",
+      "retrievedAt": "2026-11-25T14:39:42.726135Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-24T15:01:47.854090Z",
+  "generatedAt": "2026-11-25T14:41:14.526287Z",
   "schemaVersion": 1
 }
