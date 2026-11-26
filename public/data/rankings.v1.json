@@ -10,6 +10,11 @@
           "title": "AREX: Towards a Recursively Self-Improving Agent for Deep Research"
         },
         {
+          "paperId": "paper-2512-17102",
+          "signalLabel": "42 saves · 4 discussions",
+          "title": "Reinforcement Learning for Self-Improving Agent with Skill Library"
+        },
+        {
           "paperId": "paper-2611-30287",
           "signalLabel": "10 saves · 2 discussions",
           "title": "MMMem: Self-Improving Agents with Task-Aware Multimodal Experience Consolidation"
@@ -48,15 +53,10 @@
           "paperId": "paper-2602-03793",
           "signalLabel": "0 discussions",
           "title": "BridgeV2W: Bridging Video Generation Models to Embodied World Models via Embodiment Masks"
-        },
-        {
-          "paperId": "paper-2603-28361",
-          "signalLabel": "0 discussions",
-          "title": "Deep Research of Deep Research: From Transformer to Agent, From AI to AI for Science"
         }
       ],
       "kind": "cached-summary",
-      "retrievedAt": "2026-11-25T14:39:42.726135Z",
+      "retrievedAt": "2026-11-26T14:03:22.658775Z",
       "source": "Hugging Face Papers",
       "title": "Hugging Face Papers snapshot",
       "url": "https://huggingface.co/papers/trending"
@@ -78,6 +78,6 @@
       "url": "https://lmarena.ai/leaderboard"
     }
   ],
-  "generatedAt": "2026-11-25T14:41:14.526287Z",
+  "generatedAt": "2026-11-26T14:04:40.590030Z",
   "schemaVersion": 1
 }
